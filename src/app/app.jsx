@@ -1,9 +1,14 @@
 import React from 'react';
 import Main from '../components/main.jsx';
 
-const App = () => {
+const App = (props) => {
+  // eslint-disable-next-line react/prop-types
+  const {moviePoster} = props;
+
   return (
-    <Main />
+    <Main
+      {...{moviePoster}}
+    />
   );
 };
 
