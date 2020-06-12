@@ -3,6 +3,8 @@ import ReactDom from 'react-dom';
 
 import App from './app/app.jsx';
 
+const ENTRY_POINT = document.querySelector(`#root`);
+
 const MoviePoster = {
   TITLE: `The Grand Budapest Hotel`,
   GENRE: `Drame`,
@@ -38,5 +40,5 @@ ReactDom.render(
       movieYear = {MoviePoster.YEAR}
       films = {films}
     />,
-    document.querySelector(`#root`)
+    ENTRY_POINT
 );
