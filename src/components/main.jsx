@@ -130,9 +130,9 @@ export default Main;
 
 Main.propTypes = {
   moviePoster: PropTypes.shape({
-    TITLE: PropTypes.string,
-    GENRE: PropTypes.string,
-    YEAR: PropTypes.string,
+    TITLE: PropTypes.string.isRequired,
+    GENRE: PropTypes.string.isRequired,
+    YEAR: PropTypes.string.isRequired,
   }),
-  films: PropTypes.arrayOf(PropTypes.string),
+  films: PropTypes.arrayOf(PropTypes.string.isRequired),
 };

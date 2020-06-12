@@ -17,9 +17,9 @@ export default App;
 
 App.propTypes = {
   moviePoster: PropTypes.shape({
-    TITLE: PropTypes.string,
-    GENRE: PropTypes.string,
-    YEAR: PropTypes.string,
+    TITLE: PropTypes.string.isRequired,
+    GENRE: PropTypes.string.isRequired,
+    YEAR: PropTypes.string.isRequired,
   }),
   films: PropTypes.arrayOf(PropTypes.string),
 };
