@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import MovieList from './movie-list.jsx';
 
 const Main = (props) => {
-  const {TITLE: title, GENRE: genre, YEAR: year} = props.moviePoster;
+  const {movieTitle, movieGenre, movieYear} = props;
   const {films} = props;
 
   return (<React.Fragment>
@@ -38,10 +38,10 @@ const Main = (props) => {
           </div>
 
           <div className="movie-card__desc">
-            <h2 className="movie-card__title">{title}</h2>
+            <h2 className="movie-card__title">{movieTitle}</h2>
             <p className="movie-card__meta">
-              <span className="movie-card__genre">{genre}</span>
-              <span className="movie-card__year">{year}</span>
+              <span className="movie-card__genre">{movieGenre}</span>
+              <span className="movie-card__year">{movieYear}</span>
             </p>
 
             <div className="movie-card__buttons">
@@ -129,10 +129,8 @@ const Main = (props) => {
 export default Main;
 
 Main.propTypes = {
-  moviePoster: PropTypes.shape({
-    TITLE: PropTypes.string.isRequired,
-    GENRE: PropTypes.string.isRequired,
-    YEAR: PropTypes.string.isRequired,
-  }),
+  movieTitle: PropTypes.string.isRequired,
+  movieGenre: PropTypes.string.isRequired,
+  movieYear: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(PropTypes.string.isRequired),
 };

@@ -33,7 +33,9 @@ const films = [
 
 ReactDom.render(
     <App
-      moviePoster = {MoviePoster}
+      movieTitle = {MoviePoster.TITLE}
+      movieGenre = {MoviePoster.GENRE}
+      movieYear = {MoviePoster.YEAR}
       films = {films}
     />,
     document.querySelector(`#root`)

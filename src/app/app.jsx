@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import Main from '../components/main.jsx';
 
 const App = (props) => {
-  const {moviePoster, films} = props;
+  const {movieTitle, movieGenre, movieYear} = props;
+  const {films} = props;
 
   return (
     <Main
-      {...{moviePoster, films}}
+      {...{movieTitle, movieGenre, movieYear, films}}
     />
   );
 };
@@ -16,10 +17,8 @@ const App = (props) => {
 export default App;
 
 App.propTypes = {
-  moviePoster: PropTypes.shape({
-    TITLE: PropTypes.string.isRequired,
-    GENRE: PropTypes.string.isRequired,
-    YEAR: PropTypes.string.isRequired,
-  }),
+  movieTitle: PropTypes.string.isRequired,
+  movieGenre: PropTypes.string.isRequired,
+  movieYear: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(PropTypes.string),
 };
