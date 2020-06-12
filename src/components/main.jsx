@@ -4,7 +4,7 @@ const Main = (props) => {
   // eslint-disable-next-line react/prop-types
   const {TITLE: title, GENRE: genre, YEAR: year} = props.moviePoster;
 
-  return (<>
+  return (<React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
         <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
@@ -303,7 +303,7 @@ const Main = (props) => {
         </div>
       </footer>
     </div>
-  </>);
+  </React.Fragment>);
 };
 
 export default Main;
