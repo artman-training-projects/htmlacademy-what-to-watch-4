@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import MovieList from './movie-list.jsx';
 
 const Main = (props) => {
-  const {moviePoster, films} = props;
+  const {TITLE: title, GENRE: genre, YEAR: year} = props.moviePoster;
+  const {films} = props;
 
   return (<React.Fragment>
     <section className="movie-card">
@@ -37,10 +38,10 @@ const Main = (props) => {
           </div>
 
           <div className="movie-card__desc">
-            <h2 className="movie-card__title">{moviePoster.TITLE}</h2>
+            <h2 className="movie-card__title">{title}</h2>
             <p className="movie-card__meta">
-              <span className="movie-card__genre">{moviePoster.GENRE}</span>
-              <span className="movie-card__year">{moviePoster.YEAR}</span>
+              <span className="movie-card__genre">{genre}</span>
+              <span className="movie-card__year">{year}</span>
             </p>
 
             <div className="movie-card__buttons">
