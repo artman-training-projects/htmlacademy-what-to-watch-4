@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import MovieItem from './movie-item.jsx';
 
 const MovieList = (props) => {
-  // eslint-disable-next-line react/prop-types
   const {films} = props;
 
   return (
@@ -18,3 +19,7 @@ const MovieList = (props) => {
 };
 
 export default MovieList;
+
+MovieList.propTypes = {
+  films: PropTypes.arrayOf(PropTypes.string),
+};

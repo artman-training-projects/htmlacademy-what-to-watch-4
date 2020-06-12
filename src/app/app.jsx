@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Main from '../components/main.jsx';
 
 const App = (props) => {
-  // eslint-disable-next-line react/prop-types
   const {moviePoster, films} = props;
 
   return (
@@ -13,3 +14,12 @@ const App = (props) => {
 };
 
 export default App;
+
+App.propTypes = {
+  moviePoster: PropTypes.shape({
+    TITLE: PropTypes.string,
+    GENRE: PropTypes.string,
+    YEAR: PropTypes.string,
+  }),
+  films: PropTypes.arrayOf(PropTypes.string),
+};

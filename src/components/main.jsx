@@ -1,12 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import MovieList from './movie-list.jsx';
 
 const Main = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const {TITLE: title, GENRE: genre, YEAR: year} = props.moviePoster;
-
-  // eslint-disable-next-line react/prop-types
-  const {films} = props;
+  const {moviePoster, films} = props;
 
   return (<React.Fragment>
     <section className="movie-card">
@@ -39,10 +37,10 @@ const Main = (props) => {
           </div>
 
           <div className="movie-card__desc">
-            <h2 className="movie-card__title">{title}</h2>
+            <h2 className="movie-card__title">{moviePoster.TITLE}</h2>
             <p className="movie-card__meta">
-              <span className="movie-card__genre">{genre}</span>
-              <span className="movie-card__year">{year}</span>
+              <span className="movie-card__genre">{moviePoster.GENRE}</span>
+              <span className="movie-card__year">{moviePoster.YEAR}</span>
             </p>
 
             <div className="movie-card__buttons">
@@ -128,3 +126,12 @@ const Main = (props) => {
 };
 
 export default Main;
+
+Main.propTypes = {
+  moviePoster: PropTypes.shape({
+    TITLE: PropTypes.string,
+    GENRE: PropTypes.string,
+    YEAR: PropTypes.string,
+  }),
+  films: PropTypes.arrayOf(PropTypes.string),
+};

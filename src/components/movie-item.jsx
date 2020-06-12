@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const MovieItem = (props) => {
-  // eslint-disable-next-line react/prop-types
   const {film} = props;
 
   return (
@@ -17,3 +17,7 @@ const MovieItem = (props) => {
 };
 
 export default MovieItem;
+
+MovieItem.propTypes = {
+  film: PropTypes.string,
+};
