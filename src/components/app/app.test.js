@@ -1,9 +1,7 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import renderer from 'react-test-renderer';
 
-import App from './components/app/app.jsx';
-
-const ENTRY_POINT = document.querySelector(`#root`);
+import App from './app.jsx';
 
 const MoviePoster = {
   TITLE: `The Grand Budapest Hotel`,
@@ -33,12 +31,17 @@ const films = [
   `Mindhunter`,
 ];
 
-ReactDom.render(
-    <App
-      movieTitle = {MoviePoster.TITLE}
-      movieGenre = {MoviePoster.GENRE}
-      movieYear = {MoviePoster.YEAR}
-      films = {films}
-    />,
-    ENTRY_POINT
-);
+it(`Render App`, () => {
+  const tree = renderer
+    .create(
+        <App
+          movieTitle = {MoviePoster.TITLE}
+          movieGenre = {MoviePoster.GENRE}
+          movieYear = {MoviePoster.YEAR}
+          films = {films}
+        />
+    )
+    .toJSON();
+
+  expect(tree).toMatchSnapshot();
+});
