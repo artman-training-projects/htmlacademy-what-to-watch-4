@@ -6,12 +6,14 @@ import Main from '../main/main.jsx';
 const smallMovieCardTitleHandler = () => {};
 
 const App = (props) => {
-  const {movieTitle, movieGenre, movieYear} = props;
-  const {films} = props;
+  const {movieTitle, movieGenre, movieYear, films} = props;
 
   return (
     <Main
-      {...{movieTitle, movieGenre, movieYear, films}}
+      movieTitle = {movieTitle}
+      movieGenre = {movieGenre}
+      movieYear = {movieYear}
+      films = {films}
       onSmallMovieCardTitleClick = {smallMovieCardTitleHandler}
     />
   );
