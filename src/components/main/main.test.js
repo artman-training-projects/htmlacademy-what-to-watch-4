@@ -39,6 +39,7 @@ it(`Render Main`, () => {
           movieGenre = {MoviePoster.GENRE}
           movieYear = {MoviePoster.YEAR}
           films = {films}
+          onSmallMovieCardTitleClick = {() => {}}
         />
     )
     .toJSON();
