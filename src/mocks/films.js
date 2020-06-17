@@ -9,7 +9,7 @@ export default [
   },
   {
     title: `Macbeth`,
-    poster: `macbeth.jpg`,
+    poster: `img/macbeth.jpg`,
   },
   {
     title: `Aviator`,
