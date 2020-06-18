@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render SmallMovieCard 1`] = `
+<article
+  className="small-movie-card catalog__movies-card"
+  onMouseOver={[Function]}
+>
+  <div
+    className="small-movie-card__image"
+  >
+    <img
+      alt="We need to talk about Kevin"
+      height="175"
+      src="img/we-need-to-talk-about-kevin.jpg"
+      width="280"
+    />
+  </div>
+  <h3
+    className="small-movie-card__title"
+  >
+    <a
+      className="small-movie-card__link"
+      href="movie-page.html"
+      onClick={[Function]}
+    >
+      We need to talk about Kevin
+    </a>
+  </h3>
+</article>
+`;
