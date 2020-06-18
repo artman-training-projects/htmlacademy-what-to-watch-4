@@ -80,16 +80,22 @@ Array [
         >
           <h2
             className="movie-card__title"
-          />
+          >
+            Seven Years in Tibet
+          </h2>
           <p
             className="movie-card__meta"
           >
             <span
               className="movie-card__genre"
-            />
+            >
+              Drame
+            </span>
             <span
               className="movie-card__year"
-            />
+            >
+              1997
+            </span>
           </p>
           <div
             className="movie-card__buttons"

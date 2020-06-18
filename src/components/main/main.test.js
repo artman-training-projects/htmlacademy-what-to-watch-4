@@ -2,11 +2,9 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Main from './main.jsx';
 
-const moviePoster = {
-  TITLE: `Seven Years in Tibet`,
-  GENRE: `Drame`,
-  YEAR: `1997`,
-};
+const movieTitle = `Seven Years in Tibet`;
+const movieGenre = `Drame`;
+const movieYear = `1997`;
 
 const films = [{
   title: `We need to talk about Kevin`,
@@ -29,9 +27,9 @@ it(`Render Main`, () => {
   const tree = renderer
     .create(
         <Main
-          movieTitle = {moviePoster.title}
-          movieGenre = {moviePoster.genre}
-          movieYear = {moviePoster.year}
+          movieTitle = {movieTitle}
+          movieGenre = {movieGenre}
+          movieYear = {movieYear}
           films = {films}
           onSmallMovieCardTitleClick = {() => {}}
         />
