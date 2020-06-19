@@ -19,15 +19,17 @@ const films = [{
   poster: `img/johnny-english.jpg`,
 }];
 
-it(`Render MoviesList`, () => {
-  const tree = renderer
-    .create(
-        <MoviesList
-          films = {films}
-          onSmallMovieCardTitleClick = {() => {}}
-        />
-    )
-    .toJSON();
+describe(`MoviesList`, () => {
+  it(`Render MoviesList`, () => {
+    const tree = renderer
+      .create(
+          <MoviesList
+            films = {films}
+            onSmallMovieCardTitleClick = {() => {}}
+          />
+      )
+      .toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
 });

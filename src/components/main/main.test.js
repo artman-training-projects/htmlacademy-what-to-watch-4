@@ -23,18 +23,20 @@ const films = [{
   poster: `img/johnny-english.jpg`,
 }];
 
-it(`Render Main`, () => {
-  const tree = renderer
-    .create(
-        <Main
-          movieTitle = {movieTitle}
-          movieGenre = {movieGenre}
-          movieYear = {movieYear}
-          films = {films}
-          onSmallMovieCardTitleClick = {() => {}}
-        />
-    )
-    .toJSON();
+describe(`Main`, () => {
+  it(`Render Main`, () => {
+    const tree = renderer
+      .create(
+          <Main
+            movieTitle = {movieTitle}
+            movieGenre = {movieGenre}
+            movieYear = {movieYear}
+            films = {films}
+            onSmallMovieCardTitleClick = {() => {}}
+          />
+      )
+      .toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
 });

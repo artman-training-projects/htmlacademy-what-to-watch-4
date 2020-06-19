@@ -28,20 +28,22 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
-it(`Should movieCardTitle clicked`, () => {
-  const onSmallMovieCardTitleClick = jest.fn();
+describe(`Main`, () => {
+  it(`Should movieCardTitle clicked`, () => {
+    const onSmallMovieCardTitleClick = jest.fn();
 
-  const main = shallow(
-      <Main
-        movieTitle = {movieTitle}
-        movieGenre = {movieGenre}
-        movieYear = {movieYear}
-        films = {films}
-        onSmallMovieCardTitleClick = {onSmallMovieCardTitleClick}
-      />
-  );
+    const main = shallow(
+        <Main
+          movieTitle = {movieTitle}
+          movieGenre = {movieGenre}
+          movieYear = {movieYear}
+          films = {films}
+          onSmallMovieCardTitleClick = {onSmallMovieCardTitleClick}
+        />
+    );
 
-  const smallMovieCardTitles = main.find(`.small-movie-card__title`);
-  smallMovieCardTitles.forEach((cardTitle) => cardTitle.props().onClick());
-  expect(onSmallMovieCardTitleClick.mock.calls.length).toBe(smallMovieCardTitles.length);
+    const smallMovieCardTitles = main.find(`.small-movie-card__title`);
+    smallMovieCardTitles.forEach((cardTitle) => cardTitle.props().onClick());
+    expect(onSmallMovieCardTitleClick.mock.calls.length).toBe(smallMovieCardTitles.length);
+  });
 });

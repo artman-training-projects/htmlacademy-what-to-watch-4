@@ -7,16 +7,18 @@ const film = {
   poster: `img/we-need-to-talk-about-kevin.jpg`,
 };
 
-it(`Render SmallMovieCard`, () => {
-  const tree = renderer
-    .create(
-        <SmallMovieCard
-          film = {film}
-          onSmallMovieCardTitleClick = {() => {}}
-          onMouseOver = {() => {}}
-        />
-    )
-    .toJSON();
+describe(`SmallMovieCard`, () => {
+  it(`Render SmallMovieCard`, () => {
+    const tree = renderer
+      .create(
+          <SmallMovieCard
+            film = {film}
+            onSmallMovieCardTitleClick = {() => {}}
+            onMouseOver = {() => {}}
+          />
+      )
+      .toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
 });

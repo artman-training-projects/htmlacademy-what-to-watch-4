@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render SmallMovieCard 1`] = `
+exports[`SmallMovieCard Render SmallMovieCard 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
   onMouseOver={[Function]}

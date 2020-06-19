@@ -23,17 +23,19 @@ const films = [{
   poster: `img/johnny-english.jpg`,
 }];
 
-it(`Render App`, () => {
-  const tree = renderer
-    .create(
-        <App
-          movieTitle = {movieTitle}
-          movieGenre = {movieGenre}
-          movieYear = {movieYear}
-          films = {films}
-        />
-    )
-    .toJSON();
+describe(`App`, () => {
+  it(`Render App`, () => {
+    const tree = renderer
+      .create(
+          <App
+            movieTitle = {movieTitle}
+            movieGenre = {movieGenre}
+            movieYear = {movieYear}
+            films = {films}
+          />
+      )
+      .toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
 });
