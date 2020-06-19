@@ -26,6 +26,6 @@ describe(`SmallMovieCard`, () => {
 
     const movieCard = main.find(`.small-movie-card`);
     movieCard.simulate(`mouseover`, film);
-    expect(onMouseOver).toHaveBeenCalled();
+    expect(onMouseOver).toHaveBeenCalledWith(film);
   });
 });
