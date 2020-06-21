@@ -9,10 +9,8 @@ const ENTRY_POINT = document.querySelector(`#root`);
 
 ReactDom.render(
     <App
-      movieTitle = {moviePoster.title}
-      movieGenre = {moviePoster.genre}
-      movieYear = {moviePoster.year}
       films = {films}
+      moviePoster = {moviePoster}
     />,
     ENTRY_POINT
 );
