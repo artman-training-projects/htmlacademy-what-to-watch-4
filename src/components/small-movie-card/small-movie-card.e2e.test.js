@@ -1,12 +1,10 @@
 import React from 'react';
 import Enzyme, {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import {films} from '../data-for-test.js';
 import SmallMovieCard from './small-movie-card.jsx';
 
-const film = {
-  title: `We need to talk about Kevin`,
-  poster: `img/we-need-to-talk-about-kevin.jpg`,
-};
+const film = films[0];
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -19,13 +17,13 @@ describe(`SmallMovieCard`, () => {
     const main = shallow(
         <SmallMovieCard
           film = {film}
+          onMouseHover = {onMouseOver}
           onSmallMovieCardTitleClick = {() => {}}
-          onMouseOver = {onMouseOver}
         />
     );
 
     const movieCard = main.find(`.small-movie-card`);
-    movieCard.simulate(`mouseover`, film);
+    movieCard.simulate(`mouseenter`, film);
     expect(onMouseOver).toHaveBeenCalledWith(film);
   });
 });
