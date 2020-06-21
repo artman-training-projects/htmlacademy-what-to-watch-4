@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {CustomPropTypes} from '../custom-prop-types.js';
 import MoviesList from '../movies-list/movies-list.jsx';
 
 const Main = (props) => {
-  const {movieTitle, movieGenre, movieYear, films, onSmallMovieCardTitleClick} = props;
+  const {films, moviePoster, onSmallMovieCardTitleClick} = props;
 
   return (<React.Fragment>
     <section className="movie-card">
@@ -37,10 +38,10 @@ const Main = (props) => {
 
           <div className="movie-card__desc">
             <h2
-              className="movie-card__title">{movieTitle}</h2>
+              className="movie-card__title">{moviePoster.title}</h2>
             <p className="movie-card__meta">
-              <span className="movie-card__genre">{movieGenre}</span>
-              <span className="movie-card__year">{movieYear}</span>
+              <span className="movie-card__genre">{moviePoster.genre}</span>
+              <span className="movie-card__year">{moviePoster.year}</span>
             </p>
 
             <div className="movie-card__buttons">
@@ -129,12 +130,7 @@ const Main = (props) => {
 export default Main;
 
 Main.propTypes = {
-  movieTitle: PropTypes.string.isRequired,
-  movieGenre: PropTypes.string.isRequired,
-  movieYear: PropTypes.string.isRequired,
-  films: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    poster: PropTypes.string.isRequired,
-  })).isRequired,
+  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
+  moviePoster: CustomPropTypes.MOVIE_POSTER,
   onSmallMovieCardTitleClick: PropTypes.func.isRequired,
 };
