@@ -35,5 +35,5 @@ export default App;
 
 App.propTypes = {
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  moviePoster: CustomPropTypes.MOVIE_POSTER,
+  moviePoster: CustomPropTypes.FILM,
 };

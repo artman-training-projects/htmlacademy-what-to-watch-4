@@ -131,6 +131,6 @@ export default Main;
 
 Main.propTypes = {
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  moviePoster: CustomPropTypes.MOVIE_POSTER,
+  moviePoster: CustomPropTypes.FILM,
   onSmallMovieCardTitleClick: PropTypes.func.isRequired,
 };
