@@ -1,20 +1,17 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-
+import {films, moviePoster} from '../data-for-test.js';
 import App from './app.jsx';
-import {MoviePoster, films} from '../../const.js';
 
-it(`Render App`, () => {
-  const tree = renderer
-    .create(
+describe(`App`, () => {
+  it(`Render App`, () => {
+    const tree = renderer.create(
         <App
-          movieTitle = {MoviePoster.TITLE}
-          movieGenre = {MoviePoster.GENRE}
-          movieYear = {MoviePoster.YEAR}
           films = {films}
+          moviePoster = {moviePoster}
         />
-    )
-    .toJSON();
+    ).toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
 });

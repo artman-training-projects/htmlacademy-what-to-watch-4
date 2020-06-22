@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import {CustomPropTypes} from '../custom-prop-types.js';
 import Main from '../main/main.jsx';
 
 const smallMovieCardTitleHandler = () => {};
 
 const App = (props) => {
-  const {movieTitle, movieGenre, movieYear, films} = props;
+  const {films, moviePoster} = props;
 
   return (
     <Main
-      movieTitle = {movieTitle}
-      movieGenre = {movieGenre}
-      movieYear = {movieYear}
       films = {films}
+      moviePoster = {moviePoster}
       onSmallMovieCardTitleClick = {smallMovieCardTitleHandler}
     />
   );
@@ -22,8 +20,6 @@ const App = (props) => {
 export default App;
 
 App.propTypes = {
-  movieTitle: PropTypes.string.isRequired,
-  movieGenre: PropTypes.string.isRequired,
-  movieYear: PropTypes.string.isRequired,
-  films: PropTypes.arrayOf(PropTypes.string),
+  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
+  moviePoster: CustomPropTypes.MOVIE_POSTER,
 };

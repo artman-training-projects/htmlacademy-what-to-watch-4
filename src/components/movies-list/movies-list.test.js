@@ -1,14 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {films, moviePoster} from '../data-for-test.js';
-import Main from './main.jsx';
+import {films} from '../data-for-test.js';
+import MoviesList from './movies-list.jsx';
 
-describe(`Main`, () => {
-  it(`Render Main`, () => {
+describe(`MoviesList`, () => {
+  it(`Render MoviesList`, () => {
     const tree = renderer.create(
-        <Main
+        <MoviesList
           films = {films}
-          moviePoster = {moviePoster}
           onSmallMovieCardTitleClick = {() => {}}
         />
     ).toJSON();
