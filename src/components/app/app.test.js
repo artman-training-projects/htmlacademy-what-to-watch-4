@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {films, moviePoster} from '../data-for-test.js';
 import App from './app.jsx';
+import {films, moviePoster} from '../data-for-test.js';
 
 describe(`App`, () => {
   it(`Render App`, () => {

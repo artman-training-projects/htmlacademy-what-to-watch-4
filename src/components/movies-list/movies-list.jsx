@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
+
 import SmallMovieCard from '../small-movie-card/small-movie-card.jsx';
 
 class MoviesList extends PureComponent {
@@ -13,19 +14,19 @@ class MoviesList extends PureComponent {
   }
 
   render() {
-    const {films, onSmallMovieCardTitleClick} = this.props;
+    const {films, onSmallMovieCardClick} = this.props;
 
     return (
       <div className="catalog__movies-list">
         {films.map((film) => (
-          <SmallMovieCard key = {film.title}
+          <SmallMovieCard key = {film.id}
             film = {film}
             onMouseHover = {(currentFilm) => {
               this.setState({
                 onFilm: currentFilm,
               });
             }}
-            onSmallMovieCardTitleClick = {onSmallMovieCardTitleClick}
+            onSmallMovieCardClick = {onSmallMovieCardClick}
           />
         ))}
       </div>
@@ -37,5 +38,5 @@ export default MoviesList;
 
 MoviesList.propTypes = {
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  onSmallMovieCardTitleClick: PropTypes.func.isRequired,
+  onSmallMovieCardClick: PropTypes.func.isRequired,
 };

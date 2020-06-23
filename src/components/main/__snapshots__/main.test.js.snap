@@ -69,7 +69,7 @@ Array [
           className="movie-card__poster"
         >
           <img
-            alt="The Grand Budapest Hotel poster"
+            alt="The Grand Budapest Hotel"
             height="327"
             src="img/the-grand-budapest-hotel-poster.jpg"
             width="218"
@@ -81,7 +81,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            Seven Years in Tibet
+            The Grand Budapest Hotel
           </h2>
           <p
             className="movie-card__meta"
@@ -94,7 +94,7 @@ Array [
             <span
               className="movie-card__year"
             >
-              1997
+              2014
             </span>
           </p>
           <div
@@ -259,6 +259,7 @@ Array [
       >
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
         >
           <div
@@ -273,11 +274,11 @@ Array [
           </div>
           <h3
             className="small-movie-card__title"
-            onClick={[Function]}
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="movie-page"
+              onClick={[Function]}
             >
               We need to talk about Kevin
             </a>
@@ -285,6 +286,7 @@ Array [
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
         >
           <div
@@ -299,11 +301,11 @@ Array [
           </div>
           <h3
             className="small-movie-card__title"
-            onClick={[Function]}
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="movie-page"
+              onClick={[Function]}
             >
               What We Do in the Shadows
             </a>
@@ -311,6 +313,7 @@ Array [
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
         >
           <div
@@ -325,11 +328,11 @@ Array [
           </div>
           <h3
             className="small-movie-card__title"
-            onClick={[Function]}
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="movie-page"
+              onClick={[Function]}
             >
               Revenant
             </a>
@@ -337,6 +340,7 @@ Array [
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
         >
           <div
@@ -351,11 +355,11 @@ Array [
           </div>
           <h3
             className="small-movie-card__title"
-            onClick={[Function]}
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="movie-page"
+              onClick={[Function]}
             >
               Johnny English
             </a>

@@ -1,8 +1,9 @@
 import React from 'react';
-import Enzyme, {shallow} from 'enzyme';
+import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import {films, moviePoster} from '../data-for-test.js';
 import Main from './main.jsx';
+import {films, moviePoster} from '../data-for-test.js';
+
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -10,18 +11,18 @@ Enzyme.configure({
 
 describe(`Main`, () => {
   it(`Should movieCardTitle clicked`, () => {
-    const onSmallMovieCardTitleClick = jest.fn();
+    const handleSmallMovieCardClick = jest.fn();
 
-    const main = shallow(
+    const main = mount(
         <Main
           films = {films}
           moviePoster = {moviePoster}
-          onSmallMovieCardTitleClick = {onSmallMovieCardTitleClick}
+          onSmallMovieCardClick = {handleSmallMovieCardClick}
         />
     );
 
     const smallMovieCardTitles = main.find(`.small-movie-card__title`);
-    smallMovieCardTitles.forEach((cardTitle) => cardTitle.props().onClick());
-    expect(onSmallMovieCardTitleClick.mock.calls.length).toBe(smallMovieCardTitles.length);
+    smallMovieCardTitles.forEach((cardTitle) => cardTitle.simulate(`click`));
+    expect(handleSmallMovieCardClick.mock.calls.length).toBe(films.length);
   });
 });

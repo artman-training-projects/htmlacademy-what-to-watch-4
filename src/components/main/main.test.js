@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {films, moviePoster} from '../data-for-test.js';
 import Main from './main.jsx';
+import {films, moviePoster} from '../data-for-test.js';
 
 describe(`Main`, () => {
   it(`Render Main`, () => {
@@ -9,7 +9,7 @@ describe(`Main`, () => {
         <Main
           films = {films}
           moviePoster = {moviePoster}
-          onSmallMovieCardTitleClick = {() => {}}
+          onSmallMovieCardClick = {() => {}}
         />
     ).toJSON();
 

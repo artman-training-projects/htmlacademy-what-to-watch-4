@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
+
 import MoviesList from '../movies-list/movies-list.jsx';
 
 const Main = (props) => {
-  const {films, moviePoster, onSmallMovieCardTitleClick} = props;
+  const {films, moviePoster, onSmallMovieCardClick} = props;
 
   return (<React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
-        <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+        <img src={moviePoster.bg} alt={moviePoster.title} />
       </div>
 
       <h1 className="visually-hidden">WTW</h1>
@@ -33,7 +34,7 @@ const Main = (props) => {
       <div className="movie-card__wrap">
         <div className="movie-card__info">
           <div className="movie-card__poster">
-            <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+            <img src={moviePoster.poster} alt={moviePoster.title} width="218" height="327" />
           </div>
 
           <div className="movie-card__desc">
@@ -102,7 +103,7 @@ const Main = (props) => {
 
         <MoviesList
           films = {films}
-          onSmallMovieCardTitleClick = {onSmallMovieCardTitleClick}
+          onSmallMovieCardClick = {onSmallMovieCardClick}
         />
 
         <div className="catalog__more">
@@ -131,6 +132,6 @@ export default Main;
 
 Main.propTypes = {
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  moviePoster: CustomPropTypes.MOVIE_POSTER,
-  onSmallMovieCardTitleClick: PropTypes.func.isRequired,
+  moviePoster: CustomPropTypes.FILM,
+  onSmallMovieCardClick: PropTypes.func.isRequired,
 };
