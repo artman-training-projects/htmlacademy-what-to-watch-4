@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
+import VideoPlayer from '../video-player/video-player.jsx';
+
 const SmallMovieCard = (props) => {
   const {film, onMouseHover, onSmallMovieCardClick} = props;
 
@@ -11,7 +13,10 @@ const SmallMovieCard = (props) => {
       onMouseEnter = {() => onMouseHover(film)}
     >
       <div className="small-movie-card__image">
-        <img src={film.poster} alt={film.title} width="280" height="175" />
+        <VideoPlayer
+          preview = {film.preview}
+          poster = {film.poster}
+        />
       </div>
       <h3
         className="small-movie-card__title"
