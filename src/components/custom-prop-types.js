@@ -5,7 +5,7 @@ export const CustomPropTypes = {
     id: PropTypes.string.isRequired,
     bg: PropTypes.string.isRequired,
     poster: PropTypes.string.isRequired,
-    preview: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     year: PropTypes.string.isRequired,

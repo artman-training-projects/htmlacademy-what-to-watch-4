@@ -14,7 +14,7 @@ const SmallMovieCard = (props) => {
     >
       <div className="small-movie-card__image">
         <VideoPlayer
-          preview = {film.preview}
+          src = {film.src}
           poster = {film.poster}
         />
       </div>

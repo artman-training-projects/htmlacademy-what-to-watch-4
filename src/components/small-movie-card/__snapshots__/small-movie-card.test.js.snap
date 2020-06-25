@@ -9,12 +9,15 @@ exports[`SmallMovieCard Render SmallMovieCard 1`] = `
   <div
     className="small-movie-card__image"
   >
-    <img
-      alt="We need to talk about Kevin"
+    <video
       height="175"
-      src="img/we-need-to-talk-about-kevin.jpg"
+      poster="img/we-need-to-talk-about-kevin.jpg"
+      src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Solar_Eclipse_from_San_Francisco%2C_2012.webm"
+      type="video/webm"
       width="280"
-    />
+    >
+      your browser doesn\`t support embedded videos
+    </video>
   </div>
   <h3
     className="small-movie-card__title"
