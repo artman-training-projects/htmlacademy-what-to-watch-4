@@ -5,6 +5,7 @@ exports[`SmallMovieCard Render SmallMovieCard 1`] = `
   className="small-movie-card catalog__movies-card"
   onClick={[Function]}
   onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <div
     className="small-movie-card__image"
@@ -12,7 +13,6 @@ exports[`SmallMovieCard Render SmallMovieCard 1`] = `
     <video
       height="175"
       poster="img/we-need-to-talk-about-kevin.jpg"
-      src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Solar_Eclipse_from_San_Francisco%2C_2012.webm"
       type="video/webm"
       width="280"
     >

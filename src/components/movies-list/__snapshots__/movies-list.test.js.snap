@@ -8,6 +8,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
@@ -15,7 +16,6 @@ exports[`MoviesList Render MoviesList 1`] = `
       <video
         height="175"
         poster="img/we-need-to-talk-about-kevin.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Solar_Eclipse_from_San_Francisco%2C_2012.webm"
         type="video/webm"
         width="280"
       >
@@ -38,6 +38,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
@@ -45,7 +46,6 @@ exports[`MoviesList Render MoviesList 1`] = `
       <video
         height="175"
         poster="img/what-we-do-in-the-shadows.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/a/af/%E0%B4%A4%E0%B5%8B%E0%B5%BD%E0%B4%AA%E0%B5%8D%E0%B4%AA%E0%B4%BE%E0%B4%B5%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%82%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B5%8D_Playing_Tholpava_koothu%2C_shadow_puppet_2.webm"
         type="video/webm"
         width="280"
       >
@@ -68,6 +68,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
@@ -75,7 +76,6 @@ exports[`MoviesList Render MoviesList 1`] = `
       <video
         height="175"
         poster="img/revenant.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Raven_op_kadaver_wild_zwijn-Stichting_Natuurbeelden-172729.webm"
         type="video/webm"
         width="280"
       >
@@ -98,6 +98,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
@@ -105,7 +106,6 @@ exports[`MoviesList Render MoviesList 1`] = `
       <video
         height="175"
         poster="img/johnny-english.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/4/40/Aerial_video_of_Glenside.webm"
         type="video/webm"
         width="280"
       >

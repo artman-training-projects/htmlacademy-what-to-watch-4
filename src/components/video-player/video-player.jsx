@@ -1,21 +1,61 @@
-import React from 'react';
+import React, {PureComponent, createRef} from 'react';
 import PropTypes from 'prop-types';
 
-const VideoPlayer = (props) => {
-  const {src, poster} = props;
+class VideoPlayer extends PureComponent {
+  constructor(props) {
+    super(props);
 
-  return (
-    <video width="280" height="175"
-      type="video/webm"
-      src={src}
-      poster={poster}
-    >your browser doesn`t support embedded videos</video>
-  );
-};
+    this._videoRef = createRef();
+    this._timeout = null;
+  }
+
+  componentDidMount() {
+    const {src, muted} = this.props;
+    const video = this._videoRef.current;
+
+    video.src = src;
+    video.muted = muted;
+  }
+
+  componentWillUnmount() {
+    const video = this._videoRef.current;
+
+    video.src = ``;
+    video.muted = null;
+    video.onplay = null;
+
+    clearTimeout(this._timeout);
+  }
+
+  componentDidUpdate() {
+    const video = this._videoRef.current;
+
+    if (this.props.isPlaying) {
+      this._timeout = setTimeout(() => video.play(), 1000);
+    } else {
+      clearTimeout(this._timeout);
+      video.load();
+    }
+  }
+
+  render() {
+    const {poster} = this.props;
+
+    return (
+      <video width="280" height="175"
+        type="video/webm"
+        poster={poster}
+        ref={this._videoRef}
+      >your browser doesn`t support embedded videos</video>
+    );
+  }
+}
 
 export default VideoPlayer;
 
 VideoPlayer.propTypes = {
+  muted: PropTypes.bool.isRequired,
   src: PropTypes.string.isRequired,
   poster: PropTypes.string.isRequired,
+  isPlaying: PropTypes.bool.isRequired,
 };

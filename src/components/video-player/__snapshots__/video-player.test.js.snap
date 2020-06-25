@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoPlayer Render VideoPlayer 1`] = `
+<video
+  height="175"
+  poster="img/we-need-to-talk-about-kevin.jpg"
+  type="video/webm"
+  width="280"
+>
+  your browser doesn\`t support embedded videos
+</video>
+`;
