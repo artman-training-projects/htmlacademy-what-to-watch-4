@@ -29,6 +29,32 @@ class MovieCard extends PureComponent {
     });
   }
 
+  _renderCurrentTab(currentTab) {
+    const {film} = this.props;
+
+    switch (currentTab) {
+      case MovieNavList.OVERVIEW:
+        return (
+          <MovieNavOverview
+            film={film}
+          />
+        );
+      case MovieNavList.DETAILS:
+        return (
+          <MovieNavDetails
+            film={film}
+          />
+        );
+      case MovieNavList.REVIEWS:
+        return (
+          <MovieNavReviews
+            film={film}
+          />
+        );
+      default: return ``;
+    }
+  }
+
   render() {
     const {film} = this.props;
     const {currentTab} = this.state;
@@ -98,9 +124,7 @@ class MovieCard extends PureComponent {
                 onTabClick={this._handleTabClick}
               />
 
-              <MovieNavOverview
-                film={film}
-              />
+              {this._renderCurrentTab(currentTab)}
             </div>
           </div>
         </div>
