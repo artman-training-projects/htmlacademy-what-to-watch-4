@@ -19,10 +19,19 @@ class MovieCard extends PureComponent {
     this.state = {
       currentTab: MovieNavList.OVERVIEW,
     };
+
+    this._handleTabClick = this._handleTabClick.bind(this);
+  }
+
+  _handleTabClick(tab) {
+    this.setState({
+      currentTab: tab,
+    });
   }
 
   render() {
     const {film} = this.props;
+    const {currentTab} = this.state;
 
     return (<React.Fragment>
       <section className="movie-card movie-card--full">
@@ -85,7 +94,8 @@ class MovieCard extends PureComponent {
             <div className="movie-card__desc">
               <MovieNavTabs
                 tabs={MovieNavList}
-                currentTab={this.state.currentTab}
+                currentTab={currentTab}
+                onTabClick={this._handleTabClick}
               />
 
               <MovieNavOverview

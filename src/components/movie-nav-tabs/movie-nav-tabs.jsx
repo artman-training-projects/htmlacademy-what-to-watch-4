@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const MovieNavTabs = (prop) => {
-  const {tabs, currentTab} = prop;
+  const {tabs, currentTab, onTabClick} = prop;
 
   const navItems = Object.values(tabs);
 
@@ -10,7 +10,13 @@ const MovieNavTabs = (prop) => {
     <nav className="movie-nav movie-card__nav">
       <ul className="movie-nav__list">
         {navItems.map((item) => (
-          <li key={item} className={currentTab === item ? `movie-nav__item movie-nav__item--active` : `movie-nav__item`}>
+          <li key={item}
+            className={currentTab === item ? `movie-nav__item movie-nav__item--active` : `movie-nav__item`}
+            onClick={(evt) => {
+              evt.preventDefault();
+              onTabClick(item);
+            }}
+          >
             <a href="#" className="movie-nav__link">{item}</a>
           </li>
         ))}
@@ -28,4 +34,5 @@ MovieNavTabs.prototype = {
     REVIEWS: PropTypes.string.isRequired,
   }).isRequired,
   currentTab: PropTypes.string.isRequired,
+  onTabClick: PropTypes.func.isRequired,
 };
