@@ -7,9 +7,9 @@ describe(`Main`, () => {
   it(`Render Main`, () => {
     const tree = renderer.create(
         <Main
-          films = {films}
-          moviePoster = {moviePoster}
-          onSmallMovieCardClick = {() => {}}
+          films={films}
+          moviePoster={moviePoster}
+          onSmallMovieCardClick={() => {}}
         />, {
           createNodeMock: () => {
             return {};

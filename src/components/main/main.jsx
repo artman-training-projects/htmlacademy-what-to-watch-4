@@ -102,8 +102,8 @@ const Main = (props) => {
         </ul>
 
         <MoviesList
-          films = {films}
-          onSmallMovieCardClick = {onSmallMovieCardClick}
+          films={films}
+          onSmallMovieCardClick={onSmallMovieCardClick}
         />
 
         <div className="catalog__more">

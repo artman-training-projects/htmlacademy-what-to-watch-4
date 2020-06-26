@@ -19,8 +19,8 @@ class SmallMovieCard extends PureComponent {
 
     return (
       <article className="small-movie-card catalog__movies-card"
-        onClick = {() => onSmallMovieCardClick(film)}
-        onMouseEnter = {() => {
+        onClick={() => onSmallMovieCardClick(film)}
+        onMouseEnter={() => {
           onMouseHover(film);
           this.setState({
             isPlaying: true
@@ -33,17 +33,18 @@ class SmallMovieCard extends PureComponent {
         }}
       >
         <div className="small-movie-card__image">
-          <VideoPlayer muted
-            isPlaying = {isPlaying}
-            src = {film.src}
-            poster = {film.poster}
+          <VideoPlayer
+            muted
+            isPlaying={isPlaying}
+            src={film.src}
+            poster={film.poster}
           />
         </div>
         <h3
           className="small-movie-card__title"
         >
           <a className="small-movie-card__link" href="movie-page"
-            onClick = {(evt) => evt.preventDefault()}
+            onClick={(evt) => evt.preventDefault()}
           >{film.title}</a>
         </h3>
       </article>

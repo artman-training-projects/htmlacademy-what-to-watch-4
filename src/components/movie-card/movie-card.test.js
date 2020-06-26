@@ -9,7 +9,7 @@ describe(`MovieCard`, () => {
   it(`Render MovieCard`, () => {
     const tree = renderer.create(
         <MovieCard
-          film = {moviePoster}
+          film={moviePoster}
         />
     ).toJSON();
 

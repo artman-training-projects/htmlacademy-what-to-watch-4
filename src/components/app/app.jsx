@@ -32,7 +32,7 @@ class App extends PureComponent {
           </Route>/
           <Route exact path={Pages.MOVIE_CARD}>
             <MovieCard
-              film = {this.props.moviePoster}
+              film={this.props.moviePoster}
             />
           </Route>
         </Switch>
@@ -58,9 +58,9 @@ class App extends PureComponent {
 
     return (
       <Main
-        films = {films}
-        moviePoster = {moviePoster}
-        onSmallMovieCardClick = {this._handleSmallMovieCardClick}
+        films={films}
+        moviePoster={moviePoster}
+        onSmallMovieCardClick={this._handleSmallMovieCardClick}
       />
     );
   }
@@ -70,7 +70,7 @@ class App extends PureComponent {
 
     return (
       <MovieCard
-        film = {moviePoster}
+        film={moviePoster}
       />
     );
   }

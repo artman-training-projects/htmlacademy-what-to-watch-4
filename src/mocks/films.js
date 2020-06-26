@@ -1,5 +1,3 @@
-// poster: `https://loremflickr.com/270/410`,
-
 export default [
   {
     id: `3345`,
