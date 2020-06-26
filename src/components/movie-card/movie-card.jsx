@@ -1,9 +1,16 @@
 import React from 'react';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
+import MovieNavTabs from '../movie-nav-tabs/movie-nav-tabs.jsx';
 import MovieNavOverview from '../movie-nav-overview/movie-nav-overview.jsx';
 import MovieNavDetails from '../movie-nav-details/movie-nav-details.jsx';
 import MovieNavReviews from '../movie-nav-reviews/movie-nav-reviews.jsx';
+
+const MovieNavList = {
+  OVERVIEW: `Overview`,
+  DETAILS: `Details`,
+  REVIEWS: `Reviews`,
+};
 
 const MovieCard = (props) => {
   const {film} = props;
@@ -67,19 +74,9 @@ const MovieCard = (props) => {
           </div>
 
           <div className="movie-card__desc">
-            <nav className="movie-nav movie-card__nav">
-              <ul className="movie-nav__list">
-                <li className="movie-nav__item movie-nav__item--active">
-                  <a href="#" className="movie-nav__link">Overview</a>
-                </li>
-                <li className="movie-nav__item">
-                  <a href="#" className="movie-nav__link">Details</a>
-                </li>
-                <li className="movie-nav__item">
-                  <a href="#" className="movie-nav__link">Reviews</a>
-                </li>
-              </ul>
-            </nav>
+            <MovieNavTabs
+              tabs={MovieNavList}
+            />
 
             <MovieNavOverview
               film={film}
