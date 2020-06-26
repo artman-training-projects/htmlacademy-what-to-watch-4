@@ -15,7 +15,7 @@ const getRating = (rating) => {
   }
 };
 
-const MovieNavTabs = (props) => {
+const MovieNavOverview = (props) => {
   const {film} = props;
 
   return (<React.Fragment>
@@ -36,8 +36,8 @@ const MovieNavTabs = (props) => {
   </React.Fragment>);
 };
 
-export default MovieNavTabs;
+export default MovieNavOverview;
 
-MovieNavTabs.propTypes = {
+MovieNavOverview.propTypes = {
   film: CustomPropTypes.FILM,
 };

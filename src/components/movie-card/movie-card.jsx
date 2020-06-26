@@ -1,7 +1,8 @@
 import React from 'react';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
-import MovieNavTabs from '../movie-nav-tabs/movie-nav-tabs.jsx';
+import MovieNavOverview from '../movie-nav-overview/movie-nav-overview.jsx';
+import MovieNavDetails from '../movie-nav-details/movie-nav-details.jsx';
 
 const MovieCard = (props) => {
   const {film} = props;
@@ -79,7 +80,7 @@ const MovieCard = (props) => {
               </ul>
             </nav>
 
-            <MovieNavTabs
+            <MovieNavOverview
               film={film}
             />
           </div>
