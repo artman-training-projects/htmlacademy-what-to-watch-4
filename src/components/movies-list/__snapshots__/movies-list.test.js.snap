@@ -8,16 +8,19 @@ exports[`MoviesList Render MoviesList 1`] = `
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
     >
-      <img
-        alt="We need to talk about Kevin"
+      <video
         height="175"
-        src="img/we-need-to-talk-about-kevin.jpg"
+        poster="img/we-need-to-talk-about-kevin.jpg"
+        type="video/webm"
         width="280"
-      />
+      >
+        your browser doesn\`t support embedded videos
+      </video>
     </div>
     <h3
       className="small-movie-card__title"
@@ -35,16 +38,19 @@ exports[`MoviesList Render MoviesList 1`] = `
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
     >
-      <img
-        alt="What We Do in the Shadows"
+      <video
         height="175"
-        src="img/what-we-do-in-the-shadows.jpg"
+        poster="img/what-we-do-in-the-shadows.jpg"
+        type="video/webm"
         width="280"
-      />
+      >
+        your browser doesn\`t support embedded videos
+      </video>
     </div>
     <h3
       className="small-movie-card__title"
@@ -62,16 +68,19 @@ exports[`MoviesList Render MoviesList 1`] = `
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
     >
-      <img
-        alt="Revenant"
+      <video
         height="175"
-        src="img/revenant.jpg"
+        poster="img/revenant.jpg"
+        type="video/webm"
         width="280"
-      />
+      >
+        your browser doesn\`t support embedded videos
+      </video>
     </div>
     <h3
       className="small-movie-card__title"
@@ -89,16 +98,19 @@ exports[`MoviesList Render MoviesList 1`] = `
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
     >
-      <img
-        alt="Johnny English"
+      <video
         height="175"
-        src="img/johnny-english.jpg"
+        poster="img/johnny-english.jpg"
+        type="video/webm"
         width="280"
-      />
+      >
+        your browser doesn\`t support embedded videos
+      </video>
     </div>
     <h3
       className="small-movie-card__title"

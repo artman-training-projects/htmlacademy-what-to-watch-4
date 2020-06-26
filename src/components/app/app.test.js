@@ -9,7 +9,11 @@ describe(`App`, () => {
         <App
           films = {films}
           moviePoster = {moviePoster}
-        />
+        />, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

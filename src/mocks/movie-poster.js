@@ -2,7 +2,7 @@ export default {
   id: `1111`,
   bg: `img/bg-the-grand-budapest-hotel.jpg`,
   poster: `img/the-grand-budapest-hotel-poster.jpg`,
-  preview: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
+  src: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
   title: `The Grand Budapest Hotel`,
   genre: `Drame`,
   year: `2014`,

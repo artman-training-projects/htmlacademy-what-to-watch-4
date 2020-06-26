@@ -12,7 +12,11 @@ describe(`SmallMovieCard`, () => {
           film = {film}
           onMouseHover = {() => {}}
           onSmallMovieCardClick = {() => {}}
-        />
+        />, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

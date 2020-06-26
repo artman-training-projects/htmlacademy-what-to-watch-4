@@ -1,9 +1,11 @@
+// poster: `https://loremflickr.com/270/410`,
+
 export default [
   {
     id: `3345`,
     bg: `https://loremflickr.com/1300/550`,
-    poster: `https://loremflickr.com/270/410`,
-    preview: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
+    poster: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
+    src: `https://upload.wikimedia.org/wikipedia/commons/9/99/Gleitschirm_Grindelwald_First_-_Interlaken.webm`,
     title: `Fantastic Beasts: The Crimes of Grindelwald`,
     genre: `Kids & Family`,
     year: `2018`,
@@ -16,8 +18,8 @@ export default [
   {
     id: `7445`,
     bg: `https://loremflickr.com/1300/550`,
-    poster: `https://loremflickr.com/270/410`,
-    preview: `img/bohemian-rhapsody.jpg`,
+    poster: `img/bohemian-rhapsody.jpg`,
+    src: `https://upload.wikimedia.org/wikipedia/commons/7/72/190601_Jin_Wembley_Stadium_Day_1_Ay-Oh_Chant.webm`,
     title: `Bohemian Rhapsody`,
     genre: `Drame`,
     year: `2018`,
@@ -30,8 +32,8 @@ export default [
   {
     id: `7461`,
     bg: `https://loremflickr.com/1300/550`,
-    poster: `https://loremflickr.com/270/410`,
-    preview: `img/macbeth.jpg`,
+    poster: `img/macbeth.jpg`,
+    src: `https://upload.wikimedia.org/wikipedia/commons/4/4b/Footage_of_Orson_Welles%27s_%22Voodoo%22_Macbeth_%281937%29.webm`,
     title: `Macbeth`,
     genre: `Drame`,
     year: `2015`,
@@ -44,8 +46,8 @@ export default [
   {
     id: `1526`,
     bg: `https://loremflickr.com/1300/550`,
-    poster: `https://loremflickr.com/270/410`,
-    preview: `img/aviator.jpg`,
+    poster: `img/aviator.jpg`,
+    src: `https://upload.wikimedia.org/wikipedia/commons/3/36/Amelia_Earhart_First_Female_Aviator_Flies_Solo_Across_Atlantic_in_18_Hours%2C_1932.webm`,
     title: `Aviator`,
     genre: `Drame`,
     year: `2004`,
@@ -58,8 +60,8 @@ export default [
   {
     id: `3524`,
     bg: `https://loremflickr.com/1300/550`,
-    poster: `https://loremflickr.com/270/410`,
-    preview: `img/we-need-to-talk-about-kevin.jpg`,
+    poster: `img/we-need-to-talk-about-kevin.jpg`,
+    src: `https://upload.wikimedia.org/wikipedia/commons/b/b4/Solar_Eclipse_from_San_Francisco%2C_2012.webm`,
     title: `We need to talk about Kevin`,
     genre: `Drame`,
     year: `2011`,
@@ -72,8 +74,8 @@ export default [
   {
     id: `4826`,
     bg: `https://loremflickr.com/1300/550`,
-    poster: `https://loremflickr.com/270/410`,
-    preview: `img/what-we-do-in-the-shadows.jpg`,
+    poster: `img/what-we-do-in-the-shadows.jpg`,
+    src: `https://upload.wikimedia.org/wikipedia/commons/a/af/%E0%B4%A4%E0%B5%8B%E0%B5%BD%E0%B4%AA%E0%B5%8D%E0%B4%AA%E0%B4%BE%E0%B4%B5%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%82%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B5%8D_Playing_Tholpava_koothu%2C_shadow_puppet_2.webm`,
     title: `What We Do in the Shadows`,
     genre: `Comedies`,
     year: `2019`,
@@ -86,8 +88,8 @@ export default [
   {
     id: `4875`,
     bg: `https://loremflickr.com/1300/550`,
-    poster: `https://loremflickr.com/270/410`,
-    preview: `img/revenant.jpg`,
+    poster: `img/revenant.jpg`,
+    src: `https://upload.wikimedia.org/wikipedia/commons/b/b3/Raven_op_kadaver_wild_zwijn-Stichting_Natuurbeelden-172729.webm`,
     title: `Revenant`,
     genre: `Drame`,
     year: `2015`,
@@ -100,8 +102,8 @@ export default [
   {
     id: `3519`,
     bg: `https://loremflickr.com/1300/550`,
-    poster: `https://loremflickr.com/270/410`,
-    preview: `img/johnny-english.jpg`,
+    poster: `img/johnny-english.jpg`,
+    src: `https://upload.wikimedia.org/wikipedia/commons/4/40/Aerial_video_of_Glenside.webm`,
     title: `Johnny English`,
     genre: `Comedies`,
     year: `2003`,

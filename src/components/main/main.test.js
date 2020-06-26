@@ -10,7 +10,11 @@ describe(`Main`, () => {
           films = {films}
           moviePoster = {moviePoster}
           onSmallMovieCardClick = {() => {}}
-        />
+        />, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

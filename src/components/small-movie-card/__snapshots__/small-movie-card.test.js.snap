@@ -5,16 +5,19 @@ exports[`SmallMovieCard Render SmallMovieCard 1`] = `
   className="small-movie-card catalog__movies-card"
   onClick={[Function]}
   onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <div
     className="small-movie-card__image"
   >
-    <img
-      alt="We need to talk about Kevin"
+    <video
       height="175"
-      src="img/we-need-to-talk-about-kevin.jpg"
+      poster="img/we-need-to-talk-about-kevin.jpg"
+      type="video/webm"
       width="280"
-    />
+    >
+      your browser doesn\`t support embedded videos
+    </video>
   </div>
   <h3
     className="small-movie-card__title"
