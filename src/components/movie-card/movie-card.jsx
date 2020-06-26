@@ -3,6 +3,7 @@ import {CustomPropTypes} from '../custom-prop-types.js';
 
 import MovieNavOverview from '../movie-nav-overview/movie-nav-overview.jsx';
 import MovieNavDetails from '../movie-nav-details/movie-nav-details.jsx';
+import MovieNavReviews from '../movie-nav-reviews/movie-nav-reviews.jsx';
 
 const MovieCard = (props) => {
   const {film} = props;
