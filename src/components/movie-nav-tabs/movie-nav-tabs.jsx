@@ -8,15 +8,15 @@ const MovieNavTabs = (prop) => {
   return (
     <nav className="movie-nav movie-card__nav">
       <ul className="movie-nav__list">
-        {navItems.map((item) => (
-          <li key={item}
-            className={currentTab === item ? `movie-nav__item movie-nav__item--active` : `movie-nav__item`}
+        {navItems.map((tab) => (
+          <li key={tab}
+            className={currentTab === tab ? `movie-nav__item movie-nav__item--active` : `movie-nav__item`}
             onClick={(evt) => {
               evt.preventDefault();
-              onTabClick(item);
+              onTabClick(tab);
             }}
           >
-            <a href="#" className="movie-nav__link">{item}</a>
+            <a href="#" className="movie-nav__link">{tab}</a>
           </li>
         ))}
       </ul>
@@ -26,12 +26,8 @@ const MovieNavTabs = (prop) => {
 
 export default MovieNavTabs;
 
-MovieNavTabs.prototype = {
-  tabs: PropTypes.shape({
-    OVERVIEW: PropTypes.string.isRequired,
-    DETAILS: PropTypes.string.isRequired,
-    REVIEWS: PropTypes.string.isRequired,
-  }).isRequired,
+MovieNavTabs.propTypes = {
+  tabs: PropTypes.objectOf(PropTypes.string).isRequired,
   currentTab: PropTypes.string.isRequired,
   onTabClick: PropTypes.func.isRequired,
 };

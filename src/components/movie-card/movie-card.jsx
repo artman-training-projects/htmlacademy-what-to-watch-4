@@ -1,11 +1,12 @@
 import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
 import MovieNavTabs from '../movie-nav-tabs/movie-nav-tabs.jsx';
 import MovieNavOverview from '../movie-nav-overview/movie-nav-overview.jsx';
 import MovieNavDetails from '../movie-nav-details/movie-nav-details.jsx';
 import MovieNavReviews from '../movie-nav-reviews/movie-nav-reviews.jsx';
-import MovieLikeThis from '../movie-like-this/movie-like-this.jsx';
+import MoviesList from '../movies-list/movies-list.jsx';
 
 const MovieNavList = {
   OVERVIEW: `Overview`,
@@ -65,7 +66,7 @@ class MovieCard extends PureComponent {
   }
 
   render() {
-    const {film} = this.props;
+    const {film, sameFilms, onSmallMovieCardClick} = this.props;
     const {currentTab} = this.state;
 
     return (<React.Fragment>
@@ -140,9 +141,13 @@ class MovieCard extends PureComponent {
       </section>
 
       <div className="page-content">
-        <MovieLikeThis
-
-        />
+        <section className="catalog catalog--like-this">
+          <h2 className="catalog__title">More like this</h2>
+          <MoviesList
+            films={sameFilms}
+            onSmallMovieCardClick={onSmallMovieCardClick}
+          />
+        </section>
 
         <footer className="page-footer">
           <div className="logo">
@@ -166,4 +171,6 @@ export default MovieCard;
 
 MovieCard.propTypes = {
   film: CustomPropTypes.FILM,
+  sameFilms: PropTypes.arrayOf(CustomPropTypes.FILM),
+  onSmallMovieCardClick: PropTypes.func.isRequired,
 };

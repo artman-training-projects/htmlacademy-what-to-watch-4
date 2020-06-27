@@ -10,7 +10,13 @@ describe(`MovieCard`, () => {
     const tree = renderer.create(
         <MovieCard
           film={moviePoster}
-        />
+          sameFilms={films}
+          onSmallMovieCardClick={() => {}}
+        />, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
     ).toJSON();
 
     expect(tree).toMatchSnapshot();
