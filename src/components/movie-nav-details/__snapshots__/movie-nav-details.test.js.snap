@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieNavDetails Render MovieNavDetails 1`] = `
+<div
+  className="movie-card__text movie-card__row"
+>
+  <div
+    className="movie-card__text-col"
+  >
+    <p
+      className="movie-card__details-item"
+    >
+      <strong
+        className="movie-card__details-name"
+      >
+        Director
+      </strong>
+      <span
+        className="movie-card__details-value"
+      >
+        Lynne Ramsay
+      </span>
+    </p>
+    <p
+      className="movie-card__details-item"
+    >
+      <strong
+        className="movie-card__details-name"
+      >
+        Starring
+      </strong>
+      <span
+        className="movie-card__details-value"
+      >
+        Tilda Swinton, 
+John C. Reilly, 
+Ezra Miller
+      </span>
+    </p>
+  </div>
+  <div
+    className="movie-card__text-col"
+  >
+    <p
+      className="movie-card__details-item"
+    >
+      <strong
+        className="movie-card__details-name"
+      >
+        Run Time
+      </strong>
+      <span
+        className="movie-card__details-value"
+      >
+        1h 52min
+      </span>
+    </p>
+    <p
+      className="movie-card__details-item"
+    >
+      <strong
+        className="movie-card__details-name"
+      >
+        Genre
+      </strong>
+      <span
+        className="movie-card__details-value"
+      >
+        Drame
+      </span>
+    </p>
+    <p
+      className="movie-card__details-item"
+    >
+      <strong
+        className="movie-card__details-name"
+      >
+        Released
+      </strong>
+      <span
+        className="movie-card__details-value"
+      >
+        2011
+      </span>
+    </p>
+  </div>
+</div>
+`;
