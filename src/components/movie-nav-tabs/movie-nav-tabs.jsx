@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 const MovieNavTabs = (prop) => {
   const {tabs, currentTab, onTabClick} = prop;
-
   const navItems = Object.values(tabs);
 
   return (
