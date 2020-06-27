@@ -1,5 +1,5 @@
 import React from 'react';
-import {CustomPropTypes} from '../custom-prop-types.js';
+import PropTypes from 'prop-types';
 
 const getRating = (rating) => {
   if (rating < 3) {
@@ -16,22 +16,26 @@ const getRating = (rating) => {
 };
 
 const MovieNavOverview = (props) => {
-  const {film} = props;
+  const {rating, votes, description, director, starring} = props;
 
   return (<React.Fragment>
     <div className="movie-rating">
-      <div className="movie-rating__score">{film.rating}</div>
+      <div className="movie-rating__score">{rating}</div>
       <p className="movie-rating__meta">
-        <span className="movie-rating__level">{getRating(film.rating)}</span>
-        <span className="movie-rating__count">{film.votes} ratings</span>
+        <span className="movie-rating__level">{getRating(rating)}</span>
+        <span className="movie-rating__count">{votes} ratings</span>
       </p>
     </div>
 
     <div className="movie-card__text">
-      <p>{film.description}</p>
+      <p>{description}</p>
 
-      <p className="movie-card__director"><strong>Director: {film.director}</strong></p>
-      <p className="movie-card__starring"><strong>Starring: {film.starring.map((star) => star).join(`, `)} and other</strong></p>
+      <p className="movie-card__director">
+        <strong>Director: {director}</strong>
+      </p>
+      <p className="movie-card__starring">
+        <strong>Starring: {starring.map((star) => star).join(`, `)} and other</strong>
+      </p>
     </div>
   </React.Fragment>);
 };
@@ -39,5 +43,9 @@ const MovieNavOverview = (props) => {
 export default MovieNavOverview;
 
 MovieNavOverview.propTypes = {
-  film: CustomPropTypes.FILM,
+  rating: PropTypes.string.isRequired,
+  votes: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  director: PropTypes.string.isRequired,
+  starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 };
