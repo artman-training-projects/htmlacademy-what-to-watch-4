@@ -36,19 +36,27 @@ class MovieCard extends PureComponent {
       case MovieNavList.OVERVIEW:
         return (
           <MovieNavOverview
-            film={film}
+            rating={film.rating}
+            votes={film.votes}
+            description={film.description}
+            director={film.director}
+            starring={film.starring}
           />
         );
       case MovieNavList.DETAILS:
         return (
           <MovieNavDetails
-            film={film}
+            director={film.director}
+            starring={film.starring}
+            time={film.time}
+            genre={film.genre}
+            year={film.year}
           />
         );
       case MovieNavList.REVIEWS:
         return (
           <MovieNavReviews
-            film={film}
+            reviews={film.reviews}
           />
         );
       default: return ``;

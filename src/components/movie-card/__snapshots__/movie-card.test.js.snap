@@ -162,6 +162,7 @@ Array [
             >
               <li
                 className="movie-nav__item movie-nav__item--active"
+                onClick={[Function]}
               >
                 <a
                   className="movie-nav__link"
@@ -172,6 +173,7 @@ Array [
               </li>
               <li
                 className="movie-nav__item"
+                onClick={[Function]}
               >
                 <a
                   className="movie-nav__link"
@@ -182,6 +184,7 @@ Array [
               </li>
               <li
                 className="movie-nav__item"
+                onClick={[Function]}
               >
                 <a
                   className="movie-nav__link"
@@ -198,7 +201,7 @@ Array [
             <div
               className="movie-rating__score"
             >
-              5.8
+              10
             </div>
             <p
               className="movie-rating__meta"
@@ -206,12 +209,12 @@ Array [
               <span
                 className="movie-rating__level"
               >
-                Good
+                Awesome
               </span>
               <span
                 className="movie-rating__count"
               >
-                426
+                773
                  ratings
               </span>
             </p>
