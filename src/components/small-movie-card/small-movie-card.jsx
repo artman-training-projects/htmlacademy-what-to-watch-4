@@ -11,6 +11,12 @@ class SmallMovieCard extends PureComponent {
     this.state = {
       isPlaying: false,
     };
+
+    this._timeout = null;
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._timeout);
   }
 
   render() {
@@ -22,11 +28,12 @@ class SmallMovieCard extends PureComponent {
         onClick={() => onSmallMovieCardClick(film)}
         onMouseEnter={() => {
           onMouseHover(film);
-          this.setState({
+          this._timeout = setTimeout(() => this.setState({
             isPlaying: true
-          });
+          }), 1000);
         }}
         onMouseLeave={() => {
+          clearTimeout(this._timeout);
           this.setState({
             isPlaying: false
           });
