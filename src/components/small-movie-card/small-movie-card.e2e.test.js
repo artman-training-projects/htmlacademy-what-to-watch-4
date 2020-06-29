@@ -17,9 +17,9 @@ describe(`SmallMovieCard`, () => {
 
   const main = shallow(
       <SmallMovieCard
-        film = {film}
-        onMouseHover = {handleMouseHover}
-        onSmallMovieCardClick = {handleMouseClick}
+        film={film}
+        onMouseHover={handleMouseHover}
+        onSmallMovieCardClick={handleMouseClick}
       />
   );
 

@@ -11,6 +11,12 @@ class SmallMovieCard extends PureComponent {
     this.state = {
       isPlaying: false,
     };
+
+    this._timeout = null;
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._timeout);
   }
 
   render() {
@@ -19,31 +25,33 @@ class SmallMovieCard extends PureComponent {
 
     return (
       <article className="small-movie-card catalog__movies-card"
-        onClick = {() => onSmallMovieCardClick(film)}
-        onMouseEnter = {() => {
+        onClick={() => onSmallMovieCardClick(film)}
+        onMouseEnter={() => {
           onMouseHover(film);
-          this.setState({
+          this._timeout = setTimeout(() => this.setState({
             isPlaying: true
-          });
+          }), 1000);
         }}
         onMouseLeave={() => {
+          clearTimeout(this._timeout);
           this.setState({
             isPlaying: false
           });
         }}
       >
         <div className="small-movie-card__image">
-          <VideoPlayer muted
-            isPlaying = {isPlaying}
-            src = {film.src}
-            poster = {film.poster}
+          <VideoPlayer
+            muted
+            isPlaying={isPlaying}
+            src={film.src}
+            poster={film.poster}
           />
         </div>
         <h3
           className="small-movie-card__title"
         >
           <a className="small-movie-card__link" href="movie-page"
-            onClick = {(evt) => evt.preventDefault()}
+            onClick={(evt) => evt.preventDefault()}
           >{film.title}</a>
         </h3>
       </article>

@@ -15,9 +15,9 @@ describe(`Main`, () => {
 
     const main = mount(
         <Main
-          films = {films}
-          moviePoster = {moviePoster}
-          onSmallMovieCardClick = {handleSmallMovieCardClick}
+          films={films}
+          moviePoster={moviePoster}
+          onSmallMovieCardClick={handleSmallMovieCardClick}
         />
     );
 

@@ -162,6 +162,7 @@ Array [
             >
               <li
                 className="movie-nav__item movie-nav__item--active"
+                onClick={[Function]}
               >
                 <a
                   className="movie-nav__link"
@@ -172,6 +173,7 @@ Array [
               </li>
               <li
                 className="movie-nav__item"
+                onClick={[Function]}
               >
                 <a
                   className="movie-nav__link"
@@ -182,6 +184,7 @@ Array [
               </li>
               <li
                 className="movie-nav__item"
+                onClick={[Function]}
               >
                 <a
                   className="movie-nav__link"
@@ -198,7 +201,7 @@ Array [
             <div
               className="movie-rating__score"
             >
-              5.8
+              10
             </div>
             <p
               className="movie-rating__meta"
@@ -206,12 +209,12 @@ Array [
               <span
                 className="movie-rating__level"
               >
-                Good
+                Awesome
               </span>
               <span
                 className="movie-rating__count"
               >
-                426
+                773
                  ratings
               </span>
             </p>
@@ -260,97 +263,121 @@ Array [
       >
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
+            <video
               height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              poster="img/we-need-to-talk-about-kevin.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="movie-page"
+              onClick={[Function]}
             >
-              Fantastic Beasts: The Crimes of Grindelwald
+              We need to talk about Kevin
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Bohemian Rhapsody"
+            <video
               height="175"
-              src="img/bohemian-rhapsody.jpg"
+              poster="img/what-we-do-in-the-shadows.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="movie-page"
+              onClick={[Function]}
             >
-              Bohemian Rhapsody
+              What We Do in the Shadows
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Macbeth"
+            <video
               height="175"
-              src="img/macbeth.jpg"
+              poster="img/revenant.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="movie-page"
+              onClick={[Function]}
             >
-              Macbeth
+              Revenant
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Aviator"
+            <video
               height="175"
-              src="img/aviator.jpg"
+              poster="img/johnny-english.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="movie-page"
+              onClick={[Function]}
             >
-              Aviator
+              Johnny English
             </a>
           </h3>
         </article>

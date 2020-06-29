@@ -11,6 +11,8 @@ const Pages = {
   MOVIE_CARD: `/movie-card`,
 };
 
+const COUNT_OF_SAME_FILMS = 4;
+
 class App extends PureComponent {
   constructor(props) {
     super(props);
@@ -32,7 +34,9 @@ class App extends PureComponent {
           </Route>/
           <Route exact path={Pages.MOVIE_CARD}>
             <MovieCard
-              film = {this.props.moviePoster}
+              film={this.props.moviePoster}
+              sameFilms={this.props.films}
+              onSmallMovieCardClick={this._handleSmallMovieCardClick}
             />
           </Route>
         </Switch>
@@ -47,7 +51,7 @@ class App extends PureComponent {
       case Pages.MAIN:
         return this._renderMain();
       case Pages.MOVIE_CARD:
-        return this._renderMovie();
+        return this._renderMovieCard();
     }
 
     return null;
@@ -58,19 +62,26 @@ class App extends PureComponent {
 
     return (
       <Main
-        films = {films}
-        moviePoster = {moviePoster}
-        onSmallMovieCardClick = {this._handleSmallMovieCardClick}
+        films={films}
+        moviePoster={moviePoster}
+        onSmallMovieCardClick={this._handleSmallMovieCardClick}
       />
     );
   }
 
-  _renderMovie() {
+  _renderMovieCard() {
+    const {films} = this.props;
     const moviePoster = this.state.selectedMovie;
+
+    const sameFilms = films
+      .filter((film) => film.genre === moviePoster.genre && film.title !== moviePoster.title)
+      .slice(0, COUNT_OF_SAME_FILMS);
 
     return (
       <MovieCard
-        film = {moviePoster}
+        film={moviePoster}
+        sameFilms={sameFilms}
+        onSmallMovieCardClick={this._handleSmallMovieCardClick}
       />
     );
   }

@@ -19,14 +19,15 @@ class MoviesList extends PureComponent {
     return (
       <div className="catalog__movies-list">
         {films.map((film) => (
-          <SmallMovieCard key = {film.id}
-            film = {film}
-            onMouseHover = {(currentFilm) => {
+          <SmallMovieCard
+            key={film.id}
+            film={film}
+            onMouseHover={(currentFilm) => {
               this.setState({
                 onFilm: currentFilm,
               });
             }}
-            onSmallMovieCardClick = {onSmallMovieCardClick}
+            onSmallMovieCardClick={onSmallMovieCardClick}
           />
         ))}
       </div>

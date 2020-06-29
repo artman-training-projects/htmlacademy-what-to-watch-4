@@ -7,8 +7,8 @@ describe(`App`, () => {
   it(`Render App`, () => {
     const tree = renderer.create(
         <App
-          films = {films}
-          moviePoster = {moviePoster}
+          films={films}
+          moviePoster={moviePoster}
         />, {
           createNodeMock: () => {
             return {};
