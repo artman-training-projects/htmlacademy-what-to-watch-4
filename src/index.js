@@ -1,16 +1,22 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from './components/app/app.jsx';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 
+import {reducer} from './reducer.js';
 import moviePoster from './mocks/movie-poster.js';
 import films from './mocks/films.js';
+import App from './components/app/app.jsx';
 
 const ENTRY_POINT = document.querySelector(`#root`);
+const store = createStore(reducer);
 
 ReactDom.render(
-    <App
-      films = {films}
-      moviePoster = {moviePoster}
-    />,
+    <Provider store={store}>
+      <App
+        films={films}
+        moviePoster={moviePoster}
+      />
+    </Provider>,
     ENTRY_POINT
 );
