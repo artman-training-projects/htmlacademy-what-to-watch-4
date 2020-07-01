@@ -3,9 +3,7 @@ import ReactDom from 'react-dom';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 
-import {reducer} from './reducer.js';
-import moviePoster from './mocks/movie-poster.js';
-import films from './mocks/films.js';
+import {reducer} from './store/reducer.js';
 import App from './components/app/app.jsx';
 
 const ENTRY_POINT = document.querySelector(`#root`);
@@ -15,10 +13,7 @@ const store = createStore(
 
 ReactDom.render(
     <Provider store={store}>
-      <App
-        films={films}
-        moviePoster={moviePoster}
-      />
+      <App />
     </Provider>,
     ENTRY_POINT
 );
