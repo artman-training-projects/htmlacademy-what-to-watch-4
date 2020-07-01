@@ -1,21 +1,18 @@
 import React, {PureComponent} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
+import {Pages} from '../../const.js';
 import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
-
-const Pages = {
-  MAIN: `/`,
-  MOVIE_CARD: `/movie-card`,
-};
 
 const COUNT_OF_SAME_FILMS = 4;
 
 class App extends PureComponent {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       currentPage: Pages.MAIN,
@@ -23,25 +20,6 @@ class App extends PureComponent {
     };
 
     this._handleSmallMovieCardClick = this._handleSmallMovieCardClick.bind(this);
-  }
-
-  render() {
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path={Pages.MAIN}>
-            {this._renderApp()}
-          </Route>/
-          <Route exact path={Pages.MOVIE_CARD}>
-            <MovieCard
-              film={this.props.moviePoster}
-              sameFilms={this.props.films}
-              onSmallMovieCardClick={this._handleSmallMovieCardClick}
-            />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    );
   }
 
   _renderApp() {
@@ -58,12 +36,8 @@ class App extends PureComponent {
   }
 
   _renderMain() {
-    const {films, moviePoster} = this.props;
-
     return (
       <Main
-        films={films}
-        moviePoster={moviePoster}
         onSmallMovieCardClick={this._handleSmallMovieCardClick}
       />
     );
@@ -92,11 +66,35 @@ class App extends PureComponent {
       selectedMovie: film,
     });
   }
-}
 
-export default App;
+  render() {
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path={Pages.MAIN}>
+            {this._renderApp()}
+          </Route>/
+          <Route exact path={Pages.MOVIE_CARD}>
+            <MovieCard
+              film={this.props.moviePoster}
+              sameFilms={this.props.films}
+              onSmallMovieCardClick={this._handleSmallMovieCardClick}
+            />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    );
+  }
+}
 
 App.propTypes = {
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   moviePoster: CustomPropTypes.FILM,
 };
+
+const mapStateToProps = (state) => ({
+  films: state.films,
+  moviePoster: state.moviePoster,
+});
+
+export default connect(mapStateToProps)(App);
