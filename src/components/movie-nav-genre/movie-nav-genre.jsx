@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const MAX_VISIBLE_GENRES = 10;
+
 const MovieNavGenre = (props) => {
   const {genres, currentGenre, onGenreClick} = props;
-  const navGenres = Object.values(genres);
+  const visibleGenres = genres.slice(0, MAX_VISIBLE_GENRES);
 
   return (
     <ul className="catalog__genres-list">
-      {navGenres.map((genre) => (
+      {visibleGenres.map((genre) => (
         <li key={genre}
           className={currentGenre === genre ? `catalog__genres-item catalog__genres-item--active` : `catalog__genres-item`}
           onClick={(evt) => {
@@ -22,10 +24,10 @@ const MovieNavGenre = (props) => {
   );
 };
 
-export default MovieNavGenre;
-
 MovieNavGenre.propTypes = {
-  genres: PropTypes.objectOf(PropTypes.string).isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   currentGenre: PropTypes.string.isRequired,
   onGenreClick: PropTypes.func.isRequired,
 };
+
+export default MovieNavGenre;
