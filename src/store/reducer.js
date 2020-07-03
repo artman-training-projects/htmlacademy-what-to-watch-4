@@ -3,13 +3,13 @@ import {ALL_GENRES} from '../const.js';
 const extend = (a, b) => Object.assign({}, a, b);
 
 const ActionType = {
-  CHOISE_GENRE: `CHOISE_GENRE`,
+  CHOOSE_GENRE: `CHOOSE_GENRE`,
   GET_FILMS_BY_GENRE: `GET_FILMS_BY_GENRE`,
 };
 
 const ActionCreator = {
-  choiseGenre: (genre) => ({
-    type: ActionType.CHOISE_GENRE,
+  chooseGenre: (genre) => ({
+    type: ActionType.CHOOSE_GENRE,
     payload: genre,
   }),
 
@@ -30,7 +30,7 @@ const ActionCreator = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case ActionType.CHOISE_GENRE:
+    case ActionType.CHOOSE_GENRE:
       return extend(state, {
         currentGenre: action.payload,
       });

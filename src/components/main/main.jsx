@@ -108,12 +108,16 @@ class Main extends PureComponent {
             onSmallMovieCardClick={onSmallMovieCardClick}
           />
 
-          {numberOfFilms < filmsByGenre.length && <CatalogMore onShowMoreClick={() => {
-            const currentShow = this.state.numberOfFilms;
-            this.setState({
-              numberOfFilms: currentShow + COUNT_OF_SHOW_FILMS,
-            });
-          }}/>}
+          {numberOfFilms < filmsByGenre.length &&
+            <CatalogMore
+              onShowMoreClick={() => {
+                const currentShow = this.state.numberOfFilms;
+                this.setState({
+                  numberOfFilms: currentShow + COUNT_OF_SHOW_FILMS,
+                });
+              }}
+            />
+          }
         </section>
 
         <footer className="page-footer">
@@ -154,7 +158,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onGenreClick(genre, films) {
-    dispatch(ActionCreator.choiseGenre(genre));
+    dispatch(ActionCreator.chooseGenre(genre));
     dispatch(ActionCreator.getFilmsByGenre(genre, films));
   },
 });

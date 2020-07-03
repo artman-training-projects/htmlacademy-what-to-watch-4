@@ -59,10 +59,10 @@ class SmallMovieCard extends PureComponent {
   }
 }
 
-export default SmallMovieCard;
-
 SmallMovieCard.propTypes = {
   film: CustomPropTypes.FILM,
   onMouseHover: PropTypes.func.isRequired,
   onSmallMovieCardClick: PropTypes.func.isRequired,
 };
+
+export default SmallMovieCard;

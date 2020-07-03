@@ -39,8 +39,6 @@ const MovieNavDetails = (props) => {
   </React.Fragment>);
 };
 
-export default MovieNavDetails;
-
 MovieNavDetails.propTypes = {
   director: PropTypes.string.isRequired,
   starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
@@ -48,3 +46,5 @@ MovieNavDetails.propTypes = {
   genre: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
 };
+
+export default MovieNavDetails;

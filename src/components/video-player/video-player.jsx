@@ -47,11 +47,11 @@ class VideoPlayer extends PureComponent {
   }
 }
 
-export default VideoPlayer;
-
 VideoPlayer.propTypes = {
   muted: PropTypes.bool.isRequired,
   src: PropTypes.string.isRequired,
   poster: PropTypes.string.isRequired,
   isPlaying: PropTypes.bool.isRequired,
 };
+
+export default VideoPlayer;

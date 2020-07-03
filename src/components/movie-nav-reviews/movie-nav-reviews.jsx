@@ -33,8 +33,8 @@ const MovieNavReviews = (props) => {
   </React.Fragment>);
 };
 
-export default MovieNavReviews;
-
 MovieNavReviews.propTypes = {
   reviews: PropTypes.arrayOf(CustomPropTypes.REVIEW).isRequired,
 };
+
+export default MovieNavReviews;

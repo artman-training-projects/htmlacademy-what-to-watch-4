@@ -24,10 +24,10 @@ const MovieNavTabs = (prop) => {
   );
 };
 
-export default MovieNavTabs;
-
 MovieNavTabs.propTypes = {
   tabs: PropTypes.objectOf(PropTypes.string).isRequired,
   currentTab: PropTypes.string.isRequired,
   onTabClick: PropTypes.func.isRequired,
 };
+
+export default MovieNavTabs;

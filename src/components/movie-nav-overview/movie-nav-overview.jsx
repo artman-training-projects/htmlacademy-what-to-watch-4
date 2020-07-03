@@ -1,17 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const Ratings = {
+  BAD: `Bad`,
+  NORMAL: `Normal`,
+  GOOD: `Good`,
+  VERY_GOOD: `Very good`,
+  AWESOME: `Awesome`,
+};
+
 const getRating = (rating) => {
   if (rating < 3) {
-    return `Bad`;
+    return Ratings.BAD;
   } else if (rating < 5) {
-    return `Normal`;
+    return Ratings.NORMAL;
   } else if (rating < 8) {
-    return `Good`;
+    return Ratings.GOOD;
   } else if (rating < 10) {
-    return `Very good`;
+    return Ratings.VERY_GOOD;
   } else {
-    return `Awesome`;
+    return Ratings.AWESOME;
   }
 };
 
@@ -40,8 +48,6 @@ const MovieNavOverview = (props) => {
   </React.Fragment>);
 };
 
-export default MovieNavOverview;
-
 MovieNavOverview.propTypes = {
   rating: PropTypes.string.isRequired,
   votes: PropTypes.string.isRequired,
@@ -49,3 +55,5 @@ MovieNavOverview.propTypes = {
   director: PropTypes.string.isRequired,
   starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 };
+
+export default MovieNavOverview;
