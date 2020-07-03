@@ -9,6 +9,7 @@ import MoviesList from '../movies-list/movies-list.jsx';
 
 const Main = (props) => {
   const {
+    films,
     moviePoster,
     availableGenres,
     currentGenre,
@@ -77,6 +78,7 @@ const Main = (props) => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
         <MovieNavGenre
+          films={films}
           genres={availableGenres}
           currentGenre={currentGenre}
           onGenreClick={onGenreClick}
@@ -110,6 +112,7 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
+  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   moviePoster: CustomPropTypes.FILM,
   availableGenres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   currentGenre: PropTypes.string.isRequired,
@@ -119,6 +122,7 @@ Main.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
+  films: state.films,
   moviePoster: state.moviePoster,
   availableGenres: state.availableGenres,
   currentGenre: state.currentGenre,
@@ -126,9 +130,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onGenreClick(genre) {
+  onGenreClick(genre, films) {
     dispatch(ActionCreator.choiseGenre(genre));
-    dispatch(ActionCreator.getFilmsByGenre(genre));
+    dispatch(ActionCreator.getFilmsByGenre(genre, films));
   },
 });
 

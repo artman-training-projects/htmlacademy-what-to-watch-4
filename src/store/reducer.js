@@ -1,17 +1,6 @@
 import {ALL_GENRES} from '../const.js';
-import {getAvailableGenres} from '../utils.js';
-import films from '../mocks/films.js';
-import moviePoster from '../mocks/movie-poster.js';
 
 const extend = (a, b) => Object.assign({}, a, b);
-
-const initialState = {
-  films,
-  moviePoster,
-  availableGenres: getAvailableGenres(films),
-  currentGenre: ALL_GENRES,
-  filmsByGenre: films,
-};
 
 const ActionType = {
   CHOISE_GENRE: `CHOISE_GENRE`,
@@ -24,7 +13,7 @@ const ActionCreator = {
     payload: genre,
   }),
 
-  getFilmsByGenre: (selectedGenre = ALL_GENRES) => {
+  getFilmsByGenre: (selectedGenre = ALL_GENRES, films) => {
     let filmsByGenre = films;
 
     if (selectedGenre !== ALL_GENRES) {
@@ -39,7 +28,7 @@ const ActionCreator = {
   },
 };
 
-const reducer = (state = initialState, action) => {
+const reducer = (state, action) => {
   switch (action.type) {
     case ActionType.CHOISE_GENRE:
       return extend(state, {
