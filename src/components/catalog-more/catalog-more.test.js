@@ -5,7 +5,9 @@ import CatalogMore from './catalog-more.jsx';
 describe(`CatalogMore`, () => {
   it(`Render`, () => {
     const tree = renderer.create(
-        <CatalogMore />
+        <CatalogMore
+          onShowMoreClick={() => {}}
+        />
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

@@ -15,10 +15,10 @@ const ENTRY_POINT = document.querySelector(`#root`);
 
 const initialState = {
   films,
+  filmsByGenre: films,
   moviePoster,
   availableGenres: getAvailableGenres(films),
   currentGenre: ALL_GENRES,
-  filmsByGenre: films,
 };
 
 const store = createStore(

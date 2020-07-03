@@ -24,6 +24,7 @@ describe(`MovieNavGenre`, () => {
           genres={MovieGenreList}
           currentGenre={MovieGenreList[0]}
           onGenreClick={() => {}}
+          onResetShowClick={() => {}}
         />
     ).toJSON();
 
