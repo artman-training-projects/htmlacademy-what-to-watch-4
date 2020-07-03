@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CatalogMore Render 1`] = `
+<div
+  className="catalog__more"
+>
+  <button
+    className="catalog__button"
+    type="button"
+  >
+    Show more
+  </button>
+</div>
+`;

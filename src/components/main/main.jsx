@@ -6,6 +6,7 @@ import {CustomPropTypes} from '../custom-prop-types.js';
 
 import MovieNavGenre from '../movie-nav-genre/movie-nav-genre.jsx';
 import MoviesList from '../movies-list/movies-list.jsx';
+import CatalogMore from '../catalog-more/catalog-more.jsx';
 
 const Main = (props) => {
   const {
@@ -89,9 +90,7 @@ const Main = (props) => {
           onSmallMovieCardClick={onSmallMovieCardClick}
         />
 
-        <div className="catalog__more">
-          <button className="catalog__button" type="button">Show more</button>
-        </div>
+        <CatalogMore />
       </section>
 
       <footer className="page-footer">
