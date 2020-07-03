@@ -8,7 +8,7 @@ Array [
     <div
       className="movie-rating__score"
     >
-      10
+      9.8
     </div>
     <p
       className="movie-rating__meta"
@@ -16,12 +16,12 @@ Array [
       <span
         className="movie-rating__level"
       >
-        Awesome
+        Very good
       </span>
       <span
         className="movie-rating__count"
       >
-        773
+        842
          ratings
       </span>
     </p>
@@ -30,14 +30,14 @@ Array [
     className="movie-card__text"
   >
     <p>
-      Kevin's mother struggles to love her strange child, despite the increasingly dangerous things he says and does as he grows up. But Kevin is just getting started, and his final act will be beyond anything anyone imagined.
+      Unscrupulous boxing promoters, violent bookmakers, a Russian gangster, incompetent amateur robbers and supposedly Jewish jewelers fight to track down a priceless stolen diamond.
     </p>
     <p
       className="movie-card__director"
     >
       <strong>
         Director: 
-        Lynne Ramsay
+        Guy Ritchie
       </strong>
     </p>
     <p
@@ -45,7 +45,7 @@ Array [
     >
       <strong>
         Starring: 
-        Tilda Swinton, John C. Reilly, Ezra Miller
+        Jason Statham, Brad Pitt, Benicio Del Toro
          and other
       </strong>
     </p>

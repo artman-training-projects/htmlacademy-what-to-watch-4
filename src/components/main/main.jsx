@@ -8,14 +8,14 @@ import MovieNavGenre from '../movie-nav-genre/movie-nav-genre.jsx';
 import MoviesList from '../movies-list/movies-list.jsx';
 import CatalogMore from '../catalog-more/catalog-more.jsx';
 
-const COUNT_OF_SHOW_FILMS_ON_START = 8;
+const COUNT_OF_SHOW_FILMS = 8;
 
 class Main extends PureComponent {
   constructor() {
     super();
 
     this.state = {
-      numberOfFilms: COUNT_OF_SHOW_FILMS_ON_START,
+      numberOfFilms: COUNT_OF_SHOW_FILMS,
     };
   }
 
@@ -99,7 +99,7 @@ class Main extends PureComponent {
             currentGenre={currentGenre}
             onGenreClick={onGenreClick}
             onResetShowClick={() => this.setState({
-              numberOfFilms: COUNT_OF_SHOW_FILMS_ON_START,
+              numberOfFilms: COUNT_OF_SHOW_FILMS,
             })}
           />
 
@@ -111,7 +111,7 @@ class Main extends PureComponent {
           {numberOfFilms < filmsByGenre.length && <CatalogMore onShowMoreClick={() => {
             const currentShow = this.state.numberOfFilms;
             this.setState({
-              numberOfFilms: currentShow + 8,
+              numberOfFilms: currentShow + COUNT_OF_SHOW_FILMS,
             });
           }}/>}
         </section>

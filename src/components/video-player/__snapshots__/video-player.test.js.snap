@@ -3,7 +3,7 @@
 exports[`VideoPlayer Render VideoPlayer 1`] = `
 <video
   height="175"
-  poster="img/we-need-to-talk-about-kevin.jpg"
+  poster="img/snatch.jpg"
   type="video/webm"
   width="280"
 >
