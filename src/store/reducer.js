@@ -1,9 +1,8 @@
-import {ALL_GENRES} from '../const.js';
-
 const extend = (a, b) => Object.assign({}, a, b);
 
 const ActionType = {
   CHOOSE_GENRE: `CHOOSE_GENRE`,
+  GET_ALL_FILMS: `GET_ALL_FILMS`,
   GET_FILMS_BY_GENRE: `GET_FILMS_BY_GENRE`,
 };
 
@@ -13,13 +12,14 @@ const ActionCreator = {
     payload: genre,
   }),
 
-  getFilmsByGenre: (selectedGenre = ALL_GENRES, films) => {
-    let filmsByGenre = films;
+  getAllFilms: (films) => ({
+    type: ActionType.GET_ALL_FILMS,
+    payload: films,
+  }),
 
-    if (selectedGenre !== ALL_GENRES) {
-      filmsByGenre = films
+  getFilmsByGenre: (selectedGenre, films) => {
+    const filmsByGenre = films
         .filter((film) => film.genre === selectedGenre);
-    }
 
     return {
       type: ActionType.GET_FILMS_BY_GENRE,
@@ -33,6 +33,11 @@ const reducer = (state, action) => {
     case ActionType.CHOOSE_GENRE:
       return extend(state, {
         currentGenre: action.payload,
+      });
+
+    case ActionType.GET_ALL_FILMS:
+      return extend(state, {
+        filmsByGenre: action.payload
       });
 
     case ActionType.GET_FILMS_BY_GENRE:

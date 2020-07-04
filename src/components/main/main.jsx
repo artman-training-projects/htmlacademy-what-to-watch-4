@@ -4,6 +4,7 @@ import {ActionCreator} from '../../store/reducer.js';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
+import {ALL_GENRES} from '../../const.js';
 import MovieNavGenre from '../movie-nav-genre/movie-nav-genre.jsx';
 import MoviesList from '../movies-list/movies-list.jsx';
 import CatalogMore from '../catalog-more/catalog-more.jsx';
@@ -159,7 +160,12 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onGenreClick(genre, films) {
     dispatch(ActionCreator.chooseGenre(genre));
-    dispatch(ActionCreator.getFilmsByGenre(genre, films));
+
+    if (genre !== ALL_GENRES) {
+      dispatch(ActionCreator.getFilmsByGenre(genre, films));
+    } else {
+      dispatch(ActionCreator.getAllFilms(films));
+    }
   },
 });
 
