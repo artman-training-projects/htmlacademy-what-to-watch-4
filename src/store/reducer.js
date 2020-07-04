@@ -4,6 +4,7 @@ const ActionType = {
   CHOOSE_GENRE: `CHOOSE_GENRE`,
   GET_ALL_FILMS: `GET_ALL_FILMS`,
   GET_FILMS_BY_GENRE: `GET_FILMS_BY_GENRE`,
+  SET_CURRENT_PAGE: `SET_CURRENT_PAGE`,
 };
 
 const ActionCreator = {
@@ -26,6 +27,11 @@ const ActionCreator = {
       payload: filmsByGenre,
     };
   },
+
+  setCurrentPage: (page) => ({
+    type: ActionType.SET_CURRENT_PAGE,
+    payload: page,
+  })
 };
 
 const reducer = (state, action) => {
@@ -43,6 +49,11 @@ const reducer = (state, action) => {
     case ActionType.GET_FILMS_BY_GENRE:
       return extend(state, {
         filmsByGenre: action.payload,
+      });
+
+    case ActionType.SET_CURRENT_PAGE:
+      return extend(state, {
+        currentPage: action.payload,
       });
 
     default:
