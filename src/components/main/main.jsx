@@ -8,6 +8,7 @@ import {ALL_GENRES} from '../../const.js';
 import MovieNavGenre from '../movie-nav-genre/movie-nav-genre.jsx';
 import MoviesList from '../movies-list/movies-list.jsx';
 import CatalogMore from '../catalog-more/catalog-more.jsx';
+import Footer from '../footer/footer.jsx';
 
 const COUNT_OF_SHOW_FILMS = 8;
 
@@ -28,7 +29,7 @@ class Main extends PureComponent {
       currentGenre,
       filmsByGenre,
       onSmallMovieCardClick,
-      onGenreClick,
+      handleGenreChoose,
     } = this.props;
 
     const {numberOfFilms} = this.state;
@@ -98,7 +99,7 @@ class Main extends PureComponent {
             films={films}
             genres={availableGenres}
             currentGenre={currentGenre}
-            onGenreClick={onGenreClick}
+            onGenreClick={handleGenreChoose}
             onResetShowClick={() => this.setState({
               numberOfFilms: COUNT_OF_SHOW_FILMS,
             })}
@@ -121,19 +122,7 @@ class Main extends PureComponent {
           }
         </section>
 
-        <footer className="page-footer">
-          <div className="logo">
-            <a className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </React.Fragment>);
   }
@@ -146,7 +135,7 @@ Main.propTypes = {
   currentGenre: PropTypes.string.isRequired,
   filmsByGenre: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   onSmallMovieCardClick: PropTypes.func.isRequired,
-  onGenreClick: PropTypes.func.isRequired,
+  handleGenreChoose: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -158,7 +147,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onGenreClick(genre, films) {
+  handleGenreChoose(genre, films) {
     dispatch(ActionCreator.chooseGenre(genre));
 
     if (genre !== ALL_GENRES) {

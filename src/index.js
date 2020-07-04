@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import {reducer} from './store/reducer.js';
 import App from './components/app/app.jsx';
 
-import {ALL_GENRES} from './const.js';
+import {ALL_GENRES, Pages} from './const.js';
 import {getAvailableGenres} from './utils.js';
 import films from './mocks/films.js';
 import moviePoster from './mocks/movie-poster.js';
@@ -19,6 +19,7 @@ const initialState = {
   moviePoster,
   availableGenres: getAvailableGenres(films),
   currentGenre: ALL_GENRES,
+  currentPage: Pages.MAIN,
 };
 
 const store = createStore(

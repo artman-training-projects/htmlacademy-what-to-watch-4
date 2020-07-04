@@ -7,6 +7,7 @@ import MovieNavOverview from '../movie-nav-overview/movie-nav-overview.jsx';
 import MovieNavDetails from '../movie-nav-details/movie-nav-details.jsx';
 import MovieNavReviews from '../movie-nav-reviews/movie-nav-reviews.jsx';
 import MoviesList from '../movies-list/movies-list.jsx';
+import Footer from '../footer/footer.jsx';
 
 const MovieNavList = {
   OVERVIEW: `Overview`,
@@ -149,19 +150,7 @@ class MovieCard extends PureComponent {
           />
         </section>
 
-        <footer className="page-footer">
-          <div className="logo">
-            <a href="main.html" className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </React.Fragment>);
   }
