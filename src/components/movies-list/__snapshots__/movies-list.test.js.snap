@@ -15,7 +15,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <video
         height="175"
-        poster="img/we-need-to-talk-about-kevin.jpg"
+        poster="img/snatch.jpg"
         type="video/webm"
         width="280"
       >
@@ -30,7 +30,7 @@ exports[`MoviesList Render MoviesList 1`] = `
         href="movie-page"
         onClick={[Function]}
       >
-        We need to talk about Kevin
+        Snatch
       </a>
     </h3>
   </article>
@@ -45,7 +45,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <video
         height="175"
-        poster="img/what-we-do-in-the-shadows.jpg"
+        poster="img/moonrise-kingdom.jpg"
         type="video/webm"
         width="280"
       >
@@ -60,7 +60,7 @@ exports[`MoviesList Render MoviesList 1`] = `
         href="movie-page"
         onClick={[Function]}
       >
-        What We Do in the Shadows
+        Moonrise Kingdom
       </a>
     </h3>
   </article>
@@ -75,7 +75,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <video
         height="175"
-        poster="img/revenant.jpg"
+        poster="img/seven-years-in-tibet.jpg"
         type="video/webm"
         width="280"
       >
@@ -90,7 +90,7 @@ exports[`MoviesList Render MoviesList 1`] = `
         href="movie-page"
         onClick={[Function]}
       >
-        Revenant
+        Seven Years in Tibet
       </a>
     </h3>
   </article>
@@ -105,7 +105,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <video
         height="175"
-        poster="img/johnny-english.jpg"
+        poster="img/midnight-special.jpg"
         type="video/webm"
         width="280"
       >
@@ -120,7 +120,127 @@ exports[`MoviesList Render MoviesList 1`] = `
         href="movie-page"
         onClick={[Function]}
       >
-        Johnny English
+        Midnight Special
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <video
+        height="175"
+        poster="img/war-of-the-worlds.jpg"
+        type="video/webm"
+        width="280"
+      >
+        your browser doesn\`t support embedded videos
+      </video>
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page"
+        onClick={[Function]}
+      >
+        War of the Worlds
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <video
+        height="175"
+        poster="img/dardjeeling-limited.jpg"
+        type="video/webm"
+        width="280"
+      >
+        your browser doesn\`t support embedded videos
+      </video>
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page"
+        onClick={[Function]}
+      >
+        Dardjeeling Limited
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <video
+        height="175"
+        poster="img/orlando.jpg"
+        type="video/webm"
+        width="280"
+      >
+        your browser doesn\`t support embedded videos
+      </video>
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page"
+        onClick={[Function]}
+      >
+        Orlando
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <video
+        height="175"
+        poster="img/mindhunter.jpg"
+        type="video/webm"
+        width="280"
+      >
+        your browser doesn\`t support embedded videos
+      </video>
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page"
+        onClick={[Function]}
+      >
+        Mindhunter
       </a>
     </h3>
   </article>

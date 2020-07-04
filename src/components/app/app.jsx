@@ -7,6 +7,7 @@ import {CustomPropTypes} from '../custom-prop-types.js';
 import {Pages} from '../../const.js';
 import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
+import {ActionCreator} from '../../store/reducer.js';
 
 const COUNT_OF_SAME_FILMS = 4;
 
@@ -15,7 +16,6 @@ class App extends PureComponent {
     super();
 
     this.state = {
-      currentPage: Pages.MAIN,
       selectedMovie: null,
     };
 
@@ -23,7 +23,7 @@ class App extends PureComponent {
   }
 
   _renderApp() {
-    const {currentPage} = this.state;
+    const {currentPage} = this.props;
 
     switch (currentPage) {
       case Pages.MAIN:
@@ -61,10 +61,13 @@ class App extends PureComponent {
   }
 
   _handleSmallMovieCardClick(film) {
+    const {handlePageChange} = this.props;
+    handlePageChange(Pages.MOVIE_CARD);
+
     this.setState({
-      currentPage: Pages.MOVIE_CARD,
       selectedMovie: film,
     });
+
   }
 
   render() {
@@ -90,11 +93,20 @@ class App extends PureComponent {
 App.propTypes = {
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   moviePoster: CustomPropTypes.FILM,
+  currentPage: PropTypes.string.isRequired,
+  handlePageChange: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   films: state.films,
   moviePoster: state.moviePoster,
+  currentPage: state.currentPage,
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => ({
+  handlePageChange(page) {
+    dispatch(ActionCreator.setCurrentPage(page));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

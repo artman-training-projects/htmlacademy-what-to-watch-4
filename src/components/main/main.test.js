@@ -3,7 +3,6 @@ import renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import {ALL_GENRES} from '../../const.js';
 import {getAvailableGenres} from '../../utils.js';
 import {films, moviePoster} from '../data-for-test.js';
 import Main from './main.jsx';
@@ -15,8 +14,9 @@ describe(`Main`, () => {
     films,
     moviePoster,
     availableGenres: getAvailableGenres(films),
-    currentGenre: ALL_GENRES,
+    currentGenre: `All genres`,
     filmsByGenre: films,
+    currentPage: `/`,
   });
 
   it(`Render Main`, () => {

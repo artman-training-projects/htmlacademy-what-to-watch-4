@@ -25,8 +25,8 @@ const MovieReview = (props) => {
   </React.Fragment>);
 };
 
-export default MovieReview;
-
 MovieReview.propTypes = {
   review: CustomPropTypes.REVIEW,
 };
+
+export default MovieReview;

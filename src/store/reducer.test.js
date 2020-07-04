@@ -1,31 +1,35 @@
-import {getAvailableGenres} from '../utils.js';
-import films from '../mocks/films.js';
-import moviePoster from '../mocks/movie-poster.js';
+import {films} from '../components/data-for-test.js';
 import {ActionType, reducer} from './reducer.js';
 
 const getFilmsByGenre = (selectedGenre) => {
   return films.filter((film) => film.genre === selectedGenre);
 };
 
-describe(`Reducer`, () => {
-  it(`Return initial state`, () => {
-    expect(reducer(void 0, {})).toEqual({
-      films,
-      moviePoster,
-      availableGenres: getAvailableGenres(films),
-      currentGenre: `All genres`,
-      filmsByGenre: films,
-    });
-  });
+const getAllFilms = (filmsList) => filmsList;
 
+const setCurrentPage = (page) => page;
+
+describe(`Reducer`, () => {
   it(`Return genre after choise`, () => {
     expect(reducer({
       currentGenre: `All genres`,
     }, {
-      type: ActionType.CHOISE_GENRE,
+      type: ActionType.CHOOSE_GENRE,
       payload: `Drame`,
     })).toEqual({
       currentGenre: `Drame`,
+    });
+  });
+
+  it(`Return all films`, () => {
+    expect(reducer({
+      currentGenre: `All genres`,
+    }, {
+      type: ActionType.GET_ALL_FILMS,
+      payload: getAllFilms(films),
+    })).toEqual({
+      currentGenre: `All genres`,
+      filmsByGenre: getAllFilms(films),
     });
   });
 
@@ -39,6 +43,17 @@ describe(`Reducer`, () => {
     })).toEqual({
       currentGenre: `Drame`,
       filmsByGenre: getFilmsByGenre(`Drame`),
+    });
+  });
+
+  it(`Return page after change`, () => {
+    expect(reducer({
+      currentPage: `/`,
+    }, {
+      type: ActionType.SET_CURRENT_PAGE,
+      payload: setCurrentPage(`/movie-card`),
+    })).toEqual({
+      currentPage: `/movie-card`,
     });
   });
 });

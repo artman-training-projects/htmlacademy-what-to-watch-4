@@ -35,9 +35,9 @@ class MoviesList extends PureComponent {
   }
 }
 
-export default MoviesList;
-
 MoviesList.propTypes = {
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   onSmallMovieCardClick: PropTypes.func.isRequired,
 };
+
+export default MoviesList;

@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {CustomPropTypes} from '../custom-prop-types.js';
 
 const MAX_VISIBLE_GENRES = 10;
 
 const MovieNavGenre = (props) => {
-  const {genres, currentGenre, onGenreClick} = props;
+  const {films, genres, currentGenre, onGenreClick, onResetShowClick} = props;
   const visibleGenres = genres.slice(0, MAX_VISIBLE_GENRES);
 
   return (
@@ -14,7 +15,8 @@ const MovieNavGenre = (props) => {
           className={currentGenre === genre ? `catalog__genres-item catalog__genres-item--active` : `catalog__genres-item`}
           onClick={(evt) => {
             evt.preventDefault();
-            onGenreClick(genre);
+            onGenreClick(genre, films);
+            onResetShowClick();
           }}
         >
           <a href="#" className="catalog__genres-link">{genre}</a>
@@ -25,9 +27,11 @@ const MovieNavGenre = (props) => {
 };
 
 MovieNavGenre.propTypes = {
+  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   genres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   currentGenre: PropTypes.string.isRequired,
   onGenreClick: PropTypes.func.isRequired,
+  onResetShowClick: PropTypes.func.isRequired,
 };
 
 export default MovieNavGenre;

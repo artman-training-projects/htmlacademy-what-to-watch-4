@@ -1,54 +1,59 @@
-import {ALL_GENRES} from '../const.js';
-import {getAvailableGenres} from '../utils.js';
-import films from '../mocks/films.js';
-import moviePoster from '../mocks/movie-poster.js';
-
 const extend = (a, b) => Object.assign({}, a, b);
 
-const initialState = {
-  films,
-  moviePoster,
-  availableGenres: getAvailableGenres(films),
-  currentGenre: ALL_GENRES,
-  filmsByGenre: films,
-};
-
 const ActionType = {
-  CHOISE_GENRE: `CHOISE_GENRE`,
+  CHOOSE_GENRE: `CHOOSE_GENRE`,
+  GET_ALL_FILMS: `GET_ALL_FILMS`,
   GET_FILMS_BY_GENRE: `GET_FILMS_BY_GENRE`,
+  SET_CURRENT_PAGE: `SET_CURRENT_PAGE`,
 };
 
 const ActionCreator = {
-  choiseGenre: (genre) => ({
-    type: ActionType.CHOISE_GENRE,
+  chooseGenre: (genre) => ({
+    type: ActionType.CHOOSE_GENRE,
     payload: genre,
   }),
 
-  getFilmsByGenre: (selectedGenre = ALL_GENRES) => {
-    let filmsByGenre = films;
+  getAllFilms: (films) => ({
+    type: ActionType.GET_ALL_FILMS,
+    payload: films,
+  }),
 
-    if (selectedGenre !== ALL_GENRES) {
-      filmsByGenre = films
+  getFilmsByGenre: (selectedGenre, films) => {
+    const filmsByGenre = films
         .filter((film) => film.genre === selectedGenre);
-    }
 
     return {
       type: ActionType.GET_FILMS_BY_GENRE,
       payload: filmsByGenre,
     };
   },
+
+  setCurrentPage: (page) => ({
+    type: ActionType.SET_CURRENT_PAGE,
+    payload: page,
+  })
 };
 
-const reducer = (state = initialState, action) => {
+const reducer = (state, action) => {
   switch (action.type) {
-    case ActionType.CHOISE_GENRE:
+    case ActionType.CHOOSE_GENRE:
       return extend(state, {
         currentGenre: action.payload,
+      });
+
+    case ActionType.GET_ALL_FILMS:
+      return extend(state, {
+        filmsByGenre: action.payload
       });
 
     case ActionType.GET_FILMS_BY_GENRE:
       return extend(state, {
         filmsByGenre: action.payload,
+      });
+
+    case ActionType.SET_CURRENT_PAGE:
+      return extend(state, {
+        currentPage: action.payload,
       });
 
     default:
