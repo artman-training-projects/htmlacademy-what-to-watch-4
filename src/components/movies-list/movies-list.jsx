@@ -28,4 +28,4 @@ MoviesList.propTypes = {
   onSmallMovieCardClick: PropTypes.func.isRequired,
 };
 
-export default MoviesList;
+export default React.memo(MoviesList);

@@ -34,4 +34,4 @@ MovieNavGenre.propTypes = {
   onResetShowClick: PropTypes.func.isRequired,
 };
 
-export default MovieNavGenre;
+export default React.memo(MovieNavGenre);
