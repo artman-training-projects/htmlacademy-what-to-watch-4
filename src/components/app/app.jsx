@@ -21,10 +21,6 @@ class App extends PureComponent {
   constructor() {
     super();
 
-    this.state = {
-      selectedMovie: null,
-    };
-
     this._handleSmallMovieCardClick = this._handleSmallMovieCardClick.bind(this);
   }
 
@@ -50,8 +46,7 @@ class App extends PureComponent {
   }
 
   _renderMovieCard() {
-    const {films} = this.props;
-    const moviePoster = this.state.selectedMovie;
+    const {films, selectedFilm: moviePoster} = this.props;
 
     const sameFilms = films
       .filter((film) => film.genre === moviePoster.genre && film.title !== moviePoster.title)
@@ -68,13 +63,9 @@ class App extends PureComponent {
   }
 
   _handleSmallMovieCardClick(film) {
-    const {handlePageChange} = this.props;
+    const {handlePageChange, chooseFilm} = this.props;
     handlePageChange(Pages.MOVIE_CARD);
-
-    this.setState({
-      selectedMovie: film,
-    });
-
+    chooseFilm(film);
   }
 
   render() {
@@ -102,6 +93,11 @@ App.propTypes = {
   moviePoster: CustomPropTypes.FILM,
   currentPage: PropTypes.string.isRequired,
   handlePageChange: PropTypes.func.isRequired,
+  selectedFilm: PropTypes.oneOfType([
+    CustomPropTypes.FILM,
+    PropTypes.bool,
+  ]),
+  chooseFilm: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
