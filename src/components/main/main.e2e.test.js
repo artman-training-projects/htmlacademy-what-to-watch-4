@@ -32,8 +32,8 @@ describe(`Main`, () => {
           <Main
             onSmallMovieCardClick={handleSmallMovieCardClick}
             numberOfFilms={8}
-            resetCountShow={() => {}}
-            addCountShow={() => {}}
+            onCountShowFilmReset={() => {}}
+            onCountShowFilmAdd={() => {}}
           />
         </Provider>
     );

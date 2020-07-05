@@ -21,8 +21,8 @@ const Main = (props) => {
     onSmallMovieCardClick,
     handleGenreChoose,
     numberOfFilms,
-    resetCountShow,
-    addCountShow,
+    onCountShowFilmReset,
+    onCountShowFilmAdd,
   } = props;
 
   const showFilms = filmsByGenre.slice(0, numberOfFilms);
@@ -77,7 +77,7 @@ const Main = (props) => {
           genres={availableGenres}
           currentGenre={currentGenre}
           onGenreClick={handleGenreChoose}
-          onResetShowClick={resetCountShow}
+          onResetShowClick={onCountShowFilmReset}
         />
 
         <MoviesList
@@ -87,7 +87,7 @@ const Main = (props) => {
 
         {numberOfFilms < filmsByGenre.length &&
             <CatalogMore
-              onShowMoreClick={addCountShow}
+              onShowMoreClick={onCountShowFilmAdd}
             />
         }
       </section>
@@ -107,8 +107,8 @@ Main.propTypes = {
   onSmallMovieCardClick: PropTypes.func.isRequired,
   handleGenreChoose: PropTypes.func.isRequired,
   numberOfFilms: PropTypes.number.isRequired,
-  resetCountShow: PropTypes.func.isRequired,
-  addCountShow: PropTypes.func.isRequired,
+  onCountShowFilmReset: PropTypes.func.isRequired,
+  onCountShowFilmAdd: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

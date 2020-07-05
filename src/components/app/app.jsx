@@ -63,9 +63,9 @@ class App extends PureComponent {
   }
 
   _handleSmallMovieCardClick(film) {
-    const {handlePageChange, chooseFilm} = this.props;
+    const {handlePageChange, onFillmSelect} = this.props;
     handlePageChange(Pages.MOVIE_CARD);
-    chooseFilm(film);
+    onFillmSelect(film);
   }
 
   render() {
@@ -97,7 +97,7 @@ App.propTypes = {
     CustomPropTypes.FILM,
     PropTypes.bool,
   ]),
-  chooseFilm: PropTypes.func.isRequired,
+  onFillmSelect: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

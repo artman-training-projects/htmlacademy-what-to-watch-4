@@ -9,10 +9,10 @@ const withVideo = (Component) => {
         isPlaying: false,
       };
 
-      this._setIsPlaying = this._setIsPlaying.bind(this);
+      this._handleIsPlayingChange = this._handleIsPlayingChange.bind(this);
     }
 
-    _setIsPlaying(isPlaying) {
+    _handleIsPlayingChange(isPlaying) {
       this.setState({
         isPlaying,
       });
@@ -24,7 +24,7 @@ const withVideo = (Component) => {
       return <Component
         {...this.props}
         isPlaying={isPlaying}
-        setIsPlaying={this._setIsPlaying}
+        onIsPlayingChange={this._handleIsPlayingChange}
       />;
     }
   }

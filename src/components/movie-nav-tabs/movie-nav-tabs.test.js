@@ -14,7 +14,7 @@ describe(`MovieNavTabs`, () => {
         <MovieNavTabs
           tabs={MovieNavList}
           activeTab={MovieNavList.OVERVIEW}
-          onTabClick={() => {}}
+          onActiveTabChange={() => {}}
         />
     ).toJSON();
 

@@ -25,8 +25,8 @@ describe(`Main`, () => {
           <Main
             onSmallMovieCardClick={() => {}}
             numberOfFilms={8}
-            resetCountShow={() => {}}
-            addCountShow={() => {}}
+            onCountShowFilmReset={() => {}}
+            onCountShowFilmAdd={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {

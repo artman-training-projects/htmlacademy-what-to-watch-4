@@ -12,7 +12,7 @@ describe(`SmallMovieCard`, () => {
           film={film}
           onSmallMovieCardClick={() => {}}
           isPlaying={false}
-          setIsPlaying={() => {}}
+          onIsPlayingChange={() => {}}
         />, {
           createNodeMock: () => {
             return {};

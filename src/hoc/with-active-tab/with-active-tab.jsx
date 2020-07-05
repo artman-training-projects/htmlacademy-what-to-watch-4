@@ -15,17 +15,17 @@ const withActiveTab = (Component) => {
         activeTab: MovieNavList.OVERVIEW,
       };
 
-      this._setActiveTab = this._setActiveTab.bind(this);
-      this._renderActiveTab = this._renderActiveTab.bind(this);
+      this._handleActiveTabChange = this._handleActiveTabChange.bind(this);
+      this._handleActiveTabRender = this._handleActiveTabRender.bind(this);
     }
 
-    _setActiveTab(tab) {
+    _handleActiveTabChange(tab) {
       this.setState({
         activeTab: tab,
       });
     }
 
-    _renderActiveTab() {
+    _handleActiveTabRender() {
       const {film} = this.props;
       const {activeTab} = this.state;
 
@@ -66,8 +66,8 @@ const withActiveTab = (Component) => {
       return <Component
         {...this.props}
         activeTab={activeTab}
-        onTabClick={this._setActiveTab}
-        renderActiveTab={this._renderActiveTab}
+        onActiveTabChange={this._handleActiveTabChange}
+        onActiveTabRender={this._handleActiveTabRender}
       />;
     }
   }

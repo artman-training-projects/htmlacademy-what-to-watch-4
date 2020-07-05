@@ -14,8 +14,8 @@ const MovieCard = (props) => {
     sameFilms,
     onSmallMovieCardClick,
     activeTab,
-    onTabClick,
-    renderActiveTab
+    onActiveTabChange,
+    onActiveTabRender
   } = props;
 
   return (<React.Fragment>
@@ -66,10 +66,10 @@ const MovieCard = (props) => {
             <MovieNavTabs
               tabs={MovieNavList}
               activeTab={activeTab}
-              onTabClick={onTabClick}
+              onActiveTabChange={onActiveTabChange}
             />
 
-            {renderActiveTab()}
+            {onActiveTabRender()}
           </div>
         </div>
       </div>
@@ -94,8 +94,8 @@ MovieCard.propTypes = {
   sameFilms: PropTypes.arrayOf(CustomPropTypes.FILM),
   onSmallMovieCardClick: PropTypes.func.isRequired,
   activeTab: PropTypes.string.isRequired,
-  onTabClick: PropTypes.func.isRequired,
-  renderActiveTab: PropTypes.func.isRequired,
+  onActiveTabChange: PropTypes.func.isRequired,
+  onActiveTabRender: PropTypes.func.isRequired,
 };
 
 export default MovieCard;

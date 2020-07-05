@@ -10,17 +10,17 @@ const withCountFilms = (Component) => {
         numberOfFilms: COUNT_OF_SHOW_FILMS,
       };
 
-      this._resetCountShow = this._resetCountShow.bind(this);
-      this._addCountShow = this._addCountShow.bind(this);
+      this._handleCountShowFilmReset = this._handleCountShowFilmReset.bind(this);
+      this._handleCountShowFilmAdd = this._handleCountShowFilmAdd.bind(this);
     }
 
-    _resetCountShow() {
+    _handleCountShowFilmReset() {
       this.setState({
         numberOfFilms: COUNT_OF_SHOW_FILMS,
       });
     }
 
-    _addCountShow() {
+    _handleCountShowFilmAdd() {
       const currentShow = this.state.numberOfFilms;
       this.setState({
         numberOfFilms: currentShow + COUNT_OF_SHOW_FILMS,
@@ -33,8 +33,8 @@ const withCountFilms = (Component) => {
       return <Component
         {...this.props}
         numberOfFilms={numberOfFilms}
-        resetCountShow={this._resetCountShow}
-        addCountShow={this._addCountShow}
+        onCountShowFilmReset={this._handleCountShowFilmReset}
+        onCountShowFilmAdd={this._handleCountShowFilmAdd}
       />;
     }
   }

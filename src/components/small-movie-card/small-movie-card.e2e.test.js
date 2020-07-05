@@ -19,7 +19,7 @@ describe(`SmallMovieCard`, () => {
         film={film}
         onSmallMovieCardClick={handleMouseClick}
         isPlaying={false}
-        setIsPlaying={() => {}}
+        onIsPlayingChange={() => {}}
       />
   );
 

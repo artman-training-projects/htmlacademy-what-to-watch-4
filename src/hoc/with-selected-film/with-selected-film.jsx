@@ -9,10 +9,10 @@ const withSelectedFilm = (Component) => {
         selectedFilm: null,
       };
 
-      this._chooseFilm = this._chooseFilm.bind(this);
+      this._handleFilmSelect = this._handleFilmSelect.bind(this);
     }
 
-    _chooseFilm(film) {
+    _handleFilmSelect(film) {
       this.setState({
         selectedFilm: film,
       });
@@ -24,7 +24,7 @@ const withSelectedFilm = (Component) => {
       return <Component
         {...this.props}
         selectedFilm={selectedFilm}
-        chooseFilm={this._chooseFilm}
+        onFillmSelect={this._handleFilmSelect}
       />;
     }
   }
