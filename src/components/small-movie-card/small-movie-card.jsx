@@ -8,10 +8,6 @@ class SmallMovieCard extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {
-      isPlaying: false,
-    };
-
     this._timeout = null;
   }
 
@@ -20,23 +16,17 @@ class SmallMovieCard extends PureComponent {
   }
 
   render() {
-    const {film, onMouseHover, onSmallMovieCardClick} = this.props;
-    const {isPlaying} = this.state;
+    const {film, onSmallMovieCardClick, isPlaying, setIsPlaying} = this.props;
 
     return (
       <article className="small-movie-card catalog__movies-card"
         onClick={() => onSmallMovieCardClick(film)}
         onMouseEnter={() => {
-          onMouseHover(film);
-          this._timeout = setTimeout(() => this.setState({
-            isPlaying: true
-          }), 1000);
+          this._timeout = setTimeout(() => setIsPlaying(true), 1000);
         }}
         onMouseLeave={() => {
           clearTimeout(this._timeout);
-          this.setState({
-            isPlaying: false
-          });
+          setIsPlaying(false);
         }}
       >
         <div className="small-movie-card__image">
@@ -61,8 +51,9 @@ class SmallMovieCard extends PureComponent {
 
 SmallMovieCard.propTypes = {
   film: CustomPropTypes.FILM,
-  onMouseHover: PropTypes.func.isRequired,
   onSmallMovieCardClick: PropTypes.func.isRequired,
+  isPlaying: PropTypes.bool.isRequired,
+  setIsPlaying: PropTypes.func.isRequired,
 };
 
 export default SmallMovieCard;

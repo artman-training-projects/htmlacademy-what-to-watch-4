@@ -13,21 +13,15 @@ Enzyme.configure({
 
 describe(`SmallMovieCard`, () => {
   const handleMouseClick = jest.fn();
-  const handleMouseHover = jest.fn();
 
   const main = shallow(
       <SmallMovieCard
         film={film}
-        onMouseHover={handleMouseHover}
         onSmallMovieCardClick={handleMouseClick}
+        isPlaying={false}
+        setIsPlaying={() => {}}
       />
   );
-
-  it(`Should SmallMovieCard hovered`, () => {
-    const movieCard = main.find(`.small-movie-card`);
-    movieCard.simulate(`mouseenter`, film);
-    expect(handleMouseHover).toHaveBeenCalledWith(film);
-  });
 
   it(`Should SmallMoviePoster clicked`, () => {
     const moviePoster = main.find(`.small-movie-card__image`);
