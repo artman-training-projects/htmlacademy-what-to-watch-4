@@ -9,8 +9,10 @@ import {Pages} from '../../const.js';
 
 import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
+import withCountFilms from '../../hoc/with-count-films/with-count-films.jsx';
 import withActiveTab from '../../hoc/with-active-tab/with-active-tab.jsx';
 
+const MainWrapped = withCountFilms(Main);
 const MovieCardWrapped = withActiveTab(MovieCard);
 
 const COUNT_OF_SAME_FILMS = 4;
@@ -41,7 +43,7 @@ class App extends PureComponent {
 
   _renderMain() {
     return (
-      <Main
+      <MainWrapped
         onSmallMovieCardClick={this._handleSmallMovieCardClick}
       />
     );
