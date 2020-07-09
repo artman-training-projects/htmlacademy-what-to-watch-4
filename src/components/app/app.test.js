@@ -23,7 +23,7 @@ describe(`App`, () => {
     const tree = renderer.create(
         <Provider store={store}>
           <App
-            onFillmSelect={() => {}}
+            onFilmSelect={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {

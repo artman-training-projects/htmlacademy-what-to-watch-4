@@ -24,7 +24,7 @@ const withSelectedFilm = (Component) => {
       return <Component
         {...this.props}
         selectedFilm={selectedFilm}
-        onFillmSelect={this._handleFilmSelect}
+        onFilmSelect={this._handleFilmSelect}
       />;
     }
   }
