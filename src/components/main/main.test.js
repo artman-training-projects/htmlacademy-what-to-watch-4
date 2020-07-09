@@ -24,6 +24,9 @@ describe(`Main`, () => {
         <Provider store={store}>
           <Main
             onSmallMovieCardClick={() => {}}
+            numberOfFilms={8}
+            onCountShowFilmReset={() => {}}
+            onCountShowFilmAdd={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {

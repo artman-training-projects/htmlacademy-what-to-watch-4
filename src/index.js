@@ -3,13 +3,16 @@ import ReactDom from 'react-dom';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 
-import {reducer} from './store/reducer.js';
-import App from './components/app/app.jsx';
-
 import {ALL_GENRES, Pages} from './const.js';
 import {getAvailableGenres} from './utils.js';
 import films from './mocks/films.js';
 import moviePoster from './mocks/movie-poster.js';
+
+import {reducer} from './store/reducer.js';
+import App from './components/app/app.jsx';
+import withSelectedFilm from './hoc/with-selected-film/with-selected-film.jsx';
+
+const AppWrapped = withSelectedFilm(App);
 
 const ENTRY_POINT = document.querySelector(`#root`);
 
@@ -28,7 +31,7 @@ const store = createStore(
 
 ReactDom.render(
     <Provider store={store}>
-      <App />
+      <AppWrapped />
     </Provider>,
     ENTRY_POINT
 );

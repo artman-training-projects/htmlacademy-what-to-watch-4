@@ -21,6 +21,9 @@ describe(`MovieCard`, () => {
             film={moviePoster}
             sameFilms={films}
             onSmallMovieCardClick={() => {}}
+            activeTab={`Overview`}
+            onActiveTabChange={() => {}}
+            onActiveTabRender={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {

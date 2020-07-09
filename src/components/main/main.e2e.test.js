@@ -31,6 +31,9 @@ describe(`Main`, () => {
         <Provider store={store}>
           <Main
             onSmallMovieCardClick={handleSmallMovieCardClick}
+            numberOfFilms={8}
+            onCountShowFilmReset={() => {}}
+            onCountShowFilmAdd={() => {}}
           />
         </Provider>
     );
