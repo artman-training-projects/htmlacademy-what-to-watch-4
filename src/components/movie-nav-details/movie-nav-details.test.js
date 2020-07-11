@@ -10,9 +10,9 @@ describe(`MovieNavDetails`, () => {
     const tree = renderer.create(
         <MovieNavDetails
           director={film.director}
+          genre={film.genre}
           starring={film.starring}
           time={film.time}
-          genre={film.genre}
           year={film.year}
         />
     ).toJSON();
