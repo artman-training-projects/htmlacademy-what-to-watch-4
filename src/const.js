@@ -12,3 +12,8 @@ export const MovieNavList = {
   DETAILS: `Details`,
   REVIEWS: `Reviews`,
 };
+
+export const Time = {
+  MINUTES_IN_HOUR: 60,
+  SECONDS_IN_MINUTE: 60,
+};
