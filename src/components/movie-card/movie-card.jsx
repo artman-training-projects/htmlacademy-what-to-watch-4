@@ -10,12 +10,13 @@ import Footer from '../footer/footer.jsx';
 
 const MovieCard = (props) => {
   const {
-    film,
-    sameFilms,
-    onSmallMovieCardClick,
     activeTab,
+    film,
     onActiveTabChange,
-    onActiveTabRender
+    onActiveTabRender,
+    onPlayClick,
+    onSmallMovieCardClick,
+    sameFilms,
   } = props;
 
   return (<React.Fragment>
@@ -38,7 +39,9 @@ const MovieCard = (props) => {
             </p>
 
             <div className="movie-card__buttons">
-              <button className="btn btn--play movie-card__button" type="button">
+              <button className="btn btn--play movie-card__button" type="button"
+                onClick={() => onPlayClick(film)}
+              >
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"></use>
                 </svg>
@@ -64,9 +67,9 @@ const MovieCard = (props) => {
 
           <div className="movie-card__desc">
             <MovieNavTabs
-              tabs={MovieNavList}
               activeTab={activeTab}
               onActiveTabChange={onActiveTabChange}
+              tabs={MovieNavList}
             />
 
             {onActiveTabRender()}
@@ -90,12 +93,13 @@ const MovieCard = (props) => {
 };
 
 MovieCard.propTypes = {
-  film: CustomPropTypes.FILM,
-  sameFilms: PropTypes.arrayOf(CustomPropTypes.FILM),
-  onSmallMovieCardClick: PropTypes.func.isRequired,
   activeTab: PropTypes.string.isRequired,
+  film: CustomPropTypes.FILM,
   onActiveTabChange: PropTypes.func.isRequired,
   onActiveTabRender: PropTypes.func.isRequired,
+  onPlayClick: PropTypes.func.isRequired,
+  onSmallMovieCardClick: PropTypes.func.isRequired,
+  sameFilms: PropTypes.arrayOf(CustomPropTypes.FILM),
 };
 
 export default MovieCard;

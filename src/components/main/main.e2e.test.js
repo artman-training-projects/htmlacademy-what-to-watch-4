@@ -34,6 +34,7 @@ describe(`Main`, () => {
             numberOfFilms={8}
             onCountShowFilmReset={() => {}}
             onCountShowFilmAdd={() => {}}
+            onPlayClick={() => {}}
           />
         </Provider>
     );
@@ -41,5 +42,26 @@ describe(`Main`, () => {
     const smallMovieCardTitles = main.find(`.small-movie-card__title`);
     smallMovieCardTitles.forEach((cardTitle) => cardTitle.simulate(`click`));
     expect(handleSmallMovieCardClick.mock.calls.length).toBe(films.length);
+  });
+
+  it(`Should play clicked`, () => {
+    const handlePlayClick = jest.fn();
+    const film = store.getState().moviePoster;
+
+    const main = mount(
+        <Provider store={store}>
+          <Main
+            onSmallMovieCardClick={() => {}}
+            numberOfFilms={8}
+            onCountShowFilmReset={() => {}}
+            onCountShowFilmAdd={() => {}}
+            onPlayClick={handlePlayClick}
+          />
+        </Provider>
+    );
+
+    const playButton = main.find(`.btn--play`);
+    playButton.simulate(`click`, film);
+    expect(handlePlayClick).toHaveBeenCalledWith(film);
   });
 });

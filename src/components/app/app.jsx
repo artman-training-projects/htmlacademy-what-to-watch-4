@@ -9,11 +9,14 @@ import {Pages} from '../../const.js';
 
 import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
+import VideoPlayerFull from '../video-player-full/video-player-full.jsx';
 import withCountFilms from '../../hoc/with-count-films/with-count-films.jsx';
 import withActiveTab from '../../hoc/with-active-tab/with-active-tab.jsx';
+import withVideoControls from '../../hoc/with-video-controls/with-video-controls.jsx';
 
 const MainWrapped = withCountFilms(Main);
 const MovieCardWrapped = withActiveTab(MovieCard);
+const VideoPlayerFullWrapped = withVideoControls(VideoPlayerFull);
 
 const COUNT_OF_SAME_FILMS = 4;
 
@@ -21,11 +24,23 @@ class App extends PureComponent {
   constructor() {
     super();
 
+    this.state = {
+      isVideoPlayer: false,
+    };
+
+    this._renderMoviePlayer = this._renderMoviePlayer.bind(this);
+    this._handleClosePlayerClick = this._handleClosePlayerClick.bind(this);
+    this._handlePlayClick = this._handlePlayClick.bind(this);
     this._handleSmallMovieCardClick = this._handleSmallMovieCardClick.bind(this);
   }
 
   _renderApp() {
     const {currentPage} = this.props;
+    const {isVideoPlayer} = this.state;
+
+    if (isVideoPlayer) {
+      return this._renderMoviePlayer();
+    }
 
     switch (currentPage) {
       case Pages.MAIN:
@@ -41,6 +56,7 @@ class App extends PureComponent {
     return (
       <MainWrapped
         onSmallMovieCardClick={this._handleSmallMovieCardClick}
+        onPlayClick={this._handlePlayClick}
       />
     );
   }
@@ -56,10 +72,36 @@ class App extends PureComponent {
       <MovieCardWrapped
         {...this.props}
         film={moviePoster}
-        sameFilms={sameFilms}
+        onPlayClick={this._handlePlayClick}
         onSmallMovieCardClick={this._handleSmallMovieCardClick}
+        sameFilms={sameFilms}
       />
     );
+  }
+
+  _renderMoviePlayer() {
+    const {selectedFilm} = this.props;
+    return (
+      <VideoPlayerFullWrapped
+        film={selectedFilm}
+        onClosePlayerClick={this._handleClosePlayerClick}
+      />
+    );
+  }
+
+  _handleClosePlayerClick() {
+    this.setState({
+      isVideoPlayer: false,
+    });
+  }
+
+  _handlePlayClick(film) {
+    const {onFilmSelect} = this.props;
+    onFilmSelect(film);
+
+    this.setState({
+      isVideoPlayer: true,
+    });
   }
 
   _handleSmallMovieCardClick(film) {
@@ -78,8 +120,8 @@ class App extends PureComponent {
           <Route exact path={Pages.MOVIE_CARD}>
             <MovieCardWrapped
               film={this.props.moviePoster}
-              sameFilms={this.props.films}
               onSmallMovieCardClick={this._handleSmallMovieCardClick}
+              sameFilms={this.props.films}
             />
           </Route>
         </Switch>
@@ -89,21 +131,21 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
-  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  moviePoster: CustomPropTypes.FILM,
   currentPage: PropTypes.string.isRequired,
+  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   handlePageChange: PropTypes.func.isRequired,
+  moviePoster: CustomPropTypes.FILM,
+  onFilmSelect: PropTypes.func.isRequired,
   selectedFilm: PropTypes.oneOfType([
     CustomPropTypes.FILM,
     PropTypes.bool,
   ]),
-  onFilmSelect: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
+  currentPage: state.currentPage,
   films: state.films,
   moviePoster: state.moviePoster,
-  currentPage: state.currentPage,
 });
 
 const mapDispatchToProps = (dispatch) => ({
