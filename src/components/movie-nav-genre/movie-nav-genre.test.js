@@ -20,9 +20,9 @@ describe(`MovieNavGenre`, () => {
   it(`Render MovieNavGenre`, () => {
     const tree = renderer.create(
         <MovieNavGenre
+          currentGenre={MovieGenreList[0]}
           films={films}
           genres={MovieGenreList}
-          currentGenre={MovieGenreList[0]}
           onGenreClick={() => {}}
           onResetShowClick={() => {}}
         />

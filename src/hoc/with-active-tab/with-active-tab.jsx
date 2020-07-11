@@ -33,20 +33,20 @@ const withActiveTab = (Component) => {
         case MovieNavList.OVERVIEW:
           return (
             <MovieNavOverview
-              rating={film.rating}
-              votes={film.votes}
               description={film.description}
               director={film.director}
+              rating={film.rating}
               starring={film.starring}
+              votes={film.votes}
             />
           );
         case MovieNavList.DETAILS:
           return (
             <MovieNavDetails
               director={film.director}
+              genre={film.genre}
               starring={film.starring}
               time={film.time}
-              genre={film.genre}
               year={film.year}
             />
           );

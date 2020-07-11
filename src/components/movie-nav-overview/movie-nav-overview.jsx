@@ -24,7 +24,7 @@ const getRating = (rating) => {
 };
 
 const MovieNavOverview = (props) => {
-  const {rating, votes, description, director, starring} = props;
+  const {description, director, rating, starring, votes} = props;
 
   return (<React.Fragment>
     <div className="movie-rating">
@@ -49,11 +49,11 @@ const MovieNavOverview = (props) => {
 };
 
 MovieNavOverview.propTypes = {
-  rating: PropTypes.string.isRequired,
-  votes: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   director: PropTypes.string.isRequired,
+  rating: PropTypes.string.isRequired,
   starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  votes: PropTypes.string.isRequired,
 };
 
 export default MovieNavOverview;
