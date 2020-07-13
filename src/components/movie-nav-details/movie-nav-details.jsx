@@ -1,8 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Time} from '../../const.js';
 
 const MovieNavDetails = (props) => {
-  const {director, starring, time, genre, year} = props;
+  const {director, genre, starring, time, year} = props;
+
+  const getHours = () => {
+    const hours = Math.trunc(time / Time.MINUTES_IN_HOUR);
+    return hours > 0 ? `${hours}h` : ``;
+  };
+
+  const getMinutes = () => {
+    const minutes = time % Time.SECONDS_IN_MINUTE;
+    return minutes > 0 ? `${minutes}m` : ``;
+  };
+
+  const runTime = `${getHours()} ${getMinutes()}`;
 
   return (<React.Fragment>
     <div className="movie-card__text movie-card__row">
@@ -24,7 +37,7 @@ const MovieNavDetails = (props) => {
       <div className="movie-card__text-col">
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Run Time</strong>
-          <span className="movie-card__details-value">{time}</span>
+          <span className="movie-card__details-value">{runTime}</span>
         </p>
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Genre</strong>
@@ -41,9 +54,9 @@ const MovieNavDetails = (props) => {
 
 MovieNavDetails.propTypes = {
   director: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
   starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   time: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
 };
 

@@ -38,8 +38,7 @@ class VideoPlayer extends PureComponent {
     const {poster} = this.props;
 
     return (
-      <video width="280" height="175"
-        type="video/webm"
+      <video width="280" height="175" type="video/webm"
         poster={poster}
         ref={this._videoRef}
       >your browser doesn`t support embedded videos</video>
@@ -48,10 +47,10 @@ class VideoPlayer extends PureComponent {
 }
 
 VideoPlayer.propTypes = {
-  muted: PropTypes.bool.isRequired,
-  src: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired,
   isPlaying: PropTypes.bool.isRequired,
+  muted: PropTypes.bool.isRequired,
+  poster: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
 };
 
 export default VideoPlayer;

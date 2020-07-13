@@ -17,9 +17,9 @@ describe(`SmallMovieCard`, () => {
   const main = shallow(
       <SmallMovieCard
         film={film}
-        onSmallMovieCardClick={handleMouseClick}
         isPlaying={false}
         onIsPlayingChange={() => {}}
+        onSmallMovieCardClick={handleMouseClick}
       />
   );
 

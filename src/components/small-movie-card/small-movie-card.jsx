@@ -16,7 +16,7 @@ class SmallMovieCard extends PureComponent {
   }
 
   render() {
-    const {film, onSmallMovieCardClick, isPlaying, onIsPlayingChange} = this.props;
+    const {film, isPlaying, onIsPlayingChange, onSmallMovieCardClick} = this.props;
 
     return (
       <article className="small-movie-card catalog__movies-card"
@@ -51,9 +51,9 @@ class SmallMovieCard extends PureComponent {
 
 SmallMovieCard.propTypes = {
   film: CustomPropTypes.FILM,
-  onSmallMovieCardClick: PropTypes.func.isRequired,
   isPlaying: PropTypes.bool.isRequired,
   onIsPlayingChange: PropTypes.func.isRequired,
+  onSmallMovieCardClick: PropTypes.func.isRequired,
 };
 
 export default SmallMovieCard;

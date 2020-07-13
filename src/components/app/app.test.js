@@ -11,12 +11,12 @@ const mockStore = configureStore([]);
 
 describe(`App`, () => {
   const store = mockStore({
-    films,
-    moviePoster,
     availableGenres: getAvailableGenres(films),
     currentGenre: `All genres`,
-    filmsByGenre: films,
     currentPage: `/`,
+    films,
+    filmsByGenre: films,
+    moviePoster,
   });
 
   it(`Render`, () => {

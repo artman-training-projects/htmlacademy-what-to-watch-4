@@ -10,8 +10,8 @@ describe(`VideoPlayer`, () => {
     const tree = renderer.create(
         <VideoPlayer muted
           isPlaying = {false}
-          src = {film.src}
           poster = {film.poster}
+          src = {film.src}
         />, {
           createNodeMock: () => {
             return {};

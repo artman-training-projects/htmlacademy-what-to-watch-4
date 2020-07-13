@@ -12,9 +12,9 @@ describe(`MovieNavTabs`, () => {
   it(`Render MovieNavTabs`, () => {
     const tree = renderer.create(
         <MovieNavTabs
-          tabs={MovieNavList}
           activeTab={MovieNavList.OVERVIEW}
           onActiveTabChange={() => {}}
+          tabs={MovieNavList}
         />
     ).toJSON();
 

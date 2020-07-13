@@ -18,12 +18,13 @@ describe(`MovieCard`, () => {
     const tree = renderer.create(
         <Provider store={store}>
           <MovieCard
-            film={moviePoster}
-            sameFilms={films}
-            onSmallMovieCardClick={() => {}}
             activeTab={`Overview`}
+            film={moviePoster}
             onActiveTabChange={() => {}}
             onActiveTabRender={() => {}}
+            onPlayClick={() => {}}
+            onSmallMovieCardClick={() => {}}
+            sameFilms={films}
           />
         </Provider>, {
           createNodeMock: () => {

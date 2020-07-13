@@ -16,8 +16,8 @@ describe(`VideoPlayer`, () => {
         <VideoPlayer
           muted
           isPlaying={true}
-          src={film.src}
           poster={film.poster}
+          src={film.src}
         />
     );
 
@@ -30,8 +30,8 @@ describe(`VideoPlayer`, () => {
         <VideoPlayer
           muted
           isPlaying={false}
-          src={film.src}
           poster={film.poster}
+          src={film.src}
         />
     );
 

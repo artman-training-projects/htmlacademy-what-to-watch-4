@@ -13,16 +13,17 @@ import Footer from '../footer/footer.jsx';
 
 const Main = (props) => {
   const {
-    films,
-    moviePoster,
     availableGenres,
     currentGenre,
+    films,
     filmsByGenre,
-    onSmallMovieCardClick,
     handleGenreChoose,
+    moviePoster,
     numberOfFilms,
-    onCountShowFilmReset,
     onCountShowFilmAdd,
+    onCountShowFilmReset,
+    onPlayClick,
+    onSmallMovieCardClick,
   } = props;
 
   const showFilms = filmsByGenre.slice(0, numberOfFilms);
@@ -51,7 +52,9 @@ const Main = (props) => {
             </p>
 
             <div className="movie-card__buttons">
-              <button className="btn btn--play movie-card__button" type="button">
+              <button className="btn btn--play movie-card__button" type="button"
+                onClick={() => onPlayClick(moviePoster)}
+              >
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"></use>
                 </svg>
@@ -73,9 +76,9 @@ const Main = (props) => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
         <MovieNavGenre
+          currentGenre={currentGenre}
           films={films}
           genres={availableGenres}
-          currentGenre={currentGenre}
           onGenreClick={handleGenreChoose}
           onResetShowClick={onCountShowFilmReset}
         />
@@ -99,24 +102,25 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  moviePoster: CustomPropTypes.FILM,
   availableGenres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   currentGenre: PropTypes.string.isRequired,
+  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   filmsByGenre: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  onSmallMovieCardClick: PropTypes.func.isRequired,
   handleGenreChoose: PropTypes.func.isRequired,
+  moviePoster: CustomPropTypes.FILM,
   numberOfFilms: PropTypes.number.isRequired,
-  onCountShowFilmReset: PropTypes.func.isRequired,
   onCountShowFilmAdd: PropTypes.func.isRequired,
+  onCountShowFilmReset: PropTypes.func.isRequired,
+  onPlayClick: PropTypes.func.isRequired,
+  onSmallMovieCardClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  films: state.films,
-  moviePoster: state.moviePoster,
   availableGenres: state.availableGenres,
   currentGenre: state.currentGenre,
+  films: state.films,
   filmsByGenre: state.filmsByGenre,
+  moviePoster: state.moviePoster,
 });
 
 const mapDispatchToProps = (dispatch) => ({

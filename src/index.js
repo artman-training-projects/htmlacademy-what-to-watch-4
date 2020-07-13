@@ -17,12 +17,12 @@ const AppWrapped = withSelectedFilm(App);
 const ENTRY_POINT = document.querySelector(`#root`);
 
 const initialState = {
-  films,
-  filmsByGenre: films,
-  moviePoster,
   availableGenres: getAvailableGenres(films),
   currentGenre: ALL_GENRES,
   currentPage: Pages.MAIN,
+  films,
+  filmsByGenre: films,
+  moviePoster,
 };
 
 const store = createStore(

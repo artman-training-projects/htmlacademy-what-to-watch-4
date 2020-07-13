@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const MovieNavTabs = (prop) => {
-  const {tabs, activeTab, onActiveTabChange} = prop;
+  const {activeTab, onActiveTabChange, tabs} = prop;
   const navItems = Object.values(tabs);
 
   return (
@@ -25,9 +25,9 @@ const MovieNavTabs = (prop) => {
 };
 
 MovieNavTabs.propTypes = {
-  tabs: PropTypes.objectOf(PropTypes.string).isRequired,
   activeTab: PropTypes.string.isRequired,
   onActiveTabChange: PropTypes.func.isRequired,
+  tabs: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default MovieNavTabs;
