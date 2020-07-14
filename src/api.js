@@ -1,8 +1,5 @@
 import axios from 'axios';
-
-const Error = {
-  UNAUTHORIZED: 401
-};
+import {HttpErrors} from './const.js';
 
 const ENTRY_POINT = `https://4.react.pages.academy/wtw`;
 const REQUEST_TIMEOUT = 5000;
@@ -19,7 +16,7 @@ export const createAPI = (onUnauthorized) => {
   const onError = (err) => {
     const {response} = err;
 
-    if (response.status === Error.UNAUTHORIZED) {
+    if (response.status === HttpErrors.UNAUTHORIZED) {
       onUnauthorized();
       throw err;
     }
