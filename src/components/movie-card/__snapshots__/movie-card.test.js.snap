@@ -29,7 +29,7 @@ Array [
         >
           <a
             className="logo__link"
-            href="/"
+            href={null}
           >
             <span
               className="logo__letter logo__letter--1"
@@ -464,7 +464,7 @@ Array [
       >
         <a
           className="logo__link logo__link--light"
-          href="/"
+          href={null}
         >
           <span
             className="logo__letter logo__letter--1"

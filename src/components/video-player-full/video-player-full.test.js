@@ -5,13 +5,16 @@ import configureStore from 'redux-mock-store';
 
 import {films} from '../data-for-test.js';
 import VideoPlayerFull from './video-player-full.jsx';
+import NameSpace from '../../reducer/name-space.js';
 
 const film = films[0];
 const mockStore = configureStore([]);
 
 describe(`VideoPlayerFull`, () => {
   const store = mockStore({
-    currentPage: `/`,
+    [NameSpace.APP]: {
+      currentPage: `/`,
+    }
   });
 
   it(`Render VideoPlayerFull`, () => {
