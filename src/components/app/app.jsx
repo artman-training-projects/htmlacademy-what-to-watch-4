@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
-import {ActionCreator} from '../../reducer/reducer.js';
+import {ActionCreator} from '../../reducer/app/app.js';
 import {Pages} from '../../const.js';
 
 import Main from '../main/main.jsx';
