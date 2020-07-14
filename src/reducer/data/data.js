@@ -6,11 +6,13 @@ const initialState = {
   availableGenres: [ALL_GENRES],
   films: [],
   moviePoster: false,
+  comments: false,
 };
 
 const ActionType = {
   LOAD_FILMS: `LOAD_FILMS`,
   LOAD_PROMO: `LOAD_PROMO`,
+  LOAD_COMMENTS: `LOAD_COMMENTS`,
 };
 
 const ActionCreator = {
@@ -22,7 +24,12 @@ const ActionCreator = {
   loadPromo: (promo) => ({
     type: ActionType.LOAD_PROMO,
     payload: promo,
-  })
+  }),
+
+  loadComments: (comments) => ({
+    type: ActionType.LOAD_COMMENTS,
+    payload: comments,
+  }),
 };
 
 const Operations = {
@@ -35,6 +42,11 @@ const Operations = {
     return api.get(`/films/promo`)
       .then((responce) => dispatch(ActionCreator.loadPromo(filmAdapter(responce.data))));
   },
+
+  loadComments: (filmID) => (dispatch, getState, api) => {
+    return api.get(`/comments/${filmID}`)
+      .then((responce) => dispatch(ActionCreator.loadComments(responce.data)));
+  }
 };
 
 const reducer = (state = initialState, action) => {
@@ -47,6 +59,11 @@ const reducer = (state = initialState, action) => {
     case ActionType.LOAD_PROMO:
       return extend(state, {
         moviePoster: action.payload,
+      });
+
+    case ActionType.LOAD_COMMENTS:
+      return extend(state, {
+        comments: action.payload,
       });
 
     default:

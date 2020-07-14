@@ -15,18 +15,22 @@ exports[`MovieNavReviews Render MovieNavReviews 1`] = `
       >
         <p
           className="review__text"
-        />
+        >
+          Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.
+        </p>
         <footer
           className="review__details"
         >
           <cite
             className="review__author"
-          />
+          >
+            Kate Muir
+          </cite>
           <time
             className="review__date"
             dateTime="2019-5-8"
           >
-            2019-05-08T14:13:56.569Z
+            May 8, 2019
           </time>
         </footer>
       </blockquote>
@@ -48,18 +52,22 @@ exports[`MovieNavReviews Render MovieNavReviews 1`] = `
       >
         <p
           className="review__text"
-        />
+        >
+          Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.
+        </p>
         <footer
           className="review__details"
         >
           <cite
             className="review__author"
-          />
+          >
+            Kate Muir
+          </cite>
           <time
             className="review__date"
             dateTime="2019-5-8"
           >
-            2019-05-08T14:13:56.569Z
+            May 8, 2019
           </time>
         </footer>
       </blockquote>

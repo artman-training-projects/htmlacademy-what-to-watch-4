@@ -10,3 +10,5 @@ export const getGenres = (state) => {
 export const getFilms = (state) => state[NameSpace.DATA].films;
 
 export const getPromo = (state) => state[NameSpace.DATA].moviePoster;
+
+export const getFilmComments = (state) => state[NameSpace.DATA].comments;

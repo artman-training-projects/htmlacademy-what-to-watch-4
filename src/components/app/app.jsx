@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
 import {Pages} from '../../const.js';
-import {ActionCreator} from '../../reducer/app/app.js';
+import {ActionCreator as AppActionCreator} from '../../reducer/app/app.js';
 import {getCurrentPage} from '../../reducer/app/selectors.js';
-import {getFilms, getPromo} from '../../reducer/data/selectors.js';
+import {Operations as DataOperations} from '../../reducer/data/data.js';
+import {getFilms, getPromo, getFilmComments} from '../../reducer/data/selectors.js';
 
 import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
@@ -107,9 +108,10 @@ class App extends PureComponent {
   }
 
   _handleSmallMovieCardClick(film) {
-    const {handlePageChange, onFilmSelect} = this.props;
+    const {getComments, handlePageChange, onFilmSelect} = this.props;
     handlePageChange(Pages.MOVIE_CARD);
     onFilmSelect(film);
+    getComments(film.id);
   }
 
   render() {
@@ -135,9 +137,14 @@ class App extends PureComponent {
 App.propTypes = {
   currentPage: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
+  getComments: PropTypes.func.isRequired,
   handlePageChange: PropTypes.func.isRequired,
   moviePoster: PropTypes.oneOfType([
     CustomPropTypes.FILM,
+    PropTypes.bool,
+  ]),
+  comments: PropTypes.PropTypes.oneOfType([
+    PropTypes.arrayOf(CustomPropTypes.COMMENT),
     PropTypes.bool,
   ]),
   onFilmSelect: PropTypes.func.isRequired,
@@ -151,12 +158,17 @@ const mapStateToProps = (state) => ({
   currentPage: getCurrentPage(state),
   films: getFilms(state),
   moviePoster: getPromo(state),
+  comments: getFilmComments(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   handlePageChange(page) {
-    dispatch(ActionCreator.setCurrentPage(page));
-  }
+    dispatch(AppActionCreator.setCurrentPage(page));
+  },
+
+  getComments(filmID) {
+    dispatch(DataOperations.loadComments(filmID));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

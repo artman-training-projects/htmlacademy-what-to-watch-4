@@ -1,7 +1,7 @@
 import MockAdapter from 'axios-mock-adapter';
 import {createAPI} from '../../api.js';
 import {ActionType, Operations, reducer} from './data.js';
-import {films, moviePoster} from '../../components/data-for-test.js';
+import {films, moviePoster, comments} from '../../components/data-for-test.js';
 import filmAdapter from '../../adapter/film.js';
 
 const api = createAPI(() => {});
@@ -43,6 +43,24 @@ describe(`Reducer Data`, () => {
         });
   });
 
+  it(`Should make a correct API call to /comments/filmID`, () => {
+    const apiMock = new MockAdapter(api);
+    const dispatch = jest.fn();
+    const promoLoader = Operations.loadComments(1);
+
+    apiMock
+      .onGet(`/comments/1`)
+      .reply(200, [{fake: true}]);
+
+    return promoLoader(dispatch, () => {}, api)
+        .then(() => {
+          expect(dispatch).toHaveBeenCalledWith({
+            type: ActionType.LOAD_COMMENTS,
+            payload: [{fake: true}],
+          });
+        });
+  });
+
   it(`Should update films by load`, () => {
     expect(reducer({
       films: [],
@@ -62,6 +80,17 @@ describe(`Reducer Data`, () => {
       payload: moviePoster
     })).toEqual({
       moviePoster,
+    });
+  });
+
+  it(`Should update comments by load`, () => {
+    expect(reducer({
+      comments: false,
+    }, {
+      type: ActionType.LOAD_COMMENTS,
+      payload: comments
+    })).toEqual({
+      comments,
     });
   });
 });
