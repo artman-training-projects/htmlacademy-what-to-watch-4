@@ -1,12 +1,11 @@
 import filmAdapter from '../../adapter/film.js';
-import {extend, getAvailableGenres} from '../../utils.js';
+import {extend} from '../utils.js';
 import {ALL_GENRES} from '../../const.js';
 
 const initialState = {
   availableGenres: [ALL_GENRES],
   films: [],
-  filmsByGenre: [],
-  moviePoster: {},
+  moviePoster: false,
 };
 
 const ActionType = {
@@ -44,7 +43,6 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         films: action.payload,
         filmsByGenre: action.payload,
-        availableGenres: getAvailableGenres(action.payload),
       });
 
     case ActionType.LOAD_PROMO:

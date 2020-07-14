@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
+import {getCurrentPage} from '../../reducer/app/selectors.js';
 
 const VideoPlayerFull = (props) => {
   const {
@@ -85,7 +86,7 @@ VideoPlayerFull.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  currentPage: state.currentPage,
+  currentPage: getCurrentPage(state),
 });
 
 export default connect(mapStateToProps)(VideoPlayerFull);

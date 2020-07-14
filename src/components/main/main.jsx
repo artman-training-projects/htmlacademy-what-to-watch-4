@@ -4,7 +4,8 @@ import {ActionCreator} from '../../reducer/show-films/show-films.js';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
-import {ALL_GENRES} from '../../const.js';
+import {getGenres, getFilms, getPromo} from '../../reducer/data/selectors.js';
+import {getCurrentGenre, getFilmsByGenre} from '../../reducer/show-films/selectors.js';
 import MovieNavGenre from '../movie-nav-genre/movie-nav-genre.jsx';
 import MoviesList from '../movies-list/movies-list.jsx';
 import CatalogMore from '../catalog-more/catalog-more.jsx';
@@ -107,7 +108,10 @@ Main.propTypes = {
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   filmsByGenre: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   handleGenreChoose: PropTypes.func.isRequired,
-  moviePoster: CustomPropTypes.FILM,
+  moviePoster: PropTypes.oneOfType([
+    CustomPropTypes.FILM,
+    PropTypes.bool,
+  ]),
   numberOfFilms: PropTypes.number.isRequired,
   onCountShowFilmAdd: PropTypes.func.isRequired,
   onCountShowFilmReset: PropTypes.func.isRequired,
@@ -116,23 +120,17 @@ Main.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  availableGenres: state.availableGenres,
-  currentGenre: state.currentGenre,
-  films: state.films,
-  filmsByGenre: state.filmsByGenre,
-  moviePoster: state.moviePoster,
+  availableGenres: getGenres(state),
+  currentGenre: getCurrentGenre(state),
+  films: getFilms(state),
+  filmsByGenre: getFilmsByGenre(state),
+  moviePoster: getPromo(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleGenreChoose(genre, films) {
+  handleGenreChoose(genre) {
     dispatch(ActionCreator.chooseGenre(genre));
-
-    if (genre !== ALL_GENRES) {
-      dispatch(ActionCreator.getFilmsByGenre(genre, films));
-    } else {
-      dispatch(ActionCreator.getAllFilms(films));
-    }
-  },
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

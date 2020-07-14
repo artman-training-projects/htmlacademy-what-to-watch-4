@@ -4,8 +4,10 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
-import {ActionCreator} from '../../reducer/app/app.js';
 import {Pages} from '../../const.js';
+import {ActionCreator} from '../../reducer/app/app.js';
+import {getCurrentPage} from '../../reducer/app/selectors.js';
+import {getFilms, getPromo} from '../../reducer/data/selectors.js';
 
 import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
@@ -134,7 +136,10 @@ App.propTypes = {
   currentPage: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   handlePageChange: PropTypes.func.isRequired,
-  moviePoster: CustomPropTypes.FILM,
+  moviePoster: PropTypes.oneOfType([
+    CustomPropTypes.FILM,
+    PropTypes.bool,
+  ]),
   onFilmSelect: PropTypes.func.isRequired,
   selectedFilm: PropTypes.oneOfType([
     CustomPropTypes.FILM,
@@ -143,9 +148,9 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  currentPage: state.currentPage,
-  films: state.films,
-  moviePoster: state.moviePoster,
+  currentPage: getCurrentPage(state),
+  films: getFilms(state),
+  moviePoster: getPromo(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

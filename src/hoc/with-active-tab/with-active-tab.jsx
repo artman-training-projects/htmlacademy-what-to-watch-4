@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../../components/custom-prop-types.js';
 
 import {MovieNavList} from '../../const.js';
@@ -73,7 +74,10 @@ const withActiveTab = (Component) => {
   }
 
   WithActiveTab.propTypes = {
-    film: CustomPropTypes.FILM,
+    film: PropTypes.oneOfType([
+      CustomPropTypes.FILM,
+      PropTypes.bool,
+    ]),
   };
 
   return WithActiveTab;

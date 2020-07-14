@@ -1,4 +1,4 @@
-import {extend} from '../../utils.js';
+import {extend} from '../utils.js';
 import {Pages} from '../../const.js';
 
 const initialState = {

@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+
 import {Pages} from '../../const.js';
+import {getCurrentPage} from '../../reducer/app/selectors.js';
 
 const Header = (props) => {
   const {currentPage} = props;
@@ -31,7 +33,7 @@ Header.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  currentPage: state.currentPage,
+  currentPage: getCurrentPage(state),
 });
 
 export default connect(mapStateToProps)(Header);
