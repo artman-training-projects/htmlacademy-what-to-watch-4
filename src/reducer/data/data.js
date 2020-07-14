@@ -42,7 +42,6 @@ const reducer = (state = initialState, action) => {
     case ActionType.LOAD_FILMS:
       return extend(state, {
         films: action.payload,
-        filmsByGenre: action.payload,
       });
 
     case ActionType.LOAD_PROMO:
