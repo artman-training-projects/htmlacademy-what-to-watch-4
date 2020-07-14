@@ -56,8 +56,8 @@ MovieNavDetails.propTypes = {
   director: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  time: PropTypes.string.isRequired,
-  year: PropTypes.string.isRequired,
+  time: PropTypes.number.isRequired,
+  year: PropTypes.number.isRequired,
 };
 
 export default MovieNavDetails;
