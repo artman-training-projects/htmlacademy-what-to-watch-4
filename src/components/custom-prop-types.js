@@ -2,16 +2,16 @@ import PropTypes from 'prop-types';
 
 export const CustomPropTypes = {
   FILM: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     bg: PropTypes.string.isRequired,
     poster: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
-    year: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
-    rating: PropTypes.string.isRequired,
-    votes: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    votes: PropTypes.number.isRequired,
     director: PropTypes.string.isRequired,
     starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   }).isRequired,
