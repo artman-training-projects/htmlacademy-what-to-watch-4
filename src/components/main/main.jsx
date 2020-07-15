@@ -4,8 +4,7 @@ import {ActionCreator} from '../../reducer/show-films/show-films.js';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
-import {HttpErrors} from '../../const.js';
-import {getGenres, getPromo} from '../../reducer/data/selectors.js';
+import {getGenres, getFilms, getPromo} from '../../reducer/data/selectors.js';
 import {getCurrentGenre, getFilmsByGenre} from '../../reducer/show-films/selectors.js';
 import MovieNavGenre from '../movie-nav-genre/movie-nav-genre.jsx';
 import MoviesList from '../movies-list/movies-list.jsx';
@@ -17,6 +16,7 @@ const Main = (props) => {
   const {
     availableGenres,
     currentGenre,
+    films,
     filmsByGenre,
     handleGenreChoose,
     moviePoster,
@@ -26,15 +26,6 @@ const Main = (props) => {
     onPlayClick,
     onSmallMovieCardClick,
   } = props;
-
-  const isLoadPromo = () => {
-    if (!moviePoster) {
-      return `promo loading...`;
-    } else if (moviePoster === HttpErrors.NOT_FOUND) {
-      return `promo loading error`;
-    }
-    return moviePoster.title;
-  };
 
   const showFilms = filmsByGenre.slice(0, numberOfFilms);
 
@@ -55,7 +46,7 @@ const Main = (props) => {
           </div>
 
           <div className="movie-card__desc">
-            <h2 className="movie-card__title">{isLoadPromo()}</h2>
+            <h2 className="movie-card__title">{moviePoster.title}</h2>
             <p className="movie-card__meta">
               <span className="movie-card__genre">{moviePoster.genre}</span>
               <span className="movie-card__year">{moviePoster.year}</span>
@@ -87,6 +78,7 @@ const Main = (props) => {
         <h2 className="catalog__title visually-hidden">Catalog</h2>
         <MovieNavGenre
           currentGenre={currentGenre}
+          films={films}
           genres={availableGenres}
           onGenreClick={handleGenreChoose}
           onResetShowClick={onCountShowFilmReset}
@@ -113,12 +105,12 @@ const Main = (props) => {
 Main.propTypes = {
   availableGenres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   currentGenre: PropTypes.string.isRequired,
+  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   filmsByGenre: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   handleGenreChoose: PropTypes.func.isRequired,
   moviePoster: PropTypes.oneOfType([
     CustomPropTypes.FILM,
     PropTypes.bool,
-    PropTypes.number,
   ]),
   numberOfFilms: PropTypes.number.isRequired,
   onCountShowFilmAdd: PropTypes.func.isRequired,
@@ -130,6 +122,7 @@ Main.propTypes = {
 const mapStateToProps = (state) => ({
   availableGenres: getGenres(state),
   currentGenre: getCurrentGenre(state),
+  films: getFilms(state),
   filmsByGenre: getFilmsByGenre(state),
   moviePoster: getPromo(state),
 });

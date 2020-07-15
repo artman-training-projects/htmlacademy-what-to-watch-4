@@ -136,16 +136,12 @@ class App extends PureComponent {
 
 App.propTypes = {
   currentPage: PropTypes.string.isRequired,
-  films: PropTypes.oneOfType([
-    PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-    PropTypes.number,
-  ]),
+  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   getComments: PropTypes.func.isRequired,
   handlePageChange: PropTypes.func.isRequired,
   moviePoster: PropTypes.oneOfType([
     CustomPropTypes.FILM,
     PropTypes.bool,
-    PropTypes.number,
   ]),
   comments: PropTypes.PropTypes.oneOfType([
     PropTypes.arrayOf(CustomPropTypes.COMMENT),

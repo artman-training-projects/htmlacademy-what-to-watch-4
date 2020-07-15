@@ -1,6 +1,6 @@
 import filmAdapter from '../../adapter/film.js';
 import {extend} from '../utils.js';
-import {ALL_GENRES, HttpErrors} from '../../const.js';
+import {ALL_GENRES} from '../../const.js';
 
 const initialState = {
   availableGenres: [ALL_GENRES],
@@ -35,18 +35,12 @@ const ActionCreator = {
 const Operations = {
   loadFilms: () => (dispatch, getState, api) => {
     return api.get(`/films`)
-      .then((responce) => dispatch(ActionCreator.loadFilms(responce.data.map((film) => filmAdapter(film)))))
-      .catch(() => {
-        dispatch(ActionCreator.loadFilms(HttpErrors.NOT_FOUND));
-      });
+      .then((responce) => dispatch(ActionCreator.loadFilms(responce.data.map((film) => filmAdapter(film)))));
   },
 
   loadPromo: () => (dispatch, getState, api) => {
     return api.get(`/films/promo`)
-      .then((responce) => dispatch(ActionCreator.loadPromo(filmAdapter(responce.data))))
-      .catch(() => {
-        dispatch(ActionCreator.loadPromo(HttpErrors.NOT_FOUND));
-      });
+      .then((responce) => dispatch(ActionCreator.loadPromo(filmAdapter(responce.data))));
   },
 
   loadComments: (filmID) => (dispatch, getState, api) => {

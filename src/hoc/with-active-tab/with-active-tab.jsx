@@ -77,7 +77,6 @@ const withActiveTab = (Component) => {
     film: PropTypes.oneOfType([
       CustomPropTypes.FILM,
       PropTypes.bool,
-      PropTypes.number,
     ]),
     comments: PropTypes.PropTypes.oneOfType([
       PropTypes.arrayOf(CustomPropTypes.COMMENT),

@@ -18,11 +18,6 @@ export const Time = {
   SECONDS_IN_MINUTE: 60,
 };
 
-export const HttpErrors = {
-  UNAUTHORIZED: 401,
-  NOT_FOUND: 404,
-};
-
 export const FullMonth = {
   0: `January`,
   1: `February`,

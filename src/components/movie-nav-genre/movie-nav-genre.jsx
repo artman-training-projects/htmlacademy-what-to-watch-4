@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {CustomPropTypes} from '../custom-prop-types.js';
 
 const MAX_VISIBLE_GENRES = 10;
 
 const MovieNavGenre = (props) => {
-  const {currentGenre, genres, onGenreClick, onResetShowClick} = props;
+  const {currentGenre, films, genres, onGenreClick, onResetShowClick} = props;
   const visibleGenres = genres.slice(0, MAX_VISIBLE_GENRES);
 
   return (
@@ -14,7 +15,7 @@ const MovieNavGenre = (props) => {
           className={currentGenre === genre ? `catalog__genres-item catalog__genres-item--active` : `catalog__genres-item`}
           onClick={(evt) => {
             evt.preventDefault();
-            onGenreClick(genre);
+            onGenreClick(genre, films);
             onResetShowClick();
           }}
         >
@@ -27,6 +28,7 @@ const MovieNavGenre = (props) => {
 
 MovieNavGenre.propTypes = {
   currentGenre: PropTypes.string.isRequired,
+  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   genres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   onGenreClick: PropTypes.func.isRequired,
   onResetShowClick: PropTypes.func.isRequired,
