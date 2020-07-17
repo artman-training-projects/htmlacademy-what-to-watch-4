@@ -6,14 +6,14 @@ import MovieReview from '../movie-review/movie-review.jsx';
 const MovieNavReviews = (props) => {
   const {reviews} = props;
 
-  const halfReviews = Math.ceil(reviews.length / 2);
-  const reviewsColumn1 = reviews.slice(0, halfReviews);
-  const reviewsColumn2 = reviews.slice(halfReviews);
+  const halfReviews = reviews && Math.ceil(reviews.length / 2);
+  const reviewsColumn1 = reviews && reviews.slice(0, halfReviews);
+  const reviewsColumn2 = reviews && reviews.slice(halfReviews);
 
   return (<React.Fragment>
     <div className="movie-card__reviews movie-card__row">
       <div className="movie-card__reviews-col">
-        {reviewsColumn1.map((review) => (
+        {reviews && reviewsColumn1.map((review) => (
           <MovieReview
             key={review.id}
             review={review}
@@ -22,7 +22,7 @@ const MovieNavReviews = (props) => {
       </div>
 
       <div className="movie-card__reviews-col">
-        {reviewsColumn2.map((review) => (
+        {reviews && reviewsColumn2.map((review) => (
           <MovieReview
             key={review.id}
             review={review}
@@ -34,7 +34,10 @@ const MovieNavReviews = (props) => {
 };
 
 MovieNavReviews.propTypes = {
-  reviews: PropTypes.arrayOf(CustomPropTypes.REVIEW).isRequired,
+  reviews: PropTypes.PropTypes.oneOfType([
+    PropTypes.arrayOf(CustomPropTypes.COMMENT),
+    PropTypes.bool,
+  ]),
 };
 
 export default MovieNavReviews;

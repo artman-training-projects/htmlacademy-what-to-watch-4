@@ -1,15 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import MovieNavReviews from './movie-nav-reviews.jsx';
-import {films} from '../data-for-test.js';
-
-const film = films[0];
+import {comments} from '../data-for-test.js';
 
 describe(`MovieNavReviews`, () => {
   it(`Render MovieNavReviews`, () => {
     const tree = renderer.create(
         <MovieNavReviews
-          reviews={film.reviews}
+          reviews={comments}
         />
     ).toJSON();
 

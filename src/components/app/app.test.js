@@ -3,20 +3,25 @@ import renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import {getAvailableGenres} from '../../utils.js';
 import {films, moviePoster} from '../data-for-test.js';
+import {ALL_GENRES} from '../../const.js';
 import App from './app.jsx';
+import NameSpace from '../../reducer/name-space.js';
 
 const mockStore = configureStore([]);
 
 describe(`App`, () => {
   const store = mockStore({
-    availableGenres: getAvailableGenres(films),
-    currentGenre: `All genres`,
-    currentPage: `/`,
-    films,
-    filmsByGenre: films,
-    moviePoster,
+    [NameSpace.APP]: {
+      currentPage: `/`,
+    },
+    [NameSpace.DATA]: {
+      films,
+      moviePoster,
+    },
+    [NameSpace.SHOW]: {
+      currentGenre: ALL_GENRES,
+    },
   });
 
   it(`Render`, () => {

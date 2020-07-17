@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../../components/custom-prop-types.js';
 
 import {MovieNavList} from '../../const.js';
@@ -26,7 +27,7 @@ const withActiveTab = (Component) => {
     }
 
     _handleActiveTabRender() {
-      const {film} = this.props;
+      const {comments, film} = this.props;
       const {activeTab} = this.state;
 
       switch (activeTab) {
@@ -53,7 +54,7 @@ const withActiveTab = (Component) => {
         case MovieNavList.REVIEWS:
           return (
             <MovieNavReviews
-              reviews={film.reviews}
+              reviews={comments}
             />
           );
         default: return ``;
@@ -73,7 +74,14 @@ const withActiveTab = (Component) => {
   }
 
   WithActiveTab.propTypes = {
-    film: CustomPropTypes.FILM,
+    film: PropTypes.oneOfType([
+      CustomPropTypes.FILM,
+      PropTypes.bool,
+    ]),
+    comments: PropTypes.PropTypes.oneOfType([
+      PropTypes.arrayOf(CustomPropTypes.COMMENT),
+      PropTypes.bool,
+    ]),
   };
 
   return WithActiveTab;

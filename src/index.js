@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import {createStore} from 'redux';
+import {applyMiddleware, compose, createStore} from 'redux';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
 
-import {ALL_GENRES, Pages} from './const.js';
-import {getAvailableGenres} from './utils.js';
-import films from './mocks/films.js';
-import moviePoster from './mocks/movie-poster.js';
+import {createAPI} from './api.js';
+import reducer from './reducer/reducer.js';
+import {Operations as DataOperations} from './reducer/data/data.js';
 
-import {reducer} from './store/reducer.js';
 import App from './components/app/app.jsx';
 import withSelectedFilm from './hoc/with-selected-film/with-selected-film.jsx';
 
@@ -16,18 +15,17 @@ const AppWrapped = withSelectedFilm(App);
 
 const ENTRY_POINT = document.querySelector(`#root`);
 
-const initialState = {
-  availableGenres: getAvailableGenres(films),
-  currentGenre: ALL_GENRES,
-  currentPage: Pages.MAIN,
-  films,
-  filmsByGenre: films,
-  moviePoster,
-};
+const api = createAPI();
 
 const store = createStore(
-    reducer, initialState,
-    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f);
+    reducer,
+    compose(
+        applyMiddleware(thunk.withExtraArgument(api)),
+        window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f)
+);
+
+store.dispatch(DataOperations.loadPromo());
+store.dispatch(DataOperations.loadFilms());
 
 ReactDom.render(
     <Provider store={store}>

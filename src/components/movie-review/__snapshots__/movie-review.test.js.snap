@@ -22,16 +22,16 @@ exports[`MovieReview Render MovieReview 1`] = `
       </cite>
       <time
         className="review__date"
-        dateTime="2016-12-24"
+        dateTime="2019-5-8"
       >
-        December 24, 2016
+        May 8, 2019
       </time>
     </footer>
   </blockquote>
   <div
     className="review__rating"
   >
-    8,9
+    8.9
   </div>
 </div>
 `;
