@@ -29,7 +29,7 @@ Array [
         >
           <a
             className="logo__link"
-            href={null}
+            href="/"
           >
             <span
               className="logo__letter logo__letter--1"
@@ -226,7 +226,6 @@ Array [
             <video
               height="175"
               poster="img/snatch.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -256,7 +255,6 @@ Array [
             <video
               height="175"
               poster="img/moonrise-kingdom.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -286,7 +284,6 @@ Array [
             <video
               height="175"
               poster="img/seven-years-in-tibet.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -316,7 +313,6 @@ Array [
             <video
               height="175"
               poster="img/midnight-special.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -346,7 +342,6 @@ Array [
             <video
               height="175"
               poster="img/war-of-the-worlds.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -376,7 +371,6 @@ Array [
             <video
               height="175"
               poster="img/dardjeeling-limited.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -406,7 +400,6 @@ Array [
             <video
               height="175"
               poster="img/orlando.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -436,7 +429,6 @@ Array [
             <video
               height="175"
               poster="img/mindhunter.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -464,7 +456,7 @@ Array [
       >
         <a
           className="logo__link logo__link--light"
-          href={null}
+          href="/"
         >
           <span
             className="logo__letter logo__letter--1"
