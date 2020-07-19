@@ -1,8 +1,33 @@
-import {AuthorizationStatus} from '../../const.js';
-import {user} from '../../components/data-for-test.js';
-import {ActionType, reducer} from './user.js';
+import MockAdapter from 'axios-mock-adapter';
+import {createAPI} from '../../api.js';
 
-describe(`Reducer user`, () => {
+import {AuthorizationStatus} from '../../const.js';
+import {ActionType, Operations, reducer} from './user.js';
+import {user} from '../../components/data-for-test.js';
+
+const api = createAPI(() => {});
+
+describe(`Operaions User`, () => {
+  it(`Should return checkAuth NO_AUTH`, () => {
+    const apiMock = new MockAdapter(api);
+    const dispatch = jest.fn();
+    const userCheckAuth = Operations.checkAuth();
+
+    apiMock
+      .onGet(`/login`)
+      .reply(200, [{fake: true}]);
+
+    return userCheckAuth(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledWith({
+          type: ActionType.REQUIRED_AUTHORIZATION,
+          payload: `NO_AUTH`,
+        });
+      });
+  });
+});
+
+describe(`Reducer User`, () => {
   it(`Should return initital state`, () => {
     expect(reducer(void 0, {})).toEqual({
       authorizationStatus: AuthorizationStatus.NO_AUTH,

@@ -22,6 +22,10 @@ describe(`Main`, () => {
     [NameSpace.DATA]: {
       films,
       moviePoster,
+      loadingFilms: false,
+      loadFilmsError: false,
+      loadingPromo: false,
+      loadPromoError: false,
     },
     [NameSpace.SHOW]: {
       currentGenre: `All genres`,

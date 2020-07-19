@@ -27,7 +27,7 @@ const withActiveTab = (Component) => {
     }
 
     _handleActiveTabRender() {
-      const {comments, film} = this.props;
+      const {film} = this.props;
       const {activeTab} = this.state;
 
       switch (activeTab) {
@@ -53,9 +53,7 @@ const withActiveTab = (Component) => {
           );
         case MovieNavList.REVIEWS:
           return (
-            <MovieNavReviews
-              reviews={comments}
-            />
+            <MovieNavReviews />
           );
         default: return ``;
       }
@@ -76,10 +74,6 @@ const withActiveTab = (Component) => {
   WithActiveTab.propTypes = {
     film: PropTypes.oneOfType([
       CustomPropTypes.FILM,
-      PropTypes.bool,
-    ]),
-    comments: PropTypes.PropTypes.oneOfType([
-      PropTypes.arrayOf(CustomPropTypes.COMMENT),
       PropTypes.bool,
     ]),
   };

@@ -4,7 +4,7 @@ import {ActionCreator} from '../../reducer/show-films/show-films.js';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
-import {getGenres, getFilms, getPromo} from '../../reducer/data/selectors.js';
+import {getGenres, getFilms, getFilmsStatus, getPromo, getPromoStatus} from '../../reducer/data/selectors.js';
 import {getCurrentGenre, getFilmsByGenre} from '../../reducer/show-films/selectors.js';
 import MovieNavGenre from '../movie-nav-genre/movie-nav-genre.jsx';
 import MoviesList from '../movies-list/movies-list.jsx';
@@ -19,6 +19,8 @@ const Main = (props) => {
     films,
     filmsByGenre,
     handleGenreChoose,
+    loadingFilms,
+    loadingPromo,
     moviePoster,
     numberOfFilms,
     onCountShowFilmAdd,
@@ -29,6 +31,26 @@ const Main = (props) => {
   } = props;
 
   const showFilms = filmsByGenre.slice(0, numberOfFilms);
+
+  const isLoadingPromo = () => {
+    if (loadingPromo.promoIsLoading && !loadingPromo.loadingIsError) {
+      return `promo is loading...`;
+    } else if (loadingPromo.promoIsLoading && loadingPromo.loadingIsError) {
+      return `server error, try later...`;
+    }
+
+    return false;
+  };
+
+  const isLoadingFilms = () => {
+    if (loadingFilms.filmsIsLoading && !loadingFilms.loadingIsError) {
+      return `films is loading...`;
+    } else if (loadingFilms.filmsIsLoading && loadingFilms.loadingIsError) {
+      return `server error, try later...`;
+    }
+
+    return false;
+  };
 
   return (<React.Fragment>
     <section className="movie-card">
@@ -48,6 +70,7 @@ const Main = (props) => {
             <img src={moviePoster.poster} alt={moviePoster.title} width="218" height="327" />
           </div>
 
+          {isLoadingPromo() ||
           <div className="movie-card__desc">
             <h2 className="movie-card__title">{moviePoster.title}</h2>
             <p className="movie-card__meta">
@@ -72,6 +95,7 @@ const Main = (props) => {
               </button>
             </div>
           </div>
+          }
         </div>
       </div>
     </section>
@@ -87,10 +111,13 @@ const Main = (props) => {
           onResetShowClick={onCountShowFilmReset}
         />
 
-        <MoviesList
-          films={showFilms}
-          onSmallMovieCardClick={onSmallMovieCardClick}
-        />
+        {isLoadingFilms() ||
+          <MoviesList
+            films={showFilms}
+            onSmallMovieCardClick={onSmallMovieCardClick}
+          />
+        }
+
 
         {numberOfFilms < filmsByGenre.length &&
             <CatalogMore
@@ -110,6 +137,14 @@ Main.propTypes = {
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   filmsByGenre: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   handleGenreChoose: PropTypes.func.isRequired,
+  loadingFilms: PropTypes.shape({
+    filmsIsLoading: PropTypes.bool.isRequired,
+    loadingIsError: PropTypes.bool.isRequired,
+  }),
+  loadingPromo: PropTypes.shape({
+    promoIsLoading: PropTypes.bool.isRequired,
+    loadingIsError: PropTypes.bool.isRequired,
+  }),
   moviePoster: PropTypes.oneOfType([
     CustomPropTypes.FILM,
     PropTypes.bool,
@@ -127,6 +162,8 @@ const mapStateToProps = (state) => ({
   currentGenre: getCurrentGenre(state),
   films: getFilms(state),
   filmsByGenre: getFilmsByGenre(state),
+  loadingPromo: getPromoStatus(state),
+  loadingFilms: getFilmsStatus(state),
   moviePoster: getPromo(state),
 });
 

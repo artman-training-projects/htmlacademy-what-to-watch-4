@@ -4,9 +4,10 @@ import Adapter from 'enzyme-adapter-react-16';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import MovieCard from './movie-card.jsx';
+import {MovieNavList} from '../../const.js';
 import {films, moviePoster} from '../data-for-test.js';
 import NameSpace from '../../reducer/name-space.js';
+import MovieCard from './movie-card.jsx';
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -14,24 +15,25 @@ Enzyme.configure({
 
 const mockStore = configureStore([]);
 
-describe(`MovieCard`, () => {
-  const store = mockStore({
-    [NameSpace.APP]: {
-      currentPage: `/`,
-    },
-    [NameSpace.USER]: {
-      authorizationStatus: `NO_AUTH`,
-      authorizationError: false,
-    }
-  });
 
+describe(`MovieCard`, () => {
   it(`Should onPlayClick clicked on promo`, () => {
+    const store = mockStore({
+      [NameSpace.APP]: {
+        currentPage: `/movie-card`,
+      },
+      [NameSpace.USER]: {
+        authorizationStatus: `NO_AUTH`,
+        authorizationError: false,
+      }
+    });
+
     const handlePlayClick = jest.fn();
 
     const movieCard = mount(
         <Provider store={store}>
           <MovieCard
-            activeTab={`Overview`}
+            activeTab={MovieNavList.OVERVIEW}
             film={moviePoster}
             onActiveTabChange={() => {}}
             onActiveTabRender={() => {}}

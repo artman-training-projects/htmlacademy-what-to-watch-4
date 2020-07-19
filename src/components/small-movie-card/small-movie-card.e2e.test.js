@@ -65,7 +65,7 @@ describe(`SmallMovieCard with-video HOC`, () => {
 
   it(`Change isPlaying state onMouseEnter`, () => {
     const movieCard = main.find(`.small-movie-card`);
-    movieCard.props().onMouseEnter(handleIsPlayingChange(), main.setState({
+    movieCard.props().onMouseEnter(handleIsPlayingChange(true), main.setState({
       isPlaying: true,
     }));
     expect(main.state().isPlaying).toEqual(true);
@@ -73,7 +73,7 @@ describe(`SmallMovieCard with-video HOC`, () => {
 
   it(`Change isPlaying state onMouseLeave`, () => {
     const movieCard = main.find(`.small-movie-card`);
-    movieCard.props().onMouseLeave(handleIsPlayingChange(), main.setState({
+    movieCard.props().onMouseLeave(handleIsPlayingChange(false), main.setState({
       isPlaying: false,
     }));
     expect(main.state().isPlaying).toEqual(false);

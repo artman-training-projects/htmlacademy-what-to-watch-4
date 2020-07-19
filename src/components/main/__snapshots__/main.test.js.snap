@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Main Render Main 1`] = `
+exports[`Main Render with films and promo 1`] = `
 Array [
   <section
     className="movie-card"
