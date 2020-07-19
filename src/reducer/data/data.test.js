@@ -6,7 +6,7 @@ import filmAdapter from '../../adapter/film.js';
 
 const api = createAPI(() => {});
 
-describe(`Reducer Data`, () => {
+describe(`Operations Data`, () => {
   it(`Should make a correct API call to /films`, () => {
     const apiMock = new MockAdapter(api);
     const dispatch = jest.fn();
@@ -35,12 +35,12 @@ describe(`Reducer Data`, () => {
       .reply(200, [{fake: true}]);
 
     return promoLoader(dispatch, () => {}, api)
-        .then(() => {
-          expect(dispatch).toHaveBeenCalledWith({
-            type: ActionType.LOAD_PROMO,
-            payload: filmAdapter({fake: true}),
-          });
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledWith({
+          type: ActionType.LOAD_PROMO,
+          payload: filmAdapter({fake: true}),
         });
+      });
   });
 
   it(`Should make a correct API call to /comments/filmID`, () => {
@@ -53,12 +53,23 @@ describe(`Reducer Data`, () => {
       .reply(200, [{fake: true}]);
 
     return promoLoader(dispatch, () => {}, api)
-        .then(() => {
-          expect(dispatch).toHaveBeenCalledWith({
-            type: ActionType.LOAD_COMMENTS,
-            payload: [{fake: true}],
-          });
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledWith({
+          type: ActionType.LOAD_COMMENTS,
+          payload: [{fake: true}],
         });
+      });
+  });
+});
+
+describe(`Reducer Data`, () => {
+  it(`Should return initial state`, () => {
+    expect(reducer(void 0, {})).toEqual({
+      availableGenres: [`All genres`],
+      films: [],
+      moviePoster: false,
+      comments: false,
+    });
   });
 
   it(`Should update films by load`, () => {

@@ -2,6 +2,12 @@ import filmAdapter from '../../adapter/film.js';
 import {extend} from '../utils.js';
 import {ALL_GENRES} from '../../const.js';
 
+const EntryPoints = {
+  FILMS: `/films`,
+  PROMO: `/films/promo`,
+  COMMENTS: `/comments/`,
+};
+
 const initialState = {
   availableGenres: [ALL_GENRES],
   films: [],
@@ -34,19 +40,28 @@ const ActionCreator = {
 
 const Operations = {
   loadFilms: () => (dispatch, getState, api) => {
-    return api.get(`/films`)
-      .then((responce) => dispatch(ActionCreator.loadFilms(responce.data.map((film) => filmAdapter(film)))));
+    return api.get(EntryPoints.FILMS)
+      .then((responce) => dispatch(ActionCreator.loadFilms(responce.data.map((film) => filmAdapter(film)))))
+      .catch((err) => {
+        throw err;
+      });
   },
 
   loadPromo: () => (dispatch, getState, api) => {
-    return api.get(`/films/promo`)
-      .then((responce) => dispatch(ActionCreator.loadPromo(filmAdapter(responce.data))));
+    return api.get(EntryPoints.PROMO)
+      .then((responce) => dispatch(ActionCreator.loadPromo(filmAdapter(responce.data))))
+      .catch((err) => {
+        throw err;
+      });
   },
 
   loadComments: (filmID) => (dispatch, getState, api) => {
-    return api.get(`/comments/${filmID}`)
-      .then((responce) => dispatch(ActionCreator.loadComments(responce.data)));
-  }
+    return api.get(`${EntryPoints.COMMENTS}${filmID}`)
+      .then((responce) => dispatch(ActionCreator.loadComments(responce.data)))
+      .catch((err) => {
+        throw err;
+      });
+  },
 };
 
 const reducer = (state = initialState, action) => {
