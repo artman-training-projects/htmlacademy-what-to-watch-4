@@ -27,10 +27,10 @@ const ActionCreator = {
     };
   },
 
-  errorAuthorization: (code) => {
+  errorAuthorization: (error) => {
     return {
       type: ActionType.ERROR_AUTHORIZATION,
-      payload: code,
+      payload: error,
     };
   },
 

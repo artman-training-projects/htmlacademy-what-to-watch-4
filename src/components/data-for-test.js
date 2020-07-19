@@ -4,6 +4,7 @@ export const moviePoster = {
   poster: `img/the-grand-budapest-hotel-poster.jpg`,
   previewImg: `img/the-grand-budapest-hotel-poster.jpg`,
   src: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
+  previewSrc: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   title: `The Grand Budapest Hotel`,
   genre: `Drame`,
   year: 2014,
@@ -171,3 +172,10 @@ export const comments = [{
   comment: `Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.`,
   date: `2019-05-08T14:13:56.569Z`,
 }];
+
+export const user = {
+  id: 1,
+  email: `test@test.net`,
+  name: `John Doe`,
+  avatarSrc: `avatarSrc`,
+};

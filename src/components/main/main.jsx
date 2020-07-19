@@ -24,6 +24,7 @@ const Main = (props) => {
     onCountShowFilmAdd,
     onCountShowFilmReset,
     onPlayClick,
+    onSignInClick,
     onSmallMovieCardClick,
   } = props;
 
@@ -37,7 +38,9 @@ const Main = (props) => {
 
       <h1 className="visually-hidden">WTW</h1>
 
-      <Header />
+      <Header
+        onSignInClick={onSignInClick}
+      />
 
       <div className="movie-card__wrap">
         <div className="movie-card__info">
@@ -99,7 +102,6 @@ const Main = (props) => {
       <Footer />
     </div>
   </React.Fragment>);
-
 };
 
 Main.propTypes = {
@@ -116,6 +118,7 @@ Main.propTypes = {
   onCountShowFilmAdd: PropTypes.func.isRequired,
   onCountShowFilmReset: PropTypes.func.isRequired,
   onPlayClick: PropTypes.func.isRequired,
+  onSignInClick: PropTypes.func.isRequired,
   onSmallMovieCardClick: PropTypes.func.isRequired,
 };
 
@@ -133,4 +136,4 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Main));

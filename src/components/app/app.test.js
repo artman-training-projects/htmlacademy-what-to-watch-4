@@ -17,10 +17,14 @@ describe(`App`, () => {
     },
     [NameSpace.DATA]: {
       films,
-      moviePoster,
+      moviePoster: false,
     },
     [NameSpace.SHOW]: {
       currentGenre: ALL_GENRES,
+    },
+    [NameSpace.USER]: {
+      authorizationStatus: `NO_AUTH`,
+      authorizationError: false,
     },
   });
 
@@ -29,6 +33,7 @@ describe(`App`, () => {
         <Provider store={store}>
           <App
             onFilmSelect={() => {}}
+            film={moviePoster}
           />
         </Provider>, {
           createNodeMock: () => {

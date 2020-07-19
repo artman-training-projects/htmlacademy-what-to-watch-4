@@ -22,6 +22,10 @@ describe(`Main`, () => {
     [NameSpace.SHOW]: {
       currentGenre: ALL_GENRES,
     },
+    [NameSpace.USER]: {
+      authorizationStatus: `NO_AUTH`,
+      authorizationError: false,
+    },
   });
 
   it(`Render Main`, () => {
@@ -32,6 +36,7 @@ describe(`Main`, () => {
             onCountShowFilmAdd={() => {}}
             onCountShowFilmReset={() => {}}
             onPlayClick={() => {}}
+            onSignInClick={() => {}}
             onSmallMovieCardClick={() => {}}
           />
         </Provider>, {

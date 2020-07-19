@@ -15,6 +15,7 @@ const MovieCard = (props) => {
     onActiveTabChange,
     onActiveTabRender,
     onPlayClick,
+    onSignInClick,
     onSmallMovieCardClick,
     sameFilms,
   } = props;
@@ -28,7 +29,9 @@ const MovieCard = (props) => {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <Header />
+        <Header
+          onSignInClick={onSignInClick}
+        />
 
         <div className="movie-card__wrap">
           <div className="movie-card__desc">
@@ -98,6 +101,7 @@ MovieCard.propTypes = {
   onActiveTabChange: PropTypes.func.isRequired,
   onActiveTabRender: PropTypes.func.isRequired,
   onPlayClick: PropTypes.func.isRequired,
+  onSignInClick: PropTypes.func.isRequired,
   onSmallMovieCardClick: PropTypes.func.isRequired,
   sameFilms: PropTypes.arrayOf(CustomPropTypes.FILM),
 };

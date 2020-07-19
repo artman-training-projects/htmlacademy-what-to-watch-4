@@ -8,7 +8,7 @@ export const CustomPropTypes = {
     previewImg: PropTypes.string.isRequired,
     bg: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
-    // previewSrc: PropTypes.string.isRequired,
+    previewSrc: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     votes: PropTypes.number.isRequired,
@@ -17,16 +17,22 @@ export const CustomPropTypes = {
     time: PropTypes.number.isRequired,
     genre: PropTypes.string.isRequired,
     year: PropTypes.number.isRequired,
-    // isFavorite: PropTypes.bool.isRequired,
-  }).isRequired,
+    isFavorite: PropTypes.bool,
+  }),
   COMMENT: PropTypes.shape({
     id: PropTypes.number.isRequired,
     user: PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-    }).isRequired,
+    }),
     rating: PropTypes.number.isRequired,
     comment: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-  })
+  }),
+  USER: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    email: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    avatarSrc: PropTypes.string.isRequired,
+  }),
 };
