@@ -66,9 +66,15 @@ describe(`Reducer Data`, () => {
   it(`Should return initial state`, () => {
     expect(reducer(void 0, {})).toEqual({
       availableGenres: [`All genres`],
+      comments: false,
       films: [],
       moviePoster: false,
-      comments: false,
+      loadingComments: true,
+      loadingFilms: true,
+      loadingPromo: true,
+      loadCommentsError: false,
+      loadFilmsError: false,
+      loadPromoError: false,
     });
   });
 
@@ -83,7 +89,29 @@ describe(`Reducer Data`, () => {
     });
   });
 
-  it(`Should update moviePoster by load`, () => {
+  it(`Should update films load status`, () => {
+    expect(reducer({
+      loadingFilms: true,
+    }, {
+      type: ActionType.IS_LOADING_FILM,
+      payload: false
+    })).toEqual({
+      loadingFilms: false,
+    });
+  });
+
+  it(`Should update films load error`, () => {
+    expect(reducer({
+      loadFilmsError: false,
+    }, {
+      type: ActionType.LOAD_FILMS_ERROR,
+      payload: true
+    })).toEqual({
+      loadFilmsError: true,
+    });
+  });
+
+  it(`Should update promo by load`, () => {
     expect(reducer({
       moviePoster: false,
     }, {
@@ -91,6 +119,28 @@ describe(`Reducer Data`, () => {
       payload: moviePoster
     })).toEqual({
       moviePoster,
+    });
+  });
+
+  it(`Should update promo load status`, () => {
+    expect(reducer({
+      loadingPromo: true,
+    }, {
+      type: ActionType.IS_LOADING_PROMO,
+      payload: false
+    })).toEqual({
+      loadingPromo: false,
+    });
+  });
+
+  it(`Should update promo load error`, () => {
+    expect(reducer({
+      loadPromoError: false,
+    }, {
+      type: ActionType.LOAD_PROMO_ERROR,
+      payload: true
+    })).toEqual({
+      loadPromoError: true,
     });
   });
 
@@ -102,6 +152,28 @@ describe(`Reducer Data`, () => {
       payload: comments
     })).toEqual({
       comments,
+    });
+  });
+
+  it(`Should update comments load status`, () => {
+    expect(reducer({
+      loadingComments: true,
+    }, {
+      type: ActionType.IS_LOADING_COMMENTS,
+      payload: false
+    })).toEqual({
+      loadingComments: false,
+    });
+  });
+
+  it(`Should update comments load error`, () => {
+    expect(reducer({
+      loadCommentsError: false,
+    }, {
+      type: ActionType.LOAD_COMMENTS_ERROR,
+      payload: true
+    })).toEqual({
+      loadCommentsError: true,
     });
   });
 });

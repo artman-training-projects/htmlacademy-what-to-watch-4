@@ -12,3 +12,18 @@ export const getFilms = (state) => state[NameSpace.DATA].films;
 export const getPromo = (state) => state[NameSpace.DATA].moviePoster;
 
 export const getFilmComments = (state) => state[NameSpace.DATA].comments;
+
+export const getFilmsStatus = (state) => ({
+  filmsIsLoading: state[NameSpace.DATA].loadingFilms,
+  loadingIsError: state[NameSpace.DATA].loadFilmsError,
+});
+
+export const getPromoStatus = (state) => ({
+  promoIsLoading: state[NameSpace.DATA].loadingPromo,
+  loadingIsError: state[NameSpace.DATA].loadPromoError,
+});
+
+export const getCommetsStatus = (state) => ({
+  commentsIsLoading: state[NameSpace.DATA].loadingComments,
+  loadingIsError: state[NameSpace.DATA].loadCommentsError,
+});
