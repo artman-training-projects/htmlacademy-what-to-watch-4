@@ -45,6 +45,33 @@ Array [
           </span>
         </a>
       </div>
+      <nav
+        className="breadcrumbs"
+      >
+        <ul
+          className="breadcrumbs__list"
+        >
+          <li
+            className="breadcrumbs__item"
+          >
+            <a
+              className="breadcrumbs__link"
+              href="movie-page.html"
+            >
+              The Grand Budapest Hotel
+            </a>
+          </li>
+          <li
+            className="breadcrumbs__item"
+          >
+            <a
+              className="breadcrumbs__link"
+            >
+              Add review
+            </a>
+          </li>
+        </ul>
+      </nav>
       <div
         className="user-block"
       >

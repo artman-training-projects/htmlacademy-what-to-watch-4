@@ -28,6 +28,33 @@ exports[`Header Render, is login 1`] = `
       </span>
     </a>
   </div>
+  <nav
+    className="breadcrumbs"
+  >
+    <ul
+      className="breadcrumbs__list"
+    >
+      <li
+        className="breadcrumbs__item"
+      >
+        <a
+          className="breadcrumbs__link"
+          href="movie-page.html"
+        >
+          The Grand Budapest Hotel
+        </a>
+      </li>
+      <li
+        className="breadcrumbs__item"
+      >
+        <a
+          className="breadcrumbs__link"
+        >
+          Add review
+        </a>
+      </li>
+    </ul>
+  </nav>
   <div
     className="user-block"
   >
@@ -73,6 +100,33 @@ exports[`Header Render, no login 1`] = `
       </span>
     </a>
   </div>
+  <nav
+    className="breadcrumbs"
+  >
+    <ul
+      className="breadcrumbs__list"
+    >
+      <li
+        className="breadcrumbs__item"
+      >
+        <a
+          className="breadcrumbs__link"
+          href="movie-page.html"
+        >
+          The Grand Budapest Hotel
+        </a>
+      </li>
+      <li
+        className="breadcrumbs__item"
+      >
+        <a
+          className="breadcrumbs__link"
+        >
+          Add review
+        </a>
+      </li>
+    </ul>
+  </nav>
   <div
     className="user-block"
   >

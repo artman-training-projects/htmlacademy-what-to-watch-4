@@ -74,7 +74,7 @@ class App extends PureComponent {
   }
 
   _renderMovieCard() {
-    const {films, selectedFilm: moviePoster} = this.props;
+    const {authorizationStatus, films, selectedFilm: moviePoster} = this.props;
 
     const sameFilms = films
       .filter((film) => film.genre === moviePoster.genre && film.title !== moviePoster.title)
@@ -83,8 +83,10 @@ class App extends PureComponent {
     return (
       <MovieCardWrapped
         {...this.props}
+        authorizationStatus={authorizationStatus}
         film={moviePoster}
         onPlayClick={this._handlePlayClick}
+        onReviewClick={() => {}}
         onSignInClick={this._handleSignInClick}
         onSmallMovieCardClick={this._handleSmallMovieCardClick}
         sameFilms={sameFilms}

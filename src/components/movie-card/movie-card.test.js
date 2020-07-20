@@ -20,16 +20,43 @@ describe(`MovieCard`, () => {
     },
   });
 
-  it(`Render MovieCard`, () => {
+  it(`Render MovieCard, auth no`, () => {
     const tree = renderer.create(
         <Provider store={store}>
           <MovieCard
             activeTab={`Overview`}
+            authorizationStatus={`NO_AUTH`}
             film={moviePoster}
             onActiveTabChange={() => {}}
             onActiveTabRender={() => {}}
-            onSignInClick={() => {}}
             onPlayClick={() => {}}
+            onReviewClick={() => {}}
+            onSignInClick={() => {}}
+            onSmallMovieCardClick={() => {}}
+            sameFilms={films}
+          />
+        </Provider>, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`Render MovieCard, auth yes`, () => {
+    const tree = renderer.create(
+        <Provider store={store}>
+          <MovieCard
+            activeTab={`Overview`}
+            authorizationStatus={`AUTH`}
+            film={moviePoster}
+            onActiveTabChange={() => {}}
+            onActiveTabRender={() => {}}
+            onPlayClick={() => {}}
+            onReviewClick={() => {}}
+            onSignInClick={() => {}}
             onSmallMovieCardClick={() => {}}
             sameFilms={films}
           />
