@@ -11,6 +11,7 @@ export const Pages = {
   MAIN: `/`,
   MOVIE_CARD: `/movie-card`,
   SIGN_IN: `/sign-in`,
+  REVIEW: `/review`,
 };
 
 export const MovieNavList = {

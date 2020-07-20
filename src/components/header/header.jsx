@@ -12,6 +12,21 @@ const Header = (props) => {
 
   const linkOnMain = currentPage !== Pages.MAIN ? `/` : null;
 
+  // const isReview = currentPage === Pages.REVIEW ?
+  const isReview = `true` ?
+    <React.Fragment>
+      <nav className="breadcrumbs">
+        <ul className="breadcrumbs__list">
+          <li className="breadcrumbs__item">
+            <a href="movie-page.html" className="breadcrumbs__link">The Grand Budapest Hotel</a>
+          </li>
+          <li className="breadcrumbs__item">
+            <a className="breadcrumbs__link">Add review</a>
+          </li>
+        </ul>
+      </nav>
+    </React.Fragment> : ``;
+
   const isSignIn = authorizationStatus === AuthorizationStatus.AUTH ?
     <React.Fragment>
       <div className="user-block">
@@ -40,6 +55,8 @@ const Header = (props) => {
           <span className="logo__letter logo__letter--3">W</span>
         </a>
       </div>
+
+      {isReview}
 
       {isSignIn}
     </header>

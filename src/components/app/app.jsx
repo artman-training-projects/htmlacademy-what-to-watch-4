@@ -13,6 +13,7 @@ import {getFilms, getPromo} from '../../reducer/data/selectors.js';
 
 import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
+import AddReview from '../add-review/add-review.jsx';
 import VideoPlayerFull from '../video-player-full/video-player-full.jsx';
 import SignIn from '../sign-in/sign-in.jsx';
 import withCountFilms from '../../hoc/with-count-films/with-count-films.jsx';
@@ -55,6 +56,8 @@ class App extends PureComponent {
         return this._renderMovieCard();
       case Pages.SIGN_IN:
         return this._renderSingIn();
+      case Pages.REVIEW:
+        return this._renderAddReview();
     }
 
     return this._renderMain();
@@ -86,6 +89,13 @@ class App extends PureComponent {
         onSmallMovieCardClick={this._handleSmallMovieCardClick}
         sameFilms={sameFilms}
       />
+    );
+  }
+
+  _renderAddReview() {
+
+    return (
+      <AddReview />
     );
   }
 
@@ -153,6 +163,9 @@ class App extends PureComponent {
           </Route>
           <Route exact path={Pages.SIGN_IN}>
             {this._renderSingIn()}
+          </Route>
+          <Route exact path={Pages.REVIEW}>
+            {this._renderAddReview()}
           </Route>
         </Switch>
       </BrowserRouter>
