@@ -5,33 +5,36 @@ import configureStore from 'redux-mock-store';
 
 import {Pages} from '../../const.js';
 import {films} from '../data-for-test.js';
-import VideoPlayerFull from './video-player-full.jsx';
+import AddReview from './add-review.jsx';
 import NameSpace from '../../reducer/name-space.js';
 
 const film = films[0];
+
 const mockStore = configureStore([]);
 
-describe(`VideoPlayerFull`, () => {
-  const store = mockStore({
-    [NameSpace.APP]: {
-      currentPage: Pages.MAIN,
-    }
-  });
+describe(`AddReview`, () => {
+  it(`Render`, () => {
+    const store = mockStore({
+      [NameSpace.APP]: {
+        currentPage: Pages.REVIEW,
+      },
+      [NameSpace.USER]: {
+        authorizationStatus: `AUTH`,
+        authorizationError: false,
+        user: {
+          id: 0,
+          email: ``,
+          name: ``,
+          avatarSrc: ``,
+        },
+      },
+    });
 
-  it(`Render VideoPlayerFull`, () => {
     const tree = renderer.create(
         <Provider store={store}>
-          <VideoPlayerFull
-            currentTime={20}
-            duration={100}
+          <AddReview
             film={film}
-            isPlaying={true}
-            leftTime={`00:10:12`}
-            onClosePlayerClick={() => {}}
-            onIsPlayingChange={() => {}}
-            onSetFullScreen={() => {}}
-          ><video/>
-          </VideoPlayerFull>
+          />
         </Provider>, {
           createNodeMock: () => {
             return {};

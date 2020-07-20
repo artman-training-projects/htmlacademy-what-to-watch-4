@@ -37,6 +37,7 @@ class App extends PureComponent {
     this._renderMoviePlayer = this._renderMoviePlayer.bind(this);
     this._handleClosePlayerClick = this._handleClosePlayerClick.bind(this);
     this._handlePlayClick = this._handlePlayClick.bind(this);
+    this._handleReviewClick = this._handleReviewClick.bind(this);
     this._handleSignInClick = this._handleSignInClick.bind(this);
     this._handleSmallMovieCardClick = this._handleSmallMovieCardClick.bind(this);
   }
@@ -75,7 +76,6 @@ class App extends PureComponent {
 
   _renderMovieCard() {
     const {authorizationStatus, films, selectedFilm: moviePoster} = this.props;
-
     const sameFilms = films
       .filter((film) => film.genre === moviePoster.genre && film.title !== moviePoster.title)
       .slice(0, COUNT_OF_SAME_FILMS);
@@ -86,7 +86,7 @@ class App extends PureComponent {
         authorizationStatus={authorizationStatus}
         film={moviePoster}
         onPlayClick={this._handlePlayClick}
-        onReviewClick={() => {}}
+        onReviewClick={this._handleReviewClick}
         onSignInClick={this._handleSignInClick}
         onSmallMovieCardClick={this._handleSmallMovieCardClick}
         sameFilms={sameFilms}
@@ -95,9 +95,12 @@ class App extends PureComponent {
   }
 
   _renderAddReview() {
+    const {selectedFilm} = this.props;
 
     return (
-      <AddReview />
+      <AddReview
+        film={selectedFilm}
+      />
     );
   }
 
@@ -135,6 +138,11 @@ class App extends PureComponent {
     this.setState({
       isVideoPlayer: true,
     });
+  }
+
+  _handleReviewClick() {
+    const {handlePageChange} = this.props;
+    handlePageChange(Pages.REVIEW);
   }
 
   _handleSmallMovieCardClick(film) {

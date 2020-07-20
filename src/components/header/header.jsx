@@ -8,17 +8,16 @@ import {getCurrentPage} from '../../reducer/app/selectors.js';
 import {getAuthStatus, getUserData} from '../../reducer/user/selector.js';
 
 const Header = (props) => {
-  const {authorizationStatus, currentPage, onSignInClick, user} = props;
+  const {authorizationStatus, currentPage, film, onSignInClick, user} = props;
 
   const linkOnMain = currentPage !== Pages.MAIN ? `/` : null;
 
-  // const isReview = currentPage === Pages.REVIEW ?
-  const isReview = `true` ?
+  const isReview = currentPage === Pages.REVIEW ?
     <React.Fragment>
       <nav className="breadcrumbs">
         <ul className="breadcrumbs__list">
           <li className="breadcrumbs__item">
-            <a href="movie-page.html" className="breadcrumbs__link">The Grand Budapest Hotel</a>
+            <a href="movie-page.html" className="breadcrumbs__link">{film.title}</a>
           </li>
           <li className="breadcrumbs__item">
             <a className="breadcrumbs__link">Add review</a>
@@ -66,7 +65,8 @@ const Header = (props) => {
 Header.propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
   currentPage: PropTypes.string.isRequired,
-  onSignInClick: PropTypes.func.isRequired,
+  film: CustomPropTypes.FILM,
+  onSignInClick: PropTypes.func,
   user: CustomPropTypes.USER,
 };
 
