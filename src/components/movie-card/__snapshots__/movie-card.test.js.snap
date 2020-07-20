@@ -12,8 +12,8 @@ Array [
         className="movie-card__bg"
       >
         <img
-          alt="Snatch"
-          src="https://loremflickr.com/1300/550"
+          alt="The Grand Budapest Hotel"
+          src="img/bg-the-grand-budapest-hotel.jpg"
         />
       </div>
       <h1
@@ -29,7 +29,7 @@ Array [
         >
           <a
             className="logo__link"
-            href={null}
+            href="/"
           >
             <span
               className="logo__letter logo__letter--1"
@@ -51,16 +51,13 @@ Array [
         <div
           className="user-block"
         >
-          <div
-            className="user-block__avatar"
+          <a
+            className="user-block__link"
+            href="/sign-in"
+            onClick={[Function]}
           >
-            <img
-              alt="User avatar"
-              height="63"
-              src="img/avatar.jpg"
-              width="63"
-            />
-          </div>
+            Sign in
+          </a>
         </div>
       </header>
       <div
@@ -72,7 +69,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            Snatch
+            The Grand Budapest Hotel
           </h2>
           <p
             className="movie-card__meta"
@@ -80,12 +77,12 @@ Array [
             <span
               className="movie-card__genre"
             >
-              Crime
+              Drame
             </span>
             <span
               className="movie-card__year"
             >
-              2000
+              2014
             </span>
           </p>
           <div
@@ -146,9 +143,9 @@ Array [
           className="movie-card__poster movie-card__poster--big"
         >
           <img
-            alt="Snatch"
+            alt="The Grand Budapest Hotel"
             height="327"
-            src="img/snatch.jpg"
+            src="img/the-grand-budapest-hotel-poster.jpg"
             width="218"
           />
         </div>
@@ -226,7 +223,6 @@ Array [
             <video
               height="175"
               poster="img/snatch.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -256,7 +252,6 @@ Array [
             <video
               height="175"
               poster="img/moonrise-kingdom.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -286,7 +281,6 @@ Array [
             <video
               height="175"
               poster="img/seven-years-in-tibet.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -316,7 +310,6 @@ Array [
             <video
               height="175"
               poster="img/midnight-special.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -346,7 +339,6 @@ Array [
             <video
               height="175"
               poster="img/war-of-the-worlds.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -376,7 +368,6 @@ Array [
             <video
               height="175"
               poster="img/dardjeeling-limited.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -406,7 +397,6 @@ Array [
             <video
               height="175"
               poster="img/orlando.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -436,7 +426,6 @@ Array [
             <video
               height="175"
               poster="img/mindhunter.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -464,7 +453,7 @@ Array [
       >
         <a
           className="logo__link logo__link--light"
-          href={null}
+          href="/"
         >
           <span
             className="logo__letter logo__letter--1"

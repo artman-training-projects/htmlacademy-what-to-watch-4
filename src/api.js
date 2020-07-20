@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-const Error = {
-  UNAUTHORIZED: 401
+const RequestCodes = {
+  BAD_REQUEST: 400,
+  SUCCESS: 200,
+  UNAUTHORIZED: 401,
 };
 
 const ENTRY_POINT = `https://4.react.pages.academy/wtw`;
@@ -19,7 +21,7 @@ export const createAPI = (onUnauthorized) => {
   const onError = (err) => {
     const {response} = err;
 
-    if (response.status === Error.UNAUTHORIZED) {
+    if (response.status === RequestCodes.UNAUTHORIZED) {
       onUnauthorized();
       throw err;
     }

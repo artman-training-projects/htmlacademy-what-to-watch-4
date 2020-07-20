@@ -2,9 +2,15 @@ export const ALL_GENRES = `All genres`;
 
 export const COUNT_OF_SHOW_FILMS = 8;
 
+export const AuthorizationStatus = {
+  AUTH: `AUTH`,
+  NO_AUTH: `NO_AUTH`,
+};
+
 export const Pages = {
   MAIN: `/`,
   MOVIE_CARD: `/movie-card`,
+  SIGN_IN: `/sign-in`,
 };
 
 export const MovieNavList = {

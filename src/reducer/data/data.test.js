@@ -1,12 +1,13 @@
 import MockAdapter from 'axios-mock-adapter';
 import {createAPI} from '../../api.js';
+
 import {ActionType, Operations, reducer} from './data.js';
 import {films, moviePoster, comments} from '../../components/data-for-test.js';
 import filmAdapter from '../../adapter/film.js';
 
 const api = createAPI(() => {});
 
-describe(`Reducer Data`, () => {
+describe(`Operations Data`, () => {
   it(`Should make a correct API call to /films`, () => {
     const apiMock = new MockAdapter(api);
     const dispatch = jest.fn();
@@ -35,12 +36,12 @@ describe(`Reducer Data`, () => {
       .reply(200, [{fake: true}]);
 
     return promoLoader(dispatch, () => {}, api)
-        .then(() => {
-          expect(dispatch).toHaveBeenCalledWith({
-            type: ActionType.LOAD_PROMO,
-            payload: filmAdapter({fake: true}),
-          });
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledWith({
+          type: ActionType.LOAD_PROMO,
+          payload: filmAdapter({fake: true}),
         });
+      });
   });
 
   it(`Should make a correct API call to /comments/filmID`, () => {
@@ -53,12 +54,29 @@ describe(`Reducer Data`, () => {
       .reply(200, [{fake: true}]);
 
     return promoLoader(dispatch, () => {}, api)
-        .then(() => {
-          expect(dispatch).toHaveBeenCalledWith({
-            type: ActionType.LOAD_COMMENTS,
-            payload: [{fake: true}],
-          });
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledWith({
+          type: ActionType.LOAD_COMMENTS,
+          payload: [{fake: true}],
         });
+      });
+  });
+});
+
+describe(`Reducer Data`, () => {
+  it(`Should return initial state`, () => {
+    expect(reducer(void 0, {})).toEqual({
+      availableGenres: [`All genres`],
+      comments: false,
+      films: [],
+      moviePoster: false,
+      loadingComments: true,
+      loadingFilms: true,
+      loadingPromo: true,
+      loadCommentsError: false,
+      loadFilmsError: false,
+      loadPromoError: false,
+    });
   });
 
   it(`Should update films by load`, () => {
@@ -72,7 +90,29 @@ describe(`Reducer Data`, () => {
     });
   });
 
-  it(`Should update moviePoster by load`, () => {
+  it(`Should update films load status`, () => {
+    expect(reducer({
+      loadingFilms: true,
+    }, {
+      type: ActionType.IS_LOADING_FILM,
+      payload: false
+    })).toEqual({
+      loadingFilms: false,
+    });
+  });
+
+  it(`Should update films load error`, () => {
+    expect(reducer({
+      loadFilmsError: false,
+    }, {
+      type: ActionType.LOAD_FILMS_ERROR,
+      payload: true
+    })).toEqual({
+      loadFilmsError: true,
+    });
+  });
+
+  it(`Should update promo by load`, () => {
     expect(reducer({
       moviePoster: false,
     }, {
@@ -80,6 +120,28 @@ describe(`Reducer Data`, () => {
       payload: moviePoster
     })).toEqual({
       moviePoster,
+    });
+  });
+
+  it(`Should update promo load status`, () => {
+    expect(reducer({
+      loadingPromo: true,
+    }, {
+      type: ActionType.IS_LOADING_PROMO,
+      payload: false
+    })).toEqual({
+      loadingPromo: false,
+    });
+  });
+
+  it(`Should update promo load error`, () => {
+    expect(reducer({
+      loadPromoError: false,
+    }, {
+      type: ActionType.LOAD_PROMO_ERROR,
+      payload: true
+    })).toEqual({
+      loadPromoError: true,
     });
   });
 
@@ -91,6 +153,28 @@ describe(`Reducer Data`, () => {
       payload: comments
     })).toEqual({
       comments,
+    });
+  });
+
+  it(`Should update comments load status`, () => {
+    expect(reducer({
+      loadingComments: true,
+    }, {
+      type: ActionType.IS_LOADING_COMMENTS,
+      payload: false
+    })).toEqual({
+      loadingComments: false,
+    });
+  });
+
+  it(`Should update comments load error`, () => {
+    expect(reducer({
+      loadCommentsError: false,
+    }, {
+      type: ActionType.LOAD_COMMENTS_ERROR,
+      payload: true
+    })).toEqual({
+      loadCommentsError: true,
     });
   });
 });

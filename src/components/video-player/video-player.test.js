@@ -11,7 +11,7 @@ describe(`VideoPlayer`, () => {
         <VideoPlayer muted
           isPlaying = {false}
           poster = {film.poster}
-          src = {film.src}
+          src = {film.previewSrc}
         />, {
           createNodeMock: () => {
             return {};

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Main Render Main 1`] = `
+exports[`Main Render with films and promo 1`] = `
 Array [
   <section
     className="movie-card"
@@ -48,16 +48,13 @@ Array [
       <div
         className="user-block"
       >
-        <div
-          className="user-block__avatar"
+        <a
+          className="user-block__link"
+          href="/sign-in"
+          onClick={[Function]}
         >
-          <img
-            alt="User avatar"
-            height="63"
-            src="img/avatar.jpg"
-            width="63"
-          />
-        </div>
+          Sign in
+        </a>
       </div>
     </header>
     <div
@@ -248,7 +245,6 @@ Array [
             <video
               height="175"
               poster="img/snatch.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -278,7 +274,6 @@ Array [
             <video
               height="175"
               poster="img/moonrise-kingdom.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -308,7 +303,6 @@ Array [
             <video
               height="175"
               poster="img/seven-years-in-tibet.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -338,7 +332,6 @@ Array [
             <video
               height="175"
               poster="img/midnight-special.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -368,7 +361,6 @@ Array [
             <video
               height="175"
               poster="img/war-of-the-worlds.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -398,7 +390,6 @@ Array [
             <video
               height="175"
               poster="img/dardjeeling-limited.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -428,7 +419,6 @@ Array [
             <video
               height="175"
               poster="img/orlando.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos
@@ -458,7 +448,6 @@ Array [
             <video
               height="175"
               poster="img/mindhunter.jpg"
-              type="video/webm"
               width="280"
             >
               your browser doesn\`t support embedded videos

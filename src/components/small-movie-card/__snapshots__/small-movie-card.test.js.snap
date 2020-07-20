@@ -13,7 +13,6 @@ exports[`SmallMovieCard Render SmallMovieCard 1`] = `
     <video
       height="175"
       poster="img/snatch.jpg"
-      type="video/webm"
       width="280"
     >
       your browser doesn\`t support embedded videos

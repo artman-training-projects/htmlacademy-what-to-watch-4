@@ -5,7 +5,6 @@ import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import {films, moviePoster} from '../data-for-test.js';
-import {ALL_GENRES} from '../../const.js';
 import Main from './main.jsx';
 import NameSpace from '../../reducer/name-space.js';
 
@@ -23,10 +22,18 @@ describe(`Main`, () => {
     [NameSpace.DATA]: {
       films,
       moviePoster,
+      loadingFilms: false,
+      loadFilmsError: false,
+      loadingPromo: false,
+      loadPromoError: false,
     },
     [NameSpace.SHOW]: {
-      currentGenre: ALL_GENRES,
+      currentGenre: `All genres`,
     },
+    [NameSpace.USER]: {
+      authorizationStatus: `NO_AUTH`,
+      authorizationError: false,
+    }
   });
 
   it(`Should movieCardTitle clicked`, () => {
@@ -35,10 +42,11 @@ describe(`Main`, () => {
     const main = mount(
         <Provider store={store}>
           <Main
-            onSmallMovieCardClick={handleSmallMovieCardClick}
             numberOfFilms={8}
-            onCountShowFilmReset={() => {}}
+            onSignInClick={() => {}}
+            onSmallMovieCardClick={handleSmallMovieCardClick}
             onCountShowFilmAdd={() => {}}
+            onCountShowFilmReset={() => {}}
             onPlayClick={() => {}}
           />
         </Provider>
@@ -56,10 +64,11 @@ describe(`Main`, () => {
     const main = mount(
         <Provider store={store}>
           <Main
-            onSmallMovieCardClick={() => {}}
             numberOfFilms={8}
-            onCountShowFilmReset={() => {}}
+            onSignInClick={() => {}}
+            onSmallMovieCardClick={() => {}}
             onCountShowFilmAdd={() => {}}
+            onCountShowFilmReset={() => {}}
             onPlayClick={handlePlayClick}
           />
         </Provider>
@@ -68,5 +77,41 @@ describe(`Main`, () => {
     const playButton = main.find(`.btn--play`);
     playButton.simulate(`click`, film);
     expect(handlePlayClick).toHaveBeenCalledWith(film);
+  });
+
+  it(`Should section catalogMore exist`, () => {
+    const main = mount(
+        <Provider store={store}>
+          <Main
+            numberOfFilms={4}
+            onSignInClick={() => {}}
+            onSmallMovieCardClick={() => {}}
+            onCountShowFilmAdd={() => {}}
+            onCountShowFilmReset={() => {}}
+            onPlayClick={() => {}}
+          />
+        </Provider>
+    );
+
+    const catalogMore = main.find(`.catalog__more`);
+    expect(catalogMore.length).toEqual(1);
+  });
+
+  it(`Should section catalogMore no exist`, () => {
+    const main = mount(
+        <Provider store={store}>
+          <Main
+            numberOfFilms={8}
+            onSignInClick={() => {}}
+            onSmallMovieCardClick={() => {}}
+            onCountShowFilmAdd={() => {}}
+            onCountShowFilmReset={() => {}}
+            onPlayClick={() => {}}
+          />
+        </Provider>
+    );
+
+    const catalogMore = main.find(`.catalog__more`);
+    expect(catalogMore.length).toEqual(0);
   });
 });

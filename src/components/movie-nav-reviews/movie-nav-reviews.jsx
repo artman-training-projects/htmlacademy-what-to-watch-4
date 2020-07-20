@@ -1,43 +1,69 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
+
+import {getCommetsStatus, getFilmComments} from '../../reducer/data/selectors.js';
 import MovieReview from '../movie-review/movie-review.jsx';
 
 const MovieNavReviews = (props) => {
-  const {reviews} = props;
+  const {comments, loadingComments} = props;
 
-  const halfReviews = reviews && Math.ceil(reviews.length / 2);
-  const reviewsColumn1 = reviews && reviews.slice(0, halfReviews);
-  const reviewsColumn2 = reviews && reviews.slice(halfReviews);
+  const isLoadingComments = () => {
+    if (loadingComments.commentsIsLoading && !loadingComments.loadingIsError) {
+      return `films is loading...`;
+    } else if (loadingComments.commentsIsLoading && loadingComments.loadingIsError) {
+      return `server error, try later...`;
+    }
+
+    return false;
+  };
+
+  const halfComments = comments && Math.ceil(comments.length / 2);
+  const commentsColumn1 = comments && comments.slice(0, halfComments);
+  const commentsColumn2 = comments && comments.slice(halfComments);
 
   return (<React.Fragment>
     <div className="movie-card__reviews movie-card__row">
-      <div className="movie-card__reviews-col">
-        {reviews && reviewsColumn1.map((review) => (
-          <MovieReview
-            key={review.id}
-            review={review}
-          />
-        ))}
-      </div>
+      {isLoadingComments() ||
+        <React.Fragment>
+          <div className="movie-card__reviews-col">
+            {comments && commentsColumn1.map((comment) => (
+              <MovieReview
+                key={comment.id}
+                comment={comment}
+              />
+            ))}
+          </div>
 
-      <div className="movie-card__reviews-col">
-        {reviews && reviewsColumn2.map((review) => (
-          <MovieReview
-            key={review.id}
-            review={review}
-          />
-        ))}
-      </div>
+          <div className="movie-card__reviews-col">
+            {comments && commentsColumn2.map((comment) => (
+              <MovieReview
+                key={comment.id}
+                comment={comment}
+              />
+            ))}
+          </div>
+        </React.Fragment>
+      }
     </div>
   </React.Fragment>);
 };
 
 MovieNavReviews.propTypes = {
-  reviews: PropTypes.PropTypes.oneOfType([
+  comments: PropTypes.PropTypes.oneOfType([
     PropTypes.arrayOf(CustomPropTypes.COMMENT),
     PropTypes.bool,
   ]),
+  loadingComments: PropTypes.shape({
+    commentsIsLoading: PropTypes.bool.isRequired,
+    loadingIsError: PropTypes.bool.isRequired,
+  }),
 };
 
-export default MovieNavReviews;
+const mapStateToProps = (state) => ({
+  comments: getFilmComments(state),
+  loadingComments: getCommetsStatus(state),
+});
+
+export default connect(mapStateToProps)(MovieNavReviews);

@@ -11,24 +11,33 @@ import NameSpace from '../../reducer/name-space.js';
 const mockStore = configureStore([]);
 
 describe(`App`, () => {
-  const store = mockStore({
-    [NameSpace.APP]: {
-      currentPage: `/`,
-    },
-    [NameSpace.DATA]: {
-      films,
-      moviePoster,
-    },
-    [NameSpace.SHOW]: {
-      currentGenre: ALL_GENRES,
-    },
-  });
+  it(`Render with films and promo`, () => {
+    const store = mockStore({
+      [NameSpace.APP]: {
+        currentPage: `/`,
+      },
+      [NameSpace.DATA]: {
+        films,
+        moviePoster: false,
+        loadingFilms: false,
+        loadFilmsError: false,
+        loadingPromo: false,
+        loadPromoError: false,
+      },
+      [NameSpace.SHOW]: {
+        currentGenre: ALL_GENRES,
+      },
+      [NameSpace.USER]: {
+        authorizationStatus: `NO_AUTH`,
+        authorizationError: false,
+      },
+    });
 
-  it(`Render`, () => {
     const tree = renderer.create(
         <Provider store={store}>
           <App
             onFilmSelect={() => {}}
+            film={moviePoster}
           />
         </Provider>, {
           createNodeMock: () => {

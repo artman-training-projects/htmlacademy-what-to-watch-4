@@ -13,26 +13,26 @@ const getDateTimeString = (time) => {
 };
 
 const MovieReview = (props) => {
-  const {review} = props;
+  const {comment} = props;
 
   return (<React.Fragment>
     <div className="review">
       <blockquote className="review__quote">
-        <p className="review__text">{review && review.comment}</p>
+        <p className="review__text">{comment && comment.comment}</p>
 
         <footer className="review__details">
-          <cite className="review__author">{review && review.user.name}</cite>
-          <time className="review__date" dateTime={review && getDateTime(review.date)}>{review && getDateTimeString(review.date)}</time>
+          <cite className="review__author">{comment && comment.user.name}</cite>
+          <time className="review__date" dateTime={comment && getDateTime(comment.date)}>{comment && getDateTimeString(comment.date)}</time>
         </footer>
       </blockquote>
 
-      <div className="review__rating">{review && review.rating}</div>
+      <div className="review__rating">{comment && comment.rating}</div>
     </div>
   </React.Fragment>);
 };
 
 MovieReview.propTypes = {
-  review: CustomPropTypes.COMMENT,
+  comment: CustomPropTypes.COMMENT,
 };
 
 export default MovieReview;
