@@ -28,12 +28,17 @@ describe(`AddReview`, () => {
           avatarSrc: ``,
         },
       },
+      [NameSpace.DATA]: {
+        sendingComment: false,
+        sendCommentError: false,
+      },
     });
 
     const tree = renderer.create(
         <Provider store={store}>
           <AddReview
             film={film}
+            onSubmitReview={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {

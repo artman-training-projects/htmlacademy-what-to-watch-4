@@ -1,5 +1,9 @@
 import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
+
+import {getReviewStatus} from '../../reducer/data/selectors.js';
 import Header from '../header/header.jsx';
 
 const ReviewLength = {
@@ -18,6 +22,7 @@ class AddReview extends PureComponent {
 
     this._handleChangeComment = this._handleChangeComment.bind(this);
     this._handleChangeRating = this._handleChangeRating.bind(this);
+    this._handleSubmit = this._handleSubmit.bind(this);
   }
 
   _handleChangeComment(evt) {
@@ -36,8 +41,19 @@ class AddReview extends PureComponent {
     });
   }
 
+  _handleSubmit(evt) {
+    const {film, onSubmitReview} = this.props;
+    const {rating, comment} = this.state;
+    evt.preventDefault();
+
+    onSubmitReview(film.id, {
+      rating,
+      comment,
+    });
+  }
+
   render() {
-    const {film} = this.props;
+    const {film, sendingComment} = this.props;
     const {rating, comment} = this.state;
 
     const isValidReview = (rating && comment) ?
@@ -67,7 +83,9 @@ class AddReview extends PureComponent {
         </div>
 
         <div className="add-review">
-          <form action="#" className="add-review__form">
+          <form action="#" className="add-review__form"
+            onSubmit={this._handleSubmit}
+          >
             <div className="rating">
               <div className="rating__stars"
                 onChange={this._handleChangeRating}
@@ -107,6 +125,15 @@ class AddReview extends PureComponent {
 
 AddReview.propTypes = {
   film: CustomPropTypes.FILM,
+  onSubmitReview: PropTypes.func.isRequired,
+  sendingComment: PropTypes.shape({
+    commentsIsSending: PropTypes.bool.isRequired,
+    sendingIsError: PropTypes.bool.isRequired,
+  }),
 };
 
-export default AddReview;
+const mapStateToProps = (state) => ({
+  sendingComment: getReviewStatus(state),
+});
+
+export default connect(mapStateToProps)(AddReview);

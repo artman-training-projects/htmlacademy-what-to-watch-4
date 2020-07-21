@@ -106,6 +106,7 @@ exports[`AddReview Render 1`] = `
     <form
       action="#"
       className="add-review__form"
+      onSubmit={[Function]}
     >
       <div
         className="rating"

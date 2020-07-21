@@ -95,11 +95,12 @@ class App extends PureComponent {
   }
 
   _renderAddReview() {
-    const {selectedFilm} = this.props;
+    const {handleSubmitReview, selectedFilm} = this.props;
 
     return (
       <AddReview
         film={selectedFilm}
+        onSubmitReview={handleSubmitReview}
       />
     );
   }
@@ -189,6 +190,7 @@ App.propTypes = {
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   getComments: PropTypes.func.isRequired,
   handlePageChange: PropTypes.func.isRequired,
+  handleSubmitReview: PropTypes.func.isRequired,
   moviePoster: PropTypes.oneOfType([
     CustomPropTypes.FILM,
     PropTypes.bool,
@@ -210,6 +212,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   handlePageChange(page) {
     dispatch(AppActionCreator.setCurrentPage(page));
+  },
+
+  handleSubmitReview(review, id) {
+    dispatch(DataOperations.sendComment(review, id));
   },
 
   getComments(filmID) {

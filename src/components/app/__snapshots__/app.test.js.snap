@@ -77,13 +77,16 @@ exports[`App Render pageAddReview 1`] = `
       <div
         className="user-block"
       >
-        <a
-          className="user-block__link"
-          href="/sign-in"
-          onClick={[Function]}
+        <div
+          className="user-block__avatar"
         >
-          Sign in
-        </a>
+          <img
+            alt="John Doe"
+            height="63"
+            src="avatarSrc"
+            width="63"
+          />
+        </div>
       </div>
     </header>
     <div
@@ -103,6 +106,7 @@ exports[`App Render pageAddReview 1`] = `
     <form
       action="#"
       className="add-review__form"
+      onSubmit={[Function]}
     >
       <div
         className="rating"

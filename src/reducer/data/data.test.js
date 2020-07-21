@@ -8,7 +8,7 @@ import filmAdapter from '../../adapter/film.js';
 const api = createAPI(() => {});
 
 describe(`Operations Data`, () => {
-  it(`Should make a correct API call to /films`, () => {
+  it(`Should make a correct API call to get /films`, () => {
     const apiMock = new MockAdapter(api);
     const dispatch = jest.fn();
     const filmsLoader = Operations.loadFilms();
@@ -26,7 +26,7 @@ describe(`Operations Data`, () => {
       });
   });
 
-  it(`Should make a correct API call to /films/promo`, () => {
+  it(`Should make a correct API call to get /films/promo`, () => {
     const apiMock = new MockAdapter(api);
     const dispatch = jest.fn();
     const promoLoader = Operations.loadPromo();
@@ -44,20 +44,41 @@ describe(`Operations Data`, () => {
       });
   });
 
-  it(`Should make a correct API call to /comments/filmID`, () => {
+  it(`Should make a correct API call to get /comments/filmID`, () => {
     const apiMock = new MockAdapter(api);
     const dispatch = jest.fn();
-    const promoLoader = Operations.loadComments(1);
+    const commentsLoader = Operations.loadComments(1);
 
     apiMock
       .onGet(`/comments/1`)
       .reply(200, [{fake: true}]);
 
-    return promoLoader(dispatch, () => {}, api)
+    return commentsLoader(dispatch, () => {}, api)
       .then(() => {
         expect(dispatch).toHaveBeenCalledWith({
           type: ActionType.LOAD_COMMENTS,
           payload: [{fake: true}],
+        });
+      });
+  });
+
+  it(`Should make a correct API call to post /comments/filmID`, () => {
+    const apiMock = new MockAdapter(api);
+    const dispatch = jest.fn();
+    const commentSending = Operations.sendComment(0, {
+      rating: `5`,
+      comment: `review`,
+    });
+
+    apiMock
+      .onPost(`/comments/0`)
+      .reply(200, [{fake: true}]);
+
+    return commentSending(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledWith({
+          type: ActionType.SEND_COMMENT,
+          payload: true,
         });
       });
   });
@@ -76,6 +97,8 @@ describe(`Reducer Data`, () => {
       loadCommentsError: false,
       loadFilmsError: false,
       loadPromoError: false,
+      sendingComment: false,
+      sendCommentError: false
     });
   });
 
@@ -175,6 +198,28 @@ describe(`Reducer Data`, () => {
       payload: true
     })).toEqual({
       loadCommentsError: true,
+    });
+  });
+
+  it(`Should update comment send status`, () => {
+    expect(reducer({
+      sendingComment: false,
+    }, {
+      type: ActionType.SEND_COMMENT,
+      payload: true
+    })).toEqual({
+      sendingComment: true,
+    });
+  });
+
+  it(`Should update comment send error`, () => {
+    expect(reducer({
+      sendCommentError: false,
+    }, {
+      type: ActionType.SEND_COMMENT_ERROR,
+      payload: true
+    })).toEqual({
+      sendCommentError: true,
     });
   });
 });

@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import {films, moviePoster} from '../data-for-test.js';
+import {films, moviePoster, user} from '../data-for-test.js';
 import {ALL_GENRES, Pages} from '../../const.js';
 import App from './app.jsx';
 import NameSpace from '../../reducer/name-space.js';
@@ -138,13 +138,16 @@ describe(`App`, () => {
         loadFilmsError: false,
         loadingPromo: false,
         loadPromoError: false,
+        sendingComment: false,
+        sendCommentError: false,
       },
       [NameSpace.SHOW]: {
         currentGenre: ALL_GENRES,
       },
       [NameSpace.USER]: {
-        authorizationStatus: `NO_AUTH`,
+        authorizationStatus: `AUTH`,
         authorizationError: false,
+        user,
       },
     });
 
