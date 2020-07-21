@@ -38,6 +38,8 @@ describe(`AddReview`, () => {
         <Provider store={store}>
           <AddReview
             film={film}
+            onChangeComment={() => {}}
+            onChangeRating={() => {}}
             onSubmitReview={() => {}}
           />
         </Provider>, {
@@ -75,6 +77,8 @@ describe(`AddReview`, () => {
         <Provider store={store}>
           <AddReview
             film={film}
+            onChangeComment={() => {}}
+            onChangeRating={() => {}}
             onSubmitReview={() => {}}
           />
         </Provider>, {
@@ -112,6 +116,8 @@ describe(`AddReview`, () => {
         <Provider store={store}>
           <AddReview
             film={film}
+            onChangeComment={() => {}}
+            onChangeRating={() => {}}
             onSubmitReview={() => {}}
           />
         </Provider>, {
