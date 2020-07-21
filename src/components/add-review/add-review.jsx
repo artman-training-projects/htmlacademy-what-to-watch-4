@@ -56,13 +56,19 @@ class AddReview extends PureComponent {
     const {film, sendingComment} = this.props;
     const {rating, comment} = this.state;
 
-    const isValidReview = (rating && comment) ?
-      <React.Fragment>
-        <button className="add-review__btn" type="submit">Post</button>
-      </React.Fragment> :
-      <React.Fragment>
-        <button className="add-review__btn" type="submit" disabled>Post</button>
-      </React.Fragment>;
+    const isValidReview = (rating && comment) ? false : true;
+
+    const isSendingReview = () => {
+      if (sendingComment.commentsIsSending && !sendingComment.sendingIsError) {
+        return ``;
+      } else if (sendingComment.commentsIsSending && sendingComment.sendingIsError) {
+        return `sending review error, try again...`;
+      }
+
+      return false;
+    };
+
+    const isBlocked = (sendingComment.commentsIsSending && !sendingComment.sendingIsError) ? true : false;
 
     return (
       <section className="movie-card movie-card--full">
@@ -83,38 +89,43 @@ class AddReview extends PureComponent {
         </div>
 
         <div className="add-review">
-          <form action="#" className="add-review__form"
+          <form action="#" className="add-review__form" disabled={isBlocked}
             onSubmit={this._handleSubmit}
           >
+
             <div className="rating">
               <div className="rating__stars"
                 onChange={this._handleChangeRating}
               >
-                <input className="rating__input" id="star-1" type="radio" name="rating" value="1"/>
+                <input className="rating__input" id="star-1" type="radio" name="rating" value="1" disabled={isBlocked} />
                 <label className="rating__label" htmlFor="star-1">Rating 1</label>
 
-                <input className="rating__input" id="star-2" type="radio" name="rating" value="2" />
+                <input className="rating__input" id="star-2" type="radio" name="rating" value="2" disabled={isBlocked} />
                 <label className="rating__label" htmlFor="star-2">Rating 2</label>
 
-                <input className="rating__input" id="star-3" type="radio" name="rating" value="3" />
+                <input className="rating__input" id="star-3" type="radio" name="rating" value="3" disabled={isBlocked} />
                 <label className="rating__label" htmlFor="star-3">Rating 3</label>
 
-                <input className="rating__input" id="star-4" type="radio" name="rating" value="4" />
+                <input className="rating__input" id="star-4" type="radio" name="rating" value="4" disabled={isBlocked} />
                 <label className="rating__label" htmlFor="star-4">Rating 4</label>
 
-                <input className="rating__input" id="star-5" type="radio" name="rating" value="5" />
+                <input className="rating__input" id="star-5" type="radio" name="rating" value="5" disabled={isBlocked} />
                 <label className="rating__label" htmlFor="star-5">Rating 5</label>
               </div>
             </div>
 
             <div className="add-review__text">
-              <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" minLength={ReviewLength.MIN} maxLength={ReviewLength.MAX}
+              <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text"
+                disabled={isBlocked}
+                minLength={ReviewLength.MIN}
+                maxLength={ReviewLength.MAX}
                 onInput={this._handleChangeComment}
               ></textarea>
               <div className="add-review__submit">
-                {isValidReview}
+                <button className="add-review__btn" type="submit" disabled={isValidReview || isBlocked}>Post</button>
               </div>
             </div>
+            {isSendingReview()}
           </form>
         </div>
 

@@ -106,6 +106,7 @@ exports[`App Render pageAddReview 1`] = `
     <form
       action="#"
       className="add-review__form"
+      disabled={false}
       onSubmit={[Function]}
     >
       <div
@@ -117,6 +118,7 @@ exports[`App Render pageAddReview 1`] = `
         >
           <input
             className="rating__input"
+            disabled={false}
             id="star-1"
             name="rating"
             type="radio"
@@ -130,6 +132,7 @@ exports[`App Render pageAddReview 1`] = `
           </label>
           <input
             className="rating__input"
+            disabled={false}
             id="star-2"
             name="rating"
             type="radio"
@@ -143,6 +146,7 @@ exports[`App Render pageAddReview 1`] = `
           </label>
           <input
             className="rating__input"
+            disabled={false}
             id="star-3"
             name="rating"
             type="radio"
@@ -156,6 +160,7 @@ exports[`App Render pageAddReview 1`] = `
           </label>
           <input
             className="rating__input"
+            disabled={false}
             id="star-4"
             name="rating"
             type="radio"
@@ -169,6 +174,7 @@ exports[`App Render pageAddReview 1`] = `
           </label>
           <input
             className="rating__input"
+            disabled={false}
             id="star-5"
             name="rating"
             type="radio"
@@ -187,6 +193,7 @@ exports[`App Render pageAddReview 1`] = `
       >
         <textarea
           className="add-review__textarea"
+          disabled={false}
           id="review-text"
           maxLength={400}
           minLength={50}
