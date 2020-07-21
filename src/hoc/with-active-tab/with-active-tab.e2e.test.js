@@ -41,7 +41,7 @@ describe(`HOC withActiveTab`, () => {
     });
 
     wrapper.props().onActiveTabChange(MovieNavList.OVERVIEW);
-    wrapper.props().onActiveTabRender(wrapper.state.activeTab);
+    wrapper.props().onActiveTabRender();
     expect(handleActiveTabChange).toHaveBeenCalledWith(MovieNavList.OVERVIEW);
     expect(handleActiveTabRender).toHaveBeenCalled();
   });
@@ -57,12 +57,8 @@ describe(`HOC withActiveTab`, () => {
         />
     );
 
-    wrapper.setState({
-      activeTab: MovieNavList.DETAILS,
-    });
-
     wrapper.props().onActiveTabChange(MovieNavList.DETAILS);
-    wrapper.props().onActiveTabRender(wrapper.state.activeTab);
+    wrapper.props().onActiveTabRender();
     expect(handleActiveTabChange).toHaveBeenCalledWith(MovieNavList.DETAILS);
     expect(handleActiveTabRender).toHaveBeenCalled();
   });
@@ -77,10 +73,6 @@ describe(`HOC withActiveTab`, () => {
           onActiveTabRender={handleActiveTabRender}
         />
     );
-
-    wrapper.setState({
-      activeTab: MovieNavList.DETAILS,
-    });
 
     wrapper.props().onActiveTabChange(MovieNavList.REVIEWS);
     wrapper.props().onActiveTabRender(wrapper.state.activeTab);

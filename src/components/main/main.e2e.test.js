@@ -99,8 +99,29 @@ describe(`Main`, () => {
   });
 
   it(`Should section catalogMore no exist`, () => {
+    const storeCrime = mockStore({
+      [NameSpace.APP]: {
+        currentPage: Pages.MAIN,
+      },
+      [NameSpace.DATA]: {
+        films,
+        moviePoster,
+        loadingFilms: false,
+        loadFilmsError: false,
+        loadingPromo: false,
+        loadPromoError: false,
+      },
+      [NameSpace.SHOW]: {
+        currentGenre: `Crime`,
+      },
+      [NameSpace.USER]: {
+        authorizationStatus: `NO_AUTH`,
+        authorizationError: false,
+      }
+    });
+
     const main = mount(
-        <Provider store={store}>
+        <Provider store={storeCrime}>
           <Main
             numberOfFilms={8}
             onSignInClick={() => {}}
@@ -111,6 +132,7 @@ describe(`Main`, () => {
           />
         </Provider>
     );
+
 
     const catalogMore = main.find(`.catalog__more`);
     expect(catalogMore.length).toEqual(0);

@@ -3,7 +3,6 @@ import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import {COUNT_OF_SHOW_FILMS} from '../../const.js';
-import {films} from '../../components/data-for-test.js';
 import withCountFilms from './with-count-films.jsx';
 
 Enzyme.configure({

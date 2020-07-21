@@ -15,7 +15,6 @@ Enzyme.configure({
 
 const mockStore = configureStore([]);
 
-
 describe(`MovieCard`, () => {
   const store = mockStore({
     [NameSpace.APP]: {

@@ -18,7 +18,7 @@ describe(`VideoPlayerFull`, () => {
     }
   });
 
-  it(`Render VideoPlayerFull`, () => {
+  it(`Render VideoPlayerFull onPlay`, () => {
     const tree = renderer.create(
         <Provider store={store}>
           <VideoPlayerFull
@@ -26,6 +26,30 @@ describe(`VideoPlayerFull`, () => {
             duration={100}
             film={film}
             isPlaying={true}
+            leftTime={`00:10:12`}
+            onClosePlayerClick={() => {}}
+            onIsPlayingChange={() => {}}
+            onSetFullScreen={() => {}}
+          ><video/>
+          </VideoPlayerFull>
+        </Provider>, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`Render VideoPlayerFull onPause`, () => {
+    const tree = renderer.create(
+        <Provider store={store}>
+          <VideoPlayerFull
+            currentTime={20}
+            duration={100}
+            film={film}
+            isPlaying={false}
             leftTime={`00:10:12`}
             onClosePlayerClick={() => {}}
             onIsPlayingChange={() => {}}
