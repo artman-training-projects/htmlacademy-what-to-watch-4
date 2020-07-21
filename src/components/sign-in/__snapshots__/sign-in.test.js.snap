@@ -63,6 +63,7 @@ exports[`SignIn Render, is error autorization 1`] = `
             id="user-email"
             name="user-email"
             placeholder="Email address"
+            required={true}
             type="email"
           />
           <label
@@ -80,6 +81,7 @@ exports[`SignIn Render, is error autorization 1`] = `
             id="user-password"
             name="user-password"
             placeholder="Password"
+            required={true}
             type="password"
           />
           <label
@@ -197,6 +199,7 @@ exports[`SignIn Render, no error autorization 1`] = `
             id="user-email"
             name="user-email"
             placeholder="Email address"
+            required={true}
             type="email"
           />
           <label
@@ -214,6 +217,7 @@ exports[`SignIn Render, no error autorization 1`] = `
             id="user-password"
             name="user-password"
             placeholder="Password"
+            required={true}
             type="password"
           />
           <label

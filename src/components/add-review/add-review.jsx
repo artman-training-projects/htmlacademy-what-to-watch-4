@@ -2,13 +2,51 @@ import React, {PureComponent} from 'react';
 import {CustomPropTypes} from '../custom-prop-types.js';
 import Header from '../header/header.jsx';
 
+const ReviewLength = {
+  MIN: 50,
+  MAX: 400,
+};
+
 class AddReview extends PureComponent {
   constructor(props) {
     super(props);
+
+    this.state = {
+      rating: false,
+      comment: false,
+    };
+
+    this._handleChangeComment = this._handleChangeComment.bind(this);
+    this._handleChangeRating = this._handleChangeRating.bind(this);
+  }
+
+  _handleChangeComment(evt) {
+    const comment = evt.target.value;
+
+    this.setState({
+      comment,
+    });
+  }
+
+  _handleChangeRating(evt) {
+    const rating = evt.target.value;
+
+    this.setState({
+      rating,
+    });
   }
 
   render() {
     const {film} = this.props;
+    const {rating, comment} = this.state;
+
+    const isValidReview = (rating && comment) ?
+      <React.Fragment>
+        <button className="add-review__btn" type="submit">Post</button>
+      </React.Fragment> :
+      <React.Fragment>
+        <button className="add-review__btn" type="submit" disabled>Post</button>
+      </React.Fragment>;
 
     return (
       <section className="movie-card movie-card--full">
@@ -31,7 +69,9 @@ class AddReview extends PureComponent {
         <div className="add-review">
           <form action="#" className="add-review__form">
             <div className="rating">
-              <div className="rating__stars">
+              <div className="rating__stars"
+                onChange={this._handleChangeRating}
+              >
                 <input className="rating__input" id="star-1" type="radio" name="rating" value="1"/>
                 <label className="rating__label" htmlFor="star-1">Rating 1</label>
 
@@ -50,9 +90,11 @@ class AddReview extends PureComponent {
             </div>
 
             <div className="add-review__text">
-              <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text"></textarea>
+              <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" minLength={ReviewLength.MIN} maxLength={ReviewLength.MAX}
+                onInput={this._handleChangeComment}
+              ></textarea>
               <div className="add-review__submit">
-                <button className="add-review__btn" type="submit">Post</button>
+                {isValidReview}
               </div>
             </div>
           </form>

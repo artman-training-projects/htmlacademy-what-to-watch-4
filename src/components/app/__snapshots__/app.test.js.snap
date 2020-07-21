@@ -58,7 +58,7 @@ exports[`App Render pageAddReview 1`] = `
           >
             <a
               className="breadcrumbs__link"
-              href="movie-page.html"
+              href="/movie-card"
             >
               The Grand Budapest Hotel
             </a>
@@ -109,6 +109,7 @@ exports[`App Render pageAddReview 1`] = `
       >
         <div
           className="rating__stars"
+          onChange={[Function]}
         >
           <input
             className="rating__input"
@@ -183,7 +184,10 @@ exports[`App Render pageAddReview 1`] = `
         <textarea
           className="add-review__textarea"
           id="review-text"
+          maxLength={400}
+          minLength={50}
           name="review-text"
+          onInput={[Function]}
           placeholder="Review text"
         />
         <div
@@ -191,6 +195,7 @@ exports[`App Render pageAddReview 1`] = `
         >
           <button
             className="add-review__btn"
+            disabled={true}
             type="submit"
           >
             Post
@@ -1120,6 +1125,7 @@ exports[`App Render pageSignIn 1`] = `
             id="user-email"
             name="user-email"
             placeholder="Email address"
+            required={true}
             type="email"
           />
           <label
@@ -1137,6 +1143,7 @@ exports[`App Render pageSignIn 1`] = `
             id="user-password"
             name="user-password"
             placeholder="Password"
+            required={true}
             type="password"
           />
           <label

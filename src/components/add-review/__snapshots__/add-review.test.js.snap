@@ -58,7 +58,7 @@ exports[`AddReview Render 1`] = `
           >
             <a
               className="breadcrumbs__link"
-              href="movie-page.html"
+              href="/movie-card"
             >
               Snatch
             </a>
@@ -112,6 +112,7 @@ exports[`AddReview Render 1`] = `
       >
         <div
           className="rating__stars"
+          onChange={[Function]}
         >
           <input
             className="rating__input"
@@ -186,7 +187,10 @@ exports[`AddReview Render 1`] = `
         <textarea
           className="add-review__textarea"
           id="review-text"
+          maxLength={400}
+          minLength={50}
           name="review-text"
+          onInput={[Function]}
           placeholder="Review text"
         />
         <div
@@ -194,6 +198,7 @@ exports[`AddReview Render 1`] = `
         >
           <button
             className="add-review__btn"
+            disabled={true}
             type="submit"
           >
             Post

@@ -17,7 +17,7 @@ const Header = (props) => {
       <nav className="breadcrumbs">
         <ul className="breadcrumbs__list">
           <li className="breadcrumbs__item">
-            <a href="movie-page.html" className="breadcrumbs__link">{film.title}</a>
+            <a href={Pages.MOVIE_CARD} className="breadcrumbs__link">{film.title}</a>
           </li>
           <li className="breadcrumbs__item">
             <a className="breadcrumbs__link">Add review</a>
@@ -36,7 +36,7 @@ const Header = (props) => {
     </React.Fragment> :
     <React.Fragment>
       <div className="user-block">
-        <a href="/sign-in" className="user-block__link"
+        <a href={Pages.SIGN_IN} className="user-block__link"
           onClick={(evt) => {
             evt.preventDefault();
             onSignInClick();
