@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
-import {AuthorizationStatus, MovieNavList} from '../../const.js';
+import {AuthorizationStatus, MovieNavList, Pages} from '../../const.js';
 import MovieNavTabs from '../movie-nav-tabs/movie-nav-tabs.jsx';
 import MoviesList from '../movies-list/movies-list.jsx';
 import Header from '../header/header.jsx';
@@ -22,9 +22,11 @@ const MovieCard = (props) => {
     sameFilms,
   } = props;
 
+  const toReviewPage = () => `${Pages.MOVIE_CARD}/${film.id}/review`;
+
   const isSignIn = authorizationStatus === AuthorizationStatus.AUTH ?
     <React.Fragment>
-      <a href="review" className="btn btn--review movie-card__button"
+      <a href={toReviewPage()} className="btn btn--review movie-card__button"
         onClick={(evt) => {
           evt.preventDefault();
           onReviewClick(film.id);

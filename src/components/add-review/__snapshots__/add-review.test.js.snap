@@ -58,7 +58,7 @@ exports[`AddReview Render send review error 1`] = `
           >
             <a
               className="breadcrumbs__link"
-              href="/movie-card"
+              href="/films/2298"
             >
               Snatch
             </a>
@@ -277,7 +277,7 @@ exports[`AddReview Render send review ok 1`] = `
           >
             <a
               className="breadcrumbs__link"
-              href="/movie-card"
+              href="/films/2298"
             >
               Snatch
             </a>
@@ -495,7 +495,7 @@ exports[`AddReview Render sending review in process 1`] = `
           >
             <a
               className="breadcrumbs__link"
-              href="/movie-card"
+              href="/films/2298"
             >
               Snatch
             </a>

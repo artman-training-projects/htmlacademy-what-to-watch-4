@@ -9,7 +9,8 @@ export const AuthorizationStatus = {
 
 export const Pages = {
   MAIN: `/`,
-  MOVIE_CARD: `/movie-card`,
+  MOVIE_CARD: `/films`,
+  MY_LIST: `mylist`,
   SIGN_IN: `/sign-in`,
   REVIEW: `/review`,
 };
