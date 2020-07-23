@@ -20,6 +20,7 @@ const initialState = {
   loadingPromo: true,
   loadPromoError: false,
   sendingComment: false,
+  sendCommentDone: false,
   sendCommentError: false,
 };
 
@@ -34,6 +35,7 @@ const ActionType = {
   LOAD_PROMO: `LOAD_PROMO`,
   LOAD_PROMO_ERROR: `LOAD_PROMO_ERROR`,
   SEND_COMMENT: `SEND_COMMENT`,
+  SEND_COMMENT_DONE: `SEND_COMMENT_DONE`,
   SEND_COMMENT_ERROR: `SEND_COMMENT_ERROR`,
 };
 
@@ -86,6 +88,11 @@ const ActionCreator = {
   isSendingComment: (review) => ({
     type: ActionType.SEND_COMMENT,
     payload: review,
+  }),
+
+  sendCommentDone: (done) => ({
+    type: ActionType.SEND_COMMENT_DONE,
+    payload: done,
   }),
 
   sendCommentError: (error) => ({
@@ -143,9 +150,11 @@ const Operations = {
     .then(() => {
       dispatch(ActionCreator.isSendingComment(false));
       dispatch(ActionCreator.sendCommentError(false));
+      dispatch(ActionCreator.sendCommentDone(true));
     })
     .catch((err) => {
       dispatch(ActionCreator.sendCommentError(true));
+      dispatch(ActionCreator.sendCommentDone(false));
       throw err;
     });
   }
@@ -201,6 +210,11 @@ const reducer = (state = initialState, action) => {
     case ActionType.SEND_COMMENT:
       return extend(state, {
         sendingComment: action.payload,
+      });
+
+    case ActionType.SEND_COMMENT_DONE:
+      return extend(state, {
+        sendCommentDone: action.payload,
       });
 
     case ActionType.SEND_COMMENT_ERROR:

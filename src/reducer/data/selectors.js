@@ -31,4 +31,5 @@ export const getCommetsStatus = (state) => ({
 export const getReviewStatus = (state) => ({
   commentsIsSending: state[NameSpace.DATA].sendingComment,
   sendingIsError: state[NameSpace.DATA].sendCommentError,
+  sendingIsDone: state[NameSpace.DATA].sendCommentDone,
 });

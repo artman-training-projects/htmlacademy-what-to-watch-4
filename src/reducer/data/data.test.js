@@ -98,6 +98,7 @@ describe(`Reducer Data`, () => {
       loadFilmsError: false,
       loadPromoError: false,
       sendingComment: false,
+      sendCommentDone: false,
       sendCommentError: false
     });
   });
@@ -209,6 +210,17 @@ describe(`Reducer Data`, () => {
       payload: true
     })).toEqual({
       sendingComment: true,
+    });
+  });
+
+  it(`Should update comment send done`, () => {
+    expect(reducer({
+      sendCommentDone: false,
+    }, {
+      type: ActionType.SEND_COMMENT_DONE,
+      payload: true
+    })).toEqual({
+      sendCommentDone: true,
     });
   });
 
