@@ -8,7 +8,14 @@ import {getCurrentPage} from '../../reducer/app/selectors.js';
 import {getAuthStatus, getUserData} from '../../reducer/user/selector.js';
 
 const Header = (props) => {
-  const {authorizationStatus, currentPage, film, onSignInClick, user} = props;
+  const {
+    authorizationStatus,
+    currentPage,
+    film,
+    onFilmClick,
+    onSignInClick,
+    user
+  } = props;
 
   const toFilmPage = () => `${Pages.MOVIE_CARD}/${film.id}`;
 
@@ -19,7 +26,12 @@ const Header = (props) => {
       <nav className="breadcrumbs">
         <ul className="breadcrumbs__list">
           <li className="breadcrumbs__item">
-            <a href={toFilmPage()} className="breadcrumbs__link">{film.title}</a>
+            <a href={toFilmPage()} className="breadcrumbs__link"
+              onClick={(evt) => {
+                evt.preventDefault();
+                onFilmClick();
+              }}
+            >{film.title}</a>
           </li>
           <li className="breadcrumbs__item">
             <a className="breadcrumbs__link">Add review</a>
@@ -68,6 +80,7 @@ Header.propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
   currentPage: PropTypes.string.isRequired,
   film: CustomPropTypes.FILM,
+  onFilmClick: PropTypes.func,
   onSignInClick: PropTypes.func,
   user: CustomPropTypes.USER,
 };

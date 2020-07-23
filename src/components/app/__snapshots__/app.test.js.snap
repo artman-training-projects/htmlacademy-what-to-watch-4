@@ -59,6 +59,7 @@ exports[`App Render pageAddReview 1`] = `
             <a
               className="breadcrumbs__link"
               href="/films/1111"
+              onClick={[Function]}
             >
               The Grand Budapest Hotel
             </a>

@@ -38,6 +38,7 @@ class App extends PureComponent {
 
     this._renderMoviePlayer = this._renderMoviePlayer.bind(this);
     this._handleClosePlayerClick = this._handleClosePlayerClick.bind(this);
+    this._handleFilmClick = this._handleFilmClick.bind(this);
     this._handlePlayClick = this._handlePlayClick.bind(this);
     this._handleReviewClick = this._handleReviewClick.bind(this);
     this._handleSignInClick = this._handleSignInClick.bind(this);
@@ -102,6 +103,7 @@ class App extends PureComponent {
     return (
       <AddReviewWrapped
         film={selectedFilm}
+        onFilmClick={this._handleFilmClick}
         onSubmitReview={handleSubmitReview}
       />
     );
@@ -132,6 +134,12 @@ class App extends PureComponent {
     this.setState({
       isVideoPlayer: false,
     });
+  }
+
+  _handleFilmClick() {
+    const {getComments, handlePageChange, selectedFilm} = this.props;
+    handlePageChange(Pages.MOVIE_CARD);
+    getComments(selectedFilm.id);
   }
 
   _handlePlayClick(film) {
@@ -170,6 +178,7 @@ class App extends PureComponent {
           <Route exact path={Pages.MOVIE_CARD}>
             <MovieCardWrapped
               film={this.props.moviePoster}
+              onFilmClick={this._handleFilmClick}
               onSmallMovieCardClick={this._handleSmallMovieCardClick}
               sameFilms={this.props.films}
             />

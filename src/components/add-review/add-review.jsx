@@ -12,7 +12,10 @@ const ReviewLength = {
 };
 
 const AddReview = (props) => {
-  const {comment, film, onChangeComment, onChangeRating, onSubmitReview, sendingComment, rating} = props;
+  const {comment, film, onChangeComment, onChangeRating, onFilmClick, onSubmitReview, sendingComment, rating} = props;
+
+  const sendReviewIsDone = () => sendingComment.sendingIsDone && onFilmClick();
+  sendReviewIsDone();
 
   const isValidReview = (rating && comment) ? false : true;
 
@@ -39,6 +42,7 @@ const AddReview = (props) => {
 
         <Header
           film={film}
+          onFilmClick={onFilmClick}
         />
 
         <div className="movie-card__poster movie-card__poster--small">
@@ -99,9 +103,11 @@ AddReview.propTypes = {
   film: CustomPropTypes.FILM,
   onChangeComment: PropTypes.func.isRequired,
   onChangeRating: PropTypes.func.isRequired,
+  onFilmClick: PropTypes.func.isRequired,
   onSubmitReview: PropTypes.func.isRequired,
   sendingComment: PropTypes.shape({
     commentsIsSending: PropTypes.bool.isRequired,
+    sendingIsDone: PropTypes.bool.isRequired,
     sendingIsError: PropTypes.bool.isRequired,
   }),
   rating: PropTypes.oneOfType([

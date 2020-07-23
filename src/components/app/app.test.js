@@ -139,6 +139,7 @@ describe(`App`, () => {
         loadingPromo: false,
         loadPromoError: false,
         sendingComment: false,
+        sendCommentDone: false,
         sendCommentError: false,
       },
       [NameSpace.SHOW]: {
@@ -154,6 +155,7 @@ describe(`App`, () => {
     const tree = renderer.create(
         <Provider store={store}>
           <App
+            onFilmClick={() => {}}
             onFilmSelect={() => {}}
             selectedFilm={moviePoster}
           />

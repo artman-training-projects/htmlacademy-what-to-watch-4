@@ -30,6 +30,7 @@ describe(`AddReview`, () => {
       },
       [NameSpace.DATA]: {
         sendingComment: false,
+        sendCommentDone: false,
         sendCommentError: false,
       },
     });
@@ -40,6 +41,7 @@ describe(`AddReview`, () => {
             film={film}
             onChangeComment={() => {}}
             onChangeRating={() => {}}
+            onFilmClick={() => {}}
             onSubmitReview={() => {}}
           />
         </Provider>, {
@@ -69,6 +71,7 @@ describe(`AddReview`, () => {
       },
       [NameSpace.DATA]: {
         sendingComment: true,
+        sendCommentDone: false,
         sendCommentError: true,
       },
     });
@@ -79,6 +82,7 @@ describe(`AddReview`, () => {
             film={film}
             onChangeComment={() => {}}
             onChangeRating={() => {}}
+            onFilmClick={() => {}}
             onSubmitReview={() => {}}
           />
         </Provider>, {
@@ -108,6 +112,7 @@ describe(`AddReview`, () => {
       },
       [NameSpace.DATA]: {
         sendingComment: true,
+        sendCommentDone: false,
         sendCommentError: false,
       },
     });
@@ -118,6 +123,7 @@ describe(`AddReview`, () => {
             film={film}
             onChangeComment={() => {}}
             onChangeRating={() => {}}
+            onFilmClick={() => {}}
             onSubmitReview={() => {}}
           />
         </Provider>, {
