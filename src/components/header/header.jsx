@@ -8,9 +8,37 @@ import {getCurrentPage} from '../../reducer/app/selectors.js';
 import {getAuthStatus, getUserData} from '../../reducer/user/selector.js';
 
 const Header = (props) => {
-  const {authorizationStatus, currentPage, onSignInClick, user} = props;
+  const {
+    authorizationStatus,
+    currentPage,
+    film,
+    onFilmClick,
+    onSignInClick,
+    user
+  } = props;
+
+  const toFilmPage = () => `${Pages.MOVIE_CARD}/${film.id}`;
 
   const linkOnMain = currentPage !== Pages.MAIN ? `/` : null;
+
+  const isReview = currentPage === Pages.REVIEW ?
+    <React.Fragment>
+      <nav className="breadcrumbs">
+        <ul className="breadcrumbs__list">
+          <li className="breadcrumbs__item">
+            <a href={toFilmPage()} className="breadcrumbs__link"
+              onClick={(evt) => {
+                evt.preventDefault();
+                onFilmClick();
+              }}
+            >{film.title}</a>
+          </li>
+          <li className="breadcrumbs__item">
+            <a className="breadcrumbs__link">Add review</a>
+          </li>
+        </ul>
+      </nav>
+    </React.Fragment> : ``;
 
   const isSignIn = authorizationStatus === AuthorizationStatus.AUTH ?
     <React.Fragment>
@@ -22,7 +50,7 @@ const Header = (props) => {
     </React.Fragment> :
     <React.Fragment>
       <div className="user-block">
-        <a href="/sign-in" className="user-block__link"
+        <a href={Pages.SIGN_IN} className="user-block__link"
           onClick={(evt) => {
             evt.preventDefault();
             onSignInClick();
@@ -41,6 +69,8 @@ const Header = (props) => {
         </a>
       </div>
 
+      {isReview}
+
       {isSignIn}
     </header>
   );
@@ -49,7 +79,9 @@ const Header = (props) => {
 Header.propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
   currentPage: PropTypes.string.isRequired,
-  onSignInClick: PropTypes.func.isRequired,
+  film: CustomPropTypes.FILM,
+  onFilmClick: PropTypes.func,
+  onSignInClick: PropTypes.func,
   user: CustomPropTypes.USER,
 };
 

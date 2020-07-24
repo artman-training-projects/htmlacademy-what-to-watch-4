@@ -27,3 +27,9 @@ export const getCommetsStatus = (state) => ({
   commentsIsLoading: state[NameSpace.DATA].loadingComments,
   loadingIsError: state[NameSpace.DATA].loadCommentsError,
 });
+
+export const getReviewStatus = (state) => ({
+  commentsIsSending: state[NameSpace.DATA].sendingComment,
+  sendingIsError: state[NameSpace.DATA].sendCommentError,
+  sendingIsDone: state[NameSpace.DATA].sendCommentDone,
+});

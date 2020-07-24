@@ -28,6 +28,7 @@ exports[`Header Render, is login 1`] = `
       </span>
     </a>
   </div>
+  
   <div
     className="user-block"
   >
@@ -73,6 +74,7 @@ exports[`Header Render, no login 1`] = `
       </span>
     </a>
   </div>
+  
   <div
     className="user-block"
   >

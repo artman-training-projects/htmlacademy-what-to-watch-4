@@ -14,11 +14,14 @@ const initialState = {
   films: [],
   moviePoster: false,
   loadingComments: true,
-  loadingFilms: true,
-  loadingPromo: true,
   loadCommentsError: false,
+  loadingFilms: true,
   loadFilmsError: false,
+  loadingPromo: true,
   loadPromoError: false,
+  sendingComment: false,
+  sendCommentDone: false,
+  sendCommentError: false,
 };
 
 const ActionType = {
@@ -31,6 +34,9 @@ const ActionType = {
   LOAD_FILMS_ERROR: `LOAD_FILMS_ERROR`,
   LOAD_PROMO: `LOAD_PROMO`,
   LOAD_PROMO_ERROR: `LOAD_PROMO_ERROR`,
+  SEND_COMMENT: `SEND_COMMENT`,
+  SEND_COMMENT_DONE: `SEND_COMMENT_DONE`,
+  SEND_COMMENT_ERROR: `SEND_COMMENT_ERROR`,
 };
 
 const ActionCreator = {
@@ -78,6 +84,21 @@ const ActionCreator = {
     type: ActionType.LOAD_PROMO_ERROR,
     payload: error,
   }),
+
+  isSendingComment: (review) => ({
+    type: ActionType.SEND_COMMENT,
+    payload: review,
+  }),
+
+  sendCommentDone: (done) => ({
+    type: ActionType.SEND_COMMENT_DONE,
+    payload: done,
+  }),
+
+  sendCommentError: (error) => ({
+    type: ActionType.SEND_COMMENT_ERROR,
+    payload: error,
+  }),
 };
 
 const Operations = {
@@ -119,6 +140,24 @@ const Operations = {
         throw err;
       });
   },
+
+  sendComment: (filmID, review) => (dispatch, getState, api) => {
+    dispatch(ActionCreator.isSendingComment(true));
+    return api.post(`${EntryPoints.COMMENTS}${filmID}`, {
+      rating: review.rating,
+      comment: review.comment,
+    })
+    .then(() => {
+      dispatch(ActionCreator.isSendingComment(false));
+      dispatch(ActionCreator.sendCommentError(false));
+      dispatch(ActionCreator.sendCommentDone(true));
+    })
+    .catch((err) => {
+      dispatch(ActionCreator.sendCommentError(true));
+      dispatch(ActionCreator.sendCommentDone(false));
+      throw err;
+    });
+  }
 };
 
 const reducer = (state = initialState, action) => {
@@ -166,6 +205,21 @@ const reducer = (state = initialState, action) => {
     case ActionType.LOAD_PROMO_ERROR:
       return extend(state, {
         loadPromoError: action.payload,
+      });
+
+    case ActionType.SEND_COMMENT:
+      return extend(state, {
+        sendingComment: action.payload,
+      });
+
+    case ActionType.SEND_COMMENT_DONE:
+      return extend(state, {
+        sendCommentDone: action.payload,
+      });
+
+    case ActionType.SEND_COMMENT_ERROR:
+      return extend(state, {
+        sendCommentError: action.payload,
       });
 
     default:

@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
+import {Pages} from '../../const.js';
 import {user} from '../data-for-test.js';
 import Header from './header.jsx';
 import NameSpace from '../../reducer/name-space.js';
@@ -13,7 +14,7 @@ describe(`Header`, () => {
   it(`Render, no login`, () => {
     const store = mockStore({
       [NameSpace.APP]: {
-        currentPage: `/`,
+        currentPage: Pages.MAIN,
       },
       [NameSpace.USER]: {
         authorizationStatus: `NO_AUTH`,
@@ -44,7 +45,7 @@ describe(`Header`, () => {
   it(`Render, is login`, () => {
     const store = mockStore({
       [NameSpace.APP]: {
-        currentPage: `/`,
+        currentPage: Pages.MAIN,
       },
       [NameSpace.USER]: {
         authorizationStatus: `AUTH`,
