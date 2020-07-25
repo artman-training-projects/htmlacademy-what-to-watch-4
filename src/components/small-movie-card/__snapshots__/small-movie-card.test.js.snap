@@ -23,7 +23,7 @@ exports[`SmallMovieCard Render SmallMovieCard 1`] = `
   >
     <a
       className="small-movie-card__link"
-      href="movie-page"
+      href="/films/2298"
       onClick={[Function]}
     >
       Snatch

@@ -30,6 +30,7 @@ Array [
           <a
             className="logo__link"
             href="/"
+            onClick={[Function]}
           >
             <span
               className="logo__letter logo__letter--1"
@@ -48,13 +49,12 @@ Array [
             </span>
           </a>
         </div>
-        
         <div
           className="user-block"
         >
           <a
             className="user-block__link"
-            href="/sign-in"
+            href="/login"
             onClick={[Function]}
           >
             Sign in
@@ -89,8 +89,9 @@ Array [
           <div
             className="movie-card__buttons"
           >
-            <button
+            <a
               className="btn btn--play movie-card__button"
+              href="/player/1111"
               onClick={[Function]}
               type="button"
             >
@@ -106,7 +107,7 @@ Array [
               <span>
                 Play
               </span>
-            </button>
+            </a>
             <button
               className="btn btn--list movie-card__button"
               type="button"
@@ -124,7 +125,6 @@ Array [
                 My list
               </span>
             </button>
-            
           </div>
         </div>
       </div>
@@ -229,7 +229,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/2298"
               onClick={[Function]}
             >
               Snatch
@@ -258,7 +258,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/2245"
               onClick={[Function]}
             >
               Moonrise Kingdom
@@ -287,7 +287,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/2249"
               onClick={[Function]}
             >
               Seven Years in Tibet
@@ -316,7 +316,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/9921"
               onClick={[Function]}
             >
               Midnight Special
@@ -345,7 +345,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/9963"
               onClick={[Function]}
             >
               War of the Worlds
@@ -374,7 +374,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/7732"
               onClick={[Function]}
             >
               Dardjeeling Limited
@@ -403,7 +403,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/7794"
               onClick={[Function]}
             >
               Orlando
@@ -432,7 +432,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/7714"
               onClick={[Function]}
             >
               Mindhunter
@@ -450,6 +450,7 @@ Array [
         <a
           className="logo__link logo__link--light"
           href="/"
+          onClick={[Function]}
         >
           <span
             className="logo__letter logo__letter--1"
@@ -510,6 +511,7 @@ Array [
           <a
             className="logo__link"
             href="/"
+            onClick={[Function]}
           >
             <span
               className="logo__letter logo__letter--1"
@@ -528,13 +530,12 @@ Array [
             </span>
           </a>
         </div>
-        
         <div
           className="user-block"
         >
           <a
             className="user-block__link"
-            href="/sign-in"
+            href="/login"
             onClick={[Function]}
           >
             Sign in
@@ -569,8 +570,9 @@ Array [
           <div
             className="movie-card__buttons"
           >
-            <button
+            <a
               className="btn btn--play movie-card__button"
+              href="/player/1111"
               onClick={[Function]}
               type="button"
             >
@@ -586,7 +588,7 @@ Array [
               <span>
                 Play
               </span>
-            </button>
+            </a>
             <button
               className="btn btn--list movie-card__button"
               type="button"
@@ -715,7 +717,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/2298"
               onClick={[Function]}
             >
               Snatch
@@ -744,7 +746,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/2245"
               onClick={[Function]}
             >
               Moonrise Kingdom
@@ -773,7 +775,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/2249"
               onClick={[Function]}
             >
               Seven Years in Tibet
@@ -802,7 +804,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/9921"
               onClick={[Function]}
             >
               Midnight Special
@@ -831,7 +833,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/9963"
               onClick={[Function]}
             >
               War of the Worlds
@@ -860,7 +862,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/7732"
               onClick={[Function]}
             >
               Dardjeeling Limited
@@ -889,7 +891,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/7794"
               onClick={[Function]}
             >
               Orlando
@@ -918,7 +920,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/7714"
               onClick={[Function]}
             >
               Mindhunter
@@ -936,6 +938,7 @@ Array [
         <a
           className="logo__link logo__link--light"
           href="/"
+          onClick={[Function]}
         >
           <span
             className="logo__letter logo__letter--1"

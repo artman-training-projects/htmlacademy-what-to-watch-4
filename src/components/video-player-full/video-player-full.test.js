@@ -27,7 +27,6 @@ describe(`VideoPlayerFull`, () => {
             film={film}
             isPlaying={true}
             leftTime={`00:10:12`}
-            onClosePlayerClick={() => {}}
             onIsPlayingChange={() => {}}
             onSetFullScreen={() => {}}
           ><video/>
@@ -51,7 +50,6 @@ describe(`VideoPlayerFull`, () => {
             film={film}
             isPlaying={false}
             leftTime={`00:10:12`}
-            onClosePlayerClick={() => {}}
             onIsPlayingChange={() => {}}
             onSetFullScreen={() => {}}
           ><video/>

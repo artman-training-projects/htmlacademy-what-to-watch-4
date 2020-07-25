@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
+import history from '../../history.js';
 import {getReviewStatus} from '../../reducer/data/selectors.js';
 import Header from '../header/header.jsx';
 
@@ -12,15 +13,14 @@ const ReviewLength = {
 };
 
 const AddReview = (props) => {
-  const {comment, film, onChangeComment, onChangeRating, onFilmClick, onSubmitReview, sendingComment, rating} = props;
-
-  const sendReviewIsDone = () => sendingComment.sendingIsDone && onFilmClick();
-  sendReviewIsDone();
+  const {comment, film, onChangeComment, onChangeRating, onSubmitReview, sendingComment, rating} = props;
 
   const isValidReview = (rating && comment) ? false : true;
 
   const isSendingReview = () => {
-    if (sendingComment.commentsIsSending && !sendingComment.sendingIsError) {
+    if (sendingComment.sendingIsDone) {
+      history.goBack();
+    } else if (sendingComment.commentsIsSending && !sendingComment.sendingIsError) {
       return ``;
     } else if (sendingComment.commentsIsSending && sendingComment.sendingIsError) {
       return `sending review error, try again...`;
@@ -42,7 +42,6 @@ const AddReview = (props) => {
 
         <Header
           film={film}
-          onFilmClick={onFilmClick}
         />
 
         <div className="movie-card__poster movie-card__poster--small">
@@ -103,7 +102,6 @@ AddReview.propTypes = {
   film: CustomPropTypes.FILM,
   onChangeComment: PropTypes.func.isRequired,
   onChangeRating: PropTypes.func.isRequired,
-  onFilmClick: PropTypes.func.isRequired,
   onSubmitReview: PropTypes.func.isRequired,
   sendingComment: PropTypes.shape({
     commentsIsSending: PropTypes.bool.isRequired,

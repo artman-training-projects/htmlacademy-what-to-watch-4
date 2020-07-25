@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import {films, moviePoster, user} from '../data-for-test.js';
-import {ALL_GENRES, Pages} from '../../const.js';
+import {ALL_GENRES} from '../../const.js';
 import App from './app.jsx';
 import NameSpace from '../../reducer/name-space.js';
 
@@ -13,9 +13,6 @@ const mockStore = configureStore([]);
 describe(`App`, () => {
   it(`Render pageMain`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.MAIN,
-      },
       [NameSpace.DATA]: {
         films,
         moviePoster,
@@ -51,9 +48,6 @@ describe(`App`, () => {
 
   it(`Render pageMovieCard`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.FILM,
-      },
       [NameSpace.DATA]: {
         films,
         moviePoster,
@@ -90,9 +84,6 @@ describe(`App`, () => {
 
   it(`Render pageSignIn`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.SIGN_IN,
-      },
       [NameSpace.DATA]: {
         films,
         moviePoster,
@@ -128,9 +119,6 @@ describe(`App`, () => {
 
   it(`Render pageAddReview`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.ADD_REVIEW,
-      },
       [NameSpace.DATA]: {
         films,
         moviePoster,

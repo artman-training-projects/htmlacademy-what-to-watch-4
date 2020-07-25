@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {ActionCreator} from '../../reducer/show-films/show-films.js';
 import PropTypes from 'prop-types';
@@ -11,6 +12,7 @@ import MoviesList from '../movies-list/movies-list.jsx';
 import CatalogMore from '../catalog-more/catalog-more.jsx';
 import Header from '../header/header.jsx';
 import Footer from '../footer/footer.jsx';
+import {Pages} from '../../const.js';
 
 const Main = (props) => {
   const {
@@ -25,8 +27,6 @@ const Main = (props) => {
     numberOfFilms,
     onCountShowFilmAdd,
     onCountShowFilmReset,
-    onPlayClick,
-    onSignInClick,
     onSmallMovieCardClick,
   } = props;
 
@@ -52,6 +52,18 @@ const Main = (props) => {
     return false;
   };
 
+  const isInMyLyst = moviePoster.isFavorite ?
+    <React.Fragment>
+      <svg viewBox="0 0 18 14" width="18" height="14">
+        <use xlinkHref="#in-list"></use>
+      </svg>
+    </React.Fragment> :
+    <React.Fragment>
+      <svg viewBox="0 0 19 20" width="19" height="20">
+        <use xlinkHref="#add"></use>
+      </svg>
+    </React.Fragment>;
+
   return (<React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -60,9 +72,7 @@ const Main = (props) => {
 
       <h1 className="visually-hidden">WTW</h1>
 
-      <Header
-        onSignInClick={onSignInClick}
-      />
+      <Header />
 
       <div className="movie-card__wrap">
         <div className="movie-card__info">
@@ -79,18 +89,16 @@ const Main = (props) => {
             </p>
 
             <div className="movie-card__buttons">
-              <button className="btn btn--play movie-card__button" type="button"
-                onClick={() => onPlayClick(moviePoster)}
+              <Link to={`${Pages.PLAYER}/${moviePoster.id}`} className="btn btn--play movie-card__button" type="button"
+                onClick={() => onSmallMovieCardClick(moviePoster)}
               >
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"></use>
                 </svg>
                 <span>Play</span>
-              </button>
+              </Link>
               <button className="btn btn--list movie-card__button" type="button">
-                <svg viewBox="0 0 19 20" width="19" height="20">
-                  <use xlinkHref="#add"></use>
-                </svg>
+                {isInMyLyst}
                 <span>My list</span>
               </button>
             </div>
@@ -152,8 +160,6 @@ Main.propTypes = {
   numberOfFilms: PropTypes.number.isRequired,
   onCountShowFilmAdd: PropTypes.func.isRequired,
   onCountShowFilmReset: PropTypes.func.isRequired,
-  onPlayClick: PropTypes.func.isRequired,
-  onSignInClick: PropTypes.func.isRequired,
   onSmallMovieCardClick: PropTypes.func.isRequired,
 };
 

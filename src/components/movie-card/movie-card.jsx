@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
@@ -15,24 +16,23 @@ const MovieCard = (props) => {
     film,
     onActiveTabChange,
     onActiveTabRender,
-    onPlayClick,
-    onReviewClick,
-    onSignInClick,
     onSmallMovieCardClick,
     sameFilms,
   } = props;
 
-  const toReviewPage = () => `${Pages.FILM}/${film.id}/review`;
+  const isSignIn = authorizationStatus === AuthorizationStatus.AUTH;
 
-  const isSignIn = authorizationStatus === AuthorizationStatus.AUTH ?
+  const isInMyLyst = film.isFavorite ?
     <React.Fragment>
-      <a href={toReviewPage()} className="btn btn--review movie-card__button"
-        onClick={(evt) => {
-          evt.preventDefault();
-          onReviewClick(film.id);
-        }}
-      >Add review</a>
-    </React.Fragment> : ``;
+      <svg viewBox="0 0 18 14" width="18" height="14">
+        <use xlinkHref="#in-list"></use>
+      </svg>
+    </React.Fragment> :
+    <React.Fragment>
+      <svg viewBox="0 0 19 20" width="19" height="20">
+        <use xlinkHref="#add"></use>
+      </svg>
+    </React.Fragment>;
 
   return (<React.Fragment>
     <section className="movie-card movie-card--full">
@@ -43,9 +43,7 @@ const MovieCard = (props) => {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <Header
-          onSignInClick={onSignInClick}
-        />
+        <Header />
 
         <div className="movie-card__wrap">
           <div className="movie-card__desc">
@@ -56,22 +54,19 @@ const MovieCard = (props) => {
             </p>
 
             <div className="movie-card__buttons">
-              <button className="btn btn--play movie-card__button" type="button"
-                onClick={() => onPlayClick(film)}
-              >
+              <Link to={`${Pages.PLAYER}/${film.id}`} className="btn btn--play movie-card__button" type="button">
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"></use>
                 </svg>
                 <span>Play</span>
-              </button>
+              </Link>
               <button className="btn btn--list movie-card__button" type="button">
-                <svg viewBox="0 0 19 20" width="19" height="20">
-                  <use xlinkHref="#add"></use>
-                </svg>
+                {isInMyLyst}
                 <span>My list</span>
               </button>
 
-              {isSignIn}
+              {isSignIn &&
+                <Link to={`${Pages.FILM}/${film.id}/review`} className="btn btn--review movie-card__button">Add review</Link>}
             </div>
           </div>
         </div>
@@ -116,9 +111,6 @@ MovieCard.propTypes = {
   film: CustomPropTypes.FILM,
   onActiveTabChange: PropTypes.func.isRequired,
   onActiveTabRender: PropTypes.func.isRequired,
-  onPlayClick: PropTypes.func.isRequired,
-  onReviewClick: PropTypes.func.isRequired,
-  onSignInClick: PropTypes.func.isRequired,
   onSmallMovieCardClick: PropTypes.func.isRequired,
   sameFilms: PropTypes.arrayOf(CustomPropTypes.FILM),
 };

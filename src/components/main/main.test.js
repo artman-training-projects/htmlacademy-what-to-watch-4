@@ -1,10 +1,12 @@
 import React from 'react';
+import {Router} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
+import history from '../../history.js';
 import {films, moviePoster} from '../data-for-test.js';
-import {ALL_GENRES, Pages} from '../../const.js';
+import {ALL_GENRES} from '../../const.js';
 import Main from './main.jsx';
 import NameSpace from '../../reducer/name-space.js';
 
@@ -13,9 +15,6 @@ const mockStore = configureStore([]);
 describe(`Main`, () => {
   it(`Render with films and promo`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.MAIN,
-      },
       [NameSpace.DATA]: {
         films,
         moviePoster,
@@ -34,16 +33,18 @@ describe(`Main`, () => {
     });
 
     const tree = renderer.create(
-        <Provider store={store}>
-          <Main
-            numberOfFilms={8}
-            onCountShowFilmAdd={() => {}}
-            onCountShowFilmReset={() => {}}
-            onPlayClick={() => {}}
-            onSignInClick={() => {}}
-            onSmallMovieCardClick={() => {}}
-          />
-        </Provider>, {
+        <Router history={history}>
+          <Provider store={store}>
+            <Main
+              numberOfFilms={8}
+              onCountShowFilmAdd={() => {}}
+              onCountShowFilmReset={() => {}}
+              onPlayClick={() => {}}
+              onSignInClick={() => {}}
+              onSmallMovieCardClick={() => {}}
+            />
+          </Provider>
+        </Router>, {
           createNodeMock: () => {
             return {};
           }
@@ -55,9 +56,6 @@ describe(`Main`, () => {
 
   it(`Render with loading films and promo`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.MAIN,
-      },
       [NameSpace.DATA]: {
         films,
         moviePoster,
@@ -76,16 +74,18 @@ describe(`Main`, () => {
     });
 
     const tree = renderer.create(
-        <Provider store={store}>
-          <Main
-            numberOfFilms={8}
-            onCountShowFilmAdd={() => {}}
-            onCountShowFilmReset={() => {}}
-            onPlayClick={() => {}}
-            onSignInClick={() => {}}
-            onSmallMovieCardClick={() => {}}
-          />
-        </Provider>, {
+        <Router history={history}>
+          <Provider store={store}>
+            <Main
+              numberOfFilms={8}
+              onCountShowFilmAdd={() => {}}
+              onCountShowFilmReset={() => {}}
+              onPlayClick={() => {}}
+              onSignInClick={() => {}}
+              onSmallMovieCardClick={() => {}}
+            />
+          </Provider>
+        </Router>, {
           createNodeMock: () => {
             return {};
           }
@@ -97,9 +97,6 @@ describe(`Main`, () => {
 
   it(`Render with error loading films and promo`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.MAIN,
-      },
       [NameSpace.DATA]: {
         films,
         moviePoster,
@@ -118,16 +115,18 @@ describe(`Main`, () => {
     });
 
     const tree = renderer.create(
-        <Provider store={store}>
-          <Main
-            numberOfFilms={8}
-            onCountShowFilmAdd={() => {}}
-            onCountShowFilmReset={() => {}}
-            onPlayClick={() => {}}
-            onSignInClick={() => {}}
-            onSmallMovieCardClick={() => {}}
-          />
-        </Provider>, {
+        <Router history={history}>
+          <Provider store={store}>
+            <Main
+              numberOfFilms={8}
+              onCountShowFilmAdd={() => {}}
+              onCountShowFilmReset={() => {}}
+              onPlayClick={() => {}}
+              onSignInClick={() => {}}
+              onSmallMovieCardClick={() => {}}
+            />
+          </Provider>
+        </Router>, {
           createNodeMock: () => {
             return {};
           }

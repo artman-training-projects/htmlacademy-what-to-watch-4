@@ -1,10 +1,11 @@
 import React from 'react';
+import {Router} from 'react-router-dom';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import {Pages} from '../../const.js';
+import history from '../../history.js';
 import {films, moviePoster} from '../data-for-test.js';
 import Main from './main.jsx';
 import NameSpace from '../../reducer/name-space.js';
@@ -17,9 +18,6 @@ const mockStore = configureStore([]);
 
 describe(`Main`, () => {
   const store = mockStore({
-    [NameSpace.APP]: {
-      currentPage: Pages.MAIN,
-    },
     [NameSpace.DATA]: {
       films,
       moviePoster,
@@ -41,16 +39,18 @@ describe(`Main`, () => {
     const handleSmallMovieCardClick = jest.fn();
 
     const main = mount(
-        <Provider store={store}>
-          <Main
-            numberOfFilms={8}
-            onSignInClick={() => {}}
-            onSmallMovieCardClick={handleSmallMovieCardClick}
-            onCountShowFilmAdd={() => {}}
-            onCountShowFilmReset={() => {}}
-            onPlayClick={() => {}}
-          />
-        </Provider>
+        <Router history={history}>
+          <Provider store={store}>
+            <Main
+              numberOfFilms={8}
+              onSignInClick={() => {}}
+              onSmallMovieCardClick={handleSmallMovieCardClick}
+              onCountShowFilmAdd={() => {}}
+              onCountShowFilmReset={() => {}}
+              onPlayClick={() => {}}
+            />
+          </Provider>
+        </Router>
     );
 
     const smallMovieCardTitles = main.find(`.small-movie-card__title`);
@@ -63,35 +63,35 @@ describe(`Main`, () => {
     const film = moviePoster;
 
     const main = mount(
-        <Provider store={store}>
-          <Main
-            numberOfFilms={8}
-            onSignInClick={() => {}}
-            onSmallMovieCardClick={() => {}}
-            onCountShowFilmAdd={() => {}}
-            onCountShowFilmReset={() => {}}
-            onPlayClick={handlePlayClick}
-          />
-        </Provider>
+        <Router history={history}>
+          <Provider store={store}>
+            <Main
+              numberOfFilms={8}
+              onSmallMovieCardClick={handlePlayClick}
+              onCountShowFilmAdd={() => {}}
+              onCountShowFilmReset={() => {}}
+            />
+          </Provider>
+        </Router>
     );
 
-    const playButton = main.find(`.btn--play`);
+    const playButton = main.find(`.btn .btn--play .movie-card__button`);
     playButton.simulate(`click`, film);
     expect(handlePlayClick).toHaveBeenCalledWith(film);
   });
 
   it(`Should section catalogMore exist`, () => {
     const main = mount(
-        <Provider store={store}>
-          <Main
-            numberOfFilms={4}
-            onSignInClick={() => {}}
-            onSmallMovieCardClick={() => {}}
-            onCountShowFilmAdd={() => {}}
-            onCountShowFilmReset={() => {}}
-            onPlayClick={() => {}}
-          />
-        </Provider>
+        <Router history={history}>
+          <Provider store={store}>
+            <Main
+              numberOfFilms={4}
+              onSmallMovieCardClick={() => {}}
+              onCountShowFilmAdd={() => {}}
+              onCountShowFilmReset={() => {}}
+            />
+          </Provider>
+        </Router>
     );
 
     const catalogMore = main.find(`.catalog__more`);
@@ -100,9 +100,6 @@ describe(`Main`, () => {
 
   it(`Should section catalogMore no exist`, () => {
     const storeCrime = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.MAIN,
-      },
       [NameSpace.DATA]: {
         films,
         moviePoster,
@@ -121,18 +118,17 @@ describe(`Main`, () => {
     });
 
     const main = mount(
-        <Provider store={storeCrime}>
-          <Main
-            numberOfFilms={8}
-            onSignInClick={() => {}}
-            onSmallMovieCardClick={() => {}}
-            onCountShowFilmAdd={() => {}}
-            onCountShowFilmReset={() => {}}
-            onPlayClick={() => {}}
-          />
-        </Provider>
+        <Router history={history}>
+          <Provider store={storeCrime}>
+            <Main
+              numberOfFilms={8}
+              onSmallMovieCardClick={() => {}}
+              onCountShowFilmAdd={() => {}}
+              onCountShowFilmReset={() => {}}
+            />
+          </Provider>
+        </Router>
     );
-
 
     const catalogMore = main.find(`.catalog__more`);
     expect(catalogMore.length).toEqual(0);

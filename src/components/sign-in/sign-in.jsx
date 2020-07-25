@@ -1,11 +1,14 @@
 import React, {PureComponent, createRef} from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import history from '../../history.js';
 
 import {getAuthError} from '../../reducer/user/selector.js';
 import {Operations as UserOperations} from '../../reducer/user/user.js';
 
 import Footer from '../footer/footer.jsx';
+import {Pages} from '../../const.js';
 
 class SignIn extends PureComponent {
   constructor(props) {
@@ -29,11 +32,11 @@ class SignIn extends PureComponent {
       <div className="user-page">
         <header className="page-header user-page__head">
           <div className="logo">
-            <a href="/" className="logo__link">
+            <Link to={Pages.MAIN} className="logo__link">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
-            </a>
+            </Link>
           </div>
 
           <h1 className="page-title user-page__title">Sign in</h1>
@@ -43,6 +46,7 @@ class SignIn extends PureComponent {
           <form action="#" className="sign-in__form"
             onSubmit={(evt) => {
               evt.preventDefault();
+              history.goBack();
               handleAuthSubmit({
                 email: this.emailRef.current.value,
                 password: this.passwordRef.current.value,
