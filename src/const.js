@@ -8,11 +8,11 @@ export const AuthorizationStatus = {
 };
 
 export const Pages = {
-  MAIN: `/`,
-  SIGN_IN: `/login`,
-  MY_LIST: `/mylist`,
-  FILM: `/films`,
   ADD_REVIEW: `/review`,
+  FILM: `/films`,
+  MAIN: `/`,
+  MY_LIST: `/mylist`,
+  SIGN_IN: `/login`,
   PLAYER: `/player`
 };
 
