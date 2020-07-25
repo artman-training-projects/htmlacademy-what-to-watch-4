@@ -56,11 +56,11 @@ class App extends PureComponent {
     switch (currentPage) {
       case Pages.MAIN:
         return this._renderMain();
-      case Pages.MOVIE_CARD:
+      case Pages.FILM:
         return this._renderMovieCard();
       case Pages.SIGN_IN:
         return this._renderSingIn();
-      case Pages.REVIEW:
+      case Pages.ADD_REVIEW:
         return this._renderAddReview();
     }
 
@@ -138,7 +138,7 @@ class App extends PureComponent {
 
   _handleFilmClick() {
     const {getComments, handlePageChange, selectedFilm} = this.props;
-    handlePageChange(Pages.MOVIE_CARD);
+    handlePageChange(Pages.FILM);
     getComments(selectedFilm.id);
   }
 
@@ -153,12 +153,12 @@ class App extends PureComponent {
 
   _handleReviewClick() {
     const {handlePageChange} = this.props;
-    handlePageChange(Pages.REVIEW);
+    handlePageChange(Pages.ADD_REVIEW);
   }
 
   _handleSmallMovieCardClick(film) {
     const {getComments, handlePageChange, onFilmSelect} = this.props;
-    handlePageChange(Pages.MOVIE_CARD);
+    handlePageChange(Pages.FILM);
     onFilmSelect(film);
     getComments(film.id);
   }
@@ -175,7 +175,7 @@ class App extends PureComponent {
           <Route exact path={Pages.MAIN}>
             {this._renderApp()}
           </Route>/
-          <Route exact path={Pages.MOVIE_CARD}>
+          <Route exact path={Pages.FILM}>
             <MovieCardWrapped
               film={this.props.moviePoster}
               onFilmClick={this._handleFilmClick}
@@ -186,7 +186,7 @@ class App extends PureComponent {
           <Route exact path={Pages.SIGN_IN}>
             {this._renderSingIn()}
           </Route>
-          <Route exact path={Pages.REVIEW}>
+          <Route exact path={Pages.ADD_REVIEW}>
             {this._renderAddReview()}
           </Route>
         </Switch>

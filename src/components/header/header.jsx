@@ -17,11 +17,11 @@ const Header = (props) => {
     user
   } = props;
 
-  const toFilmPage = () => `${Pages.MOVIE_CARD}/${film.id}`;
+  const toFilmPage = () => `${Pages.FILM}/${film.id}`;
 
   const linkOnMain = currentPage !== Pages.MAIN ? `/` : null;
 
-  const isReview = currentPage === Pages.REVIEW ?
+  const isReview = currentPage === Pages.ADD_REVIEW ?
     <React.Fragment>
       <nav className="breadcrumbs">
         <ul className="breadcrumbs__list">

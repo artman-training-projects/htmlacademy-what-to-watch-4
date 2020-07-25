@@ -18,7 +18,7 @@ const mockStore = configureStore([]);
 describe(`MovieCard`, () => {
   const store = mockStore({
     [NameSpace.APP]: {
-      currentPage: Pages.MOVIE_CARD,
+      currentPage: Pages.FILM,
     },
     [NameSpace.USER]: {
       authorizationStatus: `NO_AUTH`,

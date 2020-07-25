@@ -29,9 +29,9 @@ const store = createStore(
         window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f)
 );
 
+store.dispatch(UserOperations.checkAuth());
 store.dispatch(DataOperations.loadPromo());
 store.dispatch(DataOperations.loadFilms());
-store.dispatch(UserOperations.checkAuth());
 
 ReactDom.render(
     <Provider store={store}>

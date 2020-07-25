@@ -52,7 +52,7 @@ describe(`App`, () => {
   it(`Render pageMovieCard`, () => {
     const store = mockStore({
       [NameSpace.APP]: {
-        currentPage: Pages.MOVIE_CARD,
+        currentPage: Pages.FILM,
       },
       [NameSpace.DATA]: {
         films,
@@ -129,7 +129,7 @@ describe(`App`, () => {
   it(`Render pageAddReview`, () => {
     const store = mockStore({
       [NameSpace.APP]: {
-        currentPage: Pages.REVIEW,
+        currentPage: Pages.ADD_REVIEW,
       },
       [NameSpace.DATA]: {
         films,

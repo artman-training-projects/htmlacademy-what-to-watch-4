@@ -16,7 +16,7 @@ describe(`AddReview`, () => {
   it(`Render send review ok`, () => {
     const store = mockStore({
       [NameSpace.APP]: {
-        currentPage: Pages.REVIEW,
+        currentPage: Pages.ADD_REVIEW,
       },
       [NameSpace.USER]: {
         authorizationStatus: `AUTH`,
@@ -57,7 +57,7 @@ describe(`AddReview`, () => {
   it(`Render send review error`, () => {
     const store = mockStore({
       [NameSpace.APP]: {
-        currentPage: Pages.REVIEW,
+        currentPage: Pages.ADD_REVIEW,
       },
       [NameSpace.USER]: {
         authorizationStatus: `AUTH`,
@@ -98,7 +98,7 @@ describe(`AddReview`, () => {
   it(`Render sending review in process`, () => {
     const store = mockStore({
       [NameSpace.APP]: {
-        currentPage: Pages.REVIEW,
+        currentPage: Pages.ADD_REVIEW,
       },
       [NameSpace.USER]: {
         authorizationStatus: `AUTH`,

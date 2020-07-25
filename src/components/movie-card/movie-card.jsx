@@ -22,7 +22,7 @@ const MovieCard = (props) => {
     sameFilms,
   } = props;
 
-  const toReviewPage = () => `${Pages.MOVIE_CARD}/${film.id}/review`;
+  const toReviewPage = () => `${Pages.FILM}/${film.id}/review`;
 
   const isSignIn = authorizationStatus === AuthorizationStatus.AUTH ?
     <React.Fragment>
