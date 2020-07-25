@@ -13,9 +13,9 @@ describe(`Reducer App`, () => {
       currentPage: Pages.MAIN,
     }, {
       type: ActionType.SET_CURRENT_PAGE,
-      payload: Pages.MOVIE_CARD,
+      payload: Pages.FILM,
     })).toEqual({
-      currentPage: Pages.MOVIE_CARD,
+      currentPage: Pages.FILM,
     });
   });
 
@@ -32,12 +32,12 @@ describe(`Reducer App`, () => {
 
   it(`Should return currentPage /review`, () => {
     expect(reducer({
-      currentPage: Pages.MOVIE_CARD,
+      currentPage: Pages.FILM,
     }, {
       type: ActionType.SET_CURRENT_PAGE,
-      payload: Pages.REVIEW,
+      payload: Pages.ADD_REVIEW,
     })).toEqual({
-      currentPage: Pages.REVIEW,
+      currentPage: Pages.ADD_REVIEW,
     });
   });
 });
