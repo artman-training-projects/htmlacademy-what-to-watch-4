@@ -6,12 +6,13 @@ import {CustomPropTypes} from '../custom-prop-types.js';
 
 import history from '../../history.js';
 import {AuthorizationStatus, Pages} from '../../const.js';
-import {getAuthStatus} from '../../reducer/user/selector.js';
+import {getAuthStatus, getUserData} from '../../reducer/user/selector.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
 import {getFilms, getPromo} from '../../reducer/data/selectors.js';
 
 import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
+import MyList from '../my-list/my-list.jsx';
 import AddReview from '../add-review/add-review.jsx';
 import VideoPlayerFull from '../video-player-full/video-player-full.jsx';
 import SignIn from '../sign-in/sign-in.jsx';
@@ -34,7 +35,8 @@ const App = (props) => {
     getComments,
     handleSubmitReview,
     onFilmSelect,
-    selectedFilm
+    selectedFilm,
+    user,
   } = props;
 
   const renderMain = () => (
@@ -73,7 +75,13 @@ const App = (props) => {
     />;
   };
 
-  const renderMyList = () => true;
+  const renderMyList = () => {
+    return <MyList
+      onSmallMovieCardClick={onFilmSelect}
+      user={user}
+      favoriteFilms={films}
+    />;
+  };
 
   const renderSignIn = () => <SignIn />;
 
@@ -124,12 +132,14 @@ App.propTypes = {
     CustomPropTypes.FILM,
     PropTypes.bool,
   ]),
+  user: CustomPropTypes.USER,
 };
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthStatus(state),
   films: getFilms(state),
   moviePoster: getPromo(state),
+  user: getUserData(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

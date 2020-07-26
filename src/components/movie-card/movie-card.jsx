@@ -35,7 +35,7 @@ const MovieCard = (props) => {
     </React.Fragment>;
 
   return (<React.Fragment>
-    <section className="movie-card movie-card--full">
+    <section className="movie-card movie-card--full" style={{backgroundColor: film.bgc}}>
       <div className="movie-card__hero">
         <div className="movie-card__bg">
           <img src={film.bg} alt={film.title} />

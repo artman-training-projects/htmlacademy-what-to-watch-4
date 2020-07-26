@@ -1,0 +1,342 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyList Render MyList 1`] = `
+<div
+  className="user-page"
+>
+  <header
+    className="page-header user-page__head"
+  >
+    <div
+      className="logo"
+    >
+      <a
+        className="logo__link"
+        href="/"
+        onClick={[Function]}
+      >
+        <span
+          className="logo__letter logo__letter--1"
+        >
+          W
+        </span>
+        <span
+          className="logo__letter logo__letter--2"
+        >
+          T
+        </span>
+        <span
+          className="logo__letter logo__letter--3"
+        >
+          W
+        </span>
+      </a>
+    </div>
+    <h1
+      className="page-title user-page__title"
+    >
+      My list
+    </h1>
+    <div
+      className="user-block"
+    >
+      <div
+        className="user-block__avatar"
+      >
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          <img
+            alt="John Doe"
+            height="63"
+            src="avatarSrc"
+            width="63"
+          />
+        </a>
+      </div>
+    </div>
+  </header>
+  <section
+    className="catalog"
+  >
+    <h2
+      className="catalog__title visually-hidden"
+    >
+      Catalog
+    </h2>
+    <div
+      className="catalog__movies-list"
+    >
+      <article
+        className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <div
+          className="small-movie-card__image"
+        >
+          <video
+            height="175"
+            poster="img/snatch.jpg"
+            width="280"
+          >
+            your browser doesn\`t support embedded videos
+          </video>
+        </div>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/2298"
+            onClick={[Function]}
+          >
+            Snatch
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <div
+          className="small-movie-card__image"
+        >
+          <video
+            height="175"
+            poster="img/moonrise-kingdom.jpg"
+            width="280"
+          >
+            your browser doesn\`t support embedded videos
+          </video>
+        </div>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/2245"
+            onClick={[Function]}
+          >
+            Moonrise Kingdom
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <div
+          className="small-movie-card__image"
+        >
+          <video
+            height="175"
+            poster="img/seven-years-in-tibet.jpg"
+            width="280"
+          >
+            your browser doesn\`t support embedded videos
+          </video>
+        </div>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/2249"
+            onClick={[Function]}
+          >
+            Seven Years in Tibet
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <div
+          className="small-movie-card__image"
+        >
+          <video
+            height="175"
+            poster="img/midnight-special.jpg"
+            width="280"
+          >
+            your browser doesn\`t support embedded videos
+          </video>
+        </div>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/9921"
+            onClick={[Function]}
+          >
+            Midnight Special
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <div
+          className="small-movie-card__image"
+        >
+          <video
+            height="175"
+            poster="img/war-of-the-worlds.jpg"
+            width="280"
+          >
+            your browser doesn\`t support embedded videos
+          </video>
+        </div>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/9963"
+            onClick={[Function]}
+          >
+            War of the Worlds
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <div
+          className="small-movie-card__image"
+        >
+          <video
+            height="175"
+            poster="img/dardjeeling-limited.jpg"
+            width="280"
+          >
+            your browser doesn\`t support embedded videos
+          </video>
+        </div>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/7732"
+            onClick={[Function]}
+          >
+            Dardjeeling Limited
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <div
+          className="small-movie-card__image"
+        >
+          <video
+            height="175"
+            poster="img/orlando.jpg"
+            width="280"
+          >
+            your browser doesn\`t support embedded videos
+          </video>
+        </div>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/7794"
+            onClick={[Function]}
+          >
+            Orlando
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <div
+          className="small-movie-card__image"
+        >
+          <video
+            height="175"
+            poster="img/mindhunter.jpg"
+            width="280"
+          >
+            your browser doesn\`t support embedded videos
+          </video>
+        </div>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/7714"
+            onClick={[Function]}
+          >
+            Mindhunter
+          </a>
+        </h3>
+      </article>
+    </div>
+  </section>
+  <footer
+    className="page-footer"
+  >
+    <div
+      className="logo"
+    >
+      <a
+        className="logo__link logo__link--light"
+        href="/"
+        onClick={[Function]}
+      >
+        <span
+          className="logo__letter logo__letter--1"
+        >
+          W
+        </span>
+        <span
+          className="logo__letter logo__letter--2"
+        >
+          T
+        </span>
+        <span
+          className="logo__letter logo__letter--3"
+        >
+          W
+        </span>
+      </a>
+    </div>
+    <div
+      className="copyright"
+    >
+      <p>
+        © 2019 What to watch Ltd.
+      </p>
+    </div>
+  </footer>
+</div>
+`;
