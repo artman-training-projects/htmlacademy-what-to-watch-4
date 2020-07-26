@@ -5,11 +5,9 @@ import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import history from '../../history.js';
-import {films} from '../data-for-test.js';
+import {moviePoster} from '../data-for-test.js';
 import AddReview from './add-review.jsx';
 import NameSpace from '../../reducer/name-space.js';
-
-const film = films[0];
 
 const mockStore = configureStore([]);
 
@@ -37,7 +35,7 @@ describe(`AddReview`, () => {
         <Router history={history}>
           <Provider store={store}>
             <AddReview
-              film={film}
+              selectedFilm={moviePoster}
               onChangeComment={() => {}}
               onChangeRating={() => {}}
               onFilmClick={() => {}}
@@ -77,7 +75,7 @@ describe(`AddReview`, () => {
         <Router history={history}>
           <Provider store={store}>
             <AddReview
-              film={film}
+              selectedFilm={moviePoster}
               onChangeComment={() => {}}
               onChangeRating={() => {}}
               onFilmClick={() => {}}
@@ -117,7 +115,7 @@ describe(`AddReview`, () => {
         <Router history={history}>
           <Provider store={store}>
             <AddReview
-              film={film}
+              selectedFilm={moviePoster}
               onChangeComment={() => {}}
               onChangeRating={() => {}}
               onFilmClick={() => {}}

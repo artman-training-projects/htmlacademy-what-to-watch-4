@@ -3,6 +3,11 @@
 exports[`AddReview Render send review error 1`] = `
 <section
   className="movie-card movie-card--full"
+  style={
+    Object {
+      "backgroundColor": "#A6B7AC",
+    }
+  }
 >
   <div
     className="movie-card__header"
@@ -11,8 +16,8 @@ exports[`AddReview Render send review error 1`] = `
       className="movie-card__bg"
     >
       <img
-        alt="Snatch"
-        src="https://loremflickr.com/1300/550"
+        alt="The Grand Budapest Hotel"
+        src="img/bg-the-grand-budapest-hotel.jpg"
       />
     </div>
     <h1
@@ -59,10 +64,10 @@ exports[`AddReview Render send review error 1`] = `
           >
             <a
               className="breadcrumbs__link"
-              href="/films/2298"
+              href="/films/1111"
               onClick={[Function]}
             >
-              Snatch
+              The Grand Budapest Hotel
             </a>
           </li>
           <li
@@ -100,9 +105,9 @@ exports[`AddReview Render send review error 1`] = `
       className="movie-card__poster movie-card__poster--small"
     >
       <img
-        alt="Snatch"
+        alt="The Grand Budapest Hotel"
         height="327"
-        src="img/snatch.jpg"
+        src="img/the-grand-budapest-hotel-poster.jpg"
         width="218"
       />
     </div>
@@ -229,6 +234,11 @@ exports[`AddReview Render send review error 1`] = `
 exports[`AddReview Render send review ok 1`] = `
 <section
   className="movie-card movie-card--full"
+  style={
+    Object {
+      "backgroundColor": "#A6B7AC",
+    }
+  }
 >
   <div
     className="movie-card__header"
@@ -237,8 +247,8 @@ exports[`AddReview Render send review ok 1`] = `
       className="movie-card__bg"
     >
       <img
-        alt="Snatch"
-        src="https://loremflickr.com/1300/550"
+        alt="The Grand Budapest Hotel"
+        src="img/bg-the-grand-budapest-hotel.jpg"
       />
     </div>
     <h1
@@ -285,10 +295,10 @@ exports[`AddReview Render send review ok 1`] = `
           >
             <a
               className="breadcrumbs__link"
-              href="/films/2298"
+              href="/films/1111"
               onClick={[Function]}
             >
-              Snatch
+              The Grand Budapest Hotel
             </a>
           </li>
           <li
@@ -326,9 +336,9 @@ exports[`AddReview Render send review ok 1`] = `
       className="movie-card__poster movie-card__poster--small"
     >
       <img
-        alt="Snatch"
+        alt="The Grand Budapest Hotel"
         height="327"
-        src="img/snatch.jpg"
+        src="img/the-grand-budapest-hotel-poster.jpg"
         width="218"
       />
     </div>
@@ -454,6 +464,11 @@ exports[`AddReview Render send review ok 1`] = `
 exports[`AddReview Render sending review in process 1`] = `
 <section
   className="movie-card movie-card--full"
+  style={
+    Object {
+      "backgroundColor": "#A6B7AC",
+    }
+  }
 >
   <div
     className="movie-card__header"
@@ -462,8 +477,8 @@ exports[`AddReview Render sending review in process 1`] = `
       className="movie-card__bg"
     >
       <img
-        alt="Snatch"
-        src="https://loremflickr.com/1300/550"
+        alt="The Grand Budapest Hotel"
+        src="img/bg-the-grand-budapest-hotel.jpg"
       />
     </div>
     <h1
@@ -510,10 +525,10 @@ exports[`AddReview Render sending review in process 1`] = `
           >
             <a
               className="breadcrumbs__link"
-              href="/films/2298"
+              href="/films/1111"
               onClick={[Function]}
             >
-              Snatch
+              The Grand Budapest Hotel
             </a>
           </li>
           <li
@@ -551,9 +566,9 @@ exports[`AddReview Render sending review in process 1`] = `
       className="movie-card__poster movie-card__poster--small"
     >
       <img
-        alt="Snatch"
+        alt="The Grand Budapest Hotel"
         height="327"
-        src="img/snatch.jpg"
+        src="img/the-grand-budapest-hotel-poster.jpg"
         width="218"
       />
     </div>
