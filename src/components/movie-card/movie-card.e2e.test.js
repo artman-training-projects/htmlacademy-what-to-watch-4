@@ -40,11 +40,11 @@ describe(`MovieCard`, () => {
             <MovieCard
               activeTab={MovieNavList.OVERVIEW}
               authorizationStatus={`NO_AUTH`}
-              film={moviePoster}
               onActiveTabChange={() => {}}
               onActiveTabRender={() => {}}
               onSmallMovieCardClick={() => {}}
               sameFilms={films}
+              selectedFilm={moviePoster}
             />
           </Provider>
         </Router>
@@ -64,11 +64,11 @@ describe(`MovieCard`, () => {
             <MovieCard
               activeTab={MovieNavList.OVERVIEW}
               authorizationStatus={`AUTH`}
-              film={moviePoster}
               onActiveTabChange={() => {}}
               onActiveTabRender={() => {}}
               onSmallMovieCardClick={() => {}}
               sameFilms={films}
+              selectedFilm={moviePoster}
             />
           </Provider>
         </Router>

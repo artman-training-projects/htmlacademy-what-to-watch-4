@@ -11,9 +11,6 @@ import {Operations as DataOperations} from './reducer/data/data.js';
 import {ActionCreator, Operations as UserOperations} from './reducer/user/user.js';
 
 import App from './components/app/app.jsx';
-import withSelectedFilm from './hoc/with-selected-film/with-selected-film.jsx';
-
-const AppWrapped = withSelectedFilm(App);
 
 const ENTRY_POINT = document.querySelector(`#root`);
 
@@ -35,7 +32,7 @@ store.dispatch(DataOperations.loadFilms());
 
 ReactDom.render(
     <Provider store={store}>
-      <AppWrapped />
+      <App />
     </Provider>,
     ENTRY_POINT
 );

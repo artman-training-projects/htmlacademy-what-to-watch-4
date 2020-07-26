@@ -5,6 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
+import {ALL_GENRES} from '../../const.js';
 import history from '../../history.js';
 import {films, moviePoster} from '../data-for-test.js';
 import Main from './main.jsx';

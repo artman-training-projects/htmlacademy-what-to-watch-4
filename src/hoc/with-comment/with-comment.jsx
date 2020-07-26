@@ -1,6 +1,9 @@
 import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../../components/custom-prop-types.js';
+import {Operations as DataOperations} from '../../reducer/data/data.js';
+import {getSelectedFilm} from '../../reducer/show-films/selectors.js';
 
 const withComment = (Component) => {
   class WithComment extends PureComponent {
@@ -34,11 +37,11 @@ const withComment = (Component) => {
     }
 
     _handleSubmitReview(evt) {
-      const {film, onSubmitReview} = this.props;
+      const {selectedFilm, handleSubmitReview} = this.props;
       const {rating, comment} = this.state;
       evt.preventDefault();
 
-      onSubmitReview(film.id, {
+      handleSubmitReview(selectedFilm.id, {
         rating,
         comment,
       });
@@ -59,15 +62,28 @@ const withComment = (Component) => {
   }
 
   WithComment.propTypes = {
-    film: CustomPropTypes.FILM,
-    onSubmitReview: PropTypes.func.isRequired,
+    handleSubmitReview: PropTypes.func.isRequired,
+    selectedFilm: PropTypes.oneOfType([
+      CustomPropTypes.FILM,
+      PropTypes.bool,
+    ]),
     sendingComment: PropTypes.shape({
       commentsIsSending: PropTypes.bool.isRequired,
       sendingIsError: PropTypes.bool.isRequired,
     }),
   };
 
-  return WithComment;
+  const mapStateToProps = (state) => ({
+    selectedFilm: getSelectedFilm(state),
+  });
+
+  const mapDispatchToProps = (dispatch) => ({
+    handleSubmitReview(review, id) {
+      dispatch(DataOperations.sendComment(review, id));
+    },
+  });
+
+  return connect(mapStateToProps, mapDispatchToProps)(WithComment);
 };
 
 export default withComment;

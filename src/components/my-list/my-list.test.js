@@ -6,7 +6,7 @@ import configureStore from 'redux-mock-store';
 
 import history from '../../history.js';
 import MyList from './my-list.jsx';
-import {films, user} from '../data-for-test.js';
+import {films, moviePoster, user} from '../data-for-test.js';
 import NameSpace from '../../reducer/name-space.js';
 
 const mockStore = configureStore([]);
@@ -16,7 +16,12 @@ describe(`MyList`, () => {
     [NameSpace.USER]: {
       authorizationStatus: `AUTH`,
       authorizationError: false,
+      user,
     },
+    [NameSpace.DATA]: {
+      films,
+      moviePoster,
+    }
   });
 
   it(`Render MyList`, () => {

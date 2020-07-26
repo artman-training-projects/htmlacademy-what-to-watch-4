@@ -17,6 +17,12 @@ describe(`MovieCard`, () => {
       authorizationStatus: `NO_AUTH`,
       authorizationError: false,
     },
+    [NameSpace.DATA]: {
+      films,
+    },
+    [NameSpace.SHOW]: {
+      selectedFilm: films[2],
+    },
   });
 
   it(`Render MovieCard, auth no`, () => {
@@ -26,14 +32,11 @@ describe(`MovieCard`, () => {
             <MovieCard
               activeTab={`Overview`}
               authorizationStatus={`NO_AUTH`}
-              film={moviePoster}
+              handleFilmChoose={() => {}}
               onActiveTabChange={() => {}}
               onActiveTabRender={() => {}}
-              onPlayClick={() => {}}
-              onReviewClick={() => {}}
-              onSignInClick={() => {}}
-              onSmallMovieCardClick={() => {}}
               sameFilms={films}
+              selectedFilm={moviePoster}
             />
           </Provider>
         </Router>, {
@@ -53,14 +56,11 @@ describe(`MovieCard`, () => {
             <MovieCard
               activeTab={`Overview`}
               authorizationStatus={`AUTH`}
-              film={moviePoster}
+              handleFilmChoose={() => {}}
               onActiveTabChange={() => {}}
               onActiveTabRender={() => {}}
-              onPlayClick={() => {}}
-              onReviewClick={() => {}}
-              onSignInClick={() => {}}
-              onSmallMovieCardClick={() => {}}
               sameFilms={films}
+              selectedFilm={moviePoster}
             />
           </Provider>
         </Router>, {

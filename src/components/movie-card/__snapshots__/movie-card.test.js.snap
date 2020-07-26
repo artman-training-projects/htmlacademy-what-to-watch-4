@@ -17,8 +17,8 @@ Array [
         className="movie-card__bg"
       >
         <img
-          alt="The Grand Budapest Hotel"
-          src="img/bg-the-grand-budapest-hotel.jpg"
+          alt="Seven Years in Tibet"
+          src="https://loremflickr.com/1300/550"
         />
       </div>
       <h1
@@ -75,7 +75,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            The Grand Budapest Hotel
+            Seven Years in Tibet
           </h2>
           <p
             className="movie-card__meta"
@@ -88,7 +88,7 @@ Array [
             <span
               className="movie-card__year"
             >
-              2014
+              1997
             </span>
           </p>
           <div
@@ -96,7 +96,7 @@ Array [
           >
             <a
               className="btn btn--play movie-card__button"
-              href="/player/1111"
+              href="/player/2249"
               onClick={[Function]}
               type="button"
             >
@@ -118,12 +118,12 @@ Array [
               type="button"
             >
               <svg
-                height="20"
-                viewBox="0 0 19 20"
-                width="19"
+                height="14"
+                viewBox="0 0 18 14"
+                width="18"
               >
                 <use
-                  xlinkHref="#add"
+                  xlinkHref="#in-list"
                 />
               </svg>
               <span>
@@ -144,9 +144,9 @@ Array [
           className="movie-card__poster movie-card__poster--big"
         >
           <img
-            alt="The Grand Budapest Hotel"
+            alt="Seven Years in Tibet"
             height="327"
-            src="img/the-grand-budapest-hotel-poster.jpg"
+            src="img/seven-years-in-tibet.jpg"
             width="218"
           />
         </div>
@@ -223,180 +223,6 @@ Array [
           >
             <video
               height="175"
-              poster="img/snatch.jpg"
-              width="280"
-            >
-              your browser doesn\`t support embedded videos
-            </video>
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/2298"
-              onClick={[Function]}
-            >
-              Snatch
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
-              poster="img/moonrise-kingdom.jpg"
-              width="280"
-            >
-              your browser doesn\`t support embedded videos
-            </video>
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/2245"
-              onClick={[Function]}
-            >
-              Moonrise Kingdom
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
-              poster="img/seven-years-in-tibet.jpg"
-              width="280"
-            >
-              your browser doesn\`t support embedded videos
-            </video>
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/2249"
-              onClick={[Function]}
-            >
-              Seven Years in Tibet
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
-              poster="img/midnight-special.jpg"
-              width="280"
-            >
-              your browser doesn\`t support embedded videos
-            </video>
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/9921"
-              onClick={[Function]}
-            >
-              Midnight Special
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
-              poster="img/war-of-the-worlds.jpg"
-              width="280"
-            >
-              your browser doesn\`t support embedded videos
-            </video>
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/9963"
-              onClick={[Function]}
-            >
-              War of the Worlds
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
-              poster="img/dardjeeling-limited.jpg"
-              width="280"
-            >
-              your browser doesn\`t support embedded videos
-            </video>
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/7732"
-              onClick={[Function]}
-            >
-              Dardjeeling Limited
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
               poster="img/orlando.jpg"
               width="280"
             >
@@ -412,35 +238,6 @@ Array [
               onClick={[Function]}
             >
               Orlando
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
-              poster="img/mindhunter.jpg"
-              width="280"
-            >
-              your browser doesn\`t support embedded videos
-            </video>
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/7714"
-              onClick={[Function]}
-            >
-              Mindhunter
             </a>
           </h3>
         </article>
@@ -503,8 +300,8 @@ Array [
         className="movie-card__bg"
       >
         <img
-          alt="The Grand Budapest Hotel"
-          src="img/bg-the-grand-budapest-hotel.jpg"
+          alt="Seven Years in Tibet"
+          src="https://loremflickr.com/1300/550"
         />
       </div>
       <h1
@@ -561,7 +358,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            The Grand Budapest Hotel
+            Seven Years in Tibet
           </h2>
           <p
             className="movie-card__meta"
@@ -574,7 +371,7 @@ Array [
             <span
               className="movie-card__year"
             >
-              2014
+              1997
             </span>
           </p>
           <div
@@ -582,7 +379,7 @@ Array [
           >
             <a
               className="btn btn--play movie-card__button"
-              href="/player/1111"
+              href="/player/2249"
               onClick={[Function]}
               type="button"
             >
@@ -604,25 +401,18 @@ Array [
               type="button"
             >
               <svg
-                height="20"
-                viewBox="0 0 19 20"
-                width="19"
+                height="14"
+                viewBox="0 0 18 14"
+                width="18"
               >
                 <use
-                  xlinkHref="#add"
+                  xlinkHref="#in-list"
                 />
               </svg>
               <span>
                 My list
               </span>
             </button>
-            <a
-              className="btn btn--review movie-card__button"
-              href="/films/1111/review"
-              onClick={[Function]}
-            >
-              Add review
-            </a>
           </div>
         </div>
       </div>
@@ -637,9 +427,9 @@ Array [
           className="movie-card__poster movie-card__poster--big"
         >
           <img
-            alt="The Grand Budapest Hotel"
+            alt="Seven Years in Tibet"
             height="327"
-            src="img/the-grand-budapest-hotel-poster.jpg"
+            src="img/seven-years-in-tibet.jpg"
             width="218"
           />
         </div>
@@ -716,180 +506,6 @@ Array [
           >
             <video
               height="175"
-              poster="img/snatch.jpg"
-              width="280"
-            >
-              your browser doesn\`t support embedded videos
-            </video>
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/2298"
-              onClick={[Function]}
-            >
-              Snatch
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
-              poster="img/moonrise-kingdom.jpg"
-              width="280"
-            >
-              your browser doesn\`t support embedded videos
-            </video>
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/2245"
-              onClick={[Function]}
-            >
-              Moonrise Kingdom
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
-              poster="img/seven-years-in-tibet.jpg"
-              width="280"
-            >
-              your browser doesn\`t support embedded videos
-            </video>
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/2249"
-              onClick={[Function]}
-            >
-              Seven Years in Tibet
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
-              poster="img/midnight-special.jpg"
-              width="280"
-            >
-              your browser doesn\`t support embedded videos
-            </video>
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/9921"
-              onClick={[Function]}
-            >
-              Midnight Special
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
-              poster="img/war-of-the-worlds.jpg"
-              width="280"
-            >
-              your browser doesn\`t support embedded videos
-            </video>
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/9963"
-              onClick={[Function]}
-            >
-              War of the Worlds
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
-              poster="img/dardjeeling-limited.jpg"
-              width="280"
-            >
-              your browser doesn\`t support embedded videos
-            </video>
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/7732"
-              onClick={[Function]}
-            >
-              Dardjeeling Limited
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
               poster="img/orlando.jpg"
               width="280"
             >
@@ -905,35 +521,6 @@ Array [
               onClick={[Function]}
             >
               Orlando
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
-              poster="img/mindhunter.jpg"
-              width="280"
-            >
-              your browser doesn\`t support embedded videos
-            </video>
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/7714"
-              onClick={[Function]}
-            >
-              Mindhunter
             </a>
           </h3>
         </article>

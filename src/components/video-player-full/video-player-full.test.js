@@ -15,7 +15,7 @@ describe(`VideoPlayerFull`, () => {
   const store = mockStore({
     [NameSpace.APP]: {
       currentPage: Pages.MAIN,
-    }
+    },
   });
 
   it(`Render VideoPlayerFull onPlay`, () => {
@@ -24,11 +24,11 @@ describe(`VideoPlayerFull`, () => {
           <VideoPlayerFull
             currentTime={20}
             duration={100}
-            film={film}
             isPlaying={true}
             leftTime={`00:10:12`}
             onIsPlayingChange={() => {}}
             onSetFullScreen={() => {}}
+            selectedFilm={film}
           ><video/>
           </VideoPlayerFull>
         </Provider>, {
@@ -47,11 +47,11 @@ describe(`VideoPlayerFull`, () => {
           <VideoPlayerFull
             currentTime={20}
             duration={100}
-            film={film}
             isPlaying={false}
             leftTime={`00:10:12`}
             onIsPlayingChange={() => {}}
             onSetFullScreen={() => {}}
+            selectedFilm={film}
           ><video/>
           </VideoPlayerFull>
         </Provider>, {

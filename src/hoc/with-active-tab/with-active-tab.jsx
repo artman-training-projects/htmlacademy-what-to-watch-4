@@ -1,8 +1,11 @@
 import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../../components/custom-prop-types.js';
 
 import {MovieNavList} from '../../const.js';
+import {getSelectedFilm} from '../../reducer/show-films/selectors.js';
+import {Operations as DataOperations} from '../../reducer/data/data.js';
 import MovieNavOverview from '../../components/movie-nav-overview/movie-nav-overview.jsx';
 import MovieNavDetails from '../../components/movie-nav-details/movie-nav-details.jsx';
 import MovieNavReviews from '../../components/movie-nav-reviews/movie-nav-reviews.jsx';
@@ -27,28 +30,28 @@ const withActiveTab = (Component) => {
     }
 
     _handleActiveTabRender() {
-      const {film} = this.props;
+      const {selectedFilm} = this.props;
       const {activeTab} = this.state;
 
       switch (activeTab) {
         case MovieNavList.OVERVIEW:
           return (
             <MovieNavOverview
-              description={film.description}
-              director={film.director}
-              rating={film.rating}
-              starring={film.starring}
-              votes={film.votes}
+              description={selectedFilm.description}
+              director={selectedFilm.director}
+              rating={selectedFilm.rating}
+              starring={selectedFilm.starring}
+              votes={selectedFilm.votes}
             />
           );
         case MovieNavList.DETAILS:
           return (
             <MovieNavDetails
-              director={film.director}
-              genre={film.genre}
-              starring={film.starring}
-              time={film.time}
-              year={film.year}
+              director={selectedFilm.director}
+              genre={selectedFilm.genre}
+              starring={selectedFilm.starring}
+              time={selectedFilm.time}
+              year={selectedFilm.year}
             />
           );
         case MovieNavList.REVIEWS:
@@ -60,7 +63,10 @@ const withActiveTab = (Component) => {
     }
 
     render() {
+      const {loadComments, selectedFilm} = this.props;
       const {activeTab} = this.state;
+
+      loadComments(selectedFilm);
 
       return <Component
         {...this.props}
@@ -72,13 +78,24 @@ const withActiveTab = (Component) => {
   }
 
   WithActiveTab.propTypes = {
-    film: PropTypes.oneOfType([
+    loadComments: PropTypes.func.isRequired,
+    selectedFilm: PropTypes.oneOfType([
       CustomPropTypes.FILM,
       PropTypes.bool,
     ]),
   };
 
-  return WithActiveTab;
+  const mapStateToProps = (state) => ({
+    selectedFilm: getSelectedFilm(state),
+  });
+
+  const mapDispatchToProps = (dispatch) => ({
+    loadComments(film) {
+      dispatch(DataOperations.loadComments(film.id));
+    },
+  });
+
+  return connect(mapStateToProps, mapDispatchToProps)(WithActiveTab);
 };
 
 export default withActiveTab;

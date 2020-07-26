@@ -108,6 +108,7 @@ const Operations = {
         dispatch(ActionCreator.loadComments(responce.data));
         dispatch(ActionCreator.isloadingComments(false));
         dispatch(ActionCreator.loadCommentsError(false));
+        dispatch(ActionCreator.sendCommentDone(false));
       })
       .catch((err) => {
         dispatch(ActionCreator.loadCommentsError(true));

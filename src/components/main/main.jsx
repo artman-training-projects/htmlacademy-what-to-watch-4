@@ -1,18 +1,21 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer/show-films/show-films.js';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
+import {Pages} from '../../const.js';
 import {getGenres, getFilms, getFilmsStatus, getPromo, getPromoStatus} from '../../reducer/data/selectors.js';
+import {Operations as DataOperations} from '../../reducer/data/data.js';
+import {ActionCreator} from '../../reducer/show-films/show-films.js';
 import {getCurrentGenre, getFilmsByGenre} from '../../reducer/show-films/selectors.js';
+
 import MovieNavGenre from '../movie-nav-genre/movie-nav-genre.jsx';
 import MoviesList from '../movies-list/movies-list.jsx';
 import CatalogMore from '../catalog-more/catalog-more.jsx';
 import Header from '../header/header.jsx';
 import Footer from '../footer/footer.jsx';
-import {Pages} from '../../const.js';
+
 
 const Main = (props) => {
   const {
@@ -20,6 +23,7 @@ const Main = (props) => {
     currentGenre,
     films,
     filmsByGenre,
+    handleFilmChoose,
     handleGenreChoose,
     loadingFilms,
     loadingPromo,
@@ -27,7 +31,6 @@ const Main = (props) => {
     numberOfFilms,
     onCountShowFilmAdd,
     onCountShowFilmReset,
-    onSmallMovieCardClick,
   } = props;
 
   const showFilms = filmsByGenre.slice(0, numberOfFilms);
@@ -90,7 +93,7 @@ const Main = (props) => {
 
             <div className="movie-card__buttons">
               <Link to={`${Pages.PLAYER}/${moviePoster.id}`} className="btn btn--play movie-card__button" type="button"
-                onClick={() => onSmallMovieCardClick(moviePoster)}
+                onClick={() => handleFilmChoose(moviePoster)}
               >
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"></use>
@@ -122,7 +125,7 @@ const Main = (props) => {
         {isLoadingFilms() ||
           <MoviesList
             films={showFilms}
-            onSmallMovieCardClick={onSmallMovieCardClick}
+            onSmallMovieCardClick={handleFilmChoose}
           />
         }
 
@@ -144,6 +147,7 @@ Main.propTypes = {
   currentGenre: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   filmsByGenre: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
+  handleFilmChoose: PropTypes.func.isRequired,
   handleGenreChoose: PropTypes.func.isRequired,
   loadingFilms: PropTypes.shape({
     filmsIsLoading: PropTypes.bool.isRequired,
@@ -160,7 +164,6 @@ Main.propTypes = {
   numberOfFilms: PropTypes.number.isRequired,
   onCountShowFilmAdd: PropTypes.func.isRequired,
   onCountShowFilmReset: PropTypes.func.isRequired,
-  onSmallMovieCardClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -176,7 +179,12 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   handleGenreChoose(genre) {
     dispatch(ActionCreator.chooseGenre(genre));
-  }
+  },
+
+  handleFilmChoose(film) {
+    dispatch(ActionCreator.chooseFilm(film));
+    dispatch(DataOperations.loadComments(film.id));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Main));

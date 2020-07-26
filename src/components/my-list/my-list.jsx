@@ -1,14 +1,19 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
 import {Pages} from '../../const.js';
+import {getFilms} from '../../reducer/data/selectors.js';
+import {Operations as DataOperations} from '../../reducer/data/data.js';
+import {getUserData} from '../../reducer/user/selector.js';
+import {ActionCreator} from '../../reducer/show-films/show-films.js';
 import MoviesList from '../movies-list/movies-list.jsx';
 import Footer from '../footer/footer.jsx';
 
 const MyList = (props) => {
-  const {favoriteFilms, onSmallMovieCardClick, user} = props;
+  const {favoriteFilms, handleFilmChoose, user} = props;
 
   return (<React.Fragment>
     <div className="user-page">
@@ -37,7 +42,7 @@ const MyList = (props) => {
 
         <MoviesList
           films={favoriteFilms}
-          onSmallMovieCardClick={onSmallMovieCardClick}
+          onSmallMovieCardClick={handleFilmChoose}
         />
       </section>
 
@@ -48,8 +53,20 @@ const MyList = (props) => {
 
 MyList.propTypes = {
   favoriteFilms: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  onSmallMovieCardClick: PropTypes.func.isRequired,
+  handleFilmChoose: PropTypes.func.isRequired,
   user: CustomPropTypes.USER,
 };
 
-export default MyList;
+const mapStateToProps = (state) => ({
+  favoriteFilms: getFilms(state),
+  user: getUserData(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  handleFilmChoose(film) {
+    dispatch(ActionCreator.chooseFilm(film));
+    dispatch(DataOperations.loadComments(film.id));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)((MyList));
