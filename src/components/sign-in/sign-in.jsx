@@ -45,11 +45,11 @@ class SignIn extends PureComponent {
           <form action="#" className="sign-in__form"
             onSubmit={(evt) => {
               evt.preventDefault();
-              history.goBack();
               handleAuthSubmit({
                 email: this.emailRef.current.value,
                 password: this.passwordRef.current.value,
               });
+              history.goBack();
             }}
           >
             {isInvalidRequest}
