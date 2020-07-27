@@ -20,6 +20,9 @@ describe(`App`, () => {
         loadFilmsError: false,
         loadingPromo: false,
         loadPromoError: false,
+        sendingFavoriteFilm: false,
+        sendFavoriteFilmDone: false,
+        sendFavoriteFilmError: false,
       },
       [NameSpace.SHOW]: {
         currentGenre: ALL_GENRES,
@@ -55,6 +58,9 @@ describe(`App`, () => {
         loadFilmsError: false,
         loadingPromo: false,
         loadPromoError: false,
+        sendingFavoriteFilm: false,
+        sendFavoriteFilmDone: false,
+        sendFavoriteFilmError: false,
       },
       [NameSpace.SHOW]: {
         currentGenre: ALL_GENRES,
@@ -91,6 +97,9 @@ describe(`App`, () => {
         loadFilmsError: false,
         loadingPromo: false,
         loadPromoError: false,
+        sendingFavoriteFilm: false,
+        sendFavoriteFilmDone: false,
+        sendFavoriteFilmError: false,
       },
       [NameSpace.SHOW]: {
         currentGenre: ALL_GENRES,
@@ -129,6 +138,9 @@ describe(`App`, () => {
         sendingComment: false,
         sendCommentDone: false,
         sendCommentError: false,
+        sendingFavoriteFilm: false,
+        sendFavoriteFilmDone: false,
+        sendFavoriteFilmError: false,
       },
       [NameSpace.SHOW]: {
         currentGenre: ALL_GENRES,

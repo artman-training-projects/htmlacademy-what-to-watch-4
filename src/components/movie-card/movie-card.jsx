@@ -6,6 +6,7 @@ import {CustomPropTypes} from '../custom-prop-types.js';
 
 import {AuthorizationStatus, MovieNavList, Pages} from '../../const.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
+import {getFavoriteFilmSendStatus} from '../../reducer/data/selectors.js';
 import {getAuthStatus} from '../../reducer/user/selector.js';
 import {ActionCreator} from '../../reducer/show-films/show-films.js';
 import {getSameFilms} from '../../reducer/show-films/selectors.js';
@@ -20,13 +21,20 @@ const MovieCard = (props) => {
     activeTab,
     authorizationStatus,
     handleFilmChoose,
+    handleFilmFavorite,
+    loadFilms,
     onActiveTabChange,
     onActiveTabRender,
     sameFilms,
     selectedFilm,
+    sendFavoriteFilm,
   } = props;
 
   const isSignIn = authorizationStatus === AuthorizationStatus.AUTH;
+
+  if (sendFavoriteFilm.sendingIsDone) {
+    loadFilms();
+  }
 
   const isInMyLyst = selectedFilm.isFavorite ?
     <React.Fragment>
@@ -66,7 +74,9 @@ const MovieCard = (props) => {
                 </svg>
                 <span>Play</span>
               </Link>
-              <button className="btn btn--list movie-card__button" type="button">
+              <button className="btn btn--list movie-card__button" type="button"
+                onClick={() => handleFilmFavorite(selectedFilm)}
+              >
                 {isInMyLyst}
                 <span>My list</span>
               </button>
@@ -115,6 +125,8 @@ MovieCard.propTypes = {
   activeTab: PropTypes.string.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
   handleFilmChoose: PropTypes.func.isRequired,
+  handleFilmFavorite: PropTypes.func.isRequired,
+  loadFilms: PropTypes.func.isRequired,
   onActiveTabChange: PropTypes.func.isRequired,
   onActiveTabRender: PropTypes.func.isRequired,
   sameFilms: PropTypes.arrayOf(CustomPropTypes.FILM),
@@ -122,17 +134,31 @@ MovieCard.propTypes = {
     CustomPropTypes.FILM,
     PropTypes.bool,
   ]),
+  sendFavoriteFilm: PropTypes.shape({
+    favoriteFilmIsSending: PropTypes.bool.isRequired,
+    sendingIsError: PropTypes.bool.isRequired,
+    sendingIsDone: PropTypes.bool.isRequired,
+  }),
 };
 
 const mapStateToProps = (state, props) => ({
   authorizationStatus: getAuthStatus(state),
   sameFilms: getSameFilms(state, props.selectedFilm),
+  sendFavoriteFilm: getFavoriteFilmSendStatus(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   handleFilmChoose(film) {
     dispatch(ActionCreator.chooseFilm(film));
     dispatch(DataOperations.loadComments(film.id));
+  },
+
+  handleFilmFavorite(film) {
+    dispatch(DataOperations.sendFavoriteFilm(film.id, film.isFavorite));
+  },
+
+  loadFilms() {
+    dispatch(DataOperations.loadFilms());
   },
 });
 

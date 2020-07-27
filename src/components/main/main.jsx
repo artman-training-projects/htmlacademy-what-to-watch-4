@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
 import {Pages} from '../../const.js';
-import {getGenres, getFilms, getFilmsStatus, getPromo, getPromoStatus} from '../../reducer/data/selectors.js';
+import {getGenres, getFilms, getFilmsStatus, getPromo, getPromoStatus, getFavoriteFilmSendStatus} from '../../reducer/data/selectors.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
 import {ActionCreator} from '../../reducer/show-films/show-films.js';
 import {getCurrentGenre, getFilmsByGenre} from '../../reducer/show-films/selectors.js';
@@ -24,16 +24,23 @@ const Main = (props) => {
     films,
     filmsByGenre,
     handleFilmChoose,
+    handleFilmFavorite,
     handleGenreChoose,
+    loadPromo,
     loadingFilms,
     loadingPromo,
     moviePoster,
     numberOfFilms,
     onCountShowFilmAdd,
     onCountShowFilmReset,
+    sendFavoriteFilm,
   } = props;
 
   const showFilms = filmsByGenre.slice(0, numberOfFilms);
+
+  if (sendFavoriteFilm.sendingIsDone) {
+    loadPromo();
+  }
 
   const isLoadingPromo = () => {
     if (loadingPromo.promoIsLoading && !loadingPromo.loadingIsError) {
@@ -100,7 +107,9 @@ const Main = (props) => {
                 </svg>
                 <span>Play</span>
               </Link>
-              <button className="btn btn--list movie-card__button" type="button">
+              <button className="btn btn--list movie-card__button" type="button"
+                onClick={() => handleFilmFavorite(moviePoster)}
+              >
                 {isInMyLyst}
                 <span>My list</span>
               </button>
@@ -148,11 +157,13 @@ Main.propTypes = {
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   filmsByGenre: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   handleFilmChoose: PropTypes.func.isRequired,
+  handleFilmFavorite: PropTypes.func.isRequired,
   handleGenreChoose: PropTypes.func.isRequired,
   loadingFilms: PropTypes.shape({
     filmsIsLoading: PropTypes.bool.isRequired,
     loadingIsError: PropTypes.bool.isRequired,
   }),
+  loadPromo: PropTypes.func.isRequired,
   loadingPromo: PropTypes.shape({
     promoIsLoading: PropTypes.bool.isRequired,
     loadingIsError: PropTypes.bool.isRequired,
@@ -164,6 +175,11 @@ Main.propTypes = {
   numberOfFilms: PropTypes.number.isRequired,
   onCountShowFilmAdd: PropTypes.func.isRequired,
   onCountShowFilmReset: PropTypes.func.isRequired,
+  sendFavoriteFilm: PropTypes.shape({
+    favoriteFilmIsSending: PropTypes.bool.isRequired,
+    sendingIsError: PropTypes.bool.isRequired,
+    sendingIsDone: PropTypes.bool.isRequired,
+  }),
 };
 
 const mapStateToProps = (state) => ({
@@ -174,6 +190,7 @@ const mapStateToProps = (state) => ({
   loadingPromo: getPromoStatus(state),
   loadingFilms: getFilmsStatus(state),
   moviePoster: getPromo(state),
+  sendFavoriteFilm: getFavoriteFilmSendStatus(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -184,6 +201,14 @@ const mapDispatchToProps = (dispatch) => ({
   handleFilmChoose(film) {
     dispatch(ActionCreator.chooseFilm(film));
     dispatch(DataOperations.loadComments(film.id));
+  },
+
+  handleFilmFavorite(film) {
+    dispatch(DataOperations.sendFavoriteFilm(film.id, film.isFavorite));
+  },
+
+  loadPromo() {
+    dispatch(DataOperations.loadPromo());
   },
 });
 

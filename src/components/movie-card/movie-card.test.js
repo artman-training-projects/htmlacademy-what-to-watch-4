@@ -19,6 +19,9 @@ describe(`MovieCard`, () => {
     },
     [NameSpace.DATA]: {
       films,
+      sendingFavoriteFilm: false,
+      sendFavoriteFilmDone: false,
+      sendFavoriteFilmError: false,
     },
     [NameSpace.SHOW]: {
       selectedFilm: films[2],

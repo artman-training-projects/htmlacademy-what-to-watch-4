@@ -165,6 +165,7 @@ const Operations = {
         dispatch(ActionCreator.loadFilms(responce.data.map((film) => filmAdapter(film))));
         dispatch(ActionCreator.isLoadingFilm(false));
         dispatch(ActionCreator.loadFilmsError(false));
+        dispatch(ActionCreator.sendFavoriteFilmDone(false));
       })
       .catch((err) => {
         dispatch(ActionCreator.loadFilmsError(true));
@@ -191,6 +192,7 @@ const Operations = {
         dispatch(ActionCreator.loadPromo(filmAdapter(responce.data)));
         dispatch(ActionCreator.isLoadingPromo(false));
         dispatch(ActionCreator.loadPromoError(false));
+        dispatch(ActionCreator.sendFavoriteFilmDone(false));
       })
       .catch((err) => {
         dispatch(ActionCreator.loadPromoError(true));
@@ -217,18 +219,20 @@ const Operations = {
   },
 
   sendFavoriteFilm: (filmID, isFavorite) => (dispatch, getState, api) => {
+    const status = isFavorite ? 0 : 1;
     dispatch(ActionCreator.isSendingFavoriteFilm(true));
     return api.post(`${EntryPoints.FAVORITE}/${filmID}/${status}`, {
-      [`is_favorite`]: !isFavorite,
+      [`is_favorite`]: isFavorite,
     })
       .then(() => {
         dispatch(ActionCreator.isSendingFavoriteFilm(false));
         dispatch(ActionCreator.sendFavoriteFilmError(false));
         dispatch(ActionCreator.sendFavoriteFilmDone(true));
       })
-      .catch(() => {
+      .catch((err) => {
         dispatch(ActionCreator.sendFavoriteFilmError(true));
         dispatch(ActionCreator.sendFavoriteFilmDone(false));
+        throw err;
       });
   },
 };

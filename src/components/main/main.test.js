@@ -22,6 +22,9 @@ describe(`Main`, () => {
         loadFilmsError: false,
         loadingPromo: false,
         loadPromoError: false,
+        sendingFavoriteFilm: false,
+        sendFavoriteFilmDone: false,
+        sendFavoriteFilmError: false,
       },
       [NameSpace.SHOW]: {
         currentGenre: ALL_GENRES,
@@ -60,6 +63,9 @@ describe(`Main`, () => {
         loadFilmsError: false,
         loadingPromo: true,
         loadPromoError: false,
+        sendingFavoriteFilm: false,
+        sendFavoriteFilmDone: false,
+        sendFavoriteFilmError: false,
       },
       [NameSpace.SHOW]: {
         currentGenre: ALL_GENRES,
@@ -98,6 +104,9 @@ describe(`Main`, () => {
         loadFilmsError: true,
         loadingPromo: true,
         loadPromoError: true,
+        sendingFavoriteFilm: false,
+        sendFavoriteFilmDone: false,
+        sendFavoriteFilmError: false,
       },
       [NameSpace.SHOW]: {
         currentGenre: ALL_GENRES,

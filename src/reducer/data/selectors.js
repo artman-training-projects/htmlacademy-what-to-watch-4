@@ -20,6 +20,12 @@ export const getPromo = (state) => state[NameSpace.DATA].moviePoster;
 
 export const getFilmComments = (state) => state[NameSpace.DATA].comments;
 
+export const getFavoriteFilmSendStatus = (state) => ({
+  favoriteFilmIsSending: state[NameSpace.DATA].sendingFavoriteFilm,
+  sendingIsError: state[NameSpace.DATA].sendFavoriteFilmError,
+  sendingIsDone: state[NameSpace.DATA].sendFavoriteFilmDone,
+});
+
 export const getFilmsStatus = (state) => ({
   filmsIsLoading: state[NameSpace.DATA].loadingFilms,
   loadingIsError: state[NameSpace.DATA].loadFilmsError,
