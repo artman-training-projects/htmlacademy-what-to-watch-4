@@ -1,20 +1,18 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
-import {getCurrentPage} from '../../reducer/app/selectors.js';
+import history from '../../history.js';
 
 const VideoPlayerFull = (props) => {
   const {
     children,
     currentTime,
     duration,
-    film,
     isPlaying,
     leftTime,
-    onClosePlayerClick,
     onIsPlayingChange,
     onSetFullScreen,
+    selectedFilm,
   } = props;
 
   const playerToggler = ((currentTime * 100) / duration) + `%`;
@@ -38,7 +36,7 @@ const VideoPlayerFull = (props) => {
       {children}
 
       <button type="button" className="player__exit"
-        onClick={() => onClosePlayerClick()}
+        onClick={() => history.goBack()}
       >Exit</button>
 
       <div className="player__controls">
@@ -56,7 +54,7 @@ const VideoPlayerFull = (props) => {
           >
             {btnIsPlaying}
           </button>
-          <div className="player__name">{film.title}</div>
+          <div className="player__name">{selectedFilm.title}</div>
 
           <button type="button" className="player__full-screen"
             onClick={() => onSetFullScreen()}
@@ -76,17 +74,11 @@ VideoPlayerFull.propTypes = {
   children: PropTypes.element.isRequired,
   currentTime: PropTypes.number.isRequired,
   duration: PropTypes.number.isRequired,
-  film: CustomPropTypes.FILM,
   isPlaying: PropTypes.bool.isRequired,
   leftTime: PropTypes.string.isRequired,
-  onClosePlayerClick: PropTypes.func.isRequired,
   onIsPlayingChange: PropTypes.func.isRequired,
   onSetFullScreen: PropTypes.func.isRequired,
-
+  selectedFilm: CustomPropTypes.FILM,
 };
 
-const mapStateToProps = (state) => ({
-  currentPage: getCurrentPage(state),
-});
-
-export default connect(mapStateToProps)(VideoPlayerFull);
+export default VideoPlayerFull;

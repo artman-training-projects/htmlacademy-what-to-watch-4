@@ -1,22 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {Pages} from '../../const';
 
-import {Pages} from '../../const.js';
-import {getCurrentPage} from '../../reducer/app/selectors.js';
-
-const Footer = (props) => {
-  const {currentPage} = props;
-  const linkOnMain = currentPage !== Pages.MAIN ? `/` : null;
-
+const Footer = () => {
   return (
     <footer className="page-footer">
       <div className="logo">
-        <a href={linkOnMain} className="logo__link logo__link--light">
+        <Link to={Pages.MAIN} className="logo__link logo__link--light">
           <span className="logo__letter logo__letter--1">W</span>
           <span className="logo__letter logo__letter--2">T</span>
           <span className="logo__letter logo__letter--3">W</span>
-        </a>
+        </Link>
       </div>
 
       <div className="copyright">
@@ -26,12 +20,4 @@ const Footer = (props) => {
   );
 };
 
-Footer.propTypes = {
-  currentPage: PropTypes.string.isRequired,
-};
-
-const mapStateToProps = (state) => ({
-  currentPage: getCurrentPage(state),
-});
-
-export default connect(mapStateToProps)(Footer);
+export default Footer;

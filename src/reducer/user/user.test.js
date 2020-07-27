@@ -8,7 +8,7 @@ import {user} from '../../components/data-for-test.js';
 const api = createAPI(() => {});
 
 describe(`Operaions User`, () => {
-  it(`Should return checkAuth NO_AUTH`, () => {
+  it(`Should return checkAuth AUTH`, () => {
     const apiMock = new MockAdapter(api);
     const dispatch = jest.fn();
     const userCheckAuth = Operations.checkAuth();
@@ -21,7 +21,7 @@ describe(`Operaions User`, () => {
       .then(() => {
         expect(dispatch).toHaveBeenCalledWith({
           type: ActionType.REQUIRED_AUTHORIZATION,
-          payload: `NO_AUTH`,
+          payload: `AUTH`,
         });
       });
   });

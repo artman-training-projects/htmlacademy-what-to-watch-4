@@ -26,7 +26,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page"
+        href="/films/2298"
         onClick={[Function]}
       >
         Snatch
@@ -55,7 +55,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page"
+        href="/films/2245"
         onClick={[Function]}
       >
         Moonrise Kingdom
@@ -84,7 +84,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page"
+        href="/films/2249"
         onClick={[Function]}
       >
         Seven Years in Tibet
@@ -113,7 +113,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page"
+        href="/films/9921"
         onClick={[Function]}
       >
         Midnight Special
@@ -142,7 +142,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page"
+        href="/films/9963"
         onClick={[Function]}
       >
         War of the Worlds
@@ -171,7 +171,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page"
+        href="/films/7732"
         onClick={[Function]}
       >
         Dardjeeling Limited
@@ -200,7 +200,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page"
+        href="/films/7794"
         onClick={[Function]}
       >
         Orlando
@@ -229,7 +229,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page"
+        href="/films/7714"
         onClick={[Function]}
       >
         Mindhunter

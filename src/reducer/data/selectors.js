@@ -9,13 +9,31 @@ export const getGenres = (state) => {
 
 export const getFilms = (state) => state[NameSpace.DATA].films;
 
+export const getFilmById = (state, filmID) => {
+  const films = state[NameSpace.DATA].films;
+  return films.find((film) => film.id === filmID && film);
+};
+
+export const getFavoriteFilms = (state) => state[NameSpace.DATA].favoriteFilms;
+
 export const getPromo = (state) => state[NameSpace.DATA].moviePoster;
 
 export const getFilmComments = (state) => state[NameSpace.DATA].comments;
 
+export const getFavoriteFilmSendStatus = (state) => ({
+  favoriteFilmIsSending: state[NameSpace.DATA].sendingFavoriteFilm,
+  sendingIsError: state[NameSpace.DATA].sendFavoriteFilmError,
+  sendingIsDone: state[NameSpace.DATA].sendFavoriteFilmDone,
+});
+
 export const getFilmsStatus = (state) => ({
   filmsIsLoading: state[NameSpace.DATA].loadingFilms,
   loadingIsError: state[NameSpace.DATA].loadFilmsError,
+});
+
+export const getFavoriteFilmsStatus = (state) => ({
+  favoriteFilmIsLoading: state[NameSpace.DATA].loadingFavoriteFilms,
+  loadingIsError: state[NameSpace.DATA].loadFavoriteFilmsError,
 });
 
 export const getPromoStatus = (state) => ({
@@ -28,7 +46,7 @@ export const getCommetsStatus = (state) => ({
   loadingIsError: state[NameSpace.DATA].loadCommentsError,
 });
 
-export const getReviewStatus = (state) => ({
+export const sendCommentStatus = (state) => ({
   commentsIsSending: state[NameSpace.DATA].sendingComment,
   sendingIsError: state[NameSpace.DATA].sendCommentError,
   sendingIsDone: state[NameSpace.DATA].sendCommentDone,

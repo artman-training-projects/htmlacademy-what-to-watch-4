@@ -13,6 +13,7 @@ exports[`SignIn Render, is error autorization 1`] = `
       <a
         className="logo__link"
         href="/"
+        onClick={[Function]}
       >
         <span
           className="logo__letter logo__letter--1"
@@ -113,6 +114,7 @@ exports[`SignIn Render, is error autorization 1`] = `
       <a
         className="logo__link logo__link--light"
         href="/"
+        onClick={[Function]}
       >
         <span
           className="logo__letter logo__letter--1"
@@ -155,6 +157,7 @@ exports[`SignIn Render, no error autorization 1`] = `
       <a
         className="logo__link"
         href="/"
+        onClick={[Function]}
       >
         <span
           className="logo__letter logo__letter--1"
@@ -249,6 +252,7 @@ exports[`SignIn Render, no error autorization 1`] = `
       <a
         className="logo__link logo__link--light"
         href="/"
+        onClick={[Function]}
       >
         <span
           className="logo__letter logo__letter--1"

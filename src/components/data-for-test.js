@@ -4,6 +4,7 @@ export const moviePoster = {
   poster: `img/the-grand-budapest-hotel-poster.jpg`,
   previewImg: `img/the-grand-budapest-hotel-poster.jpg`,
   src: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
+  bgc: `#A6B7AC`,
   previewSrc: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   title: `The Grand Budapest Hotel`,
   genre: `Drame`,

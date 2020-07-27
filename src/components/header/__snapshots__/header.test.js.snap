@@ -9,7 +9,8 @@ exports[`Header Render, is login 1`] = `
   >
     <a
       className="logo__link"
-      href={null}
+      href="/"
+      onClick={[Function]}
     >
       <span
         className="logo__letter logo__letter--1"
@@ -28,19 +29,23 @@ exports[`Header Render, is login 1`] = `
       </span>
     </a>
   </div>
-  
   <div
     className="user-block"
   >
     <div
       className="user-block__avatar"
     >
-      <img
-        alt="John Doe"
-        height="63"
-        src="avatarSrc"
-        width="63"
-      />
+      <a
+        href="/mylist"
+        onClick={[Function]}
+      >
+        <img
+          alt="John Doe"
+          height="63"
+          src="avatarSrc"
+          width="63"
+        />
+      </a>
     </div>
   </div>
 </header>
@@ -55,7 +60,8 @@ exports[`Header Render, no login 1`] = `
   >
     <a
       className="logo__link"
-      href={null}
+      href="/"
+      onClick={[Function]}
     >
       <span
         className="logo__letter logo__letter--1"
@@ -74,13 +80,12 @@ exports[`Header Render, no login 1`] = `
       </span>
     </a>
   </div>
-  
   <div
     className="user-block"
   >
     <a
       className="user-block__link"
-      href="/sign-in"
+      href="/login"
       onClick={[Function]}
     >
       Sign in

@@ -1,21 +1,20 @@
-import React, {PureComponent} from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import React from 'react';
+import {Route, Router, Switch, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types.js';
 
+import history from '../../history.js';
 import {AuthorizationStatus, Pages} from '../../const.js';
-import {ActionCreator as AppActionCreator} from '../../reducer/app/app.js';
-import {getCurrentPage} from '../../reducer/app/selectors.js';
 import {getAuthStatus} from '../../reducer/user/selector.js';
-import {Operations as DataOperations} from '../../reducer/data/data.js';
-import {getFilms, getPromo} from '../../reducer/data/selectors.js';
+import {getFilmsStatus} from '../../reducer/data/selectors.js';
 
 import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
+import MyList from '../my-list/my-list.jsx';
 import AddReview from '../add-review/add-review.jsx';
 import VideoPlayerFull from '../video-player-full/video-player-full.jsx';
 import SignIn from '../sign-in/sign-in.jsx';
+
 import withActiveTab from '../../hoc/with-active-tab/with-active-tab.jsx';
 import withComment from '../../hoc/with-comment/with-comment.jsx';
 import withCountFilms from '../../hoc/with-count-films/with-count-films.jsx';
@@ -26,212 +25,63 @@ const MovieCardWrapped = withActiveTab(MovieCard);
 const AddReviewWrapped = withComment(AddReview);
 const VideoPlayerFullWrapped = withVideoControls(VideoPlayerFull);
 
-const COUNT_OF_SAME_FILMS = 4;
+const App = (props) => {
+  const {authorizationStatus, loadFilmsStatus} = props;
 
-class App extends PureComponent {
-  constructor() {
-    super();
+  return (
+    <Router history={history}>
+      <Switch>
+        <Route exact path={Pages.MAIN}
+          render={() => <MainWrapped />}
+        />
 
-    this.state = {
-      isVideoPlayer: false,
-    };
+        <Route exact path={`${Pages.FILM}/:id?`}
+          render={(routeProps) => {
+            const selectedID = +routeProps.match.params.id;
+            return (loadFilmsStatus.filmsIsLoading ||
+              <MovieCardWrapped
+                selectedID={selectedID}
+              />);
+          }}
+        />
 
-    this._renderMoviePlayer = this._renderMoviePlayer.bind(this);
-    this._handleClosePlayerClick = this._handleClosePlayerClick.bind(this);
-    this._handleFilmClick = this._handleFilmClick.bind(this);
-    this._handlePlayClick = this._handlePlayClick.bind(this);
-    this._handleReviewClick = this._handleReviewClick.bind(this);
-    this._handleSignInClick = this._handleSignInClick.bind(this);
-    this._handleSmallMovieCardClick = this._handleSmallMovieCardClick.bind(this);
-  }
+        <Route exact path={Pages.SIGN_IN}
+          render={() => authorizationStatus === AuthorizationStatus.NO_AUTH ?
+            <SignIn /> :
+            <Redirect to={Pages.MAIN} />
+          }>
+        </Route>
 
-  _renderApp() {
-    const {currentPage} = this.props;
-    const {isVideoPlayer} = this.state;
+        <Route exact path={`${Pages.FILM}/:id?/review`}>
+          <AddReviewWrapped />
+        </Route>
 
-    if (isVideoPlayer) {
-      return this._renderMoviePlayer();
-    }
+        <Route exact path={`${Pages.PLAYER}/:id?`}>
+          <VideoPlayerFullWrapped />
+        </Route>
 
-    switch (currentPage) {
-      case Pages.MAIN:
-        return this._renderMain();
-      case Pages.MOVIE_CARD:
-        return this._renderMovieCard();
-      case Pages.SIGN_IN:
-        return this._renderSingIn();
-      case Pages.REVIEW:
-        return this._renderAddReview();
-    }
-
-    return this._renderMain();
-  }
-
-  _renderMain() {
-    return (
-      <MainWrapped
-        onSignInClick={this._handleSignInClick}
-        onSmallMovieCardClick={this._handleSmallMovieCardClick}
-        onPlayClick={this._handlePlayClick}
-      />
-    );
-  }
-
-  _renderMovieCard() {
-    const {authorizationStatus, films, selectedFilm: moviePoster} = this.props;
-    const sameFilms = films
-      .filter((film) => film.genre === moviePoster.genre && film.title !== moviePoster.title)
-      .slice(0, COUNT_OF_SAME_FILMS);
-
-    return (
-      <MovieCardWrapped
-        {...this.props}
-        authorizationStatus={authorizationStatus}
-        film={moviePoster}
-        onPlayClick={this._handlePlayClick}
-        onReviewClick={this._handleReviewClick}
-        onSignInClick={this._handleSignInClick}
-        onSmallMovieCardClick={this._handleSmallMovieCardClick}
-        sameFilms={sameFilms}
-      />
-    );
-  }
-
-  _renderAddReview() {
-    const {handleSubmitReview, selectedFilm} = this.props;
-
-    return (
-      <AddReviewWrapped
-        film={selectedFilm}
-        onFilmClick={this._handleFilmClick}
-        onSubmitReview={handleSubmitReview}
-      />
-    );
-  }
-
-  _renderMoviePlayer() {
-    const {selectedFilm} = this.props;
-    return (
-      <VideoPlayerFullWrapped
-        film={selectedFilm}
-        onClosePlayerClick={this._handleClosePlayerClick}
-      />
-    );
-  }
-
-  _renderSingIn() {
-    const {authorizationStatus} = this.props;
-    if (authorizationStatus === AuthorizationStatus.NO_AUTH) {
-      return (
-        <SignIn />
-      );
-    }
-
-    return this._renderMain();
-  }
-
-  _handleClosePlayerClick() {
-    this.setState({
-      isVideoPlayer: false,
-    });
-  }
-
-  _handleFilmClick() {
-    const {getComments, handlePageChange, selectedFilm} = this.props;
-    handlePageChange(Pages.MOVIE_CARD);
-    getComments(selectedFilm.id);
-  }
-
-  _handlePlayClick(film) {
-    const {onFilmSelect} = this.props;
-    onFilmSelect(film);
-
-    this.setState({
-      isVideoPlayer: true,
-    });
-  }
-
-  _handleReviewClick() {
-    const {handlePageChange} = this.props;
-    handlePageChange(Pages.REVIEW);
-  }
-
-  _handleSmallMovieCardClick(film) {
-    const {getComments, handlePageChange, onFilmSelect} = this.props;
-    handlePageChange(Pages.MOVIE_CARD);
-    onFilmSelect(film);
-    getComments(film.id);
-  }
-
-  _handleSignInClick() {
-    const {handlePageChange} = this.props;
-    handlePageChange(Pages.SIGN_IN);
-  }
-
-  render() {
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path={Pages.MAIN}>
-            {this._renderApp()}
-          </Route>/
-          <Route exact path={Pages.MOVIE_CARD}>
-            <MovieCardWrapped
-              film={this.props.moviePoster}
-              onFilmClick={this._handleFilmClick}
-              onSmallMovieCardClick={this._handleSmallMovieCardClick}
-              sameFilms={this.props.films}
-            />
-          </Route>
-          <Route exact path={Pages.SIGN_IN}>
-            {this._renderSingIn()}
-          </Route>
-          <Route exact path={Pages.REVIEW}>
-            {this._renderAddReview()}
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    );
-  }
-}
+        <Route exact path={Pages.MY_LIST}
+          render={() => authorizationStatus === AuthorizationStatus.AUTH ?
+            <MyList /> :
+            <Redirect to={Pages.SIGN_IN}/>
+          }>
+        </Route>
+      </Switch>
+    </Router>
+  );
+};
 
 App.propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
-  currentPage: PropTypes.string.isRequired,
-  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  getComments: PropTypes.func.isRequired,
-  handlePageChange: PropTypes.func.isRequired,
-  handleSubmitReview: PropTypes.func.isRequired,
-  moviePoster: PropTypes.oneOfType([
-    CustomPropTypes.FILM,
-    PropTypes.bool,
-  ]),
-  onFilmSelect: PropTypes.func.isRequired,
-  selectedFilm: PropTypes.oneOfType([
-    CustomPropTypes.FILM,
-    PropTypes.bool,
-  ]),
+  loadFilmsStatus: PropTypes.shape({
+    filmsIsLoading: PropTypes.bool.isRequired,
+    loadingIsError: PropTypes.bool.isRequired,
+  }),
 };
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthStatus(state),
-  currentPage: getCurrentPage(state),
-  films: getFilms(state),
-  moviePoster: getPromo(state),
+  loadFilmsStatus: getFilmsStatus(state),
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  handlePageChange(page) {
-    dispatch(AppActionCreator.setCurrentPage(page));
-  },
-
-  handleSubmitReview(review, id) {
-    dispatch(DataOperations.sendComment(review, id));
-  },
-
-  getComments(filmID) {
-    dispatch(DataOperations.loadComments(filmID));
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

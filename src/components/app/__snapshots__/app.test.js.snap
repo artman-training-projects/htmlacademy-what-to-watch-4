@@ -1,225 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App Render pageAddReview 1`] = `
-<section
-  className="movie-card movie-card--full"
->
-  <div
-    className="movie-card__header"
-  >
-    <div
-      className="movie-card__bg"
-    >
-      <img
-        alt="The Grand Budapest Hotel"
-        src="img/bg-the-grand-budapest-hotel.jpg"
-      />
-    </div>
-    <h1
-      className="visually-hidden"
-    >
-      WTW
-    </h1>
-    <header
-      className="page-header movie-card__head"
-    >
-      <div
-        className="logo"
-      >
-        <a
-          className="logo__link"
-          href="/"
-        >
-          <span
-            className="logo__letter logo__letter--1"
-          >
-            W
-          </span>
-          <span
-            className="logo__letter logo__letter--2"
-          >
-            T
-          </span>
-          <span
-            className="logo__letter logo__letter--3"
-          >
-            W
-          </span>
-        </a>
-      </div>
-      <nav
-        className="breadcrumbs"
-      >
-        <ul
-          className="breadcrumbs__list"
-        >
-          <li
-            className="breadcrumbs__item"
-          >
-            <a
-              className="breadcrumbs__link"
-              href="/films/1111"
-              onClick={[Function]}
-            >
-              The Grand Budapest Hotel
-            </a>
-          </li>
-          <li
-            className="breadcrumbs__item"
-          >
-            <a
-              className="breadcrumbs__link"
-            >
-              Add review
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div
-        className="user-block"
-      >
-        <div
-          className="user-block__avatar"
-        >
-          <img
-            alt="John Doe"
-            height="63"
-            src="avatarSrc"
-            width="63"
-          />
-        </div>
-      </div>
-    </header>
-    <div
-      className="movie-card__poster movie-card__poster--small"
-    >
-      <img
-        alt="The Grand Budapest Hotel"
-        height="327"
-        src="img/the-grand-budapest-hotel-poster.jpg"
-        width="218"
-      />
-    </div>
-  </div>
-  <div
-    className="add-review"
-  >
-    <form
-      action="#"
-      className="add-review__form"
-      disabled={false}
-      onSubmit={[Function]}
-    >
-      <div
-        className="rating"
-      >
-        <div
-          className="rating__stars"
-          onChange={[Function]}
-        >
-          <input
-            className="rating__input"
-            disabled={false}
-            id="star-1"
-            name="rating"
-            type="radio"
-            value="1"
-          />
-          <label
-            className="rating__label"
-            htmlFor="star-1"
-          >
-            Rating 1
-          </label>
-          <input
-            className="rating__input"
-            disabled={false}
-            id="star-2"
-            name="rating"
-            type="radio"
-            value="2"
-          />
-          <label
-            className="rating__label"
-            htmlFor="star-2"
-          >
-            Rating 2
-          </label>
-          <input
-            className="rating__input"
-            disabled={false}
-            id="star-3"
-            name="rating"
-            type="radio"
-            value="3"
-          />
-          <label
-            className="rating__label"
-            htmlFor="star-3"
-          >
-            Rating 3
-          </label>
-          <input
-            className="rating__input"
-            disabled={false}
-            id="star-4"
-            name="rating"
-            type="radio"
-            value="4"
-          />
-          <label
-            className="rating__label"
-            htmlFor="star-4"
-          >
-            Rating 4
-          </label>
-          <input
-            className="rating__input"
-            disabled={false}
-            id="star-5"
-            name="rating"
-            type="radio"
-            value="5"
-          />
-          <label
-            className="rating__label"
-            htmlFor="star-5"
-          >
-            Rating 5
-          </label>
-        </div>
-      </div>
-      <div
-        className="add-review__text"
-      >
-        <textarea
-          className="add-review__textarea"
-          disabled={false}
-          id="review-text"
-          maxLength={400}
-          minLength={50}
-          name="review-text"
-          onInput={[Function]}
-          placeholder="Review text"
-        />
-        <div
-          className="add-review__submit"
-        >
-          <button
-            className="add-review__btn"
-            disabled={true}
-            type="submit"
-          >
-            Post
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-</section>
-`;
-
-exports[`App Render pageMain 1`] = `
 Array [
   <section
     className="movie-card"
@@ -245,7 +26,8 @@ Array [
       >
         <a
           className="logo__link"
-          href={null}
+          href="/"
+          onClick={[Function]}
         >
           <span
             className="logo__letter logo__letter--1"
@@ -264,17 +46,24 @@ Array [
           </span>
         </a>
       </div>
-      
       <div
         className="user-block"
       >
-        <a
-          className="user-block__link"
-          href="/sign-in"
-          onClick={[Function]}
+        <div
+          className="user-block__avatar"
         >
-          Sign in
-        </a>
+          <a
+            href="/mylist"
+            onClick={[Function]}
+          >
+            <img
+              alt="John Doe"
+              height="63"
+              src="avatarSrc"
+              width="63"
+            />
+          </a>
+        </div>
       </div>
     </header>
     <div
@@ -318,8 +107,9 @@ Array [
           <div
             className="movie-card__buttons"
           >
-            <button
+            <a
               className="btn btn--play movie-card__button"
+              href="/player/1111"
               onClick={[Function]}
               type="button"
             >
@@ -335,9 +125,10 @@ Array [
               <span>
                 Play
               </span>
-            </button>
+            </a>
             <button
               className="btn btn--list movie-card__button"
+              onClick={[Function]}
               type="button"
             >
               <svg
@@ -475,7 +266,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/2298"
               onClick={[Function]}
             >
               Snatch
@@ -504,7 +295,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/2245"
               onClick={[Function]}
             >
               Moonrise Kingdom
@@ -533,7 +324,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/2249"
               onClick={[Function]}
             >
               Seven Years in Tibet
@@ -562,7 +353,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/9921"
               onClick={[Function]}
             >
               Midnight Special
@@ -591,7 +382,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/9963"
               onClick={[Function]}
             >
               War of the Worlds
@@ -620,7 +411,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/7732"
               onClick={[Function]}
             >
               Dardjeeling Limited
@@ -649,7 +440,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/7794"
               onClick={[Function]}
             >
               Orlando
@@ -678,7 +469,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/7714"
               onClick={[Function]}
             >
               Mindhunter
@@ -695,7 +486,518 @@ Array [
       >
         <a
           className="logo__link logo__link--light"
-          href={null}
+          href="/"
+          onClick={[Function]}
+        >
+          <span
+            className="logo__letter logo__letter--1"
+          >
+            W
+          </span>
+          <span
+            className="logo__letter logo__letter--2"
+          >
+            T
+          </span>
+          <span
+            className="logo__letter logo__letter--3"
+          >
+            W
+          </span>
+        </a>
+      </div>
+      <div
+        className="copyright"
+      >
+        <p>
+          © 2019 What to watch Ltd.
+        </p>
+      </div>
+    </footer>
+  </div>,
+]
+`;
+
+exports[`App Render pageMain 1`] = `
+Array [
+  <section
+    className="movie-card"
+  >
+    <div
+      className="movie-card__bg"
+    >
+      <img
+        alt="The Grand Budapest Hotel"
+        src="img/bg-the-grand-budapest-hotel.jpg"
+      />
+    </div>
+    <h1
+      className="visually-hidden"
+    >
+      WTW
+    </h1>
+    <header
+      className="page-header movie-card__head"
+    >
+      <div
+        className="logo"
+      >
+        <a
+          className="logo__link"
+          href="/"
+          onClick={[Function]}
+        >
+          <span
+            className="logo__letter logo__letter--1"
+          >
+            W
+          </span>
+          <span
+            className="logo__letter logo__letter--2"
+          >
+            T
+          </span>
+          <span
+            className="logo__letter logo__letter--3"
+          >
+            W
+          </span>
+        </a>
+      </div>
+      <div
+        className="user-block"
+      >
+        <a
+          className="user-block__link"
+          href="/login"
+          onClick={[Function]}
+        >
+          Sign in
+        </a>
+      </div>
+    </header>
+    <div
+      className="movie-card__wrap"
+    >
+      <div
+        className="movie-card__info"
+      >
+        <div
+          className="movie-card__poster"
+        >
+          <img
+            alt="The Grand Budapest Hotel"
+            height="327"
+            src="img/the-grand-budapest-hotel-poster.jpg"
+            width="218"
+          />
+        </div>
+        <div
+          className="movie-card__desc"
+        >
+          <h2
+            className="movie-card__title"
+          >
+            The Grand Budapest Hotel
+          </h2>
+          <p
+            className="movie-card__meta"
+          >
+            <span
+              className="movie-card__genre"
+            >
+              Drame
+            </span>
+            <span
+              className="movie-card__year"
+            >
+              2014
+            </span>
+          </p>
+          <div
+            className="movie-card__buttons"
+          >
+            <a
+              className="btn btn--play movie-card__button"
+              href="/player/1111"
+              onClick={[Function]}
+              type="button"
+            >
+              <svg
+                height="19"
+                viewBox="0 0 19 19"
+                width="19"
+              >
+                <use
+                  xlinkHref="#play-s"
+                />
+              </svg>
+              <span>
+                Play
+              </span>
+            </a>
+            <button
+              className="btn btn--list movie-card__button"
+              onClick={[Function]}
+              type="button"
+            >
+              <svg
+                height="20"
+                viewBox="0 0 19 20"
+                width="19"
+              >
+                <use
+                  xlinkHref="#add"
+                />
+              </svg>
+              <span>
+                My list
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>,
+  <div
+    className="page-content"
+  >
+    <section
+      className="catalog"
+    >
+      <h2
+        className="catalog__title visually-hidden"
+      >
+        Catalog
+      </h2>
+      <ul
+        className="catalog__genres-list"
+      >
+        <li
+          className="catalog__genres-item catalog__genres-item--active"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            All genres
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Crime
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Romance
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Drame
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Sci-Fi
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Comedie
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Thriller
+          </a>
+        </li>
+      </ul>
+      <div
+        className="catalog__movies-list"
+      >
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/snatch.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/2298"
+              onClick={[Function]}
+            >
+              Snatch
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/moonrise-kingdom.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/2245"
+              onClick={[Function]}
+            >
+              Moonrise Kingdom
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/seven-years-in-tibet.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/2249"
+              onClick={[Function]}
+            >
+              Seven Years in Tibet
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/midnight-special.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/9921"
+              onClick={[Function]}
+            >
+              Midnight Special
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/war-of-the-worlds.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/9963"
+              onClick={[Function]}
+            >
+              War of the Worlds
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/dardjeeling-limited.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/7732"
+              onClick={[Function]}
+            >
+              Dardjeeling Limited
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/orlando.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/7794"
+              onClick={[Function]}
+            >
+              Orlando
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/mindhunter.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/7714"
+              onClick={[Function]}
+            >
+              Mindhunter
+            </a>
+          </h3>
+        </article>
+      </div>
+    </section>
+    <footer
+      className="page-footer"
+    >
+      <div
+        className="logo"
+      >
+        <a
+          className="logo__link logo__link--light"
+          href="/"
+          onClick={[Function]}
         >
           <span
             className="logo__letter logo__letter--1"
@@ -729,67 +1031,77 @@ Array [
 exports[`App Render pageMovieCard 1`] = `
 Array [
   <section
-    className="movie-card movie-card--full"
+    className="movie-card"
   >
     <div
-      className="movie-card__hero"
+      className="movie-card__bg"
+    >
+      <img
+        alt="The Grand Budapest Hotel"
+        src="img/bg-the-grand-budapest-hotel.jpg"
+      />
+    </div>
+    <h1
+      className="visually-hidden"
+    >
+      WTW
+    </h1>
+    <header
+      className="page-header movie-card__head"
     >
       <div
-        className="movie-card__bg"
+        className="logo"
       >
-        <img
-          alt="The Grand Budapest Hotel"
-          src="img/bg-the-grand-budapest-hotel.jpg"
-        />
+        <a
+          className="logo__link"
+          href="/"
+          onClick={[Function]}
+        >
+          <span
+            className="logo__letter logo__letter--1"
+          >
+            W
+          </span>
+          <span
+            className="logo__letter logo__letter--2"
+          >
+            T
+          </span>
+          <span
+            className="logo__letter logo__letter--3"
+          >
+            W
+          </span>
+        </a>
       </div>
-      <h1
-        className="visually-hidden"
-      >
-        WTW
-      </h1>
-      <header
-        className="page-header movie-card__head"
-      >
-        <div
-          className="logo"
-        >
-          <a
-            className="logo__link"
-            href="/"
-          >
-            <span
-              className="logo__letter logo__letter--1"
-            >
-              W
-            </span>
-            <span
-              className="logo__letter logo__letter--2"
-            >
-              T
-            </span>
-            <span
-              className="logo__letter logo__letter--3"
-            >
-              W
-            </span>
-          </a>
-        </div>
-        
-        <div
-          className="user-block"
-        >
-          <a
-            className="user-block__link"
-            href="/sign-in"
-            onClick={[Function]}
-          >
-            Sign in
-          </a>
-        </div>
-      </header>
       <div
-        className="movie-card__wrap"
+        className="user-block"
       >
+        <a
+          className="user-block__link"
+          href="/login"
+          onClick={[Function]}
+        >
+          Sign in
+        </a>
+      </div>
+    </header>
+    <div
+      className="movie-card__wrap"
+    >
+      <div
+        className="movie-card__info"
+      >
+        <div
+          className="movie-card__poster"
+        >
+          <img
+            alt="The Grand Budapest Hotel"
+            height="327"
+            src="img/the-grand-budapest-hotel-poster.jpg"
+            width="218"
+          />
+        </div>
         <div
           className="movie-card__desc"
         >
@@ -815,8 +1127,9 @@ Array [
           <div
             className="movie-card__buttons"
           >
-            <button
+            <a
               className="btn btn--play movie-card__button"
+              href="/player/1111"
               onClick={[Function]}
               type="button"
             >
@@ -832,9 +1145,10 @@ Array [
               <span>
                 Play
               </span>
-            </button>
+            </a>
             <button
               className="btn btn--list movie-card__button"
+              onClick={[Function]}
               type="button"
             >
               <svg
@@ -850,118 +1164,6 @@ Array [
                 My list
               </span>
             </button>
-            
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      className="movie-card__wrap movie-card__translate-top"
-    >
-      <div
-        className="movie-card__info"
-      >
-        <div
-          className="movie-card__poster movie-card__poster--big"
-        >
-          <img
-            alt="The Grand Budapest Hotel"
-            height="327"
-            src="img/the-grand-budapest-hotel-poster.jpg"
-            width="218"
-          />
-        </div>
-        <div
-          className="movie-card__desc"
-        >
-          <nav
-            className="movie-nav movie-card__nav"
-          >
-            <ul
-              className="movie-nav__list"
-            >
-              <li
-                className="movie-nav__item movie-nav__item--active"
-                onClick={[Function]}
-              >
-                <a
-                  className="movie-nav__link"
-                  href="#"
-                >
-                  Overview
-                </a>
-              </li>
-              <li
-                className="movie-nav__item"
-                onClick={[Function]}
-              >
-                <a
-                  className="movie-nav__link"
-                  href="#"
-                >
-                  Details
-                </a>
-              </li>
-              <li
-                className="movie-nav__item"
-                onClick={[Function]}
-              >
-                <a
-                  className="movie-nav__link"
-                  href="#"
-                >
-                  Reviews
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div
-            className="movie-rating"
-          >
-            <div
-              className="movie-rating__score"
-            >
-              4.9
-            </div>
-            <p
-              className="movie-rating__meta"
-            >
-              <span
-                className="movie-rating__level"
-              >
-                Normal
-              </span>
-              <span
-                className="movie-rating__count"
-              >
-                468
-                 ratings
-              </span>
-            </p>
-          </div>
-          <div
-            className="movie-card__text"
-          >
-            <p>
-              In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege. Gustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.
-            </p>
-            <p
-              className="movie-card__director"
-            >
-              <strong>
-                Director: 
-                Wes Anderson
-              </strong>
-            </p>
-            <p
-              className="movie-card__starring"
-            >
-              <strong>
-                Starring: 
-                Ralph Fiennes, F. Murray Abraham, Mathieu Amalric
-                 and other
-              </strong>
-            </p>
           </div>
         </div>
       </div>
@@ -971,16 +1173,155 @@ Array [
     className="page-content"
   >
     <section
-      className="catalog catalog--like-this"
+      className="catalog"
     >
       <h2
-        className="catalog__title"
+        className="catalog__title visually-hidden"
       >
-        More like this
+        Catalog
       </h2>
+      <ul
+        className="catalog__genres-list"
+      >
+        <li
+          className="catalog__genres-item catalog__genres-item--active"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            All genres
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Crime
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Romance
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Drame
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Sci-Fi
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Comedie
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Thriller
+          </a>
+        </li>
+      </ul>
       <div
         className="catalog__movies-list"
       >
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/snatch.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/2298"
+              onClick={[Function]}
+            >
+              Snatch
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/moonrise-kingdom.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/2245"
+              onClick={[Function]}
+            >
+              Moonrise Kingdom
+            </a>
+          </h3>
+        </article>
         <article
           className="small-movie-card catalog__movies-card"
           onClick={[Function]}
@@ -1003,10 +1344,97 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/2249"
               onClick={[Function]}
             >
               Seven Years in Tibet
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/midnight-special.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/9921"
+              onClick={[Function]}
+            >
+              Midnight Special
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/war-of-the-worlds.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/9963"
+              onClick={[Function]}
+            >
+              War of the Worlds
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/dardjeeling-limited.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/7732"
+              onClick={[Function]}
+            >
+              Dardjeeling Limited
             </a>
           </h3>
         </article>
@@ -1032,10 +1460,39 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page"
+              href="/films/7794"
               onClick={[Function]}
             >
               Orlando
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/mindhunter.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/7714"
+              onClick={[Function]}
+            >
+              Mindhunter
             </a>
           </h3>
         </article>
@@ -1050,6 +1507,7 @@ Array [
         <a
           className="logo__link logo__link--light"
           href="/"
+          onClick={[Function]}
         >
           <span
             className="logo__letter logo__letter--1"
@@ -1081,137 +1539,511 @@ Array [
 `;
 
 exports[`App Render pageSignIn 1`] = `
-<div
-  className="user-page"
->
-  <header
-    className="page-header user-page__head"
+Array [
+  <section
+    className="movie-card"
   >
     <div
-      className="logo"
+      className="movie-card__bg"
     >
-      <a
-        className="logo__link"
-        href="/"
-      >
-        <span
-          className="logo__letter logo__letter--1"
-        >
-          W
-        </span>
-        <span
-          className="logo__letter logo__letter--2"
-        >
-          T
-        </span>
-        <span
-          className="logo__letter logo__letter--3"
-        >
-          W
-        </span>
-      </a>
+      <img
+        alt="The Grand Budapest Hotel"
+        src="img/bg-the-grand-budapest-hotel.jpg"
+      />
     </div>
     <h1
-      className="page-title user-page__title"
+      className="visually-hidden"
     >
-      Sign in
+      WTW
     </h1>
-  </header>
-  <div
-    className="sign-in user-page__content"
-  >
-    <form
-      action="#"
-      className="sign-in__form"
-      onSubmit={[Function]}
+    <header
+      className="page-header movie-card__head"
     >
-      
       <div
-        className="sign-in__fields"
+        className="logo"
       >
-        <div
-          className="sign-in__field"
+        <a
+          className="logo__link"
+          href="/"
+          onClick={[Function]}
         >
-          <input
-            className="sign-in__input"
-            id="user-email"
-            name="user-email"
-            placeholder="Email address"
-            required={true}
-            type="email"
-          />
-          <label
-            className="sign-in__label visually-hidden"
-            htmlFor="user-email"
+          <span
+            className="logo__letter logo__letter--1"
           >
-            Email address
-          </label>
-        </div>
-        <div
-          className="sign-in__field"
-        >
-          <input
-            className="sign-in__input"
-            id="user-password"
-            name="user-password"
-            placeholder="Password"
-            required={true}
-            type="password"
-          />
-          <label
-            className="sign-in__label visually-hidden"
-            htmlFor="user-password"
+            W
+          </span>
+          <span
+            className="logo__letter logo__letter--2"
           >
-            Password
-          </label>
-        </div>
+            T
+          </span>
+          <span
+            className="logo__letter logo__letter--3"
+          >
+            W
+          </span>
+        </a>
       </div>
       <div
-        className="sign-in__submit"
+        className="user-block"
       >
-        <button
-          className="sign-in__btn"
-          type="submit"
+        <a
+          className="user-block__link"
+          href="/login"
+          onClick={[Function]}
         >
           Sign in
-        </button>
+        </a>
       </div>
-    </form>
-  </div>
-  <footer
-    className="page-footer"
-  >
+    </header>
     <div
-      className="logo"
+      className="movie-card__wrap"
     >
-      <a
-        className="logo__link logo__link--light"
-        href="/"
+      <div
+        className="movie-card__info"
       >
-        <span
-          className="logo__letter logo__letter--1"
+        <div
+          className="movie-card__poster"
         >
-          W
-        </span>
-        <span
-          className="logo__letter logo__letter--2"
+          <img
+            alt="The Grand Budapest Hotel"
+            height="327"
+            src="img/the-grand-budapest-hotel-poster.jpg"
+            width="218"
+          />
+        </div>
+        <div
+          className="movie-card__desc"
         >
-          T
-        </span>
-        <span
-          className="logo__letter logo__letter--3"
-        >
-          W
-        </span>
-      </a>
+          <h2
+            className="movie-card__title"
+          >
+            The Grand Budapest Hotel
+          </h2>
+          <p
+            className="movie-card__meta"
+          >
+            <span
+              className="movie-card__genre"
+            >
+              Drame
+            </span>
+            <span
+              className="movie-card__year"
+            >
+              2014
+            </span>
+          </p>
+          <div
+            className="movie-card__buttons"
+          >
+            <a
+              className="btn btn--play movie-card__button"
+              href="/player/1111"
+              onClick={[Function]}
+              type="button"
+            >
+              <svg
+                height="19"
+                viewBox="0 0 19 19"
+                width="19"
+              >
+                <use
+                  xlinkHref="#play-s"
+                />
+              </svg>
+              <span>
+                Play
+              </span>
+            </a>
+            <button
+              className="btn btn--list movie-card__button"
+              onClick={[Function]}
+              type="button"
+            >
+              <svg
+                height="20"
+                viewBox="0 0 19 20"
+                width="19"
+              >
+                <use
+                  xlinkHref="#add"
+                />
+              </svg>
+              <span>
+                My list
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div
-      className="copyright"
+  </section>,
+  <div
+    className="page-content"
+  >
+    <section
+      className="catalog"
     >
-      <p>
-        © 2019 What to watch Ltd.
-      </p>
-    </div>
-  </footer>
-</div>
+      <h2
+        className="catalog__title visually-hidden"
+      >
+        Catalog
+      </h2>
+      <ul
+        className="catalog__genres-list"
+      >
+        <li
+          className="catalog__genres-item catalog__genres-item--active"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            All genres
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Crime
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Romance
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Drame
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Sci-Fi
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Comedie
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Thriller
+          </a>
+        </li>
+      </ul>
+      <div
+        className="catalog__movies-list"
+      >
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/snatch.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/2298"
+              onClick={[Function]}
+            >
+              Snatch
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/moonrise-kingdom.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/2245"
+              onClick={[Function]}
+            >
+              Moonrise Kingdom
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/seven-years-in-tibet.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/2249"
+              onClick={[Function]}
+            >
+              Seven Years in Tibet
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/midnight-special.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/9921"
+              onClick={[Function]}
+            >
+              Midnight Special
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/war-of-the-worlds.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/9963"
+              onClick={[Function]}
+            >
+              War of the Worlds
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/dardjeeling-limited.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/7732"
+              onClick={[Function]}
+            >
+              Dardjeeling Limited
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/orlando.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/7794"
+              onClick={[Function]}
+            >
+              Orlando
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/mindhunter.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/7714"
+              onClick={[Function]}
+            >
+              Mindhunter
+            </a>
+          </h3>
+        </article>
+      </div>
+    </section>
+    <footer
+      className="page-footer"
+    >
+      <div
+        className="logo"
+      >
+        <a
+          className="logo__link logo__link--light"
+          href="/"
+          onClick={[Function]}
+        >
+          <span
+            className="logo__letter logo__letter--1"
+          >
+            W
+          </span>
+          <span
+            className="logo__letter logo__letter--2"
+          >
+            T
+          </span>
+          <span
+            className="logo__letter logo__letter--3"
+          >
+            W
+          </span>
+        </a>
+      </div>
+      <div
+        className="copyright"
+      >
+        <p>
+          © 2019 What to watch Ltd.
+        </p>
+      </div>
+    </footer>
+  </div>,
+]
 `;

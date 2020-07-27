@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import {films, moviePoster, user} from '../data-for-test.js';
-import {ALL_GENRES, Pages} from '../../const.js';
+import {ALL_GENRES} from '../../const.js';
 import App from './app.jsx';
 import NameSpace from '../../reducer/name-space.js';
 
@@ -13,9 +13,6 @@ const mockStore = configureStore([]);
 describe(`App`, () => {
   it(`Render pageMain`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.MAIN,
-      },
       [NameSpace.DATA]: {
         films,
         moviePoster,
@@ -23,6 +20,9 @@ describe(`App`, () => {
         loadFilmsError: false,
         loadingPromo: false,
         loadPromoError: false,
+        sendingFavoriteFilm: false,
+        sendFavoriteFilmDone: false,
+        sendFavoriteFilmError: false,
       },
       [NameSpace.SHOW]: {
         currentGenre: ALL_GENRES,
@@ -51,9 +51,6 @@ describe(`App`, () => {
 
   it(`Render pageMovieCard`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.MOVIE_CARD,
-      },
       [NameSpace.DATA]: {
         films,
         moviePoster,
@@ -61,6 +58,9 @@ describe(`App`, () => {
         loadFilmsError: false,
         loadingPromo: false,
         loadPromoError: false,
+        sendingFavoriteFilm: false,
+        sendFavoriteFilmDone: false,
+        sendFavoriteFilmError: false,
       },
       [NameSpace.SHOW]: {
         currentGenre: ALL_GENRES,
@@ -90,9 +90,6 @@ describe(`App`, () => {
 
   it(`Render pageSignIn`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.SIGN_IN,
-      },
       [NameSpace.DATA]: {
         films,
         moviePoster,
@@ -100,6 +97,9 @@ describe(`App`, () => {
         loadFilmsError: false,
         loadingPromo: false,
         loadPromoError: false,
+        sendingFavoriteFilm: false,
+        sendFavoriteFilmDone: false,
+        sendFavoriteFilmError: false,
       },
       [NameSpace.SHOW]: {
         currentGenre: ALL_GENRES,
@@ -128,9 +128,6 @@ describe(`App`, () => {
 
   it(`Render pageAddReview`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.REVIEW,
-      },
       [NameSpace.DATA]: {
         films,
         moviePoster,
@@ -141,6 +138,9 @@ describe(`App`, () => {
         sendingComment: false,
         sendCommentDone: false,
         sendCommentError: false,
+        sendingFavoriteFilm: false,
+        sendFavoriteFilmDone: false,
+        sendFavoriteFilmError: false,
       },
       [NameSpace.SHOW]: {
         currentGenre: ALL_GENRES,

@@ -8,11 +8,12 @@ export const AuthorizationStatus = {
 };
 
 export const Pages = {
+  ADD_REVIEW: `/review`,
+  FILM: `/films`,
   MAIN: `/`,
-  MOVIE_CARD: `/films`,
   MY_LIST: `/mylist`,
-  SIGN_IN: `/sign-in`,
-  REVIEW: `/review`,
+  SIGN_IN: `/login`,
+  PLAYER: `/player`
 };
 
 export const MovieNavList = {
