@@ -21,7 +21,10 @@ describe(`MyList`, () => {
     [NameSpace.DATA]: {
       films,
       moviePoster,
-    }
+      favoriteFilms: films,
+      loadingFavoriteFilms: false,
+      loadFavoriteFilmsError: false,
+    },
   });
 
   it(`Render MyList`, () => {
@@ -29,8 +32,7 @@ describe(`MyList`, () => {
         <Router history={history}>
           <Provider store={store}>
             <MyList
-              favoriteFilms={films}
-              onSmallMovieCardClick={() => {}}
+              favoriteFilms={() => {}}
               user={user}
             />
           </Provider>

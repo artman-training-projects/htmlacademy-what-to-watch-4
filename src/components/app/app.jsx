@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import history from '../../history.js';
 import {AuthorizationStatus, Pages} from '../../const.js';
 import {getAuthStatus} from '../../reducer/user/selector.js';
+import {getFilmsStatus} from '../../reducer/data/selectors.js';
 
 import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
@@ -13,6 +14,7 @@ import MyList from '../my-list/my-list.jsx';
 import AddReview from '../add-review/add-review.jsx';
 import VideoPlayerFull from '../video-player-full/video-player-full.jsx';
 import SignIn from '../sign-in/sign-in.jsx';
+
 import withActiveTab from '../../hoc/with-active-tab/with-active-tab.jsx';
 import withComment from '../../hoc/with-comment/with-comment.jsx';
 import withCountFilms from '../../hoc/with-count-films/with-count-films.jsx';
@@ -23,17 +25,25 @@ const MovieCardWrapped = withActiveTab(MovieCard);
 const AddReviewWrapped = withComment(AddReview);
 const VideoPlayerFullWrapped = withVideoControls(VideoPlayerFull);
 
-const App = ({authorizationStatus}) => {
+const App = (props) => {
+  const {authorizationStatus, loadFilmsStatus} = props;
+
   return (
     <Router history={history}>
       <Switch>
-        <Route exact path={Pages.MAIN}>
-          <MainWrapped />
-        </Route>
+        <Route exact path={Pages.MAIN}
+          render={() => <MainWrapped />}
+        />
 
-        <Route exact path={`${Pages.FILM}/:id?`}>
-          <MovieCardWrapped />
-        </Route>
+        <Route exact path={`${Pages.FILM}/:id?`}
+          render={(routeProps) => {
+            const selectedID = +routeProps.match.params.id;
+            return (loadFilmsStatus.filmsIsLoading ||
+              <MovieCardWrapped
+                selectedID={selectedID}
+              />);
+          }}
+        />
 
         <Route exact path={Pages.SIGN_IN}
           render={() => authorizationStatus === AuthorizationStatus.NO_AUTH ?
@@ -63,10 +73,15 @@ const App = ({authorizationStatus}) => {
 
 App.propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
+  loadFilmsStatus: PropTypes.shape({
+    filmsIsLoading: PropTypes.bool.isRequired,
+    loadingIsError: PropTypes.bool.isRequired,
+  }),
 };
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthStatus(state),
+  loadFilmsStatus: getFilmsStatus(state),
 });
 
 export default connect(mapStateToProps)(App);

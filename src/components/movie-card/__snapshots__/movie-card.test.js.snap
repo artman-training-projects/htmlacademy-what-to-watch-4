@@ -6,7 +6,7 @@ Array [
     className="movie-card movie-card--full"
     style={
       Object {
-        "backgroundColor": undefined,
+        "backgroundColor": "#A6B7AC",
       }
     }
   >
@@ -17,8 +17,8 @@ Array [
         className="movie-card__bg"
       >
         <img
-          alt="Seven Years in Tibet"
-          src="https://loremflickr.com/1300/550"
+          alt="The Grand Budapest Hotel"
+          src="img/bg-the-grand-budapest-hotel.jpg"
         />
       </div>
       <h1
@@ -75,7 +75,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            Seven Years in Tibet
+            The Grand Budapest Hotel
           </h2>
           <p
             className="movie-card__meta"
@@ -88,7 +88,7 @@ Array [
             <span
               className="movie-card__year"
             >
-              1997
+              2014
             </span>
           </p>
           <div
@@ -96,7 +96,7 @@ Array [
           >
             <a
               className="btn btn--play movie-card__button"
-              href="/player/2249"
+              href="/player/1111"
               onClick={[Function]}
               type="button"
             >
@@ -118,12 +118,12 @@ Array [
               type="button"
             >
               <svg
-                height="14"
-                viewBox="0 0 18 14"
-                width="18"
+                height="20"
+                viewBox="0 0 19 20"
+                width="19"
               >
                 <use
-                  xlinkHref="#in-list"
+                  xlinkHref="#add"
                 />
               </svg>
               <span>
@@ -144,9 +144,9 @@ Array [
           className="movie-card__poster movie-card__poster--big"
         >
           <img
-            alt="Seven Years in Tibet"
+            alt="The Grand Budapest Hotel"
             height="327"
-            src="img/seven-years-in-tibet.jpg"
+            src="img/the-grand-budapest-hotel-poster.jpg"
             width="218"
           />
         </div>
@@ -212,6 +212,35 @@ Array [
       <div
         className="catalog__movies-list"
       >
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/seven-years-in-tibet.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/2249"
+              onClick={[Function]}
+            >
+              Seven Years in Tibet
+            </a>
+          </h3>
+        </article>
         <article
           className="small-movie-card catalog__movies-card"
           onClick={[Function]}
@@ -289,7 +318,7 @@ Array [
     className="movie-card movie-card--full"
     style={
       Object {
-        "backgroundColor": undefined,
+        "backgroundColor": "#A6B7AC",
       }
     }
   >
@@ -300,8 +329,8 @@ Array [
         className="movie-card__bg"
       >
         <img
-          alt="Seven Years in Tibet"
-          src="https://loremflickr.com/1300/550"
+          alt="The Grand Budapest Hotel"
+          src="img/bg-the-grand-budapest-hotel.jpg"
         />
       </div>
       <h1
@@ -358,7 +387,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            Seven Years in Tibet
+            The Grand Budapest Hotel
           </h2>
           <p
             className="movie-card__meta"
@@ -371,7 +400,7 @@ Array [
             <span
               className="movie-card__year"
             >
-              1997
+              2014
             </span>
           </p>
           <div
@@ -379,7 +408,7 @@ Array [
           >
             <a
               className="btn btn--play movie-card__button"
-              href="/player/2249"
+              href="/player/1111"
               onClick={[Function]}
               type="button"
             >
@@ -401,12 +430,12 @@ Array [
               type="button"
             >
               <svg
-                height="14"
-                viewBox="0 0 18 14"
-                width="18"
+                height="20"
+                viewBox="0 0 19 20"
+                width="19"
               >
                 <use
-                  xlinkHref="#in-list"
+                  xlinkHref="#add"
                 />
               </svg>
               <span>
@@ -427,9 +456,9 @@ Array [
           className="movie-card__poster movie-card__poster--big"
         >
           <img
-            alt="Seven Years in Tibet"
+            alt="The Grand Budapest Hotel"
             height="327"
-            src="img/seven-years-in-tibet.jpg"
+            src="img/the-grand-budapest-hotel-poster.jpg"
             width="218"
           />
         </div>
@@ -495,6 +524,35 @@ Array [
       <div
         className="catalog__movies-list"
       >
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              poster="img/seven-years-in-tibet.jpg"
+              width="280"
+            >
+              your browser doesn\`t support embedded videos
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/2249"
+              onClick={[Function]}
+            >
+              Seven Years in Tibet
+            </a>
+          </h3>
+        </article>
         <article
           className="small-movie-card catalog__movies-card"
           onClick={[Function]}

@@ -1,6 +1,7 @@
 import MockAdapter from 'axios-mock-adapter';
 import {createAPI} from '../../api.js';
 
+import {ALL_GENRES} from '../../const.js';
 import {ActionType, Operations, reducer} from './data.js';
 import {films, moviePoster, comments} from '../../components/data-for-test.js';
 import filmAdapter from '../../adapter/film.js';
@@ -87,19 +88,25 @@ describe(`Operations Data`, () => {
 describe(`Reducer Data`, () => {
   it(`Should return initial state`, () => {
     expect(reducer(void 0, {})).toEqual({
-      availableGenres: [`All genres`],
+      availableGenres: [ALL_GENRES],
       comments: false,
       films: [],
+      favoriteFilms: [],
       moviePoster: false,
       loadingComments: true,
-      loadingFilms: true,
-      loadingPromo: true,
       loadCommentsError: false,
+      loadingFilms: true,
       loadFilmsError: false,
+      loadingFavoriteFilms: true,
+      loadFavoriteFilmsError: false,
+      loadingPromo: true,
       loadPromoError: false,
       sendingComment: false,
       sendCommentDone: false,
-      sendCommentError: false
+      sendCommentError: false,
+      sendingFavoriteFilm: false,
+      sendFavoriteFilmDone: false,
+      sendFavoriteFilmError: false,
     });
   });
 
@@ -133,6 +140,39 @@ describe(`Reducer Data`, () => {
       payload: true
     })).toEqual({
       loadFilmsError: true,
+    });
+  });
+
+  it(`Should update favoriteFilms by load`, () => {
+    expect(reducer({
+      favoriteFilms: true,
+    }, {
+      type: ActionType.LOAD_FAVORITE_FILMS,
+      payload: false
+    })).toEqual({
+      favoriteFilms: false,
+    });
+  });
+
+  it(`Should update favoriteFilms load status`, () => {
+    expect(reducer({
+      loadingFavoriteFilms: true,
+    }, {
+      type: ActionType.IS_LOADING_FAVORITE_FILM,
+      payload: false
+    })).toEqual({
+      loadingFavoriteFilms: false,
+    });
+  });
+
+  it(`Should update favoriteFilms load error`, () => {
+    expect(reducer({
+      loadFavoriteFilmsError: false,
+    }, {
+      type: ActionType.LOAD_FAVORITE_FILMS_ERROR,
+      payload: true
+    })).toEqual({
+      loadFavoriteFilmsError: true,
     });
   });
 
@@ -232,6 +272,39 @@ describe(`Reducer Data`, () => {
       payload: true
     })).toEqual({
       sendCommentError: true,
+    });
+  });
+
+  it(`Should update favoriteFilm send status`, () => {
+    expect(reducer({
+      sendingFavoriteFilm: false,
+    }, {
+      type: ActionType.SEND_FAVORITE_FILM,
+      payload: true
+    })).toEqual({
+      sendingFavoriteFilm: true,
+    });
+  });
+
+  it(`Should update favoriteFilm send done`, () => {
+    expect(reducer({
+      sendFavoriteFilmDone: false,
+    }, {
+      type: ActionType.SEND_FAVORITE_FILM_DONE,
+      payload: true
+    })).toEqual({
+      sendFavoriteFilmDone: true,
+    });
+  });
+
+  it(`Should update favoriteFilm send error`, () => {
+    expect(reducer({
+      sendFavoriteFilmError: false,
+    }, {
+      type: ActionType.SEND_FAVORITE_FILM_ERROR,
+      payload: true
+    })).toEqual({
+      sendFavoriteFilmError: true,
     });
   });
 });

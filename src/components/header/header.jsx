@@ -6,9 +6,10 @@ import {connect} from 'react-redux';
 
 import {AuthorizationStatus, Pages} from '../../const.js';
 import {getAuthStatus, getUserData} from '../../reducer/user/selector.js';
+import {Operations as DataOperations} from '../../reducer/data/data.js';
 
 const Header = (props) => {
-  const {authorizationStatus, film, user} = props;
+  const {authorizationStatus, film, handleFavoriteFilm, user} = props;
 
   const isReview = film &&
     <React.Fragment>
@@ -28,7 +29,9 @@ const Header = (props) => {
     <React.Fragment>
       <div className="user-block">
         <div className="user-block__avatar">
-          <Link to={Pages.MY_LIST}>
+          <Link to={Pages.MY_LIST}
+            onClick={handleFavoriteFilm}
+          >
             <img src={user.avatarSrc} alt={user.name} width="63" height="63" />
           </Link>
         </div>
@@ -60,6 +63,7 @@ const Header = (props) => {
 Header.propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
   film: CustomPropTypes.FILM,
+  handleFavoriteFilm: PropTypes.func.isRequired,
   user: CustomPropTypes.USER,
 };
 
@@ -68,4 +72,10 @@ const mapStateToProps = (state) => ({
   user: getUserData(state),
 });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => ({
+  handleFavoriteFilm() {
+    dispatch(DataOperations.loadFavoriteFilms());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

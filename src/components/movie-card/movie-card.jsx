@@ -8,7 +8,7 @@ import {AuthorizationStatus, MovieNavList, Pages} from '../../const.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
 import {getAuthStatus} from '../../reducer/user/selector.js';
 import {ActionCreator} from '../../reducer/show-films/show-films.js';
-import {getSameFilms, getSelectedFilm} from '../../reducer/show-films/selectors.js';
+import {getSameFilms} from '../../reducer/show-films/selectors.js';
 
 import MovieNavTabs from '../movie-nav-tabs/movie-nav-tabs.jsx';
 import MoviesList from '../movies-list/movies-list.jsx';
@@ -30,13 +30,13 @@ const MovieCard = (props) => {
 
   const isInMyLyst = selectedFilm.isFavorite ?
     <React.Fragment>
-      <svg viewBox="0 0 19 20" width="19" height="20">
-        <use xlinkHref="#add"></use>
+      <svg viewBox="0 0 18 14" width="18" height="14">
+        <use xlinkHref="#in-list"></use>
       </svg>
     </React.Fragment> :
     <React.Fragment>
-      <svg viewBox="0 0 18 14" width="18" height="14">
-        <use xlinkHref="#in-list"></use>
+      <svg viewBox="0 0 19 20" width="19" height="20">
+        <use xlinkHref="#add"></use>
       </svg>
     </React.Fragment>;
 
@@ -124,10 +124,9 @@ MovieCard.propTypes = {
   ]),
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, props) => ({
   authorizationStatus: getAuthStatus(state),
-  sameFilms: getSameFilms(state),
-  selectedFilm: getSelectedFilm(state),
+  sameFilms: getSameFilms(state, props.selectedFilm),
 });
 
 const mapDispatchToProps = (dispatch) => ({

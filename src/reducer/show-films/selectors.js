@@ -18,9 +18,8 @@ export const getFilmsByGenre = (state) => {
   return films.filter((film) => film.genre === currentGenre);
 };
 
-export const getSameFilms = (state) => {
+export const getSameFilms = (state, selectedFilm) => {
   const films = state[NameSpace.DATA].films;
-  const selectedFilm = state[NameSpace.SHOW].selectedFilm;
 
   const sameFilms = films
     .filter((movie) => movie.genre === selectedFilm.genre && movie.title !== selectedFilm.title)

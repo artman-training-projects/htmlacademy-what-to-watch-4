@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../../components/custom-prop-types.js';
 
 import {MovieNavList} from '../../const.js';
-import {getSelectedFilm} from '../../reducer/show-films/selectors.js';
+import {getFilmById} from '../../reducer/data/selectors.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
 import MovieNavOverview from '../../components/movie-nav-overview/movie-nav-overview.jsx';
 import MovieNavDetails from '../../components/movie-nav-details/movie-nav-details.jsx';
@@ -65,7 +65,6 @@ const withActiveTab = (Component) => {
     render() {
       const {loadComments, selectedFilm} = this.props;
       const {activeTab} = this.state;
-
       loadComments(selectedFilm);
 
       return <Component
@@ -85,8 +84,8 @@ const withActiveTab = (Component) => {
     ]),
   };
 
-  const mapStateToProps = (state) => ({
-    selectedFilm: getSelectedFilm(state),
+  const mapStateToProps = (state, props) => ({
+    selectedFilm: getFilmById(state, props.selectedID),
   });
 
   const mapDispatchToProps = (dispatch) => ({

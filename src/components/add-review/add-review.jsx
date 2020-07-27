@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
 import history from '../../history.js';
-import {getReviewStatus} from '../../reducer/data/selectors.js';
+import {sendCommentStatus} from '../../reducer/data/selectors.js';
 import Header from '../header/header.jsx';
 
 const ReviewLength = {
@@ -125,7 +125,7 @@ AddReview.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  sendingComment: getReviewStatus(state),
+  sendingComment: sendCommentStatus(state),
 });
 
 export default connect(mapStateToProps)(AddReview);

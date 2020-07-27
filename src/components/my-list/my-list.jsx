@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
 import {Pages} from '../../const.js';
-import {getFilms} from '../../reducer/data/selectors.js';
+import {getFavoriteFilms, getFavoriteFilmsStatus} from '../../reducer/data/selectors.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
 import {getUserData} from '../../reducer/user/selector.js';
 import {ActionCreator} from '../../reducer/show-films/show-films.js';
@@ -13,7 +13,17 @@ import MoviesList from '../movies-list/movies-list.jsx';
 import Footer from '../footer/footer.jsx';
 
 const MyList = (props) => {
-  const {favoriteFilms, handleFilmChoose, user} = props;
+  const {favoriteFilms, handleFilmChoose, loadingFavoriteFilm, user} = props;
+
+  const isLoadingFavoriteFilms = () => {
+    if (loadingFavoriteFilm.favoriteFilmIsLoading && !loadingFavoriteFilm.loadingIsError) {
+      return `favorite films is loading...`;
+    } else if (loadingFavoriteFilm.favoriteFilmIsLoading && loadingFavoriteFilm.loadingIsError) {
+      return `server error, try later...`;
+    }
+
+    return false;
+  };
 
   return (<React.Fragment>
     <div className="user-page">
@@ -40,10 +50,12 @@ const MyList = (props) => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
+        {isLoadingFavoriteFilms() ||
         <MoviesList
           films={favoriteFilms}
           onSmallMovieCardClick={handleFilmChoose}
         />
+        }
       </section>
 
       <Footer />
@@ -54,11 +66,16 @@ const MyList = (props) => {
 MyList.propTypes = {
   favoriteFilms: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   handleFilmChoose: PropTypes.func.isRequired,
+  loadingFavoriteFilm: PropTypes.shape({
+    favoriteFilmIsLoading: PropTypes.bool.isRequired,
+    loadingIsError: PropTypes.bool.isRequired,
+  }),
   user: CustomPropTypes.USER,
 };
 
 const mapStateToProps = (state) => ({
-  favoriteFilms: getFilms(state),
+  favoriteFilms: getFavoriteFilms(state),
+  loadingFavoriteFilm: getFavoriteFilmsStatus(state),
   user: getUserData(state),
 });
 
@@ -69,4 +86,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)((MyList));
+export default connect(mapStateToProps, mapDispatchToProps)(MyList);
