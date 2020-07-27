@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 import history from '../../history.js';
+import {Pages} from '../../const.js';
 
 const VideoPlayerFull = (props) => {
   const {
@@ -36,7 +37,7 @@ const VideoPlayerFull = (props) => {
       {children}
 
       <button type="button" className="player__exit"
-        onClick={() => history.goBack()}
+        onClick={() => history.push(`${Pages.FILM}/${selectedFilm.id}`)}
       >Exit</button>
 
       <div className="player__controls">

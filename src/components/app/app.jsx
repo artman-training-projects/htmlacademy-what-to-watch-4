@@ -35,6 +35,13 @@ const App = (props) => {
           render={() => <MainWrapped />}
         />
 
+        <Route exact path={Pages.SIGN_IN}
+          render={() => authorizationStatus === AuthorizationStatus.NO_AUTH ?
+            <SignIn /> :
+            <Redirect to={Pages.MAIN} />
+          }
+        />
+
         <Route exact path={`${Pages.FILM}/:id?`}
           render={(routeProps) => {
             const selectedID = +routeProps.match.params.id;
@@ -56,16 +63,22 @@ const App = (props) => {
           <AddReviewWrapped />
         </Route>
 
-        <Route exact path={`${Pages.PLAYER}/:id?`}>
-          <VideoPlayerFullWrapped />
-        </Route>
+        <Route exact path={`${Pages.PLAYER}/:id?`}
+          render={(routeProps) => {
+            const selectedID = +routeProps.match.params.id;
+            return (loadFilmsStatus.filmsIsLoading ||
+              <VideoPlayerFullWrapped
+                selectedID={selectedID}
+              />);
+          }}
+        />
 
         <Route exact path={Pages.MY_LIST}
           render={() => authorizationStatus === AuthorizationStatus.AUTH ?
             <MyList /> :
             <Redirect to={Pages.SIGN_IN}/>
-          }>
-        </Route>
+          }
+        />
       </Switch>
     </Router>
   );
