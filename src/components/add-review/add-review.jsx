@@ -68,7 +68,7 @@ const AddReview = (props) => {
             <div className="rating__stars"
               onChange={onChangeRating}
             >
-              <input className="rating__input" id="star-1" type="radio" name="rating" value="1" disabled={isBlocked} />
+              <input className="rating__input" id="star-1" type="radio" name="rating" value="1" defaultChecked disabled={isBlocked} />
               <label className="rating__label" htmlFor="star-1">Rating 1</label>
 
               <input className="rating__input" id="star-2" type="radio" name="rating" value="2" disabled={isBlocked} />

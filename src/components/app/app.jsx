@@ -15,6 +15,7 @@ import MyList from '../my-list/my-list.jsx';
 import AddReview from '../add-review/add-review.jsx';
 import VideoPlayerFull from '../video-player-full/video-player-full.jsx';
 import SignIn from '../sign-in/sign-in.jsx';
+import Loading from '../loading/loading.jsx';
 
 import withActiveTab from '../../hoc/with-active-tab/with-active-tab.jsx';
 import withComment from '../../hoc/with-comment/with-comment.jsx';
@@ -46,7 +47,8 @@ const App = (props) => {
         <Route exact path={`${Pages.FILM}/:id?`}
           render={(routeProps) => {
             const selectedID = +routeProps.match.params.id;
-            return (loadFilmsStatus.filmsIsLoading ||
+            return (loadFilmsStatus.filmsIsLoading ?
+              <Loading /> :
               <MovieCardWrapped selectedID={selectedID} />);
           }}
         />
@@ -54,7 +56,8 @@ const App = (props) => {
         <PrivateRoute exact path={`${Pages.FILM}/:id?/review`}
           render={(routeProps) => {
             const selectedID = +routeProps.match.params.id;
-            return (loadFilmsStatus.filmsIsLoading ||
+            return (loadFilmsStatus.filmsIsLoading ?
+              <Loading /> :
               <AddReviewWrapped selectedID={selectedID}/>);
           }}
         />
@@ -62,7 +65,8 @@ const App = (props) => {
         <Route exact path={`${Pages.PLAYER}/:id?`}
           render={(routeProps) => {
             const selectedID = +routeProps.match.params.id;
-            return (loadFilmsStatus.filmsIsLoading ||
+            return (loadFilmsStatus.filmsIsLoading ?
+              <Loading /> :
               <VideoPlayerFullWrapped selectedID={selectedID} />);
           }}
         />

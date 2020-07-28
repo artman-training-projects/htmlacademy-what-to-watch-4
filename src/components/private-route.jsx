@@ -3,13 +3,14 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {Route, Redirect} from 'react-router-dom';
 
-import {Pages} from '../const.js';
+import {AuthorizationStatus, Pages} from '../const.js';
 import {getAuthStatus} from '../reducer/user/selector.js';
+import Loading from './loading/loading.jsx';
 
 const PrivateRoute = (props) => {
   const {auth, exact, path, render} = props;
 
-  const isAuth = auth.status === `AUTH`;
+  const isAuth = auth.status === AuthorizationStatus.AUTH;
   const isProgress = auth.isProgress;
 
   return (
@@ -20,7 +21,7 @@ const PrivateRoute = (props) => {
         if (isAuth && !isProgress) {
           return render(routeProps);
         } else if (isProgress) {
-          return false;
+          return <Loading />;
         }
         return <Redirect to={`${Pages.SIGN_IN}`} />;
       }}
