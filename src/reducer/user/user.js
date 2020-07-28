@@ -51,7 +51,6 @@ const Operations = {
         dispatch(ActionCreator.setUserData(userAdapter(responce.data)));
       })
       .catch((err) => {
-        dispatch(ActionCreator.errorAuthorization(true));
         throw err;
       });
   },

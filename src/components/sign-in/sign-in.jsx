@@ -2,7 +2,6 @@ import React, {PureComponent, createRef} from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import history from '../../history.js';
 
 import {getAuthError} from '../../reducer/user/selector.js';
 import {Operations as UserOperations} from '../../reducer/user/user.js';
