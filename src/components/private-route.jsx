@@ -16,9 +16,9 @@ const PrivateRoute = (props) => {
     <Route
       exact={exact}
       path={path}
-      render={() => {
+      render={(routeProps) => {
         if (isAuth && !isProgress) {
-          return render();
+          return render(routeProps);
         } else if (isProgress) {
           return false;
         }

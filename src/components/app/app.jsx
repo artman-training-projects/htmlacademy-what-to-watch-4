@@ -47,23 +47,15 @@ const App = (props) => {
           render={(routeProps) => {
             const selectedID = +routeProps.match.params.id;
             return (loadFilmsStatus.filmsIsLoading ||
-              <MovieCardWrapped
-                selectedID={selectedID}
-              />);
+              <MovieCardWrapped selectedID={selectedID} />);
           }}
         />
 
-        <Route exact path={`${Pages.FILM}/:id?/review`}
+        <PrivateRoute exact path={`${Pages.FILM}/:id?/review`}
           render={(routeProps) => {
-            if (isAuth) {
-              const selectedID = +routeProps.match.params.id;
-              return (loadFilmsStatus.filmsIsLoading ||
-              <AddReviewWrapped
-                selectedID={selectedID}
-              />);
-            }
-
-            return <SignIn />;
+            const selectedID = +routeProps.match.params.id;
+            return (loadFilmsStatus.filmsIsLoading ||
+              <AddReviewWrapped selectedID={selectedID}/>);
           }}
         />
 
@@ -71,9 +63,7 @@ const App = (props) => {
           render={(routeProps) => {
             const selectedID = +routeProps.match.params.id;
             return (loadFilmsStatus.filmsIsLoading ||
-              <VideoPlayerFullWrapped
-                selectedID={selectedID}
-              />);
+              <VideoPlayerFullWrapped selectedID={selectedID} />);
           }}
         />
 
