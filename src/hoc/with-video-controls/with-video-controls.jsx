@@ -98,7 +98,7 @@ const withVideoControls = (Component) => {
         onSetFullScreen={this._handleSetFullScreen}
       >
         <video className="player__video"
-          poster={selectedFilm.poster}
+          poster={selectedFilm.bg}
           ref={this._videoRef}
         >your browser doesn`t support embedded videos</video>
       </Component>;

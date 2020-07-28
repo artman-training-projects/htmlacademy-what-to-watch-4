@@ -3,11 +3,11 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import {getAuthError} from '../../reducer/user/selector.js';
+import {getAuthStatus} from '../../reducer/user/selector.js';
 import {Operations as UserOperations} from '../../reducer/user/user.js';
 
-import Footer from '../footer/footer.jsx';
 import {Pages} from '../../const.js';
+import Footer from '../footer/footer.jsx';
 
 class SignIn extends PureComponent {
   constructor(props) {
@@ -18,9 +18,9 @@ class SignIn extends PureComponent {
   }
 
   render() {
-    const {authorizationError, handleAuthSubmit} = this.props;
+    const {auth, handleAuthSubmit} = this.props;
 
-    const isInvalidRequest = authorizationError ?
+    const isInvalidRequest = auth.error ?
       <React.Fragment>
         <div className="sign-in__message">
           <p>Please enter a valid email address</p>
@@ -49,7 +49,6 @@ class SignIn extends PureComponent {
                 email: this.emailRef.current.value,
                 password: this.passwordRef.current.value,
               });
-              history.goBack();
             }}
           >
             {isInvalidRequest}
@@ -80,18 +79,26 @@ class SignIn extends PureComponent {
 }
 
 SignIn.propTypes = {
-  authorizationError: PropTypes.bool.isRequired,
+  auth: PropTypes.shape({
+    status: PropTypes.string.isRequired,
+    error: PropTypes.bool.isRequired,
+  }).isRequired,
+  checkAuth: PropTypes.func.isRequired,
   handleAuthSubmit: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  authorizationError: getAuthError(state),
+  auth: getAuthStatus(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   handleAuthSubmit(authData) {
     dispatch(UserOperations.login(authData));
   },
+
+  checkAuth() {
+    dispatch(UserOperations.checkAuth());
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

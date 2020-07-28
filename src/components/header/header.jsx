@@ -9,7 +9,7 @@ import {getAuthStatus, getUserData} from '../../reducer/user/selector.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
 
 const Header = (props) => {
-  const {authorizationStatus, film, handleFavoriteFilm, user} = props;
+  const {auth, film, handleFavoriteFilm, user} = props;
 
   const isReview = film &&
     <React.Fragment>
@@ -25,7 +25,7 @@ const Header = (props) => {
       </nav>
     </React.Fragment>;
 
-  const isSignIn = authorizationStatus === AuthorizationStatus.AUTH ?
+  const isSignIn = auth.status === AuthorizationStatus.AUTH ?
     <React.Fragment>
       <div className="user-block">
         <div className="user-block__avatar">
@@ -61,14 +61,17 @@ const Header = (props) => {
 };
 
 Header.propTypes = {
-  authorizationStatus: PropTypes.string.isRequired,
+  auth: PropTypes.shape({
+    status: PropTypes.string.isRequired,
+    error: PropTypes.bool.isRequired,
+  }).isRequired,
   film: CustomPropTypes.FILM,
   handleFavoriteFilm: PropTypes.func.isRequired,
   user: CustomPropTypes.USER,
 };
 
 const mapStateToProps = (state) => ({
-  authorizationStatus: getAuthStatus(state),
+  auth: getAuthStatus(state),
   user: getUserData(state),
 });
 

@@ -16,6 +16,8 @@ describe(`Header`, () => {
     const store = mockStore({
       [NameSpace.USER]: {
         authorizationStatus: `NO_AUTH`,
+        authorizationError: false,
+        authorizationInProgress: false,
         user: {
           id: 0,
           email: ``,
@@ -46,6 +48,8 @@ describe(`Header`, () => {
     const store = mockStore({
       [NameSpace.USER]: {
         authorizationStatus: `AUTH`,
+        authorizationError: false,
+        authorizationInProgress: false,
         user,
       }
     });

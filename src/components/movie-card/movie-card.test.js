@@ -16,6 +16,7 @@ describe(`MovieCard`, () => {
     [NameSpace.USER]: {
       authorizationStatus: `NO_AUTH`,
       authorizationError: false,
+      authorizationInProgress: false,
     },
     [NameSpace.DATA]: {
       films,

@@ -5,6 +5,7 @@ import {AuthorizationStatus} from '../../const.js';
 const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
   authorizationError: false,
+  authorizationInProgress: false,
   user: {
     id: 0,
     email: ``,
@@ -16,6 +17,7 @@ const initialState = {
 const ActionType = {
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
   ERROR_AUTHORIZATION: `SET_ERROR`,
+  SET_PROGRESS_STATUS: `SET_PROGRESS_STATUS`,
   SET_USER_DATA: `SET_USER_DATA`,
 };
 
@@ -34,6 +36,13 @@ const ActionCreator = {
     };
   },
 
+  setProgressStatus: (status) => {
+    return {
+      type: ActionType.SET_PROGRESS_STATUS,
+      payload: status,
+    };
+  },
+
   setUserData: (userData) => {
     return {
       type: ActionType.SET_USER_DATA,
@@ -44,18 +53,22 @@ const ActionCreator = {
 
 const Operations = {
   checkAuth: () => (dispatch, getState, api) => {
+    dispatch(ActionCreator.setProgressStatus(true));
     return api.get(`/login`)
       .then((responce) => {
         dispatch(ActionCreator.errorAuthorization(false));
         dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
         dispatch(ActionCreator.setUserData(userAdapter(responce.data)));
+        dispatch(ActionCreator.setProgressStatus(false));
       })
       .catch((err) => {
+        dispatch(ActionCreator.setProgressStatus(false));
         throw err;
       });
   },
 
   login: (authData) => (dispatch, getState, api) => {
+    dispatch(ActionCreator.setProgressStatus(true));
     return api.post(`/login`, {
       email: authData.email,
       password: authData.password,
@@ -64,9 +77,11 @@ const Operations = {
       dispatch(ActionCreator.errorAuthorization(false));
       dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
       dispatch(ActionCreator.setUserData(userAdapter(responce.data)));
+      dispatch(ActionCreator.setProgressStatus(false));
     })
     .catch((err) => {
       dispatch(ActionCreator.errorAuthorization(true));
+      dispatch(ActionCreator.setProgressStatus(false));
       throw err;
     });
   },
@@ -82,6 +97,11 @@ const reducer = (state = initialState, action) => {
     case ActionType.ERROR_AUTHORIZATION:
       return extend(state, {
         authorizationError: action.payload,
+      });
+
+    case ActionType.SET_PROGRESS_STATUS:
+      return extend(state, {
+        authorizationInProgress: action.payload,
       });
 
     case ActionType.SET_USER_DATA:

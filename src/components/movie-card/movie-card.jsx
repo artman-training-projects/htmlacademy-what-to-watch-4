@@ -19,7 +19,7 @@ import Footer from '../footer/footer.jsx';
 const MovieCard = (props) => {
   const {
     activeTab,
-    authorizationStatus,
+    auth,
     handleFilmChoose,
     handleFilmFavorite,
     loadFilms,
@@ -30,7 +30,7 @@ const MovieCard = (props) => {
     sendFavoriteFilm,
   } = props;
 
-  const isSignIn = authorizationStatus === AuthorizationStatus.AUTH;
+  const isSignIn = auth.status === AuthorizationStatus.AUTH;
 
   if (sendFavoriteFilm.sendingIsDone) {
     loadFilms();
@@ -123,7 +123,10 @@ const MovieCard = (props) => {
 
 MovieCard.propTypes = {
   activeTab: PropTypes.string.isRequired,
-  authorizationStatus: PropTypes.string.isRequired,
+  auth: PropTypes.shape({
+    status: PropTypes.string.isRequired,
+    error: PropTypes.bool.isRequired,
+  }).isRequired,
   handleFilmChoose: PropTypes.func.isRequired,
   handleFilmFavorite: PropTypes.func.isRequired,
   loadFilms: PropTypes.func.isRequired,
@@ -142,7 +145,7 @@ MovieCard.propTypes = {
 };
 
 const mapStateToProps = (state, props) => ({
-  authorizationStatus: getAuthStatus(state),
+  auth: getAuthStatus(state),
   sameFilms: getSameFilms(state, props.selectedFilm),
   sendFavoriteFilm: getFavoriteFilmSendStatus(state),
 });

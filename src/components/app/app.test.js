@@ -30,6 +30,7 @@ describe(`App`, () => {
       [NameSpace.USER]: {
         authorizationStatus: `NO_AUTH`,
         authorizationError: false,
+        authorizationInProgress: false,
       },
     });
 
@@ -68,6 +69,7 @@ describe(`App`, () => {
       [NameSpace.USER]: {
         authorizationStatus: `NO_AUTH`,
         authorizationError: false,
+        authorizationInProgress: false,
       },
     });
 
@@ -107,6 +109,7 @@ describe(`App`, () => {
       [NameSpace.USER]: {
         authorizationStatus: `NO_AUTH`,
         authorizationError: false,
+        authorizationInProgress: false,
       },
     });
 
@@ -148,6 +151,7 @@ describe(`App`, () => {
       [NameSpace.USER]: {
         authorizationStatus: `AUTH`,
         authorizationError: false,
+        authorizationInProgress: false,
         user,
       },
     });
