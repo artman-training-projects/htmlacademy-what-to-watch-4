@@ -153,7 +153,6 @@ const mapStateToProps = (state, props) => ({
 const mapDispatchToProps = (dispatch) => ({
   handleFilmChoose(film) {
     dispatch(ActionCreator.chooseFilm(film));
-    dispatch(DataOperations.loadComments(film.id));
   },
 
   handleFilmFavorite(film) {

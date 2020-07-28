@@ -15,14 +15,6 @@ class VideoPlayer extends PureComponent {
     video.muted = muted;
   }
 
-  componentWillUnmount() {
-    const video = this._videoRef.current;
-
-    video.src = ``;
-    video.muted = null;
-    video.onplay = null;
-  }
-
   componentDidUpdate() {
     const {src} = this.props;
     const video = this._videoRef.current;
@@ -34,6 +26,14 @@ class VideoPlayer extends PureComponent {
     } else {
       video.load();
     }
+  }
+
+  componentWillUnmount() {
+    const video = this._videoRef.current;
+
+    video.src = ``;
+    video.muted = null;
+    video.onplay = null;
   }
 
   render() {
