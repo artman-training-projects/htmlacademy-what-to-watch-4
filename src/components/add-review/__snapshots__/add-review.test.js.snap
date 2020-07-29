@@ -130,6 +130,7 @@ exports[`AddReview Render send review error 1`] = `
         >
           <input
             className="rating__input"
+            defaultChecked={true}
             disabled={false}
             id="star-1"
             name="rating"
@@ -361,6 +362,7 @@ exports[`AddReview Render send review ok 1`] = `
         >
           <input
             className="rating__input"
+            defaultChecked={true}
             disabled={false}
             id="star-1"
             name="rating"
@@ -591,6 +593,7 @@ exports[`AddReview Render sending review in process 1`] = `
         >
           <input
             className="rating__input"
+            defaultChecked={true}
             disabled={true}
             id="star-1"
             name="rating"

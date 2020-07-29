@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../../components/custom-prop-types.js';
 
 import {Time} from '../../const.js';
-import {getSelectedFilm} from '../../reducer/show-films/selectors.js';
+import {getFilmById} from '../../reducer/data/selectors.js';
 
 const withVideoControls = (Component) => {
   class WithVideoControls extends PureComponent {
@@ -98,7 +98,7 @@ const withVideoControls = (Component) => {
         onSetFullScreen={this._handleSetFullScreen}
       >
         <video className="player__video"
-          poster={selectedFilm.poster}
+          poster={selectedFilm.bg}
           ref={this._videoRef}
         >your browser doesn`t support embedded videos</video>
       </Component>;
@@ -112,8 +112,8 @@ const withVideoControls = (Component) => {
     ]),
   };
 
-  const mapStateToProps = (state) => ({
-    selectedFilm: getSelectedFilm(state),
+  const mapStateToProps = (state, props) => ({
+    selectedFilm: getFilmById(state, props.selectedID),
   });
 
   return connect(mapStateToProps)(WithVideoControls);

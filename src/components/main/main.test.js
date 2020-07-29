@@ -32,6 +32,7 @@ describe(`Main`, () => {
       [NameSpace.USER]: {
         authorizationStatus: `NO_AUTH`,
         authorizationError: false,
+        authorizationInProgress: false,
       },
     });
 
@@ -73,6 +74,7 @@ describe(`Main`, () => {
       [NameSpace.USER]: {
         authorizationStatus: `NO_AUTH`,
         authorizationError: false,
+        authorizationInProgress: false,
       },
     });
 
@@ -114,6 +116,7 @@ describe(`Main`, () => {
       [NameSpace.USER]: {
         authorizationStatus: `NO_AUTH`,
         authorizationError: false,
+        authorizationInProgress: false,
       },
     });
 

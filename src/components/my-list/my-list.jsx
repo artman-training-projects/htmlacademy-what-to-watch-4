@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -12,64 +12,76 @@ import {ActionCreator} from '../../reducer/show-films/show-films.js';
 import MoviesList from '../movies-list/movies-list.jsx';
 import Footer from '../footer/footer.jsx';
 
-const MyList = (props) => {
-  const {favoriteFilms, handleFilmChoose, loadingFavoriteFilm, user} = props;
+class MyList extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
 
-  const isLoadingFavoriteFilms = () => {
-    if (loadingFavoriteFilm.favoriteFilmIsLoading && !loadingFavoriteFilm.loadingIsError) {
-      return `favorite films is loading...`;
-    } else if (loadingFavoriteFilm.favoriteFilmIsLoading && loadingFavoriteFilm.loadingIsError) {
-      return `server error, try later...`;
-    }
+  componentDidMount() {
+    const {loadFavoriteFilms} = this.props;
+    loadFavoriteFilms();
+  }
 
-    return false;
-  };
+  render() {
+    const {favoriteFilms, handleFilmChoose, loadingFavoriteFilm, user} = this.props;
 
-  return (<React.Fragment>
-    <div className="user-page">
-      <header className="page-header user-page__head">
-        <div className="logo">
-          <Link to={Pages.MAIN} className="logo__link">
-            <span className="logo__letter logo__letter--1">W</span>
-            <span className="logo__letter logo__letter--2">T</span>
-            <span className="logo__letter logo__letter--3">W</span>
-          </Link>
-        </div>
+    const isLoadingFavoriteFilms = () => {
+      if (loadingFavoriteFilm.favoriteFilmIsLoading && !loadingFavoriteFilm.loadingIsError) {
+        return `favorite films is loading...`;
+      } else if (loadingFavoriteFilm.favoriteFilmIsLoading && loadingFavoriteFilm.loadingIsError) {
+        return `server error, try later...`;
+      }
 
-        <h1 className="page-title user-page__title">My list</h1>
+      return false;
+    };
 
-        <div className="user-block">
-          <div className="user-block__avatar">
-            <Link to={Pages.MAIN}>
-              <img src={user.avatarSrc} alt={user.name} width="63" height="63" />
+    return (<React.Fragment>
+      <div className="user-page">
+        <header className="page-header user-page__head">
+          <div className="logo">
+            <Link to={Pages.MAIN} className="logo__link">
+              <span className="logo__letter logo__letter--1">W</span>
+              <span className="logo__letter logo__letter--2">T</span>
+              <span className="logo__letter logo__letter--3">W</span>
             </Link>
           </div>
-        </div>
-      </header>
 
-      <section className="catalog">
-        <h2 className="catalog__title visually-hidden">Catalog</h2>
+          <h1 className="page-title user-page__title">My list</h1>
 
-        {isLoadingFavoriteFilms() ||
-        <MoviesList
-          films={favoriteFilms}
-          onSmallMovieCardClick={handleFilmChoose}
-        />
-        }
-      </section>
+          <div className="user-block">
+            <div className="user-block__avatar">
+              <Link to={Pages.MAIN}>
+                <img src={user.avatarSrc} alt={user.name} width="63" height="63" />
+              </Link>
+            </div>
+          </div>
+        </header>
 
-      <Footer />
-    </div>
-  </React.Fragment>);
-};
+        <section className="catalog">
+          <h2 className="catalog__title visually-hidden">Catalog</h2>
+
+          {isLoadingFavoriteFilms() ||
+          <MoviesList
+            films={favoriteFilms}
+            onSmallMovieCardClick={handleFilmChoose}
+          />
+          }
+        </section>
+
+        <Footer />
+      </div>
+    </React.Fragment>);
+  }
+}
 
 MyList.propTypes = {
-  favoriteFilms: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
+  favoriteFilms: PropTypes.arrayOf(CustomPropTypes.FILM),
   handleFilmChoose: PropTypes.func.isRequired,
   loadingFavoriteFilm: PropTypes.shape({
     favoriteFilmIsLoading: PropTypes.bool.isRequired,
     loadingIsError: PropTypes.bool.isRequired,
   }),
+  loadFavoriteFilms: PropTypes.func.isRequired,
   user: CustomPropTypes.USER,
 };
 
@@ -82,8 +94,12 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   handleFilmChoose(film) {
     dispatch(ActionCreator.chooseFilm(film));
-    dispatch(DataOperations.loadComments(film.id));
+  },
+
+  loadFavoriteFilms() {
+    dispatch(DataOperations.loadFavoriteFilms());
   },
 });
 
+export {MyList};
 export default connect(mapStateToProps, mapDispatchToProps)(MyList);

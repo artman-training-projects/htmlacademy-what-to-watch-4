@@ -32,6 +32,7 @@ describe(`Reducer User`, () => {
     expect(reducer(void 0, {})).toEqual({
       authorizationStatus: AuthorizationStatus.NO_AUTH,
       authorizationError: false,
+      authorizationInProgress: false,
       user: {
         id: 0,
         email: ``,

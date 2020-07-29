@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import history from '../../history.js';
-import MyList from './my-list.jsx';
+import {MyList} from './my-list.jsx';
 import {films, moviePoster, user} from '../data-for-test.js';
 import NameSpace from '../../reducer/name-space.js';
 
@@ -16,14 +16,12 @@ describe(`MyList`, () => {
     [NameSpace.USER]: {
       authorizationStatus: `AUTH`,
       authorizationError: false,
+      authorizationInProgress: false,
       user,
     },
     [NameSpace.DATA]: {
       films,
       moviePoster,
-      favoriteFilms: films,
-      loadingFavoriteFilms: false,
-      loadFavoriteFilmsError: false,
     },
   });
 
@@ -32,7 +30,13 @@ describe(`MyList`, () => {
         <Router history={history}>
           <Provider store={store}>
             <MyList
-              favoriteFilms={() => {}}
+              loadingFavoriteFilm={{
+                favoriteFilmIsLoading: false,
+                loadingIsError: false,
+              }}
+              favoriteFilms={films}
+              handleFilmChoose={() => {}}
+              loadFavoriteFilms={() => {}}
               user={user}
             />
           </Provider>

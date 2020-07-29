@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react';
-import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
+import history from '../../history.js';
 import VideoPlayer from '../video-player/video-player.jsx';
 import {Pages} from '../../const.js';
 
@@ -29,7 +29,10 @@ class SmallMovieCard extends PureComponent {
           clearTimeout(this._timeout);
           onIsPlayingChange(false);
         }}
-        onClick={() => onSmallMovieCardClick(film)}
+        onClick={() => {
+          onSmallMovieCardClick(film);
+          history.push(`${Pages.FILM}/${film.id}`);
+        }}
       >
         <div className="small-movie-card__image">
           <VideoPlayer
@@ -42,7 +45,9 @@ class SmallMovieCard extends PureComponent {
         <h3
           className="small-movie-card__title"
         >
-          <Link to={`${Pages.FILM}/${film.id}`} className="small-movie-card__link">{film.title}</Link>
+          <a href={`${Pages.FILM}/${film.id}`} className="small-movie-card__link"
+            onClick={(evt) => evt.preventDefault()}
+          >{film.title}</a>
         </h3>
       </article>
     );

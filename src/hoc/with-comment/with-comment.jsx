@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../../components/custom-prop-types.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
-import {getSelectedFilm} from '../../reducer/show-films/selectors.js';
+import {getFilmById} from '../../reducer/data/selectors.js';
 
 const withComment = (Component) => {
   class WithComment extends PureComponent {
@@ -47,6 +47,11 @@ const withComment = (Component) => {
       });
     }
 
+    componentDidMount() {
+      const {loadFilms} = this.props;
+      loadFilms();
+    }
+
     render() {
       const {rating, comment} = this.state;
 
@@ -63,6 +68,7 @@ const withComment = (Component) => {
 
   WithComment.propTypes = {
     handleSubmitReview: PropTypes.func.isRequired,
+    loadFilms: PropTypes.func.isRequired,
     selectedFilm: PropTypes.oneOfType([
       CustomPropTypes.FILM,
       PropTypes.bool,
@@ -73,13 +79,17 @@ const withComment = (Component) => {
     }),
   };
 
-  const mapStateToProps = (state) => ({
-    selectedFilm: getSelectedFilm(state),
+  const mapStateToProps = (state, props) => ({
+    selectedFilm: getFilmById(state, props.selectedID),
   });
 
   const mapDispatchToProps = (dispatch) => ({
     handleSubmitReview(review, id) {
       dispatch(DataOperations.sendComment(review, id));
+    },
+
+    loadFilms() {
+      dispatch(DataOperations.loadFilms());
     },
   });
 

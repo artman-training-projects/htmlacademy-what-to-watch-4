@@ -17,6 +17,7 @@ describe(`AddReview`, () => {
       [NameSpace.USER]: {
         authorizationStatus: `AUTH`,
         authorizationError: false,
+        authorizationInProgress: false,
         user: {
           id: 0,
           email: ``,
@@ -57,6 +58,7 @@ describe(`AddReview`, () => {
       [NameSpace.USER]: {
         authorizationStatus: `AUTH`,
         authorizationError: false,
+        authorizationInProgress: false,
         user: {
           id: 0,
           email: ``,
@@ -97,6 +99,7 @@ describe(`AddReview`, () => {
       [NameSpace.USER]: {
         authorizationStatus: `AUTH`,
         authorizationError: false,
+        authorizationInProgress: false,
         user: {
           id: 0,
           email: ``,

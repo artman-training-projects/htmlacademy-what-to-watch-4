@@ -2,7 +2,6 @@ import React from 'react';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-// import {films} from '../../components/data-for-test.js';
 import withVideo from './with-video.jsx';
 
 Enzyme.configure({

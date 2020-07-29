@@ -6,10 +6,9 @@ import {connect} from 'react-redux';
 
 import {AuthorizationStatus, Pages} from '../../const.js';
 import {getAuthStatus, getUserData} from '../../reducer/user/selector.js';
-import {Operations as DataOperations} from '../../reducer/data/data.js';
 
 const Header = (props) => {
-  const {authorizationStatus, film, handleFavoriteFilm, user} = props;
+  const {auth, film, user} = props;
 
   const isReview = film &&
     <React.Fragment>
@@ -25,13 +24,11 @@ const Header = (props) => {
       </nav>
     </React.Fragment>;
 
-  const isSignIn = authorizationStatus === AuthorizationStatus.AUTH ?
+  const isSignIn = auth.status === AuthorizationStatus.AUTH ?
     <React.Fragment>
       <div className="user-block">
         <div className="user-block__avatar">
-          <Link to={Pages.MY_LIST}
-            onClick={handleFavoriteFilm}
-          >
+          <Link to={Pages.MY_LIST}>
             <img src={user.avatarSrc} alt={user.name} width="63" height="63" />
           </Link>
         </div>
@@ -61,21 +58,17 @@ const Header = (props) => {
 };
 
 Header.propTypes = {
-  authorizationStatus: PropTypes.string.isRequired,
+  auth: PropTypes.shape({
+    status: PropTypes.string.isRequired,
+    error: PropTypes.bool.isRequired,
+  }).isRequired,
   film: CustomPropTypes.FILM,
-  handleFavoriteFilm: PropTypes.func.isRequired,
   user: CustomPropTypes.USER,
 };
 
 const mapStateToProps = (state) => ({
-  authorizationStatus: getAuthStatus(state),
+  auth: getAuthStatus(state),
   user: getUserData(state),
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  handleFavoriteFilm() {
-    dispatch(DataOperations.loadFavoriteFilms());
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps)(Header);
