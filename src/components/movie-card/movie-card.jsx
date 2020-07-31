@@ -1,13 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import history from '../../history.js';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
 import {AuthorizationStatus, MovieNavList, Pages} from '../../const.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
 import {getFavoriteFilmSendStatus} from '../../reducer/data/selectors.js';
-import {getAuthStatus} from '../../reducer/user/selector.js';
+import {getAuthStatus} from '../../reducer/user/selectors.js';
 import {getSameFilms} from '../../reducer/show-films/selectors.js';
 
 import MovieNavTabs from '../movie-nav-tabs/movie-nav-tabs.jsx';
@@ -73,7 +74,7 @@ const MovieCard = (props) => {
                 <span>Play</span>
               </Link>
               <button className="btn btn--list movie-card__button" type="button"
-                onClick={() => handleFilmFavorite(selectedFilm)}
+                onClick={() => isSignIn ? handleFilmFavorite(selectedFilm) : history.push(`${Pages.SIGN_IN}`)}
               >
                 {isInMyLyst}
                 <span>My list</span>

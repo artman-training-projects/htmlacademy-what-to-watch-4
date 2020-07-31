@@ -7,7 +7,7 @@ import {CustomPropTypes} from '../custom-prop-types.js';
 import {Pages} from '../../const.js';
 import {getFavoriteFilms, getFavoriteFilmsStatus} from '../../reducer/data/selectors.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
-import {getUserData} from '../../reducer/user/selector.js';
+import {getUserData} from '../../reducer/user/selectors.js';
 import MoviesList from '../movies-list/movies-list.jsx';
 import Footer from '../footer/footer.jsx';
 

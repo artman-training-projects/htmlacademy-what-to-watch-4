@@ -21,7 +21,7 @@ const AddReview = (props) => {
     onSubmitReview,
     selectedFilm,
     sendingComment,
-    rating
+    rating,
   } = props;
 
   const isValidReview = (rating && comment) ? false : true;

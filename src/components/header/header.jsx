@@ -5,7 +5,7 @@ import {CustomPropTypes} from '../custom-prop-types.js';
 import {connect} from 'react-redux';
 
 import {AuthorizationStatus, Pages} from '../../const.js';
-import {getAuthStatus, getUserData} from '../../reducer/user/selector.js';
+import {getAuthStatus, getUserData} from '../../reducer/user/selectors.js';
 
 const Header = (props) => {
   const {auth, film, user} = props;
