@@ -23,7 +23,6 @@ const Main = (props) => {
     currentGenre,
     films,
     filmsByGenre,
-    handleFilmChoose,
     handleFilmFavorite,
     handleGenreChoose,
     loadPromo,
@@ -45,7 +44,9 @@ const Main = (props) => {
   const isLoadingPromo = () => {
     if (loadingPromo.promoIsLoading && !loadingPromo.loadingIsError) {
       return `promo is loading...`;
-    } else if (loadingPromo.promoIsLoading && loadingPromo.loadingIsError) {
+    }
+
+    if (loadingPromo.promoIsLoading && loadingPromo.loadingIsError) {
       return `server error, try later...`;
     }
 
@@ -55,7 +56,9 @@ const Main = (props) => {
   const isLoadingFilms = () => {
     if (loadingFilms.filmsIsLoading && !loadingFilms.loadingIsError) {
       return `films is loading...`;
-    } else if (loadingFilms.filmsIsLoading && loadingFilms.loadingIsError) {
+    }
+
+    if (loadingFilms.filmsIsLoading && loadingFilms.loadingIsError) {
       return `server error, try later...`;
     }
 
@@ -99,9 +102,7 @@ const Main = (props) => {
             </p>
 
             <div className="movie-card__buttons">
-              <Link to={`${Pages.PLAYER}/${moviePoster.id}`} className="btn btn--play movie-card__button" type="button"
-                onClick={() => handleFilmChoose(moviePoster)}
-              >
+              <Link to={`${Pages.PLAYER}/${moviePoster.id}`} className="btn btn--play movie-card__button" type="button">
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"></use>
                 </svg>
@@ -134,7 +135,6 @@ const Main = (props) => {
         {isLoadingFilms() ||
           <MoviesList
             films={showFilms}
-            onSmallMovieCardClick={handleFilmChoose}
           />
         }
 
@@ -156,7 +156,6 @@ Main.propTypes = {
   currentGenre: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   filmsByGenre: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  handleFilmChoose: PropTypes.func.isRequired,
   handleFilmFavorite: PropTypes.func.isRequired,
   handleGenreChoose: PropTypes.func.isRequired,
   loadingFilms: PropTypes.shape({
@@ -196,10 +195,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   handleGenreChoose(genre) {
     dispatch(ActionCreator.chooseGenre(genre));
-  },
-
-  handleFilmChoose(film) {
-    dispatch(ActionCreator.chooseFilm(film));
   },
 
   handleFilmFavorite(film) {

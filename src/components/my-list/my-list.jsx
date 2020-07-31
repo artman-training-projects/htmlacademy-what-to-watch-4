@@ -8,7 +8,6 @@ import {Pages} from '../../const.js';
 import {getFavoriteFilms, getFavoriteFilmsStatus} from '../../reducer/data/selectors.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
 import {getUserData} from '../../reducer/user/selector.js';
-import {ActionCreator} from '../../reducer/show-films/show-films.js';
 import MoviesList from '../movies-list/movies-list.jsx';
 import Footer from '../footer/footer.jsx';
 
@@ -23,12 +22,14 @@ class MyList extends PureComponent {
   }
 
   render() {
-    const {favoriteFilms, handleFilmChoose, loadingFavoriteFilm, user} = this.props;
+    const {favoriteFilms, loadingFavoriteFilm, user} = this.props;
 
     const isLoadingFavoriteFilms = () => {
       if (loadingFavoriteFilm.favoriteFilmIsLoading && !loadingFavoriteFilm.loadingIsError) {
         return `favorite films is loading...`;
-      } else if (loadingFavoriteFilm.favoriteFilmIsLoading && loadingFavoriteFilm.loadingIsError) {
+      }
+
+      if (loadingFavoriteFilm.favoriteFilmIsLoading && loadingFavoriteFilm.loadingIsError) {
         return `server error, try later...`;
       }
 
@@ -63,7 +64,6 @@ class MyList extends PureComponent {
           {isLoadingFavoriteFilms() ||
           <MoviesList
             films={favoriteFilms}
-            onSmallMovieCardClick={handleFilmChoose}
           />
           }
         </section>
@@ -76,7 +76,6 @@ class MyList extends PureComponent {
 
 MyList.propTypes = {
   favoriteFilms: PropTypes.arrayOf(CustomPropTypes.FILM),
-  handleFilmChoose: PropTypes.func.isRequired,
   loadingFavoriteFilm: PropTypes.shape({
     favoriteFilmIsLoading: PropTypes.bool.isRequired,
     loadingIsError: PropTypes.bool.isRequired,
@@ -92,10 +91,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleFilmChoose(film) {
-    dispatch(ActionCreator.chooseFilm(film));
-  },
-
   loadFavoriteFilms() {
     dispatch(DataOperations.loadFavoriteFilms());
   },

@@ -34,6 +34,7 @@ const withVideoControls = (Component) => {
     _handleSetFullScreen() {
       const video = this._videoRef.current;
       video.requestFullscreen();
+      video.controls = true;
     }
 
     _leftTime() {
@@ -67,6 +68,10 @@ const withVideoControls = (Component) => {
     componentDidUpdate() {
       const video = this._videoRef.current;
 
+      if (document.fullscreenElement === null) {
+        video.controls = false;
+      }
+
       if (this.state.isPlaying) {
         video.play();
       } else {
@@ -81,6 +86,7 @@ const withVideoControls = (Component) => {
       video.onplay = null;
       video.onloadedmetadata = null;
       video.ontimeupdate = null;
+      video.controls = null;
     }
 
     render() {

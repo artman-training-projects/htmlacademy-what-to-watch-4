@@ -16,7 +16,6 @@ describe(`SmallMovieCard`, () => {
             film={film}
             isPlaying={false}
             onIsPlayingChange={() => {}}
-            onSmallMovieCardClick={() => {}}
           />
         </Router>, {
           createNodeMock: () => {

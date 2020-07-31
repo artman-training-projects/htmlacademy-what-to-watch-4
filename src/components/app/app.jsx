@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Router, Switch, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import PrivateRoute from '../private-route.jsx';
+import PrivateRoute from '../private-route/private-route.jsx';
 
 import history from '../../history.js';
 import {AuthorizationStatus, Pages} from '../../const.js';
@@ -29,8 +29,7 @@ const VideoPlayerFullWrapped = withVideoControls(VideoPlayerFull);
 
 const App = (props) => {
   const {auth, loadFilmsStatus} = props;
-
-  const isAuth = auth.status === AuthorizationStatus.AUTH ? true : false;
+  const isAuth = auth.status === AuthorizationStatus.AUTH;
 
   return (
     <Router history={history}>

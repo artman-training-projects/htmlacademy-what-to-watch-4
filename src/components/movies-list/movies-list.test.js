@@ -12,7 +12,6 @@ describe(`MoviesList`, () => {
         <Router history={history}>
           <MoviesList
             films={films}
-            onSmallMovieCardClick={() => {}}
           />
         </Router>, {
           createNodeMock: () => {
