@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import history from '../../history.js';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from '../custom-prop-types.js';
 
-import history from '../../history.js';
+import {Pages} from '../../const.js';
 import {sendCommentStatus} from '../../reducer/data/selectors.js';
 import Header from '../header/header.jsx';
 
@@ -27,12 +28,14 @@ const AddReview = (props) => {
 
   const isSendingReview = () => {
     if (sendingComment.sendingIsDone) {
-      history.goBack();
+      history.goBack(`${Pages.FILM}/${selectedFilm.id}`);
     }
 
     if (sendingComment.commentsIsSending && !sendingComment.sendingIsError) {
       return ``;
-    } else if (sendingComment.commentsIsSending && sendingComment.sendingIsError) {
+    }
+
+    if (sendingComment.commentsIsSending && sendingComment.sendingIsError) {
       return `sending review error, try again...`;
     }
 

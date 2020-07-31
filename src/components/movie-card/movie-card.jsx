@@ -8,7 +8,6 @@ import {AuthorizationStatus, MovieNavList, Pages} from '../../const.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
 import {getFavoriteFilmSendStatus} from '../../reducer/data/selectors.js';
 import {getAuthStatus} from '../../reducer/user/selector.js';
-import {ActionCreator} from '../../reducer/show-films/show-films.js';
 import {getSameFilms} from '../../reducer/show-films/selectors.js';
 
 import MovieNavTabs from '../movie-nav-tabs/movie-nav-tabs.jsx';
@@ -20,7 +19,6 @@ const MovieCard = (props) => {
   const {
     activeTab,
     auth,
-    handleFilmChoose,
     handleFilmFavorite,
     loadFilms,
     onActiveTabChange,
@@ -112,7 +110,6 @@ const MovieCard = (props) => {
         <h2 className="catalog__title">More like this</h2>
         <MoviesList
           films={sameFilms}
-          onSmallMovieCardClick={handleFilmChoose}
         />
       </section>
 
@@ -127,7 +124,6 @@ MovieCard.propTypes = {
     status: PropTypes.string.isRequired,
     error: PropTypes.bool.isRequired,
   }).isRequired,
-  handleFilmChoose: PropTypes.func.isRequired,
   handleFilmFavorite: PropTypes.func.isRequired,
   loadFilms: PropTypes.func.isRequired,
   onActiveTabChange: PropTypes.func.isRequired,
@@ -151,10 +147,6 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleFilmChoose(film) {
-    dispatch(ActionCreator.chooseFilm(film));
-  },
-
   handleFilmFavorite(film) {
     dispatch(DataOperations.sendFavoriteFilm(film.id, film.isFavorite));
   },
