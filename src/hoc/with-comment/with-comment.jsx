@@ -5,19 +5,27 @@ import {CustomPropTypes} from '../../components/custom-prop-types.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
 import {getFilmById} from '../../reducer/data/selectors.js';
 
+const BASE_RATING = `1`;
+
 const withComment = (Component) => {
   class WithComment extends PureComponent {
     constructor(props) {
       super(props);
 
       this.state = {
-        rating: false,
+        rating: BASE_RATING,
         comment: false,
       };
 
       this._handleChangeComment = this._handleChangeComment.bind(this);
       this._handleChangeRating = this._handleChangeRating.bind(this);
       this._handleSubmitReview = this._handleSubmitReview.bind(this);
+    }
+
+
+    componentDidMount() {
+      const {loadFilms} = this.props;
+      loadFilms();
     }
 
     _handleChangeComment(evt) {
@@ -45,11 +53,6 @@ const withComment = (Component) => {
         rating,
         comment,
       });
-    }
-
-    componentDidMount() {
-      const {loadFilms} = this.props;
-      loadFilms();
     }
 
     render() {

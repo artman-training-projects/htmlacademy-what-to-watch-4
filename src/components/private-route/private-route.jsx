@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {Route, Redirect} from 'react-router-dom';
 
 import {AuthorizationStatus, Pages} from '../../const.js';
-import {getAuthStatus} from '../../reducer/user/selector.js';
+import {getAuthStatus} from '../../reducer/user/selectors.js';
 import Loading from '../loading/loading.jsx';
 
 const PrivateRoute = (props) => {

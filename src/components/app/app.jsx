@@ -6,7 +6,7 @@ import PrivateRoute from '../private-route/private-route.jsx';
 
 import history from '../../history.js';
 import {AuthorizationStatus, Pages} from '../../const.js';
-import {getAuthStatus} from '../../reducer/user/selector.js';
+import {getAuthStatus} from '../../reducer/user/selectors.js';
 import {getFilmsStatus} from '../../reducer/data/selectors.js';
 
 import Main from '../main/main.jsx';
@@ -35,7 +35,7 @@ const App = (props) => {
     <Router history={history}>
       <Switch>
         <Route exact path={Pages.MAIN}
-          render={() => <MainWrapped />}
+          render={() => <MainWrapped isAuth={isAuth} />}
         />
 
         <Route exact path={Pages.SIGN_IN}

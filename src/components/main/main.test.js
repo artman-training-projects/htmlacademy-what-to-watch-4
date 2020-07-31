@@ -40,6 +40,7 @@ describe(`Main`, () => {
         <Router history={history}>
           <Provider store={store}>
             <Main
+              isAuth={true}
               numberOfFilms={8}
               onCountShowFilmAdd={() => {}}
               onCountShowFilmReset={() => {}}
@@ -82,6 +83,7 @@ describe(`Main`, () => {
         <Router history={history}>
           <Provider store={store}>
             <Main
+              isAuth={true}
               numberOfFilms={8}
               onCountShowFilmAdd={() => {}}
               onCountShowFilmReset={() => {}}
@@ -124,6 +126,7 @@ describe(`Main`, () => {
         <Router history={history}>
           <Provider store={store}>
             <Main
+              isAuth={true}
               numberOfFilms={8}
               onCountShowFilmAdd={() => {}}
               onCountShowFilmReset={() => {}}
