@@ -21,8 +21,15 @@ module.exports = {
         use: {
           loader: `babel-loader`,
         },
+      },
+      {
+        test: /\.(tsx|ts)?$/,
+        loader: `ts-loader`
       }
     ],
+  },
+  resolve: {
+    extensions: [`.ts`, `.tsx`, `.js`, `json`]
   },
   devtool: `source-map`,
 };
