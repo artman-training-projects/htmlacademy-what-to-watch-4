@@ -1,9 +1,27 @@
 import * as React from 'react';
+import {Subtract} from 'utility-types';
 import {COUNT_OF_SHOW_FILMS} from '../../const';
 
+interface Props {
+  isAuth: boolean;
+}
+
+interface State {
+  numberOfFilms: number;
+}
+
+interface InjectedProps {
+  numberOfFilms: number;
+  onCountShowFilmAdd: () => void;
+  onCountShowFilmReset: () => void;
+}
+
 const withCountFilms = (Component) => {
-  class WithCountFilms extends React.PureComponent {
-    constructor(props) {
+  type P = React.ComponentProps<typeof Component>;
+  type T = Props & Subtract<P, InjectedProps>;
+
+  class WithCountFilms extends React.PureComponent<T, State> {
+    constructor(props: Props) {
       super(props);
 
       this.state = {

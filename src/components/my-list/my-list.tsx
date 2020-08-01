@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types';
+import {Films, User} from '../custom-types';
 
 import {Pages} from '../../const';
 import {getFavoriteFilms, getFavoriteFilmsStatus} from '../../reducer/data/selectors';
@@ -11,8 +10,18 @@ import {getUserData} from '../../reducer/user/selectors';
 import MoviesList from '../movies-list/movies-list';
 import Footer from '../footer/footer';
 
-class MyList extends React.PureComponent {
-  constructor(props) {
+interface Props {
+  favoriteFilms: Films;
+  loadingFavoriteFilm: {
+    favoriteFilmIsLoading: boolean;
+    loadingIsError: boolean;
+  };
+  loadFavoriteFilms: () => void;
+  user: User;
+}
+
+class MyList extends React.PureComponent<Props> {
+  constructor(props: Props) {
     super(props);
   }
 
@@ -73,16 +82,6 @@ class MyList extends React.PureComponent {
     </React.Fragment>);
   }
 }
-
-MyList.propTypes = {
-  favoriteFilms: PropTypes.arrayOf(CustomPropTypes.FILM),
-  loadingFavoriteFilm: PropTypes.shape({
-    favoriteFilmIsLoading: PropTypes.bool.isRequired,
-    loadingIsError: PropTypes.bool.isRequired,
-  }),
-  loadFavoriteFilms: PropTypes.func.isRequired,
-  user: CustomPropTypes.USER,
-};
 
 const mapStateToProps = (state) => ({
   favoriteFilms: getFavoriteFilms(state),

@@ -1,14 +1,38 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../../components/custom-prop-types';
+import {Subtract} from 'utility-types';
+import {Film} from '../../components/custom-types';
 
 import {Time} from '../../const';
 import {getFilmById} from '../../reducer/data/selectors';
 
+interface Props {
+  selectedFilm: Film;
+}
+
+interface State {
+  currentTime: number;
+  duration: number;
+  isPlaying: boolean;
+}
+
+interface InjectedProps {
+  currentTime: number;
+  duration: number;
+  isPlaying: boolean;
+  leftTime: number;
+  onIsPlayingChange: () => void;
+  onSetFullScreen: () => void;
+}
+
 const withVideoControls = (Component) => {
-  class WithVideoControls extends React.PureComponent {
-    constructor(props) {
+  type P = React.ComponentProps<typeof Component>;
+  type T = Props & Subtract<P, InjectedProps>;
+
+  class WithVideoControls extends React.PureComponent<T, State> {
+    private videoRef: React.RefObject<HTMLVideoElement>;
+
+    constructor(props: Props) {
       super(props);
 
       this.state = {
@@ -17,7 +41,7 @@ const withVideoControls = (Component) => {
         isPlaying: true,
       };
 
-      this._videoRef = React.createRef();
+      this.videoRef = React.createRef();
 
       this._handleIsPlayingChange = this._handleIsPlayingChange.bind(this);
       this._handleSetFullScreen = this._handleSetFullScreen.bind(this);
@@ -25,7 +49,7 @@ const withVideoControls = (Component) => {
 
     componentDidMount() {
       const {selectedFilm} = this.props;
-      const video = this._videoRef.current;
+      const video = this.videoRef.current;
 
       video.src = selectedFilm.src;
       video.play();
@@ -40,7 +64,7 @@ const withVideoControls = (Component) => {
     }
 
     componentDidUpdate() {
-      const video = this._videoRef.current;
+      const video = this.videoRef.current;
 
       if (document.fullscreenElement === null) {
         video.controls = false;
@@ -54,7 +78,7 @@ const withVideoControls = (Component) => {
     }
 
     componentWillUnmount() {
-      const video = this._videoRef.current;
+      const video = this.videoRef.current;
 
       video.src = ``;
       video.onplay = null;
@@ -72,7 +96,7 @@ const withVideoControls = (Component) => {
     }
 
     _handleSetFullScreen() {
-      const video = this._videoRef.current;
+      const video = this.videoRef.current;
       video.requestFullscreen();
       video.controls = true;
     }
@@ -105,18 +129,11 @@ const withVideoControls = (Component) => {
       >
         <video className="player__video"
           poster={selectedFilm.bg}
-          ref={this._videoRef}
+          ref={this.videoRef}
         >your browser doesn`t support embedded videos</video>
       </Component>;
     }
   }
-
-  WithVideoControls.propTypes = {
-    selectedFilm: PropTypes.oneOfType([
-      CustomPropTypes.FILM,
-      PropTypes.bool,
-    ]),
-  };
 
   const mapStateToProps = (state, props) => ({
     selectedFilm: getFilmById(state, props.selectedID),

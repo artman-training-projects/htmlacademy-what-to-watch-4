@@ -1,13 +1,21 @@
 import * as React from 'react';
 import {Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types';
+import {Film, User} from '../custom-types';
 import {connect} from 'react-redux';
 
 import {AuthorizationStatus, Pages} from '../../const';
 import {getAuthStatus, getUserData} from '../../reducer/user/selectors';
 
-const Header = (props) => {
+interface Props {
+  auth: {
+    status: string;
+    error: boolean;
+  };
+  film: Film;
+  user: User;
+}
+
+const Header: React.FC<Props> = (props: Props) => {
   const {auth, film, user} = props;
 
   const isReview = film &&
@@ -55,15 +63,6 @@ const Header = (props) => {
       {isSignIn}
     </header>
   );
-};
-
-Header.propTypes = {
-  auth: PropTypes.shape({
-    status: PropTypes.string.isRequired,
-    error: PropTypes.bool.isRequired,
-  }).isRequired,
-  film: CustomPropTypes.FILM,
-  user: CustomPropTypes.USER,
 };
 
 const mapStateToProps = (state) => ({

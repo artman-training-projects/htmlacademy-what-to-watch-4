@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {getAuthStatus} from '../../reducer/user/selectors';
@@ -9,8 +8,20 @@ import {Operations as UserOperations} from '../../reducer/user/user';
 import {Pages} from '../../const';
 import Footer from '../footer/footer';
 
-class SignIn extends React.PureComponent {
-  constructor(props) {
+interface Props {
+  auth: {
+    status: string;
+    error: boolean;
+  };
+  checkAuth: () => void;
+  handleAuthSubmit: ({}) => void;
+}
+
+class SignIn extends React.PureComponent<Props> {
+  private emailRef: React.RefObject<HTMLInputElement>;
+  private passwordRef: React.RefObject<HTMLInputElement>;
+
+  constructor(props: Props) {
     super(props);
 
     this.emailRef = React.createRef();
@@ -77,15 +88,6 @@ class SignIn extends React.PureComponent {
     </React.Fragment>);
   }
 }
-
-SignIn.propTypes = {
-  auth: PropTypes.shape({
-    status: PropTypes.string.isRequired,
-    error: PropTypes.bool.isRequired,
-  }).isRequired,
-  checkAuth: PropTypes.func.isRequired,
-  handleAuthSubmit: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = (state) => ({
   auth: getAuthStatus(state),

@@ -2,8 +2,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import history from '../../history';
-import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types';
+import {Film, Films} from '../custom-types';
 
 import {Pages} from '../../const';
 import {getGenres, getFilms, getFilmsStatus, getPromo, getPromoStatus, getFavoriteFilmSendStatus} from '../../reducer/data/selectors';
@@ -17,7 +16,35 @@ import CatalogMore from '../catalog-more/catalog-more';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 
-const Main = (props) => {
+interface Props {
+  availableGenres: string[];
+  currentGenre: string;
+  films: Films;
+  filmsByGenre: Films;
+  handleFilmFavorite: ({}) => void;
+  handleGenreChoose: () => void;
+  isAuth: boolean;
+  loadingFilms: {
+    filmsIsLoading: boolean;
+    loadingIsError: boolean;
+  };
+  loadPromo: () => void;
+  loadingPromo: {
+    promoIsLoading: boolean;
+    loadingIsError: boolean;
+  };
+  moviePoster: Film;
+  numberOfFilms: number;
+  onCountShowFilmAdd: () => void;
+  onCountShowFilmReset: () => void;
+  sendFavoriteFilm: {
+    favoriteFilmIsSending: boolean;
+    sendingIsError: boolean;
+    sendingIsDone: boolean;
+  };
+}
+
+const Main: React.FC<Props> = (props: Props) => {
   const {
     availableGenres,
     currentGenre,
@@ -150,37 +177,6 @@ const Main = (props) => {
       <Footer />
     </div>
   </React.Fragment>);
-};
-
-Main.propTypes = {
-  availableGenres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  currentGenre: PropTypes.string.isRequired,
-  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  filmsByGenre: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  handleFilmFavorite: PropTypes.func.isRequired,
-  handleGenreChoose: PropTypes.func.isRequired,
-  isAuth: PropTypes.bool.isRequired,
-  loadingFilms: PropTypes.shape({
-    filmsIsLoading: PropTypes.bool.isRequired,
-    loadingIsError: PropTypes.bool.isRequired,
-  }),
-  loadPromo: PropTypes.func.isRequired,
-  loadingPromo: PropTypes.shape({
-    promoIsLoading: PropTypes.bool.isRequired,
-    loadingIsError: PropTypes.bool.isRequired,
-  }),
-  moviePoster: PropTypes.oneOfType([
-    CustomPropTypes.FILM,
-    PropTypes.bool,
-  ]),
-  numberOfFilms: PropTypes.number.isRequired,
-  onCountShowFilmAdd: PropTypes.func.isRequired,
-  onCountShowFilmReset: PropTypes.func.isRequired,
-  sendFavoriteFilm: PropTypes.shape({
-    favoriteFilmIsSending: PropTypes.bool.isRequired,
-    sendingIsError: PropTypes.bool.isRequired,
-    sendingIsDone: PropTypes.bool.isRequired,
-  }),
 };
 
 const mapStateToProps = (state) => ({

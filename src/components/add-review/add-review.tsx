@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import history from '../../history';
-import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types';
+import {Comment, Film} from '../custom-types';
 
 import {Pages} from '../../const';
 import {sendCommentStatus} from '../../reducer/data/selectors';
@@ -13,7 +12,21 @@ const ReviewLength = {
   MAX: 400,
 };
 
-const AddReview = (props) => {
+interface Props {
+  comment: Comment;
+  onChangeComment: (evt: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onChangeRating: (evt: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmitReview: (evt: React.FormEvent<HTMLFormElement>) => void;
+  selectedFilm: Film;
+  sendingComment: {
+    commentsIsSending: boolean;
+    sendingIsDone: boolean;
+    sendingIsError: boolean;
+  };
+  rating: string;
+}
+
+const AddReview: React.FC<Props> = (props: Props) => {
   const {
     comment,
     onChangeComment,
@@ -42,7 +55,7 @@ const AddReview = (props) => {
     return false;
   };
 
-  const isBlocked = (sendingComment.commentsIsSending && !sendingComment.sendingIsError) ? true : false;
+  const isBlocked = (sendingComment.commentsIsSending && !sendingComment.sendingIsError);
 
   return (
     <section className="movie-card movie-card--full" style={{backgroundColor: selectedFilm.bgc}}>
@@ -63,7 +76,7 @@ const AddReview = (props) => {
       </div>
 
       <div className="add-review">
-        <form action="#" className="add-review__form" disabled={isBlocked}
+        <form action="#" className="add-review__form"
           onSubmit={onSubmitReview}
         >
 
@@ -105,26 +118,6 @@ const AddReview = (props) => {
 
     </section>
   );
-};
-
-AddReview.propTypes = {
-  comment: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.string,
-  ]),
-  onChangeComment: PropTypes.func.isRequired,
-  onChangeRating: PropTypes.func.isRequired,
-  onSubmitReview: PropTypes.func.isRequired,
-  selectedFilm: CustomPropTypes.FILM,
-  sendingComment: PropTypes.shape({
-    commentsIsSending: PropTypes.bool.isRequired,
-    sendingIsDone: PropTypes.bool.isRequired,
-    sendingIsError: PropTypes.bool.isRequired,
-  }),
-  rating: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.string,
-  ]),
 };
 
 const mapStateToProps = (state) => ({

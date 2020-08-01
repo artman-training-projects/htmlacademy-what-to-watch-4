@@ -1,11 +1,21 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import history from '../../history';
-import {CustomPropTypes} from '../custom-prop-types';
+import {Film} from '../custom-types';
 
 import {Pages} from '../../const';
 
-const VideoPlayerFull = (props) => {
+interface Props {
+  children: Node;
+  currentTime: number;
+  duration: number;
+  isPlaying: boolean;
+  leftTime: string;
+  onIsPlayingChange: () => void;
+  onSetFullScreen: () => void;
+  selectedFilm: Film;
+}
+
+const VideoPlayerFull: React.FC<Props> = (props: Props) => {
   const {
     children,
     currentTime,
@@ -70,17 +80,6 @@ const VideoPlayerFull = (props) => {
       </div>
     </div>
   );
-};
-
-VideoPlayerFull.propTypes = {
-  children: PropTypes.element.isRequired,
-  currentTime: PropTypes.number.isRequired,
-  duration: PropTypes.number.isRequired,
-  isPlaying: PropTypes.bool.isRequired,
-  leftTime: PropTypes.string.isRequired,
-  onIsPlayingChange: PropTypes.func.isRequired,
-  onSetFullScreen: PropTypes.func.isRequired,
-  selectedFilm: CustomPropTypes.FILM,
 };
 
 export default VideoPlayerFull;

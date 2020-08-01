@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
 const Ratings = {
   BAD: `Bad`,
@@ -23,7 +22,15 @@ const getRating = (rating) => {
   }
 };
 
-const MovieNavOverview = (props) => {
+interface Props {
+  description: string;
+  director: string;
+  rating: number;
+  starring: string[];
+  votes: number;
+}
+
+const MovieNavOverview: React.FC<Props> = (props: Props) => {
   const {description, director, rating, starring, votes} = props;
 
   return (<React.Fragment>
@@ -46,14 +53,6 @@ const MovieNavOverview = (props) => {
       </p>
     </div>
   </React.Fragment>);
-};
-
-MovieNavOverview.propTypes = {
-  description: PropTypes.string.isRequired,
-  director: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-  starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  votes: PropTypes.number.isRequired,
 };
 
 export default MovieNavOverview;

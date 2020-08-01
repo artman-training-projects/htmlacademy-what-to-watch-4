@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Route, Router, Switch, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
 import PrivateRoute from '../private-route/private-route';
 
 import history from '../../history';
@@ -27,7 +26,19 @@ const MovieCardWrapped = withActiveTab(MovieCard);
 const AddReviewWrapped = withComment(AddReview);
 const VideoPlayerFullWrapped = withVideoControls(VideoPlayerFull);
 
-const App = (props) => {
+interface Props {
+  auth: {
+    status: string;
+    error: boolean;
+    isProgress: boolean;
+  };
+  loadFilmsStatus: {
+    filmsIsLoading: boolean;
+    loadingIsError: boolean;
+  };
+}
+
+const App: React.FC<Props> = (props: Props) => {
   const {auth, loadFilmsStatus} = props;
   const isAuth = auth.status === AuthorizationStatus.AUTH;
 
@@ -76,18 +87,6 @@ const App = (props) => {
       </Switch>
     </Router>
   );
-};
-
-App.propTypes = {
-  auth: PropTypes.shape({
-    status: PropTypes.string.isRequired,
-    error: PropTypes.bool.isRequired,
-    isProgress: PropTypes.bool.isRequired,
-  }).isRequired,
-  loadFilmsStatus: PropTypes.shape({
-    filmsIsLoading: PropTypes.bool.isRequired,
-    loadingIsError: PropTypes.bool.isRequired,
-  }),
 };
 
 const mapStateToProps = (state) => ({

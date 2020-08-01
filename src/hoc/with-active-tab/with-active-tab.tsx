@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../../components/custom-prop-types';
+import {Subtract} from 'utility-types';
+import {Film} from '../../components/custom-types';
 
 import {MovieNavList} from '../../const';
 import {getFilmById} from '../../reducer/data/selectors';
@@ -9,9 +9,26 @@ import MovieNavOverview from '../../components/movie-nav-overview/movie-nav-over
 import MovieNavDetails from '../../components/movie-nav-details/movie-nav-details';
 import MovieNavReviews from '../../components/movie-nav-reviews/movie-nav-reviews';
 
+interface Props {
+  selectedFilm?: Film;
+}
+
+interface State {
+  activeTab: string;
+}
+
+interface InjectedProps {
+  activeTab: string;
+  onActiveTabChange: () => void;
+  onActiveTabRender: () => void;
+}
+
 const withActiveTab = (Component) => {
-  class WithActiveTab extends React.PureComponent {
-    constructor(props) {
+  type P = React.ComponentProps<typeof Component>;
+  type T = Props & Subtract<P, InjectedProps>;
+
+  class WithActiveTab extends React.PureComponent<T, State> {
+    constructor(props: Props) {
       super(props);
 
       this.state = {
@@ -74,13 +91,6 @@ const withActiveTab = (Component) => {
       />;
     }
   }
-
-  WithActiveTab.propTypes = {
-    selectedFilm: PropTypes.oneOfType([
-      CustomPropTypes.FILM,
-      PropTypes.bool,
-    ]),
-  };
 
   const mapStateToProps = (state, props) => ({
     selectedFilm: getFilmById(state, props.selectedID),

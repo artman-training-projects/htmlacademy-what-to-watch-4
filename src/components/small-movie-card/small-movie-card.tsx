@@ -1,20 +1,27 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types';
-
 import history from '../../history';
-import VideoPlayer from '../video-player/video-player';
-import {Pages} from '../../const';
+import {Film} from '../custom-types';
 
-class SmallMovieCard extends React.PureComponent {
-  constructor(props) {
+import {Pages} from '../../const';
+import VideoPlayer from '../video-player/video-player';
+
+interface Props {
+  film?: Film;
+  isPlaying: boolean;
+  onIsPlayingChange: (arg: boolean) => void;
+}
+
+class SmallMovieCard extends React.PureComponent<Props> {
+  private timeout: NodeJS.Timeout;
+
+  constructor(props: Props) {
     super(props);
 
-    this._timeout = null;
+    this.timeout = null;
   }
 
   componentWillUnmount() {
-    clearTimeout(this._timeout);
+    clearTimeout(this.timeout);
   }
 
   render() {
@@ -23,10 +30,10 @@ class SmallMovieCard extends React.PureComponent {
     return (
       <article className="small-movie-card catalog__movies-card"
         onMouseEnter={() => {
-          this._timeout = setTimeout(() => onIsPlayingChange(true), 1000);
+          this.timeout = setTimeout(() => onIsPlayingChange(true), 1000);
         }}
         onMouseLeave={() => {
-          clearTimeout(this._timeout);
+          clearTimeout(this.timeout);
           onIsPlayingChange(false);
         }}
         onClick={() => {
@@ -52,11 +59,5 @@ class SmallMovieCard extends React.PureComponent {
     );
   }
 }
-
-SmallMovieCard.propTypes = {
-  film: CustomPropTypes.FILM,
-  isPlaying: PropTypes.bool.isRequired,
-  onIsPlayingChange: PropTypes.func.isRequired,
-};
 
 export default SmallMovieCard;

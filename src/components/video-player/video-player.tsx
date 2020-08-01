@@ -1,23 +1,31 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
-class VideoPlayer extends React.PureComponent {
-  constructor(props) {
+interface Props {
+  isPlaying: boolean;
+  muted: boolean;
+  poster: string;
+  src: string;
+}
+
+class VideoPlayer extends React.PureComponent<Props> {
+  private videoRef: React.RefObject<HTMLVideoElement>;
+
+  constructor(props: Props) {
     super(props);
 
-    this._videoRef = React.createRef();
+    this.videoRef = React.createRef();
   }
 
   componentDidMount() {
     const {muted} = this.props;
-    const video = this._videoRef.current;
+    const video = this.videoRef.current;
 
     video.muted = muted;
   }
 
   componentDidUpdate() {
     const {src} = this.props;
-    const video = this._videoRef.current;
+    const video = this.videoRef.current;
 
     video.src = src;
 
@@ -29,7 +37,7 @@ class VideoPlayer extends React.PureComponent {
   }
 
   componentWillUnmount() {
-    const video = this._videoRef.current;
+    const video = this.videoRef.current;
 
     video.src = ``;
     video.muted = null;
@@ -42,17 +50,10 @@ class VideoPlayer extends React.PureComponent {
     return (
       <video width="280" height="175"
         poster={poster}
-        ref={this._videoRef}
+        ref={this.videoRef}
       >your browser doesn`t support embedded videos</video>
     );
   }
 }
-
-VideoPlayer.propTypes = {
-  isPlaying: PropTypes.bool.isRequired,
-  muted: PropTypes.bool.isRequired,
-  poster: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
-};
 
 export default VideoPlayer;

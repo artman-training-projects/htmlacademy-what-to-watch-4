@@ -1,15 +1,41 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../../components/custom-prop-types';
+import {Subtract} from 'utility-types';
+import {Film} from '../../components/custom-types';
 import {Operations as DataOperations} from '../../reducer/data/data';
 import {getFilmById} from '../../reducer/data/selectors';
 
 const BASE_RATING = `1`;
 
+interface Props {
+  handleSubmitReview: (number, {}) => void;
+  loadFilms: () => void;
+  selectedFilm: Film;
+  sendingComment: {
+    commentsIsSending: boolean;
+    sendingIsError: boolean;
+  };
+}
+
+interface State {
+  rating: string;
+  comment: string | boolean;
+}
+
+interface InjectedProps {
+  comment: Comment;
+  onChangeComment: () => void;
+  onChangeRating: () => void;
+  onSubmitReview: () => void;
+  rating: string;
+}
+
 const withComment = (Component) => {
-  class WithComment extends React.PureComponent {
-    constructor(props) {
+  type P = React.ComponentProps<typeof Component>;
+  type T = Props & Subtract<P, InjectedProps>;
+
+  class WithComment extends React.PureComponent<T, State> {
+    constructor(props: Props) {
       super(props);
 
       this.state = {
@@ -68,19 +94,6 @@ const withComment = (Component) => {
       />;
     }
   }
-
-  WithComment.propTypes = {
-    handleSubmitReview: PropTypes.func.isRequired,
-    loadFilms: PropTypes.func.isRequired,
-    selectedFilm: PropTypes.oneOfType([
-      CustomPropTypes.FILM,
-      PropTypes.bool,
-    ]),
-    sendingComment: PropTypes.shape({
-      commentsIsSending: PropTypes.bool.isRequired,
-      sendingIsError: PropTypes.bool.isRequired,
-    }),
-  };
 
   const mapStateToProps = (state, props) => ({
     selectedFilm: getFilmById(state, props.selectedID),

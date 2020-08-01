@@ -1,13 +1,16 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types';
+import {Films} from '../custom-types';
 
 import SmallMovieCard from '../small-movie-card/small-movie-card';
 import withVideo from '../../hoc/with-video/with-video';
 
 const SmallMovieCardWrapped = withVideo(SmallMovieCard);
 
-const MoviesList = (props) => {
+interface Props {
+  films: Films;
+}
+
+const MoviesList = (props: Props) => {
   const {films} = props;
 
   return (
@@ -20,10 +23,6 @@ const MoviesList = (props) => {
       ))}
     </div>
   );
-};
-
-MoviesList.propTypes = {
-  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
 };
 
 export default React.memo(MoviesList);

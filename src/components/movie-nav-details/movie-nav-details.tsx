@@ -1,8 +1,15 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Time} from '../../const';
 
-const MovieNavDetails = (props) => {
+interface Props {
+  director: string;
+  genre: string;
+  starring: string[];
+  time: number;
+  year: number;
+}
+
+const MovieNavDetails: React.FC<Props> = (props: Props) => {
   const {director, genre, starring, time, year} = props;
 
   const getHours = () => {
@@ -50,14 +57,6 @@ const MovieNavDetails = (props) => {
       </div>
     </div>
   </React.Fragment>);
-};
-
-MovieNavDetails.propTypes = {
-  director: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  time: PropTypes.number.isRequired,
-  year: PropTypes.number.isRequired,
 };
 
 export default MovieNavDetails;

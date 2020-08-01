@@ -1,10 +1,17 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types';
+import {Films} from '../custom-types';
 
 const MAX_VISIBLE_GENRES = 10;
 
-const MovieNavGenre = (props) => {
+interface Props {
+  currentGenre: string;
+  films: Films;
+  genres: string[];
+  onGenreClick: (genre: string, films: Films) => void;
+  onResetShowClick: () => void;
+}
+
+const MovieNavGenre: React.FC<Props> = (props: Props) => {
   const {currentGenre, films, genres, onGenreClick, onResetShowClick} = props;
   const visibleGenres = genres.slice(0, MAX_VISIBLE_GENRES);
 
@@ -24,14 +31,6 @@ const MovieNavGenre = (props) => {
       ))}
     </ul>
   );
-};
-
-MovieNavGenre.propTypes = {
-  currentGenre: PropTypes.string.isRequired,
-  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  genres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  onGenreClick: PropTypes.func.isRequired,
-  onResetShowClick: PropTypes.func.isRequired,
 };
 
 export default React.memo(MovieNavGenre);

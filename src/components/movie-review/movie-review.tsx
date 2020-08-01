@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {CustomPropTypes} from '../custom-prop-types';
+import {Comment} from '../custom-types';
 import {FullMonth} from '../../const';
 
 const getDateTime = (time) => {
@@ -12,7 +12,11 @@ const getDateTimeString = (time) => {
   return `${FullMonth[date.getMonth()]} ${date.getUTCDate()}, ${date.getFullYear()}`;
 };
 
-const MovieReview = (props) => {
+interface Props {
+  comment: Comment;
+}
+
+const MovieReview: React.FC<Props> = (props: Props) => {
   const {comment} = props;
 
   return (<React.Fragment>
@@ -29,10 +33,6 @@ const MovieReview = (props) => {
       <div className="review__rating">{comment && comment.rating}</div>
     </div>
   </React.Fragment>);
-};
-
-MovieReview.propTypes = {
-  comment: CustomPropTypes.COMMENT,
 };
 
 export default MovieReview;

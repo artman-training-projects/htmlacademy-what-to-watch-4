@@ -1,9 +1,14 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
-const MovieNavTabs = (prop) => {
+interface Props {
+  activeTab: string;
+  onActiveTabChange: (tab: {}) => void;
+  tabs: {};
+}
+
+const MovieNavTabs: React.FC<Props> = (prop: Props) => {
   const {activeTab, onActiveTabChange, tabs} = prop;
-  const navItems = Object.values(tabs);
+  const navItems: string[] = Object.values(tabs);
 
   return (
     <nav className="movie-nav movie-card__nav">
@@ -22,12 +27,6 @@ const MovieNavTabs = (prop) => {
       </ul>
     </nav>
   );
-};
-
-MovieNavTabs.propTypes = {
-  activeTab: PropTypes.string.isRequired,
-  onActiveTabChange: PropTypes.func.isRequired,
-  tabs: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default MovieNavTabs;

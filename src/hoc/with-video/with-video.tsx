@@ -1,8 +1,26 @@
 import * as React from 'react';
+import {Subtract} from 'utility-types';
+import {Film} from '../../components/custom-types';
+
+interface Props {
+  film: Film;
+}
+
+interface State {
+  isPlaying: boolean;
+}
+
+interface InjectedProps {
+  isPlaying: boolean;
+  onIsPlayingChange: () => void;
+}
 
 const withVideo = (Component) => {
-  class WithVideo extends React.PureComponent {
-    constructor(props) {
+  type P = React.ComponentProps<typeof Component>;
+  type T = Props & Subtract<P, InjectedProps>;
+
+  class WithVideo extends React.PureComponent<T, State> {
+    constructor(props: Props) {
       super(props);
 
       this.state = {

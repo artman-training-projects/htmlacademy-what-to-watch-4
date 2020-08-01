@@ -2,8 +2,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import history from '../../history';
-import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types';
+import {Film, Films} from '../custom-types';
 
 import {AuthorizationStatus, MovieNavList, Pages} from '../../const';
 import {Operations as DataOperations} from '../../reducer/data/data';
@@ -16,7 +15,26 @@ import MoviesList from '../movies-list/movies-list';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 
-const MovieCard = (props) => {
+interface Props {
+  activeTab: string;
+  auth: {
+    status: string;
+    error: boolean;
+  };
+  handleFilmFavorite: ({}) => void;
+  loadFilms: () => void;
+  onActiveTabChange: () => void;
+  onActiveTabRender: () => void;
+  sameFilms: Films;
+  selectedFilm?: Film;
+  sendFavoriteFilm: {
+    favoriteFilmIsSending: boolean;
+    sendingIsError: boolean;
+    sendingIsDone: boolean;
+  };
+}
+
+const MovieCard: React.FC<Props> = (props: Props) => {
   const {
     activeTab,
     auth,
@@ -117,28 +135,6 @@ const MovieCard = (props) => {
       <Footer />
     </div>
   </React.Fragment>);
-};
-
-MovieCard.propTypes = {
-  activeTab: PropTypes.string.isRequired,
-  auth: PropTypes.shape({
-    status: PropTypes.string.isRequired,
-    error: PropTypes.bool.isRequired,
-  }).isRequired,
-  handleFilmFavorite: PropTypes.func.isRequired,
-  loadFilms: PropTypes.func.isRequired,
-  onActiveTabChange: PropTypes.func.isRequired,
-  onActiveTabRender: PropTypes.func.isRequired,
-  sameFilms: PropTypes.arrayOf(CustomPropTypes.FILM),
-  selectedFilm: PropTypes.oneOfType([
-    CustomPropTypes.FILM,
-    PropTypes.bool,
-  ]),
-  sendFavoriteFilm: PropTypes.shape({
-    favoriteFilmIsSending: PropTypes.bool.isRequired,
-    sendingIsError: PropTypes.bool.isRequired,
-    sendingIsDone: PropTypes.bool.isRequired,
-  }),
 };
 
 const mapStateToProps = (state, props) => ({

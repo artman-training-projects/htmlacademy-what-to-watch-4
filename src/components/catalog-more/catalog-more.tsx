@@ -1,7 +1,10 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
-const CatalogMore = (props) => {
+interface Props {
+  onShowMoreClick: () => void;
+}
+
+const CatalogMore: React.FC<Props> = (props: Props) => {
   const {onShowMoreClick} = props;
 
   return (
@@ -14,10 +17,6 @@ const CatalogMore = (props) => {
       >Show more</button>
     </div>
   );
-};
-
-CatalogMore.propTypes = {
-  onShowMoreClick: PropTypes.func.isRequired,
 };
 
 export default CatalogMore;

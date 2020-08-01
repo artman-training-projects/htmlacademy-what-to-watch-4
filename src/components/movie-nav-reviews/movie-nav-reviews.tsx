@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types';
+import {Comments, Film} from '../custom-types';
 
 import {Operations as DataOperations} from '../../reducer/data/data';
 import {getCommetsStatus, getFilmComments} from '../../reducer/data/selectors';
@@ -9,8 +8,18 @@ import MovieReview from '../movie-review/movie-review';
 
 const COLUMNS = 2;
 
-class MovieNavReviews extends React.PureComponent {
-  constructor(props) {
+interface Props {
+  comments: Comments;
+  loadComments: (film: Film) => void;
+  loadingComments: {
+    commentsIsLoading: boolean;
+    loadingIsError: boolean;
+  };
+  selectedFilm?: Film;
+}
+
+class MovieNavReviews extends React.PureComponent<Props> {
+  constructor(props: Props) {
     super(props);
   }
 
@@ -33,7 +42,7 @@ class MovieNavReviews extends React.PureComponent {
     const comentsOnColumn = comments && Math.ceil(comments.length / COLUMNS);
     const getCurrentComments = (start, end) => comments && comments.slice(start, end);
     const getColumnsWithComents = () => {
-      let columnWithComments = [];
+      const columnWithComments = [];
 
       for (let i = 0; i < COLUMNS; i++) {
         columnWithComments.push(getCurrentComments(i * comentsOnColumn, (i + 1) * comentsOnColumn));
@@ -78,22 +87,6 @@ class MovieNavReviews extends React.PureComponent {
     </React.Fragment>);
   }
 }
-
-MovieNavReviews.propTypes = {
-  comments: PropTypes.PropTypes.oneOfType([
-    PropTypes.arrayOf(CustomPropTypes.COMMENT),
-    PropTypes.bool,
-  ]),
-  loadComments: PropTypes.func.isRequired,
-  loadingComments: PropTypes.shape({
-    commentsIsLoading: PropTypes.bool.isRequired,
-    loadingIsError: PropTypes.bool.isRequired,
-  }),
-  selectedFilm: PropTypes.oneOfType([
-    CustomPropTypes.FILM,
-    PropTypes.bool,
-  ]),
-};
 
 const mapStateToProps = (state) => ({
   comments: getFilmComments(state),
