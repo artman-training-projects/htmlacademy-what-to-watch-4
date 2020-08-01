@@ -1,9 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types.js';
+import {CustomPropTypes} from '../custom-prop-types';
 
-import SmallMovieCard from '../small-movie-card/small-movie-card.jsx';
-import withVideo from '../../hoc/with-video/with-video.jsx';
+import SmallMovieCard from '../small-movie-card/small-movie-card';
+import withVideo from '../../hoc/with-video/with-video';
 
 const SmallMovieCardWrapped = withVideo(SmallMovieCard);
 

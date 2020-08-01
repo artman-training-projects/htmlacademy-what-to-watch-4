@@ -1,12 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import {films, moviePoster, user} from '../data-for-test.js';
-import {ALL_GENRES} from '../../const.js';
-import App from './app.jsx';
-import NameSpace from '../../reducer/name-space.js';
+import {films, moviePoster, user} from '../data-for-test';
+import {ALL_GENRES} from '../../const';
+import App from './app';
+import NameSpace from '../../reducer/name-space';
 
 const mockStore = configureStore([]);
 

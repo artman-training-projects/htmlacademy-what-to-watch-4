@@ -1,13 +1,13 @@
-import React, {PureComponent, createRef} from 'react';
+import * as React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../../components/custom-prop-types.js';
+import {CustomPropTypes} from '../../components/custom-prop-types';
 
-import {Time} from '../../const.js';
-import {getFilmById} from '../../reducer/data/selectors.js';
+import {Time} from '../../const';
+import {getFilmById} from '../../reducer/data/selectors';
 
 const withVideoControls = (Component) => {
-  class WithVideoControls extends PureComponent {
+  class WithVideoControls extends React.PureComponent {
     constructor(props) {
       super(props);
 
@@ -17,7 +17,7 @@ const withVideoControls = (Component) => {
         isPlaying: true,
       };
 
-      this._videoRef = createRef();
+      this._videoRef = React.createRef();
 
       this._handleIsPlayingChange = this._handleIsPlayingChange.bind(this);
       this._handleSetFullScreen = this._handleSetFullScreen.bind(this);

@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import withVideo from './with-video.jsx';
+import withVideo from './with-video';
 
 Enzyme.configure({
   adapter: new Adapter()

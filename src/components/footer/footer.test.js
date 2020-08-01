@@ -1,9 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import {Router} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 
-import history from '../../history.js';
-import Footer from './footer.jsx';
+import history from '../../history';
+import Footer from './footer';
 
 describe(`Footer`, () => {
   it(`Render`, () => {

@@ -1,12 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import {connect} from 'react-redux';
-import history from '../../history.js';
+import history from '../../history';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types.js';
+import {CustomPropTypes} from '../custom-prop-types';
 
-import {Pages} from '../../const.js';
-import {sendCommentStatus} from '../../reducer/data/selectors.js';
-import Header from '../header/header.jsx';
+import {Pages} from '../../const';
+import {sendCommentStatus} from '../../reducer/data/selectors';
+import Header from '../header/header';
 
 const ReviewLength = {
   MIN: 50,

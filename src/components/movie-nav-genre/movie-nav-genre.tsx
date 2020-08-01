@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types.js';
+import {CustomPropTypes} from '../custom-prop-types';
 
 const MAX_VISIBLE_GENRES = 10;
 

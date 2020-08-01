@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import renderer from 'react-test-renderer';
-import MovieNavTabs from './movie-nav-tabs.jsx';
+import MovieNavTabs from './movie-nav-tabs';
 
 const MovieNavList = {
   OVERVIEW: `Overview`,

@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import VideoPlayer from './video-player.jsx';
-import {films} from '../data-for-test.js';
+import VideoPlayer from './video-player';
+import {films} from '../data-for-test';
 
 const film = films[0];
 

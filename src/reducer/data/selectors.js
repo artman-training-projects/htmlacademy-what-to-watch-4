@@ -1,5 +1,5 @@
-import NameSpace from '../name-space.js';
-import {ALL_GENRES} from '../../const.js';
+import NameSpace from '../name-space';
+import {ALL_GENRES} from '../../const';
 
 export const getGenres = (state) => {
   const films = state[NameSpace.DATA].films;

@@ -1,6 +1,6 @@
-import {ALL_GENRES} from '../../const.js';
-import {moviePoster} from '../../components/data-for-test.js';
-import {ActionType, reducer} from './show-films.js';
+import {ALL_GENRES} from '../../const';
+import {moviePoster} from '../../components/data-for-test';
+import {ActionType, reducer} from './show-films';
 
 describe(`Reducer show-film`, () => {
   it(`Should return initial state`, () => {

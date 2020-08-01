@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import renderer from 'react-test-renderer';
-import VideoPlayer from './video-player.jsx';
-import {films} from '../data-for-test.js';
+import VideoPlayer from './video-player';
+import {films} from '../data-for-test';
 
 const film = films[0];
 

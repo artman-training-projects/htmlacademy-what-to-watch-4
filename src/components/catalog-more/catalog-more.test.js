@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import renderer from 'react-test-renderer';
-import CatalogMore from './catalog-more.jsx';
+import CatalogMore from './catalog-more';
 
 describe(`CatalogMore`, () => {
   it(`Render`, () => {

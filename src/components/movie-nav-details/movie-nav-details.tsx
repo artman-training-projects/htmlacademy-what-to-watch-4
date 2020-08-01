@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
-import {Time} from '../../const.js';
+import {Time} from '../../const';
 
 const MovieNavDetails = (props) => {
   const {director, genre, starring, time, year} = props;

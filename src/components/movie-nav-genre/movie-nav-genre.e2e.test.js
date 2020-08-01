@@ -1,9 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import {films} from '../data-for-test.js';
-import MovieNavGenre from './movie-nav-genre.jsx';
+import {films} from '../data-for-test';
+import MovieNavGenre from './movie-nav-genre';
 
 Enzyme.configure({
   adapter: new Adapter(),

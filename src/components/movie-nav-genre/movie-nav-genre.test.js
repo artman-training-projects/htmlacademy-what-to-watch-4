@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import renderer from 'react-test-renderer';
-import MovieNavGenre from './movie-nav-genre.jsx';
-import {films} from '../data-for-test.js';
+import MovieNavGenre from './movie-nav-genre';
+import {films} from '../data-for-test';
 
 const MovieGenreList = [
   `All genres`,

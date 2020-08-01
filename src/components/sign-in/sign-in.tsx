@@ -1,20 +1,20 @@
-import React, {PureComponent, createRef} from 'react';
+import * as React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import {getAuthStatus} from '../../reducer/user/selectors.js';
-import {Operations as UserOperations} from '../../reducer/user/user.js';
+import {getAuthStatus} from '../../reducer/user/selectors';
+import {Operations as UserOperations} from '../../reducer/user/user';
 
-import {Pages} from '../../const.js';
-import Footer from '../footer/footer.jsx';
+import {Pages} from '../../const';
+import Footer from '../footer/footer';
 
-class SignIn extends PureComponent {
+class SignIn extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.emailRef = createRef();
-    this.passwordRef = createRef();
+    this.emailRef = React.createRef();
+    this.passwordRef = React.createRef();
   }
 
   render() {

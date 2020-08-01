@@ -1,20 +1,20 @@
-import React from 'react';
+import * as React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import history from '../../history.js';
+import history from '../../history';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types.js';
+import {CustomPropTypes} from '../custom-prop-types';
 
-import {AuthorizationStatus, MovieNavList, Pages} from '../../const.js';
-import {Operations as DataOperations} from '../../reducer/data/data.js';
-import {getFavoriteFilmSendStatus} from '../../reducer/data/selectors.js';
-import {getAuthStatus} from '../../reducer/user/selectors.js';
-import {getSameFilms} from '../../reducer/show-films/selectors.js';
+import {AuthorizationStatus, MovieNavList, Pages} from '../../const';
+import {Operations as DataOperations} from '../../reducer/data/data';
+import {getFavoriteFilmSendStatus} from '../../reducer/data/selectors';
+import {getAuthStatus} from '../../reducer/user/selectors';
+import {getSameFilms} from '../../reducer/show-films/selectors';
 
-import MovieNavTabs from '../movie-nav-tabs/movie-nav-tabs.jsx';
-import MoviesList from '../movies-list/movies-list.jsx';
-import Header from '../header/header.jsx';
-import Footer from '../footer/footer.jsx';
+import MovieNavTabs from '../movie-nav-tabs/movie-nav-tabs';
+import MoviesList from '../movies-list/movies-list';
+import Header from '../header/header';
+import Footer from '../footer/footer';
 
 const MovieCard = (props) => {
   const {

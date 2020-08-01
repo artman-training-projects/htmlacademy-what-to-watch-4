@@ -1,21 +1,21 @@
-import React from 'react';
+import * as React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import history from '../../history.js';
+import history from '../../history';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types.js';
+import {CustomPropTypes} from '../custom-prop-types';
 
-import {Pages} from '../../const.js';
-import {getGenres, getFilms, getFilmsStatus, getPromo, getPromoStatus, getFavoriteFilmSendStatus} from '../../reducer/data/selectors.js';
-import {Operations as DataOperations} from '../../reducer/data/data.js';
-import {ActionCreator} from '../../reducer/show-films/show-films.js';
-import {getCurrentGenre, getFilmsByGenre} from '../../reducer/show-films/selectors.js';
+import {Pages} from '../../const';
+import {getGenres, getFilms, getFilmsStatus, getPromo, getPromoStatus, getFavoriteFilmSendStatus} from '../../reducer/data/selectors';
+import {Operations as DataOperations} from '../../reducer/data/data';
+import {ActionCreator} from '../../reducer/show-films/show-films';
+import {getCurrentGenre, getFilmsByGenre} from '../../reducer/show-films/selectors';
 
-import MovieNavGenre from '../movie-nav-genre/movie-nav-genre.jsx';
-import MoviesList from '../movies-list/movies-list.jsx';
-import CatalogMore from '../catalog-more/catalog-more.jsx';
-import Header from '../header/header.jsx';
-import Footer from '../footer/footer.jsx';
+import MovieNavGenre from '../movie-nav-genre/movie-nav-genre';
+import MoviesList from '../movies-list/movies-list';
+import CatalogMore from '../catalog-more/catalog-more';
+import Header from '../header/header';
+import Footer from '../footer/footer';
 
 const Main = (props) => {
   const {

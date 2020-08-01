@@ -1,9 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import {COUNT_OF_SHOW_FILMS} from '../../const.js';
-import withCountFilms from './with-count-films.jsx';
+import {COUNT_OF_SHOW_FILMS} from '../../const';
+import withCountFilms from './with-count-films';
 
 Enzyme.configure({
   adapter: new Adapter()

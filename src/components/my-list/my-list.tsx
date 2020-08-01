@@ -1,17 +1,17 @@
-import React, {PureComponent} from 'react';
+import * as React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types.js';
+import {CustomPropTypes} from '../custom-prop-types';
 
-import {Pages} from '../../const.js';
-import {getFavoriteFilms, getFavoriteFilmsStatus} from '../../reducer/data/selectors.js';
-import {Operations as DataOperations} from '../../reducer/data/data.js';
-import {getUserData} from '../../reducer/user/selectors.js';
-import MoviesList from '../movies-list/movies-list.jsx';
-import Footer from '../footer/footer.jsx';
+import {Pages} from '../../const';
+import {getFavoriteFilms, getFavoriteFilmsStatus} from '../../reducer/data/selectors';
+import {Operations as DataOperations} from '../../reducer/data/data';
+import {getUserData} from '../../reducer/user/selectors';
+import MoviesList from '../movies-list/movies-list';
+import Footer from '../footer/footer';
 
-class MyList extends PureComponent {
+class MyList extends React.PureComponent {
   constructor(props) {
     super(props);
   }

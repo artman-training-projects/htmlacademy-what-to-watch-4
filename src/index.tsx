@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDom from 'react-dom';
+import * as React from 'react';
+import * as ReactDom from 'react-dom';
 import {applyMiddleware, createStore} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 
-import {AuthorizationStatus} from './const.js';
-import {createAPI} from './api.js';
-import reducer from './reducer/reducer.js';
-import {Operations as DataOperations} from './reducer/data/data.js';
-import {ActionCreator, Operations as UserOperations} from './reducer/user/user.js';
+import {AuthorizationStatus} from './const';
+import {createAPI} from './api';
+import reducer from './reducer/reducer';
+import {Operations as DataOperations} from './reducer/data/data';
+import {ActionCreator, Operations as UserOperations} from './reducer/user/user';
 
-import App from './components/app/app.jsx';
+import App from './components/app/app';
 
 const ENTRY_POINT = document.querySelector(`#root`);
 

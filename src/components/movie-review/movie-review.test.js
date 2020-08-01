@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import renderer from 'react-test-renderer';
-import MovieReview from './movie-review.jsx';
-import {comments} from '../data-for-test.js';
+import MovieReview from './movie-review';
+import {comments} from '../data-for-test';
 
 describe(`MovieReview`, () => {
   it(`Render MovieReview`, () => {

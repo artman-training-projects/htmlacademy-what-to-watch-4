@@ -1,12 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import {Pages} from '../../const.js';
-import {films} from '../data-for-test.js';
-import VideoPlayerFull from './video-player-full.jsx';
-import NameSpace from '../../reducer/name-space.js';
+import {Pages} from '../../const';
+import {films} from '../data-for-test';
+import VideoPlayerFull from './video-player-full';
+import NameSpace from '../../reducer/name-space';
 
 const film = films[0];
 const mockStore = configureStore([]);

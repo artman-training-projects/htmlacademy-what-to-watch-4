@@ -1,26 +1,26 @@
-import React from 'react';
+import * as React from 'react';
 import {Route, Router, Switch, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import PrivateRoute from '../private-route/private-route.jsx';
+import PrivateRoute from '../private-route/private-route';
 
-import history from '../../history.js';
-import {AuthorizationStatus, Pages} from '../../const.js';
-import {getAuthStatus} from '../../reducer/user/selectors.js';
-import {getFilmsStatus} from '../../reducer/data/selectors.js';
+import history from '../../history';
+import {AuthorizationStatus, Pages} from '../../const';
+import {getAuthStatus} from '../../reducer/user/selectors';
+import {getFilmsStatus} from '../../reducer/data/selectors';
 
-import Main from '../main/main.jsx';
-import MovieCard from '../movie-card/movie-card.jsx';
-import MyList from '../my-list/my-list.jsx';
-import AddReview from '../add-review/add-review.jsx';
-import VideoPlayerFull from '../video-player-full/video-player-full.jsx';
-import SignIn from '../sign-in/sign-in.jsx';
-import Loading from '../loading/loading.jsx';
+import Main from '../main/main';
+import MovieCard from '../movie-card/movie-card';
+import MyList from '../my-list/my-list';
+import AddReview from '../add-review/add-review';
+import VideoPlayerFull from '../video-player-full/video-player-full';
+import SignIn from '../sign-in/sign-in';
+import Loading from '../loading/loading';
 
-import withActiveTab from '../../hoc/with-active-tab/with-active-tab.jsx';
-import withComment from '../../hoc/with-comment/with-comment.jsx';
-import withCountFilms from '../../hoc/with-count-films/with-count-films.jsx';
-import withVideoControls from '../../hoc/with-video-controls/with-video-controls.jsx';
+import withActiveTab from '../../hoc/with-active-tab/with-active-tab';
+import withComment from '../../hoc/with-comment/with-comment';
+import withCountFilms from '../../hoc/with-count-films/with-count-films';
+import withVideoControls from '../../hoc/with-video-controls/with-video-controls';
 
 const MainWrapped = withCountFilms(Main);
 const MovieCardWrapped = withActiveTab(MovieCard);

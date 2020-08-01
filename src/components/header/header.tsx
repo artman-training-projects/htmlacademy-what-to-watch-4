@@ -1,11 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types.js';
+import {CustomPropTypes} from '../custom-prop-types';
 import {connect} from 'react-redux';
 
-import {AuthorizationStatus, Pages} from '../../const.js';
-import {getAuthStatus, getUserData} from '../../reducer/user/selectors.js';
+import {AuthorizationStatus, Pages} from '../../const';
+import {getAuthStatus, getUserData} from '../../reducer/user/selectors';
 
 const Header = (props) => {
   const {auth, film, user} = props;

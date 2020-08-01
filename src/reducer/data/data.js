@@ -1,6 +1,6 @@
-import filmAdapter from '../../adapter/film.js';
-import {extend} from '../utils.js';
-import {ALL_GENRES} from '../../const.js';
+import filmAdapter from '../../adapter/film';
+import {extend} from '../utils';
+import {ALL_GENRES} from '../../const';
 
 const EntryPoints = {
   COMMENTS: `/comments/`,

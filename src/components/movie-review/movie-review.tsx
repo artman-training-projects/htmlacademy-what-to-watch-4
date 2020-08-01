@@ -1,6 +1,6 @@
-import React from 'react';
-import {CustomPropTypes} from '../custom-prop-types.js';
-import {FullMonth} from '../../const.js';
+import * as React from 'react';
+import {CustomPropTypes} from '../custom-prop-types';
+import {FullMonth} from '../../const';
 
 const getDateTime = (time) => {
   const date = new Date(time);

@@ -1,16 +1,16 @@
-import React, {PureComponent} from 'react';
+import * as React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../../components/custom-prop-types.js';
+import {CustomPropTypes} from '../../components/custom-prop-types';
 
-import {MovieNavList} from '../../const.js';
-import {getFilmById} from '../../reducer/data/selectors.js';
-import MovieNavOverview from '../../components/movie-nav-overview/movie-nav-overview.jsx';
-import MovieNavDetails from '../../components/movie-nav-details/movie-nav-details.jsx';
-import MovieNavReviews from '../../components/movie-nav-reviews/movie-nav-reviews.jsx';
+import {MovieNavList} from '../../const';
+import {getFilmById} from '../../reducer/data/selectors';
+import MovieNavOverview from '../../components/movie-nav-overview/movie-nav-overview';
+import MovieNavDetails from '../../components/movie-nav-details/movie-nav-details';
+import MovieNavReviews from '../../components/movie-nav-reviews/movie-nav-reviews';
 
 const withActiveTab = (Component) => {
-  class WithActiveTab extends PureComponent {
+  class WithActiveTab extends React.PureComponent {
     constructor(props) {
       super(props);
 

@@ -1,14 +1,14 @@
-import React, {PureComponent} from 'react';
+import * as React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../../components/custom-prop-types.js';
-import {Operations as DataOperations} from '../../reducer/data/data.js';
-import {getFilmById} from '../../reducer/data/selectors.js';
+import {CustomPropTypes} from '../../components/custom-prop-types';
+import {Operations as DataOperations} from '../../reducer/data/data';
+import {getFilmById} from '../../reducer/data/selectors';
 
 const BASE_RATING = `1`;
 
 const withComment = (Component) => {
-  class WithComment extends PureComponent {
+  class WithComment extends React.PureComponent {
     constructor(props) {
       super(props);
 

@@ -1,9 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
-import history from '../../history.js';
-import {CustomPropTypes} from '../custom-prop-types.js';
+import history from '../../history';
+import {CustomPropTypes} from '../custom-prop-types';
 
-import {Pages} from '../../const.js';
+import {Pages} from '../../const';
 
 const VideoPlayerFull = (props) => {
   const {

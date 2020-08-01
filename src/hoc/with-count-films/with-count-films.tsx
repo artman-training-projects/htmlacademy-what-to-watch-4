@@ -1,8 +1,8 @@
-import React, {PureComponent} from 'react';
-import {COUNT_OF_SHOW_FILMS} from '../../const.js';
+import * as React from 'react';
+import {COUNT_OF_SHOW_FILMS} from '../../const';
 
 const withCountFilms = (Component) => {
-  class WithCountFilms extends PureComponent {
+  class WithCountFilms extends React.PureComponent {
     constructor(props) {
       super(props);
 

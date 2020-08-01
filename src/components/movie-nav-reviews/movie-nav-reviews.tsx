@@ -1,15 +1,15 @@
-import React, {PureComponent} from 'react';
+import * as React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from '../custom-prop-types.js';
+import {CustomPropTypes} from '../custom-prop-types';
 
-import {Operations as DataOperations} from '../../reducer/data/data.js';
-import {getCommetsStatus, getFilmComments} from '../../reducer/data/selectors.js';
-import MovieReview from '../movie-review/movie-review.jsx';
+import {Operations as DataOperations} from '../../reducer/data/data';
+import {getCommetsStatus, getFilmComments} from '../../reducer/data/selectors';
+import MovieReview from '../movie-review/movie-review';
 
 const COLUMNS = 2;
 
-class MovieNavReviews extends PureComponent {
+class MovieNavReviews extends React.PureComponent {
   constructor(props) {
     super(props);
   }

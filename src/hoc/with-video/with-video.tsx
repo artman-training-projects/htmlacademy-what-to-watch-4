@@ -1,7 +1,7 @@
-import React, {PureComponent} from 'react';
+import * as React from 'react';
 
 const withVideo = (Component) => {
-  class WithVideo extends PureComponent {
+  class WithVideo extends React.PureComponent {
     constructor(props) {
       super(props);
 

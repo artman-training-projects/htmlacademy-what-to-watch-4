@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import {Router} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 
-import history from '../../history.js';
-import MoviesList from './movies-list.jsx';
-import {films} from '../data-for-test.js';
+import history from '../../history';
+import MoviesList from './movies-list';
+import {films} from '../data-for-test';
 
 describe(`MoviesList`, () => {
   it(`Render MoviesList`, () => {
