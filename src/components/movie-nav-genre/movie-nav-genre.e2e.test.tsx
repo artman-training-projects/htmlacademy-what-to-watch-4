@@ -2,7 +2,7 @@ import * as React from 'react';
 import {configure, mount} from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
 
-import {films} from '../data-test-set';
+import {films, noop} from '../data-test-set';
 import MovieNavGenre from './movie-nav-genre';
 
 configure({adapter: new Adapter()});
@@ -30,7 +30,7 @@ describe(`MovieNavGenre`, () => {
           films={films}
           genres={MovieGenreList}
           onGenreClick={hadleGenreClick}
-          onResetShowClick={() => {}}
+          onResetShowClick={noop}
         />
     );
 

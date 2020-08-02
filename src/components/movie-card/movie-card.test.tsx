@@ -6,7 +6,7 @@ import configureStore from 'redux-mock-store';
 
 import history from '../../history';
 import MovieCard from './movie-card';
-import {films, moviePoster} from '../data-test-set';
+import {films, moviePoster, noop} from '../data-test-set';
 import NameSpace from '../../reducer/name-space';
 
 const mockStore = configureStore([]);
@@ -36,9 +36,9 @@ describe(`MovieCard`, () => {
             <MovieCard
               activeTab={`Overview`}
               authorizationStatus={`NO_AUTH`}
-              handleFilmChoose={() => {}}
-              onActiveTabChange={() => {}}
-              onActiveTabRender={() => {}}
+              handleFilmChoose={noop}
+              onActiveTabChange={noop}
+              onActiveTabRender={noop}
               sameFilms={films}
               selectedFilm={moviePoster}
             />
@@ -60,9 +60,9 @@ describe(`MovieCard`, () => {
             <MovieCard
               activeTab={`Overview`}
               authorizationStatus={`AUTH`}
-              handleFilmChoose={() => {}}
-              onActiveTabChange={() => {}}
-              onActiveTabRender={() => {}}
+              handleFilmChoose={noop}
+              onActiveTabChange={noop}
+              onActiveTabRender={noop}
               sameFilms={films}
               selectedFilm={moviePoster}
             />

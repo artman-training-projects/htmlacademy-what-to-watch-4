@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import MovieNavGenre from './movie-nav-genre';
-import {films} from '../data-test-set';
+import {films, noop} from '../data-test-set';
 
 const MovieGenreList = [
   `All genres`,
@@ -23,8 +23,8 @@ describe(`MovieNavGenre`, () => {
           currentGenre={MovieGenreList[0]}
           films={films}
           genres={MovieGenreList}
-          onGenreClick={() => {}}
-          onResetShowClick={() => {}}
+          onGenreClick={noop}
+          onResetShowClick={noop}
         />
     ).toJSON();
 

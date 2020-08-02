@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import MovieNavTabs from './movie-nav-tabs';
+import {noop} from '../../components/data-test-set';
 
 const MovieNavList = {
   OVERVIEW: `Overview`,
@@ -13,7 +14,7 @@ describe(`MovieNavTabs`, () => {
     const tree = renderer.create(
         <MovieNavTabs
           activeTab={MovieNavList.OVERVIEW}
-          onActiveTabChange={() => {}}
+          onActiveTabChange={noop}
           tabs={MovieNavList}
         />
     ).toJSON();

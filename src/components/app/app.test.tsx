@@ -3,7 +3,7 @@ import * as renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import {films, moviePoster, user} from '../data-test-set';
+import {films, moviePoster, noop, user} from '../data-test-set';
 import {ALL_GENRES} from '../../const';
 import App from './app';
 import NameSpace from '../../reducer/name-space';
@@ -37,7 +37,7 @@ describe(`App`, () => {
     const tree = renderer.create(
         <Provider store={store}>
           <App
-            onFilmSelect={() => {}}
+            onFilmSelect={noop}
             film={moviePoster}
           />
         </Provider>, {
@@ -76,7 +76,7 @@ describe(`App`, () => {
     const tree = renderer.create(
         <Provider store={store}>
           <App
-            onFilmSelect={() => {}}
+            onFilmSelect={noop}
             film={moviePoster}
             selectedFilm={moviePoster}
           />
@@ -116,7 +116,7 @@ describe(`App`, () => {
     const tree = renderer.create(
         <Provider store={store}>
           <App
-            onFilmSelect={() => {}}
+            onFilmSelect={noop}
             film={moviePoster}
           />
         </Provider>, {
@@ -159,8 +159,8 @@ describe(`App`, () => {
     const tree = renderer.create(
         <Provider store={store}>
           <App
-            onFilmClick={() => {}}
-            onFilmSelect={() => {}}
+            onFilmClick={noop}
+            onFilmSelect={noop}
             selectedFilm={moviePoster}
           />
         </Provider>, {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import {films} from '../data-test-set';
+import {films, noop} from '../data-test-set';
 import VideoPlayerFull from './video-player-full';
 
 describe(`VideoPlayerFull`, () => {
@@ -11,8 +11,8 @@ describe(`VideoPlayerFull`, () => {
           duration={100}
           isPlaying={true}
           leftTime={`00:10:12`}
-          onIsPlayingChange={() => {}}
-          onSetFullScreen={() => {}}
+          onIsPlayingChange={noop}
+          onSetFullScreen={noop}
           selectedFilm={films[0]}
         >
           <video/>
@@ -29,8 +29,8 @@ describe(`VideoPlayerFull`, () => {
           duration={100}
           isPlaying={false}
           leftTime={`00:10:12`}
-          onIsPlayingChange={() => {}}
-          onSetFullScreen={() => {}}
+          onIsPlayingChange={noop}
+          onSetFullScreen={noop}
           selectedFilm={films[0]}
         >
           <video/>

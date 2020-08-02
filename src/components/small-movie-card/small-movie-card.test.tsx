@@ -4,7 +4,7 @@ import * as renderer from 'react-test-renderer';
 
 import history from '../../history';
 import SmallMovieCard from './small-movie-card';
-import {films} from '../data-test-set';
+import {films, noop} from '../data-test-set';
 
 const film = films[0];
 
@@ -15,7 +15,7 @@ describe(`SmallMovieCard`, () => {
           <SmallMovieCard
             film={film}
             isPlaying={false}
-            onIsPlayingChange={() => {}}
+            onIsPlayingChange={noop}
           />
         </Router>, {
           createNodeMock: () => {

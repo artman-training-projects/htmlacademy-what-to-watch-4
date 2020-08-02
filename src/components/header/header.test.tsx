@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import history from '../../history';
-import {user} from '../data-test-set';
+import {noop, user} from '../data-test-set';
 import Header from './header';
 import NameSpace from '../../reducer/name-space';
 
@@ -31,7 +31,7 @@ describe(`Header`, () => {
         <Router history={history}>
           <Provider store={store}>
             <Header
-              onSignInClick={() => {}}
+              onSignInClick={noop}
             />
           </Provider>
         </Router>, {
@@ -58,7 +58,7 @@ describe(`Header`, () => {
         <Router history={history}>
           <Provider store={store}>
             <Header
-              onSignInClick={() => {}}
+              onSignInClick={noop}
             />
           </Provider>
         </Router>, {

@@ -6,7 +6,7 @@ import configureStore from 'redux-mock-store';
 
 import history from '../../history';
 import {MyList} from './my-list';
-import {films, moviePoster, user} from '../data-test-set';
+import {films, moviePoster, noop, user} from '../data-test-set';
 import NameSpace from '../../reducer/name-space';
 
 const mockStore = configureStore([]);
@@ -35,7 +35,7 @@ describe(`MyList`, () => {
                 loadingIsError: false,
               }}
               favoriteFilms={films}
-              loadFavoriteFilms={() => {}}
+              loadFavoriteFilms={noop}
               user={user}
             />
           </Provider>

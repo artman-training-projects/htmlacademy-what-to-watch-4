@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import history from '../../history';
-import {moviePoster} from '../data-test-set';
+import {moviePoster, noop} from '../data-test-set';
 import AddReview from './add-review';
 import NameSpace from '../../reducer/name-space';
 
@@ -37,10 +37,10 @@ describe(`AddReview`, () => {
           <Provider store={store}>
             <AddReview
               selectedFilm={moviePoster}
-              onChangeComment={() => {}}
-              onChangeRating={() => {}}
-              onFilmClick={() => {}}
-              onSubmitReview={() => {}}
+              onChangeComment={noop}
+              onChangeRating={noop}
+              onFilmClick={noop}
+              onSubmitReview={noop}
             />
           </Provider>
         </Router>, {
@@ -78,10 +78,10 @@ describe(`AddReview`, () => {
           <Provider store={store}>
             <AddReview
               selectedFilm={moviePoster}
-              onChangeComment={() => {}}
-              onChangeRating={() => {}}
-              onFilmClick={() => {}}
-              onSubmitReview={() => {}}
+              onChangeComment={noop}
+              onChangeRating={noop}
+              onFilmClick={noop}
+              onSubmitReview={noop}
             />
           </Provider>
         </Router>, {
@@ -119,10 +119,10 @@ describe(`AddReview`, () => {
           <Provider store={store}>
             <AddReview
               selectedFilm={moviePoster}
-              onChangeComment={() => {}}
-              onChangeRating={() => {}}
-              onFilmClick={() => {}}
-              onSubmitReview={() => {}}
+              onChangeComment={noop}
+              onChangeRating={noop}
+              onFilmClick={noop}
+              onSubmitReview={noop}
             />
           </Provider>
         </Router>, {

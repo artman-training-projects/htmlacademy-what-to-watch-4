@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import history from '../../history';
-import {comments, moviePoster} from '../data-test-set';
+import {comments, moviePoster, noop} from '../data-test-set';
 import {MovieNavReviews} from './movie-nav-reviews';
 import NameSpace from '../../reducer/name-space';
 
@@ -29,7 +29,7 @@ describe(`MovieNavReviews`, () => {
           <Provider store={store}>
             <MovieNavReviews
               comments={comments}
-              loadComments={() => {}}
+              loadComments={noop}
               loadingComments={{
                 commentsIsLoading: false,
                 loadingIsError: false,
@@ -63,7 +63,7 @@ describe(`MovieNavReviews`, () => {
           <Provider store={store}>
             <MovieNavReviews
               comments={comments}
-              loadComments={() => {}}
+              loadComments={noop}
               loadingComments={{
                 commentsIsLoading: true,
                 loadingIsError: false,
@@ -97,7 +97,7 @@ describe(`MovieNavReviews`, () => {
           <Provider store={store}>
             <MovieNavReviews
               comments={comments}
-              loadComments={() => {}}
+              loadComments={noop}
               loadingComments={{
                 commentsIsLoading: true,
                 loadingIsError: true,
