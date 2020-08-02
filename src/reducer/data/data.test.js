@@ -3,7 +3,7 @@ import {createAPI} from '../../api';
 
 import {ALL_GENRES} from '../../const';
 import {ActionType, Operations, reducer} from './data';
-import {films, moviePoster, comments} from '../../components/data-for-test';
+import {films, moviePoster, comments} from '../../components/data-test-set';
 import filmAdapter from '../../adapter/film';
 
 const api = createAPI(() => {});

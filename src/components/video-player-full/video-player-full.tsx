@@ -5,7 +5,7 @@ import {Film} from '../custom-types';
 import {Pages} from '../../const';
 
 interface Props {
-  children: Node;
+  children: React.ReactNode;
   currentTime: number;
   duration: number;
   isPlaying: boolean;

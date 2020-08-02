@@ -1,7 +1,7 @@
 import * as React from 'react';
-import renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 import MovieNavOverview from './movie-nav-overview';
-import {films} from '../data-for-test';
+import {films} from '../data-test-set';
 
 const film = films[0];
 

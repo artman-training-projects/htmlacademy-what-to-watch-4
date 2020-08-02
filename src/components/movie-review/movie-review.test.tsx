@@ -1,13 +1,13 @@
 import * as React from 'react';
-import renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 import MovieReview from './movie-review';
-import {comments} from '../data-for-test';
+import {comments} from '../data-test-set';
 
 describe(`MovieReview`, () => {
   it(`Render MovieReview`, () => {
     const tree = renderer.create(
         <MovieReview
-          review={comments[0]}
+          comment={comments[0]}
         />
     ).toJSON();
 

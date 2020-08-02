@@ -1,14 +1,12 @@
 import * as React from 'react';
-import Enzyme, {mount} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import {configure, mount} from 'enzyme';
+import * as Adapter from 'enzyme-adapter-react-16';
 import VideoPlayer from './video-player';
-import {films} from '../data-for-test';
+import {films} from '../data-test-set';
 
 const film = films[0];
 
-Enzyme.configure({
-  adapter: new Adapter()
-});
+configure({adapter: new Adapter()});
 
 describe(`VideoPlayer`, () => {
   it(`Should VideoPlayer play`, () => {

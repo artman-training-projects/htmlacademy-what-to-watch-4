@@ -3,7 +3,7 @@ import MockAdapter from 'axios-mock-adapter';
 
 import {AuthorizationStatus} from '../../const';
 import {ActionType, Operations, reducer} from './user';
-import {user} from '../../components/data-for-test';
+import {user} from '../../components/data-test-set';
 
 const api = createAPI(() => {});
 

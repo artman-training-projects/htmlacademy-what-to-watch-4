@@ -118,7 +118,6 @@ exports[`AddReview Render send review error 1`] = `
     <form
       action="#"
       className="add-review__form"
-      disabled={false}
       onSubmit={[Function]}
     >
       <div
@@ -350,7 +349,6 @@ exports[`AddReview Render send review ok 1`] = `
     <form
       action="#"
       className="add-review__form"
-      disabled={false}
       onSubmit={[Function]}
     >
       <div
@@ -581,7 +579,6 @@ exports[`AddReview Render sending review in process 1`] = `
     <form
       action="#"
       className="add-review__form"
-      disabled={true}
       onSubmit={[Function]}
     >
       <div

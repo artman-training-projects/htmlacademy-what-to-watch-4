@@ -1,15 +1,13 @@
 import * as React from 'react';
-import Enzyme, {mount} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import {configure, mount} from 'enzyme';
+import * as Adapter from 'enzyme-adapter-react-16';
 
 import withVideo from './with-video';
+import {films} from '../../components/data-test-set';
 
-Enzyme.configure({
-  adapter: new Adapter()
-});
+configure({adapter: new Adapter()});
 
 const mockComponent = () => {
-
   return (
     <div
 
@@ -23,7 +21,7 @@ describe(`HOC withVideo`, () => {
 
     const wrapper = mount(
         <ComponentWrapped
-
+          film={films[1]}
         />
     );
 
@@ -36,7 +34,7 @@ describe(`HOC withVideo`, () => {
 
     const wrapper = mount(
         <ComponentWrapped
-
+          film={films[1]}
         />
     );
 

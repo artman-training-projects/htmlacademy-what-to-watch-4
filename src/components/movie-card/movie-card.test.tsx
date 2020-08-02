@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {Router} from 'react-router-dom';
-import renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import history from '../../history';
 import MovieCard from './movie-card';
-import {films, moviePoster} from '../data-for-test';
+import {films, moviePoster} from '../data-test-set';
 import NameSpace from '../../reducer/name-space';
 
 const mockStore = configureStore([]);

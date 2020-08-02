@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {Router} from 'react-router-dom';
-import renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 
 import history from '../../history';
 import SmallMovieCard from './small-movie-card';
-import {films} from '../data-for-test';
+import {films} from '../data-test-set';
 
 const film = films[0];
 

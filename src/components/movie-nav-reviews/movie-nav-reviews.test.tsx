@@ -1,11 +1,11 @@
 import * as React from 'react';
+import * as renderer from 'react-test-renderer';
 import {Router} from 'react-router-dom';
-import renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import history from '../../history';
-import {comments, moviePoster} from '../data-for-test';
+import {comments, moviePoster} from '../data-test-set';
 import {MovieNavReviews} from './movie-nav-reviews';
 import NameSpace from '../../reducer/name-space';
 
@@ -28,6 +28,7 @@ describe(`MovieNavReviews`, () => {
         <Router history={history}>
           <Provider store={store}>
             <MovieNavReviews
+              comments={comments}
               loadComments={() => {}}
               loadingComments={{
                 commentsIsLoading: false,
@@ -61,6 +62,7 @@ describe(`MovieNavReviews`, () => {
         <Router history={history}>
           <Provider store={store}>
             <MovieNavReviews
+              comments={comments}
               loadComments={() => {}}
               loadingComments={{
                 commentsIsLoading: true,
@@ -94,6 +96,7 @@ describe(`MovieNavReviews`, () => {
         <Router history={history}>
           <Provider store={store}>
             <MovieNavReviews
+              comments={comments}
               loadComments={() => {}}
               loadingComments={{
                 commentsIsLoading: true,

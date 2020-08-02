@@ -1,11 +1,9 @@
 import * as React from 'react';
-import Enzyme, {mount} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import {configure, mount} from 'enzyme';
+import * as Adapter from 'enzyme-adapter-react-16';
 import CatalogMore from './catalog-more';
 
-Enzyme.configure({
-  adapter: new Adapter(),
-});
+configure({adapter: new Adapter()});
 
 describe(`CatalogMore`, () => {
   it(`Should showMore clicked`, () => {

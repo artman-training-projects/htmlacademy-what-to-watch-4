@@ -1,5 +1,5 @@
 import {ALL_GENRES} from '../../const';
-import {moviePoster} from '../../components/data-for-test';
+import {moviePoster} from '../../components/data-test-set';
 import {ActionType, reducer} from './show-films';
 
 describe(`Reducer show-film`, () => {

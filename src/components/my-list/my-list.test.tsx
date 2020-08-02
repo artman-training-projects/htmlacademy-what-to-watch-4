@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {Router} from 'react-router-dom';
-import renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import history from '../../history';
 import {MyList} from './my-list';
-import {films, moviePoster, user} from '../data-for-test';
+import {films, moviePoster, user} from '../data-test-set';
 import NameSpace from '../../reducer/name-space';
 
 const mockStore = configureStore([]);
@@ -35,7 +35,6 @@ describe(`MyList`, () => {
                 loadingIsError: false,
               }}
               favoriteFilms={films}
-              handleFilmChoose={() => {}}
               loadFavoriteFilms={() => {}}
               user={user}
             />

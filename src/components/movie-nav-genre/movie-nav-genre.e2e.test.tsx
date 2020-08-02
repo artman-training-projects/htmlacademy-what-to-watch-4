@@ -1,13 +1,11 @@
 import * as React from 'react';
-import Enzyme, {mount} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import {configure, mount} from 'enzyme';
+import * as Adapter from 'enzyme-adapter-react-16';
 
-import {films} from '../data-for-test';
+import {films} from '../data-test-set';
 import MovieNavGenre from './movie-nav-genre';
 
-Enzyme.configure({
-  adapter: new Adapter(),
-});
+configure({adapter: new Adapter()});
 
 const MovieGenreList = [
   `All genres`,

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {Router} from 'react-router-dom';
-import renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import history from '../../history';
-import {user} from '../data-for-test';
+import {user} from '../data-test-set';
 import Header from './header';
 import NameSpace from '../../reducer/name-space';
 

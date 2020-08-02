@@ -1,9 +1,9 @@
 import * as React from 'react';
-import renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import {films, moviePoster, user} from '../data-for-test';
+import {films, moviePoster, user} from '../data-test-set';
 import {ALL_GENRES} from '../../const';
 import App from './app';
 import NameSpace from '../../reducer/name-space';

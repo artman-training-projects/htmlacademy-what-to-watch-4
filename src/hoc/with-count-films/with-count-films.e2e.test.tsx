@@ -1,16 +1,13 @@
 import * as React from 'react';
-import Enzyme, {mount} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import {configure, mount} from 'enzyme';
+import * as Adapter from 'enzyme-adapter-react-16';
 
 import {COUNT_OF_SHOW_FILMS} from '../../const';
 import withCountFilms from './with-count-films';
 
-Enzyme.configure({
-  adapter: new Adapter()
-});
+configure({adapter: new Adapter()});
 
 const mockComponent = () => {
-
   return (
     <div
 
@@ -28,6 +25,7 @@ describe(`HOC withCountFilms`, () => {
 
     const wrapper = mount(
         <ComponentWrapped
+          isAuth={true}
           numberOfFilms={numberOfFilms}
           onCountShowFilmAdd={handleCountShowFilmAdd}
           onCountShowFilmReset={handleCountShowFilmReset}
@@ -43,6 +41,7 @@ describe(`HOC withCountFilms`, () => {
 
     const wrapper = mount(
         <ComponentWrapped
+          isAuth={true}
           numberOfFilms={numberOfFilms}
           onCountShowFilmAdd={handleCountShowFilmAdd}
           onCountShowFilmReset={handleCountShowFilmReset}
