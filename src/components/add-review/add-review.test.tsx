@@ -1,0 +1,137 @@
+import * as React from 'react';
+import * as renderer from 'react-test-renderer';
+import {Router} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import configureStore from 'redux-mock-store';
+
+import history from '../../history';
+import {moviePoster, noop} from '../data-test-set';
+import AddReview from './add-review';
+import NameSpace from '../../reducer/name-space';
+
+const mockStore = configureStore([]);
+
+describe(`AddReview`, () => {
+  it(`Render send review ok`, () => {
+    const store = mockStore({
+      [NameSpace.USER]: {
+        authorizationStatus: `AUTH`,
+        authorizationError: false,
+        authorizationInProgress: false,
+        user: {
+          id: 0,
+          email: ``,
+          name: ``,
+          avatarSrc: ``,
+        },
+      },
+      [NameSpace.DATA]: {
+        sendingComment: false,
+        sendCommentDone: false,
+        sendCommentError: false,
+      },
+    });
+
+    const tree = renderer.create(
+        <Router history={history}>
+          <Provider store={store}>
+            <AddReview
+              selectedFilm={moviePoster}
+              onChangeComment={noop}
+              onChangeRating={noop}
+              onFilmClick={noop}
+              onSubmitReview={noop}
+            />
+          </Provider>
+        </Router>, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`Render send review error`, () => {
+    const store = mockStore({
+      [NameSpace.USER]: {
+        authorizationStatus: `AUTH`,
+        authorizationError: false,
+        authorizationInProgress: false,
+        user: {
+          id: 0,
+          email: ``,
+          name: ``,
+          avatarSrc: ``,
+        },
+      },
+      [NameSpace.DATA]: {
+        sendingComment: true,
+        sendCommentDone: false,
+        sendCommentError: true,
+      },
+    });
+
+    const tree = renderer.create(
+        <Router history={history}>
+          <Provider store={store}>
+            <AddReview
+              selectedFilm={moviePoster}
+              onChangeComment={noop}
+              onChangeRating={noop}
+              onFilmClick={noop}
+              onSubmitReview={noop}
+            />
+          </Provider>
+        </Router>, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`Render sending review in process`, () => {
+    const store = mockStore({
+      [NameSpace.USER]: {
+        authorizationStatus: `AUTH`,
+        authorizationError: false,
+        authorizationInProgress: false,
+        user: {
+          id: 0,
+          email: ``,
+          name: ``,
+          avatarSrc: ``,
+        },
+      },
+      [NameSpace.DATA]: {
+        sendingComment: true,
+        sendCommentDone: false,
+        sendCommentError: false,
+      },
+    });
+
+    const tree = renderer.create(
+        <Router history={history}>
+          <Provider store={store}>
+            <AddReview
+              selectedFilm={moviePoster}
+              onChangeComment={noop}
+              onChangeRating={noop}
+              onFilmClick={noop}
+              onSubmitReview={noop}
+            />
+          </Provider>
+        </Router>, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+});

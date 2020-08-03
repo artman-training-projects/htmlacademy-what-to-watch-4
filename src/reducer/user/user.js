@@ -1,6 +1,6 @@
-import userAdapter from '../../adapter/user.js';
-import {extend} from '../utils.js';
-import {AuthorizationStatus} from '../../const.js';
+import userAdapter from '../../adapter/user';
+import {extend} from '../utils';
+import {AuthorizationStatus} from '../../const';
 
 const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,

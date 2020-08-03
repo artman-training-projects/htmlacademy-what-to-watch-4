@@ -1,5 +1,5 @@
-import {extend} from '../utils.js';
-import {ALL_GENRES} from '../../const.js';
+import {extend} from '../utils';
+import {ALL_GENRES} from '../../const';
 
 const initialState = {
   currentGenre: ALL_GENRES,

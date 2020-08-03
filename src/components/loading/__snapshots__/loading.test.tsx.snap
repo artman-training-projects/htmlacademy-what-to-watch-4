@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading Render Loading 1`] = `
+<div
+  className="sweet-loading"
+>
+  <div
+    className="css-16oi30m"
+  >
+    <div
+      className="css-qr5dvv"
+    />
+    <div
+      className="css-1hedhch"
+    />
+  </div>
+</div>
+`;

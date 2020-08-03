@@ -1,10 +1,10 @@
 import MockAdapter from 'axios-mock-adapter';
-import {createAPI} from '../../api.js';
+import {createAPI} from '../../api';
 
-import {ALL_GENRES} from '../../const.js';
-import {ActionType, Operations, reducer} from './data.js';
-import {films, moviePoster, comments} from '../../components/data-for-test.js';
-import filmAdapter from '../../adapter/film.js';
+import {ALL_GENRES} from '../../const';
+import {ActionType, Operations, reducer} from './data';
+import {films, moviePoster, comments} from '../../components/data-test-set';
+import filmAdapter from '../../adapter/film';
 
 const api = createAPI(() => {});
 
