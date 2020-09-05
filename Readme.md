@@ -1,52 +1,16 @@
-# Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
+# Курс - React
 
-* Студент: [Владимир Артюхов](https://up.htmlacademy.ru/react/4/user/1095935).
+## Личный проект «Что посмотреть»  [![Build Status](https://travis-ci.com/artman-training-projects/1095935-what-to-watch-4.svg?branch=master)](https://travis-ci.com/artman-training-projects/1095935-what-to-watch-4)
+* Студент: [Владимир Артюхов](https://up.htmlacademy.ru/ecmascript/11/user/1095935).
 * Наставник: [Владимир Коршунов](https://htmlacademy.ru/profile/bekobou).
 
----
-
-_Не удаляйте и не изменяйте папки и файлы:_
-_`.editorconfig`, `.gitattributes`, `.gitignore`, `.travis.yml`, `package.json`._
-
----
-
-### Памятка
-
-#### 1. Зарегистрируйтесь на Гитхабе
-
-Если у вас ещё нет аккаунта на [github.com](https://github.com/join), скорее зарегистрируйтесь.
-
-#### 2. Создайте форк
-
-Откройте репозиторий и нажмите кнопку «Fork» в правом верхнем углу. Репозиторий из Академии будет скопирован в ваш аккаунт.
-
-<img width="769" alt="Press 'Fork'" src="https://cloud.githubusercontent.com/assets/259739/20264045/a1ddbf40-aa7a-11e6-9a1a-724a1c0123c8.png">
-
-Получится вот так:
-
-<img width="769" alt="Forked" src="https://cloud.githubusercontent.com/assets/259739/20264122/f63219a6-aa7a-11e6-945a-89818fc7c014.png">
-
-#### 3. Клонируйте репозиторий на свой компьютер
-
-Будьте внимательны: нужно клонировать свой репозиторий (форк), а не репозиторий Академии. Также обратите внимание, что клонировать репозиторий нужно через SSH, а не через HTTPS. Нажмите зелёную кнопку в правой части экрана, чтобы скопировать SSH-адрес вашего репозитория:
-
-<img width="769" alt="SSH" src="https://cloud.githubusercontent.com/assets/259739/20264180/42704126-aa7b-11e6-9ab4-73372b812a53.png">
-
-Клонировать репозиторий можно так:
-
-```
-git clone SSH-адрес_вашего_форка
-```
-
-Команда клонирует репозиторий на ваш компьютер и подготовит всё необходимое для старта работы.
-
-#### 4. Начинайте обучение!
-
----
-
-<a href="https://htmlacademy.ru/intensive/react"><img align="left" width="50" height="50" title="HTML Academy" src="https://up.htmlacademy.ru/static/img/intensive/react/logo-for-github.png"></a>
-
-Репозиторий создан для обучения на профессиональном онлайн‑курсе «[JavaScript, уровень 3](https://htmlacademy.ru/intensive/react)» от [HTML Academy](https://htmlacademy.ru).
-
-[travis-image]: https://travis-ci.com/htmlacademy-react/1095935-what-to-watch-4.svg?branch=master
-[travis-url]: https://travis-ci.com/htmlacademy-react/1095935-what-to-watch-4
+### Программа обучения
+1. React
+2. Тестирование React
+3. State
+4. React и паттерны
+5. Redux
+6. Оптимизация и производительность
+7. Асинхронность в Redux
+8. React Router
+9. React и типизация
