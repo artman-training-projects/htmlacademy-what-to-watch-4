@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import history from '../../history';
 import {Comment, Film} from '../custom-types';
 
 import {Pages} from '../../const';
@@ -14,6 +13,7 @@ const ReviewLength = {
 
 interface Props {
   comment: Comment;
+  history: any;
   onChangeComment: (evt: React.ChangeEvent<HTMLTextAreaElement>) => void;
   onChangeRating: (evt: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmitReview: (evt: React.FormEvent<HTMLFormElement>) => void;
@@ -29,6 +29,7 @@ interface Props {
 const AddReview: React.FC<Props> = (props: Props) => {
   const {
     comment,
+    history,
     onChangeComment,
     onChangeRating,
     onSubmitReview,

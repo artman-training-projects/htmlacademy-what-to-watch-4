@@ -1,5 +1,4 @@
 import * as React from 'react';
-import history from '../../history';
 import {Film} from '../custom-types';
 
 import {Pages} from '../../const';
@@ -9,6 +8,7 @@ interface Props {
   currentTime: number;
   duration: number;
   isPlaying: boolean;
+  history: any;
   leftTime: string;
   onIsPlayingChange: () => void;
   onSetFullScreen: () => void;
@@ -21,6 +21,7 @@ const VideoPlayerFull: React.FC<Props> = (props: Props) => {
     currentTime,
     duration,
     isPlaying,
+    history,
     leftTime,
     onIsPlayingChange,
     onSetFullScreen,

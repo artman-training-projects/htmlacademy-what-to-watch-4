@@ -15,6 +15,7 @@ describe(`SmallMovieCard`, () => {
           <SmallMovieCard
             film={film}
             isPlaying={false}
+            history={history}
             onIsPlayingChange={noop}
           />
         </Router>, {

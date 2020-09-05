@@ -1,19 +1,19 @@
 import * as React from 'react';
-import {Router} from 'react-router-dom';
+import {HashRouter} from 'react-router-dom';
 import * as renderer from 'react-test-renderer';
 
-import history from '../../history';
 import MoviesList from './movies-list';
-import {films} from '../data-test-set';
+import {films, history} from '../data-test-set';
 
 describe(`MoviesList`, () => {
   it(`Render MoviesList`, () => {
     const tree = renderer.create(
-        <Router history={history}>
+        <HashRouter>
           <MoviesList
             films={films}
+            history={history}
           />
-        </Router>, {
+        </HashRouter>, {
           createNodeMock: () => {
             return {};
           }

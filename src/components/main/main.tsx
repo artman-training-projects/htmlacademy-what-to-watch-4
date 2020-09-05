@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import history from '../../history';
 import {Film, Films} from '../custom-types';
 
 import {Pages} from '../../const';
@@ -23,6 +22,7 @@ interface Props {
   filmsByGenre: Films;
   handleFilmFavorite: ({}) => void;
   handleGenreChoose: () => void;
+  history: any;
   isAuth: boolean;
   loadingFilms: {
     filmsIsLoading: boolean;
@@ -52,6 +52,7 @@ const Main: React.FC<Props> = (props: Props) => {
     filmsByGenre,
     handleFilmFavorite,
     handleGenreChoose,
+    history,
     isAuth,
     loadPromo,
     loadingFilms,
@@ -62,7 +63,6 @@ const Main: React.FC<Props> = (props: Props) => {
     onCountShowFilmReset,
     sendFavoriteFilm,
   } = props;
-
   const showFilms = filmsByGenre.slice(0, numberOfFilms);
 
   if (sendFavoriteFilm.sendingIsDone) {
@@ -163,6 +163,7 @@ const Main: React.FC<Props> = (props: Props) => {
         {isLoadingFilms() ||
           <MoviesList
             films={showFilms}
+            history={history}
           />
         }
 

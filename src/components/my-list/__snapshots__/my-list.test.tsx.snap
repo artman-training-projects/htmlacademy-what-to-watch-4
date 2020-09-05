@@ -12,7 +12,7 @@ exports[`MyList Render MyList 1`] = `
     >
       <a
         className="logo__link"
-        href="/"
+        href="#/"
         onClick={[Function]}
       >
         <span
@@ -44,7 +44,7 @@ exports[`MyList Render MyList 1`] = `
         className="user-block__avatar"
       >
         <a
-          href="/"
+          href="#/"
           onClick={[Function]}
         >
           <img
@@ -310,7 +310,7 @@ exports[`MyList Render MyList 1`] = `
     >
       <a
         className="logo__link logo__link--light"
-        href="/"
+        href="#/"
         onClick={[Function]}
       >
         <span

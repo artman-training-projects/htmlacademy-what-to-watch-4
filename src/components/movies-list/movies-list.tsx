@@ -8,10 +8,11 @@ const SmallMovieCardWrapped = withVideo(SmallMovieCard);
 
 interface Props {
   films: Films;
+  history: any;
 }
 
 const MoviesList = (props: Props) => {
-  const {films} = props;
+  const {films, history} = props;
 
   return (
     <div className="catalog__movies-list">
@@ -19,6 +20,7 @@ const MoviesList = (props: Props) => {
         <SmallMovieCardWrapped
           key={film.id}
           film={film}
+          history={history}
         />
       ))}
     </div>

@@ -1,12 +1,11 @@
 import * as React from 'react';
-import {Router} from 'react-router-dom';
+import {HashRouter} from 'react-router-dom';
 import * as renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import history from '../../history';
 import {MyList} from './my-list';
-import {films, moviePoster, noop, user} from '../data-test-set';
+import {films, history, moviePoster, noop, user} from '../data-test-set';
 import NameSpace from '../../reducer/name-space';
 
 const mockStore = configureStore([]);
@@ -27,7 +26,7 @@ describe(`MyList`, () => {
 
   it(`Render MyList`, () => {
     const tree = renderer.create(
-        <Router history={history}>
+        <HashRouter>
           <Provider store={store}>
             <MyList
               loadingFavoriteFilm={{
@@ -35,11 +34,12 @@ describe(`MyList`, () => {
                 loadingIsError: false,
               }}
               favoriteFilms={films}
+              history={history}
               loadFavoriteFilms={noop}
               user={user}
             />
           </Provider>
-        </Router>, {
+        </HashRouter>, {
           createNodeMock: () => {
             return {};
           }

@@ -12,6 +12,7 @@ import Footer from '../footer/footer';
 
 interface Props {
   favoriteFilms: Films;
+  history: any;
   loadingFavoriteFilm: {
     favoriteFilmIsLoading: boolean;
     loadingIsError: boolean;
@@ -31,7 +32,7 @@ class MyList extends React.PureComponent<Props> {
   }
 
   render() {
-    const {favoriteFilms, loadingFavoriteFilm, user} = this.props;
+    const {favoriteFilms, history, loadingFavoriteFilm, user} = this.props;
 
     const isLoadingFavoriteFilms = () => {
       if (loadingFavoriteFilm.favoriteFilmIsLoading && !loadingFavoriteFilm.loadingIsError) {
@@ -73,6 +74,7 @@ class MyList extends React.PureComponent<Props> {
           {isLoadingFavoriteFilms() ||
           <MoviesList
             films={favoriteFilms}
+            history={history}
           />
           }
         </section>

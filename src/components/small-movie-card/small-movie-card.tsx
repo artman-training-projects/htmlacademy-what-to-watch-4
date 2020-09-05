@@ -1,5 +1,4 @@
 import * as React from 'react';
-import history from '../../history';
 import {Film} from '../custom-types';
 
 import {Pages} from '../../const';
@@ -7,6 +6,7 @@ import VideoPlayer from '../video-player/video-player';
 
 interface Props {
   film?: Film;
+  history: any;
   isPlaying: boolean;
   onIsPlayingChange: (arg: boolean) => void;
 }
@@ -25,7 +25,7 @@ class SmallMovieCard extends React.PureComponent<Props> {
   }
 
   render() {
-    const {film, isPlaying, onIsPlayingChange} = this.props;
+    const {film, history, isPlaying, onIsPlayingChange} = this.props;
 
     return (
       <article className="small-movie-card catalog__movies-card"

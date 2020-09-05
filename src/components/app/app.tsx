@@ -1,9 +1,8 @@
 import * as React from 'react';
-import {Route, Router, Switch, Redirect} from 'react-router-dom';
+import {Route, HashRouter, Switch, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PrivateRoute from '../private-route/private-route';
 
-import history from '../../history';
 import {AuthorizationStatus, Pages} from '../../const';
 import {getAuthStatus} from '../../reducer/user/selectors';
 import {getFilmsStatus} from '../../reducer/data/selectors';
@@ -43,14 +42,14 @@ const App: React.FC<Props> = (props: Props) => {
   const isAuth = auth.status === AuthorizationStatus.AUTH;
 
   return (
-    <Router history={history}>
+    <HashRouter>
       <Switch>
         <Route exact path={Pages.MAIN}
-          render={() => <MainWrapped isAuth={isAuth} />}
+          render={(routeProps) => <MainWrapped isAuth={isAuth} history={routeProps.history} />}
         />
 
         <Route exact path={Pages.SIGN_IN}
-          render={() => !isAuth ? <SignIn /> :
+          render={(routeProps) => !isAuth ? <SignIn history={routeProps.history} /> :
             <Redirect to={Pages.MAIN} />}
         />
 
@@ -59,7 +58,7 @@ const App: React.FC<Props> = (props: Props) => {
             const selectedID = +routeProps.match.params.id;
             return (loadFilmsStatus.filmsIsLoading ?
               <Loading /> :
-              <MovieCardWrapped selectedID={selectedID} />);
+              <MovieCardWrapped selectedID={selectedID} history={routeProps.history} />);
           }}
         />
 
@@ -68,7 +67,7 @@ const App: React.FC<Props> = (props: Props) => {
             const selectedID = +routeProps.match.params.id;
             return (loadFilmsStatus.filmsIsLoading ?
               <Loading /> :
-              <AddReviewWrapped selectedID={selectedID}/>);
+              <AddReviewWrapped selectedID={selectedID} history={routeProps.history} />);
           }}
         />
 
@@ -77,15 +76,15 @@ const App: React.FC<Props> = (props: Props) => {
             const selectedID = +routeProps.match.params.id;
             return (loadFilmsStatus.filmsIsLoading ?
               <Loading /> :
-              <VideoPlayerFullWrapped selectedID={selectedID} />);
+              <VideoPlayerFullWrapped selectedID={selectedID} history={routeProps.history} />);
           }}
         />
 
         <PrivateRoute exact path={Pages.MY_LIST}
-          render={() => <MyList />}
+          render={(routeProps) => <MyList history={routeProps.history} />}
         />
       </Switch>
-    </Router>
+    </HashRouter>
   );
 };
 

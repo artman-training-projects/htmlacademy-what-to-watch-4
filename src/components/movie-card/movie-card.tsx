@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import history from '../../history';
 import {Film, Films} from '../custom-types';
 
 import {AuthorizationStatus, MovieNavList, Pages} from '../../const';
@@ -22,6 +21,7 @@ interface Props {
     error: boolean;
   };
   handleFilmFavorite: ({}) => void;
+  history: any;
   loadFilms: () => void;
   onActiveTabChange: () => void;
   onActiveTabRender: () => void;
@@ -39,6 +39,7 @@ const MovieCard: React.FC<Props> = (props: Props) => {
     activeTab,
     auth,
     handleFilmFavorite,
+    history,
     loadFilms,
     onActiveTabChange,
     onActiveTabRender,
@@ -129,6 +130,7 @@ const MovieCard: React.FC<Props> = (props: Props) => {
         <h2 className="catalog__title">More like this</h2>
         <MoviesList
           films={sameFilms}
+          history={history}
         />
       </section>
 

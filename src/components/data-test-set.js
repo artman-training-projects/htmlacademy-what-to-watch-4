@@ -2,6 +2,8 @@ export const noop = () => {
   // do nothing
 };
 
+export const history = {};
+
 export const moviePoster = {
   id: 1111,
   bg: `img/bg-the-grand-budapest-hotel.jpg`,
