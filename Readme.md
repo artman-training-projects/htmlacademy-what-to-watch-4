@@ -1,6 +1,6 @@
 # Курс - React
 
-## Личный проект «Что посмотреть»  [![Build Status](https://travis-ci.com/artman-training-projects/1095935-what-to-watch-4.svg?branch=master)](https://travis-ci.com/artman-training-projects/1095935-what-to-watch-4)
+## Личный проект «Что посмотреть»  [![Build Status](https://travis-ci.com/artman-training-projects/htmlacademy-what-to-watch-4.svg?branch=master)](https://travis-ci.com/artman-training-projects/htmlacademy-what-to-watch-4)
 * Студент: [Владимир Артюхов](https://up.htmlacademy.ru/ecmascript/11/user/1095935).
 * Наставник: [Владимир Коршунов](https://htmlacademy.ru/profile/bekobou).
 
