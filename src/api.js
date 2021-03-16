@@ -6,7 +6,7 @@ const RequestCodes = {
   UNAUTHORIZED: 401,
 };
 
-const ENTRY_POINT = `https://4.react.pages.academy/wtw`;
+const ENTRY_POINT = `https://5.react.pages.academy/wtw`;
 const REQUEST_TIMEOUT = 5000;
 
 export const createAPI = (onUnauthorized) => {
