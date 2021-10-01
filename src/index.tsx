@@ -12,8 +12,6 @@ import {ActionCreator, Operations as UserOperations} from './reducer/user/user';
 
 import App from './components/app/app';
 
-const ENTRY_POINT = document.querySelector(`#root`);
-
 const onUnauthorized = () => {
   store.dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.NO_AUTH));
 };
@@ -32,5 +30,5 @@ ReactDom.render(
     <Provider store={store}>
       <App />
     </Provider>,
-    ENTRY_POINT
+    document.querySelector(`#root`)
 );

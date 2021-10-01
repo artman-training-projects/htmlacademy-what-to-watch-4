@@ -1,4 +1,5 @@
-import axios from 'axios';
+import axios from "axios";
+import {URL} from "./const";
 
 const RequestCodes = {
   BAD_REQUEST: 400,
@@ -6,13 +7,10 @@ const RequestCodes = {
   UNAUTHORIZED: 401,
 };
 
-const ENTRY_POINT = `https://5.react.pages.academy/wtw`;
-const REQUEST_TIMEOUT = 5000;
-
 export const createAPI = (onUnauthorized) => {
   const api = axios.create({
-    baseURL: ENTRY_POINT,
-    timeout: REQUEST_TIMEOUT,
+    baseURL: `${URL}/wtw`,
+    timeout: 5000,
     withCredentials: true,
   });
 

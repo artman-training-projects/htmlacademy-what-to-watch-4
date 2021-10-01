@@ -1,8 +1,10 @@
-const userAdapter = (user) => ({
-  id: user.id,
-  email: user.email,
-  name: user.name,
-  avatarSrc: `https://4.react.pages.academy${user.avatar_url}`,
-});
+import {URL} from "../const";
 
-export default userAdapter;
+export default function userAdapter(user) {
+  return {
+    id: user.id,
+    email: user.email,
+    name: user.name,
+    avatarSrc: `${URL}${user.avatar_url}`,
+  };
+}

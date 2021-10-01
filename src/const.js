@@ -7,13 +7,15 @@ export const AuthorizationStatus = {
   NO_AUTH: `NO_AUTH`,
 };
 
+export const URL = `https://6.react.pages.academy`;
+
 export const Pages = {
   ADD_REVIEW: `/review`,
   FILM: `/films`,
   MAIN: `/`,
   MY_LIST: `/mylist`,
   SIGN_IN: `/login`,
-  PLAYER: `/player`
+  PLAYER: `/player`,
 };
 
 export const MovieNavList = {
