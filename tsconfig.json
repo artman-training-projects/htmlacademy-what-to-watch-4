@@ -1,15 +1,22 @@
 {
-  "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "sourceMap": true,
-    "module": "commonjs",
-    "target": "es2016",
-    "jsx": "react",
-    "allowSyntheticDefaultImports": false
-  },
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+	"compilerOptions": {
+		"rootDir": "./src",
+		"outDir": "./dist",
+		"module": "ESNext",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"jsx": "react-jsx",
+		"target": "ES2020",
+		"moduleResolution": "Node",
+		"resolveJsonModule": true,
+		"allowJs": true,
+		"sourceMap": true,
+		"strict": false,
+		"esModuleInterop": true,
+		"isolatedModules": true,
+		"skipLibCheck": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true
+	},
+	"include": ["src"],
+	"exclude": ["node_modules", "dist"]
 }
