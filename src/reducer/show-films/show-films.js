@@ -1,45 +1,45 @@
-import {extend} from '../utils';
-import {ALL_GENRES} from '../../const';
+import { ALL_GENRES } from "../../const";
+import { extend } from "../utils";
 
 const initialState = {
-  currentGenre: ALL_GENRES,
-  filmsByGenre: [],
-  sameFilms: [],
-  selectedFilm: false,
+	currentGenre: ALL_GENRES,
+	filmsByGenre: [],
+	sameFilms: [],
+	selectedFilm: false,
 };
 
 const ActionType = {
-  CHOOSE_FILM: `CHOOSE_FILM`,
-  CHOOSE_GENRE: `CHOOSE_GENRE`,
+	CHOOSE_FILM: `CHOOSE_FILM`,
+	CHOOSE_GENRE: `CHOOSE_GENRE`,
 };
 
 const ActionCreator = {
-  chooseFilm: (film) => ({
-    type: ActionType.CHOOSE_FILM,
-    payload: film,
-  }),
+	chooseFilm: (film) => ({
+		type: ActionType.CHOOSE_FILM,
+		payload: film,
+	}),
 
-  chooseGenre: (genre) => ({
-    type: ActionType.CHOOSE_GENRE,
-    payload: genre,
-  }),
+	chooseGenre: (genre) => ({
+		type: ActionType.CHOOSE_GENRE,
+		payload: genre,
+	}),
 };
 
 const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ActionType.CHOOSE_FILM:
-      return extend(state, {
-        selectedFilm: action.payload,
-      });
+	switch (action.type) {
+		case ActionType.CHOOSE_FILM:
+			return extend(state, {
+				selectedFilm: action.payload,
+			});
 
-    case ActionType.CHOOSE_GENRE:
-      return extend(state, {
-        currentGenre: action.payload,
-      });
+		case ActionType.CHOOSE_GENRE:
+			return extend(state, {
+				currentGenre: action.payload,
+			});
 
-    default:
-      return state;
-  }
+		default:
+			return state;
+	}
 };
 
-export {ActionCreator, ActionType, reducer};
+export { ActionCreator, ActionType, reducer };
